@@ -1,0 +1,148 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #070709;
+    color: #f4f4f5;
+    overflow-x: hidden;
+  }
+}
+
+/* Luxurious Gold Text Gradients */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fef08a 0%, #facc15 35%, #eab308 70%, #ca8a04 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-bright {
+  color: #fbbf24;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+}
+
+.border-gold-glow {
+  border-color: rgba(234, 179, 8, 0.3);
+  box-shadow: 0 0 20px -5px rgba(234, 179, 8, 0.15);
+}
+
+.shadow-gold-subtle {
+  box-shadow: 0 4px 25px -4px rgba(234, 179, 8, 0.12);
+}
+
+/* High performance GPU animations for floating QR codes */
+@keyframes qrFloat1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(25px, -35px, 0) rotate(6deg) scale(1.05);
+  }
+}
+
+@keyframes qrFloat2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(-30px, 25px, 0) rotate(-8deg) scale(0.96);
+  }
+}
+
+@keyframes qrFloat3 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(20px, 30px, 0) rotate(10deg) scale(1.04);
+  }
+}
+
+@keyframes qrFloat4 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(0.95);
+  }
+  50% {
+    transform: translate3d(-25px, -40px, 0) rotate(-6deg) scale(1.03);
+  }
+}
+
+@keyframes laserScan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(120vh);
+    opacity: 0;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.18);
+  }
+}
+
+.animate-qr-float-1 {
+  animation: qrFloat1 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-qr-float-2 {
+  animation: qrFloat2 24s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-qr-float-3 {
+  animation: qrFloat3 21s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-qr-float-4 {
+  animation: qrFloat4 26s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-laser-scan {
+  animation: laserScan 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 8s ease-in-out infinite;
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  header, footer, nav, .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}

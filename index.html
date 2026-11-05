@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Shim to ensure window.fetch is writable and has both getter and setter,
+      // preventing browser extensions (like request interceptors) from throwing:
+      // "TypeError: Cannot set property fetch of #<Window> which has only a getter"
+      try {
+        var _fetch = window.fetch;
+        Object.defineProperty(window, 'fetch', {
+          get: function() { return _fetch; },
+          set: function(val) { _fetch = val; },
+          configurable: true,
+          enumerable: true
+        });
+      } catch (e) {}
+
+      // Suppress noisy external chrome-extension:// errors from breaking the page
+      window.addEventListener('error', function(e) {
+        if (e.filename && e.filename.indexOf('chrome-extension://') !== -1) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          return true;
+        }
+      }, true);
+    </script>
+    <title>QRForge Studio – 60 Free QR Code Generators & Customizer with Logo</title>
+    <meta name="description" content="Generate 60+ types of custom QR codes for free with your logo, custom colors, frames, and high-res PNG/SVG/JPG exports. No sign-up, no scan limits, 100% free." />
+    
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="QRForge Studio – 60 Free QR Code Generators & Customizer" />
+    <meta property="og:description" content="Generate 60+ types of custom QR codes for free with logo, custom colors, frames, and high-res PNG/SVG exports. 100% free with no sign-up." />
+    <meta property="og:site_name" content="QRForge Studio" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="QRForge Studio – 60 Free QR Code Generators with Logo" />
+    <meta name="twitter:description" content="Create 60+ types of QR codes for free with custom branding, logo support, error correction, and instant print metric converter." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Schema.org WebApplication Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "QRForge Studio",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "All",
+      "description": "Free suite of 60 QR code generators with logo upload, custom frame design, SVG/PNG/JPG export, metric print dimension calculator, and zero sign-up requirement.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+  </head>
+  <body class="bg-[#070709] text-zinc-100 font-sans antialiased selection:bg-amber-400 selection:text-black">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

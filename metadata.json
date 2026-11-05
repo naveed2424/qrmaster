@@ -1,0 +1,6 @@
+{
+  "name": "QRForge Studio - 60 Free QR Code Generators & Customizer",
+  "description": "Create 60+ types of custom QR codes for free with logos, custom colors, frames, and high-resolution PNG/SVG/JPG downloads. No sign-up, no scan limits, 100% private.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
