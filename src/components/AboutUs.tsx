@@ -74,7 +74,7 @@ export default function AboutUs() {
           {
             icon: Globe,
             title: 'Multilingual & Universal',
-            desc: 'Localized across 8 languages with built-in metric millimeter-to-inch converters and physical scan distance calculators.',
+            desc: 'Localized across 16 popular global languages with built-in metric millimeter-to-inch converters and physical scan distance calculators.',
           },
         ].map((pillar, idx) => (
           <div

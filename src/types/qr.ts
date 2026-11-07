@@ -76,16 +76,38 @@ export interface QRCustomization {
   frameTextColor: string;
 }
 
+export type BlogCategory =
+  | 'QR Tutorials & Guides'
+  | 'Print Engineering & Standards'
+  | 'QR Business & Marketing'
+  | 'Tech, Security & Privacy'
+  | 'Industry Reviews & Exposes'
+  | 'Conversions & Growth';
+
+export interface BlogFAQ {
+  question: string;
+  answer: string;
+}
+
 export interface BlogPost {
   id: string;
   slug: string;
   title: string;
+  seoTitle?: string;
+  metaDescription?: string;
+  primaryKeyword?: string;
+  secondaryKeywords?: string[];
+  category: BlogCategory;
   excerpt: string;
   content: string;
   readTime: string;
   date: string;
   author: string;
+  authorRole?: string;
   tags: string[];
+  keyTakeaways?: string[];
+  relatedToolIds?: string[];
+  faqs?: BlogFAQ[];
 }
 
 export interface UserReview {
@@ -99,4 +121,20 @@ export interface UserReview {
   verified: boolean;
 }
 
-export type SupportedLanguage = 'en' | 'es' | 'fr' | 'de' | 'pt' | 'it' | 'ja' | 'ar';
+export type SupportedLanguage =
+  | 'en'
+  | 'es'
+  | 'fr'
+  | 'de'
+  | 'pt'
+  | 'it'
+  | 'ja'
+  | 'ar'
+  | 'zh'
+  | 'hi'
+  | 'ru'
+  | 'ko'
+  | 'tr'
+  | 'id'
+  | 'nl'
+  | 'pl';

@@ -1,1 +1,3 @@
-/*    /index.html   200
+/video.html  /video.html  200
+/audio/*     /audio/:splat 200
+/*           /index.html  200

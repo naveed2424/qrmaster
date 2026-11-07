@@ -108,6 +108,14 @@ export default function Footer({ onNavigate, onSelectTool }: FooterProps) {
                   General FAQs
                 </button>
               </li>
+              <li className="pt-1">
+                <button
+                  onClick={() => onNavigate('video')}
+                  className="px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 hover:text-yellow-300 hover:bg-amber-500/20 text-[11px] font-bold flex items-center gap-1.5 transition-all cursor-pointer"
+                >
+                  <span>🎬 TikTok UGC Video Ad (60s)</span>
+                </button>
+              </li>
             </ul>
           </div>
 

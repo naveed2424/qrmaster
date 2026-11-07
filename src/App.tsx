@@ -10,6 +10,7 @@ import ReviewsSection from './components/ReviewsSection';
 import AboutUs from './components/AboutUs';
 import FAQSection from './components/FAQSection';
 import AnimatedQRBackground from './components/AnimatedQRBackground';
+import UGCVideoView from './components/UGCVideoView';
 import { QR_GENERATORS } from './data/generators';
 import { QRCustomization, SupportedLanguage, QRGeneratorTool } from './types/qr';
 
@@ -130,7 +131,8 @@ export default function App() {
   );
 
   useEffect(() => {
-    // Sync document direction for Arabic
+    // Sync document language attribute and RTL direction for Arabic
+    document.documentElement.lang = currentLang;
     if (currentLang === 'ar') {
       document.documentElement.dir = 'rtl';
     } else {
@@ -200,7 +202,10 @@ export default function App() {
         )}
 
         {activeView === 'blog' && (
-          <BlogSection />
+          <BlogSection
+            onSelectTool={handleSelectTool}
+            onNavigate={handleNavigate}
+          />
         )}
 
         {activeView === 'reviews' && (
@@ -213,6 +218,10 @@ export default function App() {
 
         {activeView === 'faqs' && (
           <FAQSection />
+        )}
+
+        {activeView === 'video' && (
+          <UGCVideoView />
         )}
       </main>
 

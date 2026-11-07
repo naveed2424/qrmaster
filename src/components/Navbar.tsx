@@ -36,6 +36,14 @@ export default function Navbar({
     { code: 'it', label: 'Italiano', flag: 'IT' },
     { code: 'ja', label: '日本語', flag: 'JA' },
     { code: 'ar', label: 'العربية', flag: 'AR' },
+    { code: 'zh', label: '简体中文', flag: 'ZH' },
+    { code: 'hi', label: 'हिन्दी', flag: 'HI' },
+    { code: 'ru', label: 'Русский', flag: 'RU' },
+    { code: 'ko', label: '한국어', flag: 'KO' },
+    { code: 'tr', label: 'Türkçe', flag: 'TR' },
+    { code: 'id', label: 'Bahasa Indo', flag: 'ID' },
+    { code: 'nl', label: 'Nederlands', flag: 'NL' },
+    { code: 'pl', label: 'Polski', flag: 'PL' },
   ];
 
   const navLinks = [
@@ -103,7 +111,11 @@ export default function Navbar({
             </button>
 
             {langDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-44 bg-zinc-950 rounded-xl shadow-2xl border border-amber-500/30 py-1.5 z-50 backdrop-blur-md">
+              <div className="absolute right-0 mt-2 w-48 max-h-80 overflow-y-auto bg-zinc-950 rounded-xl shadow-2xl border border-amber-500/30 py-1.5 z-50 backdrop-blur-md scrollbar-thin scrollbar-thumb-amber-500/20">
+                <div className="px-3 py-1.5 text-[10px] uppercase font-bold text-amber-400/80 border-b border-zinc-900 flex items-center justify-between">
+                  <span>Languages (16)</span>
+                  <Globe className="w-3 h-3 text-amber-400/60" />
+                </div>
                 {languages.map((l) => (
                   <button
                     key={l.code}
@@ -146,19 +158,47 @@ export default function Navbar({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-zinc-950 border-b border-amber-500/20 px-4 py-4 space-y-2">
-          {navLinks.map((link) => (
-            <button
-              key={link.id}
-              onClick={() => {
-                onNavigate(link.id);
-                setMobileMenuOpen(false);
-              }}
-              className="block w-full text-left py-2.5 px-3 rounded-lg text-xs font-bold text-zinc-200 hover:bg-zinc-900 hover:text-amber-400 transition-colors"
-            >
-              {link.label}
-            </button>
-          ))}
+        <div className="lg:hidden bg-zinc-950 border-b border-amber-500/20 px-4 py-4 space-y-3">
+          <div className="space-y-1">
+            {navLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => {
+                  onNavigate(link.id);
+                  setMobileMenuOpen(false);
+                }}
+                className="block w-full text-left py-2.5 px-3 rounded-lg text-xs font-bold text-zinc-200 hover:bg-zinc-900 hover:text-amber-400 transition-colors"
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="pt-3 border-t border-zinc-900">
+            <div className="text-[10px] uppercase font-bold text-amber-400/80 mb-2 flex items-center gap-1.5">
+              <Globe className="w-3 h-3" />
+              <span>Select Language (16 Popular Languages)</span>
+            </div>
+            <div className="grid grid-cols-2 gap-1.5 max-h-48 overflow-y-auto pr-1">
+              {languages.map((l) => (
+                <button
+                  key={l.code}
+                  onClick={() => {
+                    onLanguageChange(l.code);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`text-left px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center justify-between transition-colors ${
+                    currentLang === l.code
+                      ? 'bg-amber-500/20 text-amber-300 font-bold border border-amber-500/40'
+                      : 'bg-zinc-900 text-zinc-300 hover:text-white'
+                  }`}
+                >
+                  <span className="truncate">{l.label}</span>
+                  <span className="font-mono text-[10px] text-amber-400/70 ml-1">{l.flag}</span>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </header>
