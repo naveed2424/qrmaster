@@ -25,6 +25,7 @@ import { BlogPost, BlogCategory } from '../types/qr';
 import { BLOG_POSTS } from '../data/blogPosts';
 import { BLOG_EDITORIAL_CATEGORIES, MASTER_PROMPT_REGISTRY } from '../data/blogMasterGuidelines';
 import { QR_GENERATORS } from '../data/generators';
+import AdSenseUnit from './AdSenseUnit';
 
 interface BlogSectionProps {
   onSelectTool?: (toolId: string) => void;
@@ -276,6 +277,9 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
               );
             })}
           </div>
+
+          {/* Compliant AdSense Placement (Post-Content) */}
+          <AdSenseUnit slot="8358033803" />
 
           {/* Related In-Site Tools Callout Banner */}
           {relatedTools.length > 0 && (
@@ -573,6 +577,11 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
           ))}
         </div>
       )}
+
+      {/* Compliant AdSense Placement (Catalog Footer) */}
+      <div className="pt-6">
+        <AdSenseUnit slot="8358033803" />
+      </div>
 
       {/* REGISTERED MASTER PROMPT & EDITORIAL GUIDELINES MODAL */}
       {showGuidelinesModal && (

@@ -1,3 +1,5 @@
-/video.html  /video.html  200
-/audio/*     /audio/:splat 200
-/*           /index.html  200
+/ads.txt       /ads.txt       200
+/video.html    /video.html    200
+/audio/*       /audio/:splat  200
+/video/*       /video/:splat  200
+/*             /index.html    200
