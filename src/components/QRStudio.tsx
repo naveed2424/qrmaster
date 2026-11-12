@@ -119,13 +119,22 @@ export default function QRStudio({
   const handlePrint = () => {
     if (!canvasRef.current) return;
     const dataUrl = canvasRef.current.toDataURL('image/png');
-    const printWindow = window.open('', '_blank');
-    if (!printWindow) return;
-    printWindow.document.write(`
+    const iframe = document.createElement('iframe');
+    iframe.style.position = 'fixed';
+    iframe.style.right = '0';
+    iframe.style.bottom = '0';
+    iframe.style.width = '0';
+    iframe.style.height = '0';
+    iframe.style.border = '0';
+    document.body.appendChild(iframe);
+    const doc = iframe.contentWindow?.document;
+    if (!doc) return;
+    doc.open();
+    doc.write(`
       <!DOCTYPE html>
       <html>
         <head>
-          <title>Print QR Code - QRForge Studio</title>
+          <title>Print QR Code - 2qrcode.com</title>
           <style>
             body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 90vh; margin: 0; background: white; }
             img { max-width: 320px; height: auto; border: 1px solid #ddd; padding: 12px; }
@@ -134,14 +143,16 @@ export default function QRStudio({
         </head>
         <body>
           <img src="${dataUrl}" alt="QR Code" />
-          <p>Generated with QRForge Studio · Ready for scanning</p>
-          <script>
-            window.onload = function() { window.print(); }
-          </script>
+          <p>Generated with 2qrcode.com · Ready for scanning</p>
         </body>
       </html>
     `);
-    printWindow.document.close();
+    doc.close();
+    iframe.onload = () => {
+      iframe.contentWindow?.focus();
+      iframe.contentWindow?.print();
+      setTimeout(() => iframe.remove(), 1000);
+    };
   };
 
   return (

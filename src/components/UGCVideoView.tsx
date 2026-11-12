@@ -65,7 +65,7 @@ const UGC_SCENES: Scene[] = [
     hookColor: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
     mockupContent: 'platform_showcase',
     narrationText:
-      'Here is the secret antidote: qrmust.netlify.app. It is 100 percent free forever, zero sign-up, zero paywalls, with over 60 specialized QR generators ready to use!',
+      'Here is the secret antidote: 2qrcode.com. It is 100 percent free forever, zero sign-up, zero paywalls, with over 60 specialized QR generators ready to use!',
   },
   {
     id: 3,
@@ -121,7 +121,7 @@ const UGC_SCENES: Scene[] = [
   },
   {
     id: 7,
-    title: 'TAP LINK IN BIO: qrmust.netlify.app',
+    title: 'TAP LINK IN BIO: 2qrcode.com',
     subtitle: 'Tap the link on screen or bio right now!',
     startSec: 53.0,
     endSec: 60.0,
@@ -130,7 +130,7 @@ const UGC_SCENES: Scene[] = [
     hookColor: 'bg-amber-400 text-black border-amber-300 font-black',
     mockupContent: 'cta_bio',
     narrationText:
-      'Stop paying monthly fees for QR codes. Go to qrmust.netlify.app right now—link is on screen and in bio. Tap the link and create yours today!',
+      'Stop paying monthly fees for QR codes. Go to 2qrcode.com right now—link is on screen and in bio. Tap the link and create yours today!',
   },
 ];
 
@@ -651,7 +651,7 @@ export default function UGCVideoView() {
       } else if (scene.mockupContent === 'platform_showcase') {
         canvasCtx.fillStyle = '#facc15';
         canvasCtx.font = '900 34px sans-serif';
-        canvasCtx.fillText('https://qrmust.netlify.app', 360, 330);
+        canvasCtx.fillText('https://2qrcode.com', 360, 330);
         canvasCtx.fillStyle = '#ffffff';
         canvasCtx.font = '800 26px sans-serif';
         canvasCtx.fillText('👑 60+ FREE GENERATORS', 360, 400);
@@ -698,7 +698,7 @@ export default function UGCVideoView() {
       } else if (scene.mockupContent === 'cta_bio') {
         canvasCtx.fillStyle = '#facc15';
         canvasCtx.font = '900 38px sans-serif';
-        canvasCtx.fillText('🔗 https://qrmust.netlify.app', 360, 360);
+        canvasCtx.fillText('🔗 https://2qrcode.com', 360, 360);
         canvasCtx.fillStyle = '#ffffff';
         canvasCtx.font = '800 28px sans-serif';
         canvasCtx.fillText('TAP LINK IN BIO TO CREATE FREE QR!', 360, 440);
@@ -727,7 +727,7 @@ export default function UGCVideoView() {
 
       canvasCtx.fillStyle = '#000000';
       canvasCtx.font = '900 24px sans-serif';
-      canvasCtx.fillText('🔗 VISIT: https://qrmust.netlify.app/', 360, 1058);
+      canvasCtx.fillText('🔗 VISIT: https://2qrcode.com/', 360, 1058);
 
       // 10. TikTok Bottom Bar
       canvasCtx.fillStyle = '#ffffff';
@@ -755,7 +755,7 @@ export default function UGCVideoView() {
   const copyTikTokCaption = () => {
     const caption = `Stop paying $25/month for scammy QR codes that expire after 14 days! 🚫
 
-I found the hidden antidote: https://qrmust.netlify.app/ 🔗 (Tap the link in bio!)
+I found the hidden antidote: https://2qrcode.com/ 🔗 (Tap the link in bio!)
 
 ✅ 100% Free Forever (No credit card, no sign-up)
 ✅ Over 60 specialized generators:
@@ -767,9 +767,9 @@ I found the hidden antidote: https://qrmust.netlify.app/ 🔗 (Tap the link in b
 ✅ Add your custom logo in center & luxury gold colors
 ✅ 300 DPI vector SVG print-ready with 10:1 print calculator
 
-Create your free QR code right now at https://qrmust.netlify.app/ 🚀
+Create your free QR code right now at https://2qrcode.com/ 🚀
 
-#freeqrcode #qrmust #smallbusinesshack #restaurantmarketing #realtorlife #techhacks #qrgenerator #growthhacks #freetools`;
+#freeqrcode #2qrcode #smallbusinesshack #restaurantmarketing #realtorlife #techhacks #qrgenerator #growthhacks #freetools`;
 
     navigator.clipboard.writeText(caption);
     setCopiedCaption(true);
@@ -792,7 +792,7 @@ Create your free QR code right now at https://qrmust.netlify.app/ 🚀
         </div>
         <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
           Viral TikTok UGC Promo for <br />
-          <span className="text-gold-gradient">https://qrmust.netlify.app/</span>
+          <span className="text-gold-gradient">https://2qrcode.com/</span>
         </h1>
         <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
           60-second high-energy UGC video with full human voiceover audio, rhythmic background music, sound effects, clickable TikTok link, and direct MP4/WebM video export with audio embedded into the video file!
@@ -897,7 +897,7 @@ Create your free QR code right now at https://qrmust.netlify.app/ 🚀
                   {activeScene.mockupContent === 'platform_showcase' && (
                     <div className="space-y-2.5 w-full">
                       <div className="flex items-center justify-center gap-1.5 text-xs font-extrabold text-amber-300 bg-amber-500/10 py-1 px-3 rounded-lg border border-amber-500/30">
-                        <span>👑 qrmust.netlify.app</span>
+                        <span>👑 2qrcode.com</span>
                       </div>
                       <div className="grid grid-cols-3 gap-1.5 text-[10px] font-bold">
                         <div className="p-2 bg-zinc-900 border border-zinc-800 rounded-lg text-amber-300">
@@ -1013,12 +1013,12 @@ Create your free QR code right now at https://qrmust.netlify.app/ 🚀
                         👇 Tap Bio Link Below 👇
                       </div>
                       <a
-                        href="https://qrmust.netlify.app/"
+                        href="https://2qrcode.com/"
                         target="_blank"
                         rel="noreferrer"
                         className="block px-4 py-3 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-black font-black text-xs rounded-xl shadow-[0_0_20px_rgba(245,158,11,0.5)] uppercase tracking-wider hover:scale-105 transition-transform"
                       >
-                        Launch https://qrmust.netlify.app/
+                        Launch https://2qrcode.com/
                       </a>
                       <p className="text-[10px] text-zinc-400">
                         Instant Free Creation · No Credit Card
@@ -1038,7 +1038,7 @@ Create your free QR code right now at https://qrmust.netlify.app/ 🚀
               {/* TikTok Interactive Clickable Link Pill */}
               <div className="relative z-20 space-y-2 pt-2">
                 <a
-                  href="https://qrmust.netlify.app/"
+                  href="https://2qrcode.com/"
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => playSoundEffect('chime')}
@@ -1048,7 +1048,7 @@ Create your free QR code right now at https://qrmust.netlify.app/ 🚀
                     <span className="w-6 h-6 rounded-lg bg-black text-amber-400 flex items-center justify-center shrink-0">
                       🔗
                     </span>
-                    <span className="truncate">https://qrmust.netlify.app/</span>
+                    <span className="truncate">https://2qrcode.com/</span>
                   </div>
                   <ExternalLink className="w-4 h-4 shrink-0 group-hover:translate-x-0.5 transition-transform" />
                 </a>
@@ -1269,11 +1269,11 @@ Create your free QR code right now at https://qrmust.netlify.app/ 🚀
                   Embedded Audio Status: <span className="text-amber-300 font-mono">100% Armed & Ready</span>
                 </span>
                 <p className="text-[11px] text-zinc-400">
-                  Target clickable link: <strong className="text-amber-300 font-mono">https://qrmust.netlify.app/</strong>
+                  Target clickable link: <strong className="text-amber-300 font-mono">https://2qrcode.com/</strong>
                 </p>
               </div>
               <a
-                href="https://qrmust.netlify.app/"
+                href="https://2qrcode.com/"
                 target="_blank"
                 rel="noreferrer"
                 className="px-3.5 py-1.5 bg-zinc-900 border border-amber-400/40 text-amber-300 rounded-xl font-bold hover:bg-amber-400 hover:text-black transition-colors"

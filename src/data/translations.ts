@@ -73,7 +73,7 @@ export interface TranslationDictionary {
 
 export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   en: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: '60 Free QR Code Generators with Logo & Frame Customizer',
     navGenerators: 'All Generators (60+)',
     navCustomizer: 'Customizer Studio',
@@ -143,7 +143,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     toolFaqTitle: 'Frequently Asked Questions About This Tool',
   },
   es: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: '60 Generadores de Códigos QR Gratuitos con Logo y Marcos',
     navGenerators: 'Todos los Generadores (60+)',
     navCustomizer: 'Estudio de Diseño',
@@ -213,7 +213,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     toolFaqTitle: 'Preguntas Frecuentes sobre esta Herramienta',
   },
   fr: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: '60 Générateurs de QR Code Gratuits avec Logo & Cadres',
     navGenerators: 'Générateurs (60+)',
     navCustomizer: 'Studio Personnalisé',
@@ -283,7 +283,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     toolFaqTitle: 'Questions fréquentes sur cet outil',
   },
   de: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: '60 Kostenlose QR-Code-Generatoren mit Logo & Rahmen',
     navGenerators: 'Alle Generatoren (60+)',
     navCustomizer: 'Customizer Studio',
@@ -353,7 +353,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     toolFaqTitle: 'Häufig gestellte Fragen zu diesem Tool',
   },
   pt: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: '60 Geradores de QR Code Grátis com Logo e Molduras',
     navGenerators: 'Geradores (60+)',
     navCustomizer: 'Estúdio de Design',
@@ -423,7 +423,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     toolFaqTitle: 'Dúvidas Frequentes sobre esta Ferramenta',
   },
   it: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: '60 Generatori di Codici QR Gratuiti con Logo e Cornici',
     navGenerators: 'Tutti i Generatori (60+)',
     navCustomizer: 'Studio Creativo',
@@ -493,7 +493,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     toolFaqTitle: 'Domande Comuni su Questo Strumento',
   },
   ja: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: 'ロゴ＆フレーム対応 60種の無料QRコード生成スタジオ',
     navGenerators: '全ツール一覧 (60+)',
     navCustomizer: 'デザインスタジオ',
@@ -563,7 +563,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     toolFaqTitle: 'このツールに関するFAQ',
   },
   ar: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: '٦٠ مولد باركود QR مجاني مع إضافة الشعار والإطارات',
     navGenerators: 'جميع المولدات (٦٠+)',
     navCustomizer: 'استوديو التصميم',
@@ -633,7 +633,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     toolFaqTitle: 'الأسئلة الشائعة حول هذه الأداة',
   },
   zh: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: '60+ 款免费二维码生成器，支持 Logo 与高分辨率画框',
     navGenerators: '全部生成器 (60+)',
     navCustomizer: '定制工作室',
@@ -703,7 +703,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     toolFaqTitle: '关于此工具的常见问题',
   },
   hi: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: '60+ निःशुल्क क्यूआर कोड जेनरेटर लोगो और फ्रेम कस्टमाइज़र के साथ',
     navGenerators: 'सभी जेनरेटर (60+)',
     navCustomizer: 'स्टूडियो',
@@ -773,7 +773,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     toolFaqTitle: 'इस टूल के सामान्य प्रश्न',
   },
   ru: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: '60+ бесплатных генераторов QR-кодов с логотипом и рамками',
     navGenerators: 'Все генераторы (60+)',
     navCustomizer: 'Студия дизайна',
@@ -843,7 +843,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     toolFaqTitle: 'Часто задаваемые вопросы по этому инструменту',
   },
   ko: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: '로고 및 프레임 맞춤 제작 가능한 60여 개 무료 QR 코드 생성기',
     navGenerators: '전체 생성기 (60+)',
     navCustomizer: '커스텀 스튜디오',
@@ -913,7 +913,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     toolFaqTitle: '이 도구에 대한 FAQ',
   },
   tr: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: 'Logolu ve Çerçeveli 60+ Ücretsiz QR Kod Oluşturucu',
     navGenerators: 'Tüm Araçlar (60+)',
     navCustomizer: 'Tasarım Stüdyosu',
@@ -983,7 +983,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     toolFaqTitle: 'Bu Araç Hakkında SSS',
   },
   id: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: '60+ Generator QR Code Gratis dengan Kustomisasi Logo & Frame',
     navGenerators: 'Semua Generator (60+)',
     navCustomizer: 'Studio Desain',
@@ -1053,7 +1053,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     toolFaqTitle: 'FAQ Seputar Alat Ini',
   },
   nl: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: '60+ Gratis QR Code Generators met Logo & Frame Aanpassingen',
     navGenerators: 'Alle Generators (60+)',
     navCustomizer: 'Customizer Studio',
@@ -1123,7 +1123,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     toolFaqTitle: 'Veelgestelde Vragen over deze Tool',
   },
   pl: {
-    brandName: 'QRForge Studio',
+    brandName: '2qrcode.com',
     tagline: '60+ Darmowych Generatorów Kodów QR z Logo i Ramkami',
     navGenerators: 'Wszystkie Generatory (60+)',
     navCustomizer: 'Studio Projektowe',

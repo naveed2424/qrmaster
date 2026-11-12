@@ -89,7 +89,7 @@ export async function renderQRToCanvas(
   options: QRCustomization,
   isExport = false
 ): Promise<void> {
-  const payload = text && text.trim() ? text : 'https://qrforge.studio';
+  const payload = text && text.trim() ? text : 'https://2qrcode.com';
 
   // 1. Retrieve or generate QR Code Raw Data Matrix with caching
   const qrData = getQRMatrix(payload, options.errorCorrection || 'H');
@@ -580,15 +580,38 @@ export function downloadCanvasAsJpg(canvas: HTMLCanvasElement, filename = 'qr-co
 }
 
 /**
- * Downloads vector SVG of the QR code.
+ * Renders a QR code at full export resolution and returns a PNG or JPG Blob.
  */
-export async function downloadCanvasAsSvg(
+export async function renderQRToBlob(
   payload: string,
   options: QRCustomization,
-  filename = 'qr-code.svg'
-): Promise<void> {
-  const text = payload && payload.trim() ? payload : 'https://qrforge.studio';
-  const rawSvg = await QRCode.toString(text, {
+  format: 'png' | 'jpg'
+): Promise<Blob> {
+  const offscreen = document.createElement('canvas');
+  await renderQRToCanvas(offscreen, payload, options, true);
+  const mime = format === 'png' ? 'image/png' : 'image/jpeg';
+  const quality = format === 'png' ? 1.0 : 0.95;
+  return new Promise((resolve, reject) => {
+    offscreen.toBlob(
+      (blob) => {
+        if (blob) resolve(blob);
+        else reject(new Error('Failed to encode QR image blob'));
+      },
+      mime,
+      quality
+    );
+  });
+}
+
+/**
+ * Generates a scalable SVG XML string matching user color & error correction settings.
+ */
+export async function generateQRSvgString(
+  payload: string,
+  options: QRCustomization
+): Promise<string> {
+  const text = payload && payload.trim() ? payload : 'https://2qrcode.com';
+  return QRCode.toString(text, {
     type: 'svg',
     errorCorrectionLevel: options.errorCorrection || 'H',
     color: {
@@ -598,6 +621,17 @@ export async function downloadCanvasAsSvg(
     margin: 2,
     width: options.size || 512,
   });
+}
+
+/**
+ * Downloads vector SVG of the QR code.
+ */
+export async function downloadCanvasAsSvg(
+  payload: string,
+  options: QRCustomization,
+  filename = 'qr-code.svg'
+): Promise<void> {
+  const rawSvg = await generateQRSvgString(payload, options);
 
   const blob = new Blob([rawSvg], { type: 'image/svg+xml;charset=utf-8' });
   const url = URL.createObjectURL(blob);
@@ -629,4 +663,5 @@ export async function copyCanvasToClipboard(canvas: HTMLCanvasElement): Promise<
     }, 'image/png');
   });
 }
+
 

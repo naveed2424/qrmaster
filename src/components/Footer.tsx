@@ -50,6 +50,11 @@ export default function Footer({ onNavigate, onSelectTool }: FooterProps) {
             </h4>
             <ul className="space-y-2.5 text-xs text-zinc-400">
               <li>
+                <button onClick={() => onNavigate('batch')} className="hover:text-amber-300 transition-colors cursor-pointer font-semibold text-amber-300/90">
+                  Batch CSV QR Generator
+                </button>
+              </li>
+              <li>
                 <button onClick={() => onSelectTool('wifi')} className="hover:text-amber-300 transition-colors cursor-pointer">
                   Wi-Fi QR Code
                 </button>
@@ -77,30 +82,20 @@ export default function Footer({ onNavigate, onSelectTool }: FooterProps) {
             </ul>
           </div>
 
-          {/* Company Links */}
+          {/* Company & Legal Links (Google AdSense Compliance) */}
           <div className="space-y-3">
             <h4 className="text-xs font-extrabold uppercase tracking-widest text-amber-400">
-              Company
+              Company &amp; Legal
             </h4>
             <ul className="space-y-2.5 text-xs text-zinc-400">
               <li>
                 <button onClick={() => onNavigate('about')} className="hover:text-amber-300 transition-colors cursor-pointer">
-                  About Creator (Afzal)
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('about')} className="hover:text-amber-300 transition-colors cursor-pointer">
-                  Netlify Edge Architecture
+                  About 2qrcode.com (Afzal Naveed)
                 </button>
               </li>
               <li>
                 <button onClick={() => onNavigate('blog')} className="hover:text-amber-300 transition-colors cursor-pointer">
-                  Blog & Customization Tips
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('reviews')} className="hover:text-amber-300 transition-colors cursor-pointer">
-                  Community Reviews
+                  Blog &amp; Guides
                 </button>
               </li>
               <li>
@@ -108,12 +103,19 @@ export default function Footer({ onNavigate, onSelectTool }: FooterProps) {
                   General FAQs
                 </button>
               </li>
-              <li className="pt-1">
-                <button
-                  onClick={() => onNavigate('video')}
-                  className="px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 hover:text-yellow-300 hover:bg-amber-500/20 text-[11px] font-bold flex items-center gap-1.5 transition-all cursor-pointer"
-                >
-                  <span>🎬 TikTok UGC Video Ad (60s)</span>
+              <li>
+                <button onClick={() => onNavigate('privacy')} className="hover:text-amber-300 transition-colors cursor-pointer">
+                  Privacy Policy
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('terms')} className="hover:text-amber-300 transition-colors cursor-pointer">
+                  Terms of Service
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('contact')} className="hover:text-amber-300 transition-colors cursor-pointer">
+                  Contact Us
                 </button>
               </li>
             </ul>
@@ -131,19 +133,22 @@ export default function Footer({ onNavigate, onSelectTool }: FooterProps) {
               </p>
               <div className="pt-1 flex items-center gap-1.5 text-[11px] text-amber-400 font-semibold">
                 <Heart className="w-3.5 h-3.5 text-red-400 fill-red-400" />
-                <span>Crafted for creators worldwide</span>
+                <span>Crafted by 2qrcode.com</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar matching PDF Page 5 */}
+        {/* Bottom Bar */}
         <div className="pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-400">
           <div>
-            © 2026 Online QR Generator Studio. Built by Afzal. All rights reserved.
+            © 2026 2qrcode.com · Built by Afzal Naveed. All rights reserved.
           </div>
-          <div>
-            'QR Code' is a registered trademark of DENSO WAVE INCORPORATED.
+          <div className="flex flex-wrap items-center gap-4">
+            <button onClick={() => onNavigate('privacy')} className="hover:text-amber-300 cursor-pointer">Privacy</button>
+            <button onClick={() => onNavigate('terms')} className="hover:text-amber-300 cursor-pointer">Terms</button>
+            <button onClick={() => onNavigate('contact')} className="hover:text-amber-300 cursor-pointer">Contact</button>
+            <span>&apos;QR Code&apos; is a registered trademark of DENSO WAVE INCORPORATED.</span>
           </div>
         </div>
       </div>

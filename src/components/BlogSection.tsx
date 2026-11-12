@@ -26,6 +26,7 @@ import { BLOG_POSTS } from '../data/blogPosts';
 import { BLOG_EDITORIAL_CATEGORIES, MASTER_PROMPT_REGISTRY } from '../data/blogMasterGuidelines';
 import { QR_GENERATORS } from '../data/generators';
 import AdSenseUnit from './AdSenseUnit';
+import founderPortrait from '../assets/images/founder_portrait_polished_1794521132031.jpg';
 
 interface BlogSectionProps {
   onSelectTool?: (toolId: string) => void;
@@ -86,13 +87,34 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
   // Resolve related tools for an article
   const getRelatedToolsData = (toolIds?: string[]) => {
     if (!toolIds || toolIds.length === 0) return [];
+    const aliasMap: Record<string, string> = {
+      'google-review': 'reviews',
+      calendar: 'event',
+    };
     return toolIds
-      .map((id) => {
+      .map((rawId) => {
+        const id = aliasMap[rawId] || rawId;
         if (id === 'converter') {
           return {
             id: 'converter',
             name: 'Metric Print Calculator',
             shortDescription: 'Calculate 10:1 distance rule, 300 DPI pixels, and mm/inch dimensions.',
+            isView: true,
+          };
+        }
+        if (id === 'batch') {
+          return {
+            id: 'batch',
+            name: 'Batch CSV QR Generator',
+            shortDescription: 'Upload a CSV spreadsheet and generate dozens or hundreds of styled QR codes at once.',
+            isView: true,
+          };
+        }
+        if (id === 'customizer') {
+          return {
+            id: 'customizer',
+            name: 'QR Customizer Studio',
+            shortDescription: 'Design custom dot shapes, gradients, centered logos, and CTA banners.',
             isView: true,
           };
         }
@@ -108,6 +130,66 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
         return null;
       })
       .filter(Boolean) as { id: string; name: string; shortDescription: string; isView: boolean }[];
+  };
+
+  // Render inline markdown including direct links to QR generators ([Text](tool:id) or [Text](view:id))
+  const renderInlineContent = (text: string) => {
+    const tokenRegex = /(\[[^\]]+\]\((?:tool|view):[a-z0-9-]+\)|\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/gi;
+    const parts = text.split(tokenRegex);
+
+    return parts.map((part, i) => {
+      if (!part) return null;
+
+      const linkMatch = part.match(/^\[([^\]]+)\]\((tool|view):([a-z0-9-]+)\)$/i);
+      if (linkMatch) {
+        const [, label, targetType, targetId] = linkMatch;
+        const href = targetType.toLowerCase() === 'view' ? `?view=${targetId}` : `?tool=${targetId}`;
+        return (
+          <a
+            key={i}
+            href={href}
+            onClick={(e) => {
+              e.preventDefault();
+              if (targetType.toLowerCase() === 'view' && onNavigate) {
+                onNavigate(targetId);
+              } else if (onSelectTool) {
+                onSelectTool(targetId);
+              }
+            }}
+            className="text-amber-400 hover:text-yellow-300 font-bold underline decoration-amber-500/60 underline-offset-4 inline-flex items-center gap-1 transition-colors cursor-pointer"
+          >
+            <span>{label}</span>
+            <ExternalLink className="w-3 h-3 inline shrink-0" />
+          </a>
+        );
+      }
+
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return (
+          <strong key={i} className="font-bold text-white">
+            {part.slice(2, -2)}
+          </strong>
+        );
+      }
+
+      if (part.startsWith('*') && part.endsWith('*')) {
+        return (
+          <em key={i} className="italic text-zinc-200">
+            {part.slice(1, -1)}
+          </em>
+        );
+      }
+
+      if (part.startsWith('`') && part.endsWith('`')) {
+        return (
+          <code key={i} className="px-1.5 py-0.5 rounded bg-zinc-900 border border-zinc-800 font-mono text-xs text-amber-300">
+            {part.slice(1, -1)}
+          </code>
+        );
+      }
+
+      return <span key={i}>{part}</span>;
+    });
   };
 
   // SINGLE ARTICLE READING VIEW
@@ -167,9 +249,11 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
 
             {/* Author Credential Tagline */}
             <div className="flex items-center gap-2.5 pt-1">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-300 text-black font-black flex items-center justify-center text-xs shadow-md">
-                A
-              </div>
+              <img
+                src={founderPortrait}
+                alt="Afzal Naveed"
+                className="w-9 h-9 rounded-full object-cover border border-amber-400/60 shadow-md shrink-0"
+              />
               <div>
                 <div className="text-xs font-bold text-white flex items-center gap-1.5">
                   <span>{selectedPost.author}</span>
@@ -216,33 +300,61 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
           {/* Main Article Content */}
           <div className="space-y-5 text-sm sm:text-base leading-relaxed text-zinc-300">
             {selectedPost.content.split('\n\n').map((paragraph, idx) => {
-              if (paragraph.startsWith('### ')) {
+              const trimmed = paragraph.trim();
+              if (trimmed === '---') {
+                return <hr key={idx} className="border-zinc-800/80 my-6" />;
+              }
+              if (trimmed.startsWith('### ')) {
                 return (
                   <h2 key={idx} className="text-xl sm:text-2xl font-bold text-amber-300 pt-6 pb-1 border-b border-zinc-800">
-                    {paragraph.replace('### ', '')}
+                    {trimmed.replace('### ', '')}
                   </h2>
                 );
               }
-              if (paragraph.startsWith('#### ')) {
+              if (trimmed.startsWith('#### ')) {
                 return (
                   <h3 key={idx} className="text-base sm:text-lg font-bold text-white pt-4">
-                    {paragraph.replace('#### ', '')}
+                    {trimmed.replace('#### ', '')}
                   </h3>
                 );
               }
-              if (paragraph.startsWith('- ')) {
-                const items = paragraph.split('\n- ');
+              if (trimmed.startsWith('> ')) {
+                return (
+                  <blockquote
+                    key={idx}
+                    className="p-4 bg-zinc-900/70 border border-zinc-800 rounded-2xl text-zinc-200 italic text-sm leading-relaxed"
+                  >
+                    {renderInlineContent(trimmed.replace(/^>\s?/, ''))}
+                  </blockquote>
+                );
+              }
+              if (trimmed.startsWith('- ')) {
+                const items = trimmed.split('\n- ');
                 return (
                   <ul key={idx} className="list-disc pl-5 space-y-2 text-sm sm:text-base text-zinc-300">
                     {items.map((item, itemIdx) => (
-                      <li key={itemIdx} className="leading-relaxed">{item.replace(/^- /, '')}</li>
+                      <li key={itemIdx} className="leading-relaxed">
+                        {renderInlineContent(item.replace(/^- /, ''))}
+                      </li>
                     ))}
                   </ul>
                 );
               }
-              if (paragraph.startsWith('| ')) {
+              if (/^\d+\.\s/.test(trimmed)) {
+                const items = trimmed.split(/\n(?=\d+\.\s)/);
+                return (
+                  <ol key={idx} className="list-decimal pl-5 space-y-2.5 text-sm sm:text-base text-zinc-300">
+                    {items.map((item, itemIdx) => (
+                      <li key={itemIdx} className="leading-relaxed">
+                        {renderInlineContent(item.replace(/^\d+\.\s/, ''))}
+                      </li>
+                    ))}
+                  </ol>
+                );
+              }
+              if (trimmed.startsWith('| ')) {
                 // Markdown table rendering
-                const rows = paragraph.trim().split('\n').filter(r => !r.includes(':---'));
+                const rows = trimmed.split('\n').filter(r => !r.includes(':---'));
                 return (
                   <div key={idx} className="overflow-x-auto my-4 rounded-xl border border-zinc-800 bg-zinc-900/60 p-2">
                     <table className="w-full text-left text-xs text-zinc-300">
@@ -252,7 +364,7 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
                           return (
                             <tr key={rIdx} className={rIdx === 0 ? 'border-b border-amber-500/30 text-amber-300 font-bold' : 'border-b border-zinc-800/60'}>
                               {cols.map((col, cIdx) => (
-                                <td key={cIdx} className="p-2 whitespace-nowrap">{col.trim()}</td>
+                                <td key={cIdx} className="p-2 whitespace-nowrap">{renderInlineContent(col.trim())}</td>
                               ))}
                             </tr>
                           );
@@ -262,8 +374,8 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
                   </div>
                 );
               }
-              if (paragraph.startsWith('```')) {
-                const codeContent = paragraph.replace(/```[a-z]*\n/, '').replace(/\n```/, '');
+              if (trimmed.startsWith('```')) {
+                const codeContent = trimmed.replace(/```[a-z]*\n/, '').replace(/\n```/, '');
                 return (
                   <pre key={idx} className="p-4 bg-black/90 border border-zinc-800 rounded-2xl font-mono text-xs text-amber-300 overflow-x-auto">
                     <code>{codeContent}</code>
@@ -272,7 +384,7 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
               }
               return (
                 <p key={idx} className="text-zinc-300 leading-relaxed text-sm sm:text-base">
-                  {paragraph}
+                  {renderInlineContent(trimmed)}
                 </p>
               );
             })}
@@ -289,7 +401,7 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
                 <span>Featured Free Tools From This Article</span>
               </div>
               <p className="text-xs text-zinc-400">
-                You can try every tool and calculation mentioned in this guide for 100% free with zero sign-up on QRForge Studio:
+                You can try every tool and calculation mentioned in this guide for 100% free with zero sign-up on 2qrcode.com:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {relatedTools.map((tool) => (
@@ -357,16 +469,18 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
 
           {/* Author E-E-A-T Credibility Box */}
           <div className="p-5 bg-zinc-900/80 border border-zinc-800 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-amber-400 text-black font-black flex items-center justify-center text-lg shrink-0 shadow-lg">
-              A
-            </div>
+            <img
+              src={founderPortrait}
+              alt="Afzal Naveed"
+              className="w-14 h-14 rounded-2xl object-cover border border-amber-400/60 shrink-0 shadow-lg"
+            />
             <div className="space-y-1.5 text-center sm:text-left">
               <div className="text-xs font-bold text-white flex items-center justify-center sm:justify-start gap-1.5">
                 <span>About the Author: {selectedPost.author}</span>
                 <Award className="w-3.5 h-3.5 text-amber-400" />
               </div>
               <p className="text-xs text-zinc-400 leading-relaxed">
-                Afzal is the lead systems architect of QRForge Studio. He specializes in ISO/IEC 18004 optical data encoding, commercial vector print workflows, and building open-source, client-side digital utility applications with zero subscription walls.
+                Afzal Naveed is the founder and lead systems architect of 2qrcode.com, specializing in HTML5, JavaScript, Java enterprise systems, Technical SEO, cloud security, and ISO/IEC 18004 QR workflows.
               </p>
             </div>
           </div>
@@ -434,7 +548,7 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
           QR Engineering, Strategies & <span className="text-gold-gradient">Customization Playbooks</span>
         </h2>
         <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-2xl mx-auto">
-          Eight comprehensive, E-E-A-T verified master guides detailing physical print engineering, the 10:1 distance ratio, Reed-Solomon mathematics, and strategies to profit from QR codes without subscription traps.
+          {BLOG_POSTS.length} comprehensive, E-E-A-T verified master guides detailing physical print engineering, CSV batch automation, payment &amp; security QR workflows, and strategies to profit from QR codes without subscription traps.
         </p>
 
         {/* Master Prompt Guidelines Registry Button */}

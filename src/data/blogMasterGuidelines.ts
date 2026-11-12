@@ -1,6 +1,6 @@
 /**
  * MASTER EDITORIAL GUIDELINES & PROMPT REGISTRY
- * Registered Master Prompt for all QRForge Studio Blog Posts & Editorial Content
+ * Registered Master Prompt for all 2qrcode.com Blog Posts & Editorial Content
  * Compliance: Google AdSense Publisher Policies, E-E-A-T Standards, GEO/AEO Optimization
  */
 
@@ -68,7 +68,7 @@ export const MASTER_PROMPT_REGISTRY = {
   version: '2026.1-ENTERPRISE',
   title: 'Master Prompt — Build a Professional SEO-Powered, Google AdSense-Ready Knowledge Platform',
   siteTopic: 'QR Code Engineering, Business Utility & Conversion Optimization',
-  siteUrl: 'https://qrmust.netlify.app/',
+  siteUrl: 'https://2qrcode.com/',
   language: 'English (US/UK/International)',
   monetizationReadiness: [
     'Google AdSense (Strict compliance: high originality, no thin content, clear editorial ownership)',
@@ -86,7 +86,7 @@ export const MASTER_PROMPT_REGISTRY = {
     'Direct Answers: Every section must lead with a concise 40-50 word direct definition for instant AI snippet capture.',
     'Formulas & Calculations: Provide explicit numeric examples (e.g. Scan Distance / 10 = Minimum Print Width).',
     'Decision Trees: Include actionable checklists and bulleted comparison tables.',
-    'Tool Interlinking: Contextually link to relevant QRForge Studio generators so readers can immediately execute what they read.',
+    'Tool Interlinking: Contextually link directly to relevant 2qrcode.com generators inside article prose so readers can immediately launch the mentioned tool.',
     'Structured FAQs: Include 3-6 verified reader questions with direct, definitive answers.',
   ],
 };

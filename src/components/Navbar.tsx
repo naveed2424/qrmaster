@@ -47,11 +47,11 @@ export default function Navbar({
   ];
 
   const navLinks = [
-    { id: 'directory', label: 'Generators (60+)' },
+    { id: 'directory', label: 'Generators' },
+    { id: 'batch', label: 'Batch CSV' },
     { id: 'customizer', label: 'Studio' },
-    { id: 'converter', label: 'Metric Converter' },
-    { id: 'blog', label: 'Blog & Tips' },
-    { id: 'reviews', label: 'Reviews' },
+    { id: 'converter', label: 'Print Math' },
+    { id: 'blog', label: 'Blog' },
     { id: 'about', label: 'About' },
     { id: 'faqs', label: 'FAQs' },
   ];

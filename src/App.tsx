@@ -11,6 +11,8 @@ import AboutUs from './components/AboutUs';
 import FAQSection from './components/FAQSection';
 import AnimatedQRBackground from './components/AnimatedQRBackground';
 import UGCVideoView from './components/UGCVideoView';
+import BatchQRGenerator from './components/BatchQRGenerator';
+import LegalPages from './components/LegalPages';
 import { QR_GENERATORS } from './data/generators';
 import { QRCustomization, SupportedLanguage, QRGeneratorTool } from './types/qr';
 
@@ -99,6 +101,9 @@ export default function App() {
     if (toolId === 'overview') {
       setActiveView('directory');
       window.history.pushState(null, '', window.location.pathname);
+    } else if (toolId === 'batch' || toolId === 'customizer' || toolId === 'converter') {
+      setActiveView(toolId);
+      window.history.pushState(null, '', `?view=${toolId}`);
     } else {
       setSelectedToolId(toolId);
       setActiveView('tool');
@@ -188,13 +193,21 @@ export default function App() {
               </p>
             </div>
             <QRStudio
-              payload="https://qrforge.studio"
+              payload="https://2qrcode.com"
               toolName="Branded QR"
               currentLang={currentLang}
               customization={customization}
               onCustomizationChange={setCustomization}
             />
           </div>
+        )}
+
+        {activeView === 'batch' && (
+          <BatchQRGenerator
+            currentLang={currentLang}
+            customization={customization}
+            onCustomizationChange={setCustomization}
+          />
         )}
 
         {activeView === 'converter' && (
@@ -218,6 +231,10 @@ export default function App() {
 
         {activeView === 'faqs' && (
           <FAQSection />
+        )}
+
+        {(activeView === 'privacy' || activeView === 'terms' || activeView === 'contact') && (
+          <LegalPages page={activeView} onNavigate={handleNavigate} />
         )}
 
         {activeView === 'video' && (

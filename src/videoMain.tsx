@@ -21,7 +21,7 @@ function VideoApp() {
               60s TikTok UGC Ad Video (With Audio)
             </span>
             <a
-              href="https://qrmust.netlify.app/"
+              href="https://2qrcode.com/"
               target="_blank"
               rel="noreferrer"
               className="text-xs font-bold text-black bg-gradient-to-r from-amber-400 to-yellow-500 px-3.5 py-1.5 rounded-xl shadow-sm hover:scale-105 transition-transform"

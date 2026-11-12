@@ -25,13 +25,13 @@ const FAQS: FAQItem[] = [
     category: 'Basic concepts',
     question: 'Can anyone create a QR code?',
     answer:
-      'Yes! Online QR Generator PRO is engineered for complete beginners and professional designers alike. Simply choose your desired content type, fill in the simple form fields, customize your colors or logo, and download.',
+      'Yes! 2qrcode.com is engineered for complete beginners and professional designers alike. Simply choose your desired content type, fill in the simple form fields, customize your colors or logo, and download—or upload a CSV spreadsheet to generate hundreds at once.',
   },
   {
     category: 'Basic concepts',
     question: 'Why are there other websites offering QR code generators for "free" then charging?',
     answer:
-      'Many competitor sites use a bait-and-switch subscription model. They route your scan through their private redirect servers and secretly disable your code after 14 days unless you pay $15-$30/month. At Online QR Generator PRO, all our static generators embed your data directly into the QR matrix itself. No middleman server, no expiration date, and 100% free forever.',
+      'Many competitor sites use a bait-and-switch subscription model. They route your scan through their private redirect servers and secretly disable your code after 14 days unless you pay $15-$30/month. At 2qrcode.com, all our static generators embed your data directly into the QR matrix itself. No middleman server, no expiration date, and 100% free forever.',
   },
   {
     category: 'Basic concepts',

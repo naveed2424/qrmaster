@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
+
+Sitemap: https://2qrcode.com/sitemap.xml

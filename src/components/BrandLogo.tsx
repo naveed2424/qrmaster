@@ -39,16 +39,11 @@ export default function BrandLogo({ className = '', size = 'md' }: BrandLogoProp
         </div>
       </div>
 
-      {/* Typography: "Online QR Generator" style from reference */}
-      <div className="flex flex-col text-left leading-tight">
-        <span className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-amber-400/90 font-mono">
-          Online
-        </span>
-        <span className="text-base sm:text-lg font-extrabold tracking-tight text-white flex items-center gap-1">
-          <span className="text-gold-gradient">QR Generator</span>
-          <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-md bg-amber-500/15 text-amber-300 border border-amber-500/30">
-            PRO
-          </span>
+      {/* Typography: 2qrcode.com */}
+      <div className="flex items-center text-left leading-none">
+        <span className="text-lg sm:text-xl font-extrabold tracking-tight text-white whitespace-nowrap shrink-0">
+          <span className="text-gold-gradient">2qrcode</span>
+          <span className="text-zinc-200">.com</span>
         </span>
       </div>
     </div>

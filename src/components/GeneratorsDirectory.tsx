@@ -238,6 +238,18 @@ export default function GeneratorsDirectory({
               Download QR Code &rarr;
             </button>
           </form>
+
+          {/* Direct Batch CSV Shortcut */}
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-1 text-xs">
+            <span className="text-zinc-400">Need dozens or hundreds of codes from a spreadsheet?</span>
+            <button
+              onClick={() => onSelectTool('batch')}
+              className="px-4 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-amber-500/40 text-amber-300 font-bold inline-flex items-center gap-1.5 cursor-pointer transition-colors whitespace-nowrap"
+            >
+              <span>Open Batch CSV QR Generator</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
       </section>
 
@@ -249,7 +261,7 @@ export default function GeneratorsDirectory({
               <span className="text-gold-gradient">Or select another type of QR code</span>
             </h2>
             <p className="text-xs text-zinc-400 mt-1">
-              Choose from 60+ individual tools tailored for Wi-Fi, contacts, apps, menus, and payments.
+              Choose from 60+ individual tools on 2qrcode.com tailored for Wi-Fi, contacts, apps, menus, and payments.
             </p>
           </div>
 
