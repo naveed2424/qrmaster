@@ -13,6 +13,7 @@ import AnimatedQRBackground from './components/AnimatedQRBackground';
 import UGCVideoView from './components/UGCVideoView';
 import BatchQRGenerator from './components/BatchQRGenerator';
 import LegalPages from './components/LegalPages';
+import CookieConsentBanner from './components/CookieConsentBanner';
 import { QR_GENERATORS } from './data/generators';
 import { QRCustomization, SupportedLanguage, QRGeneratorTool } from './types/qr';
 
@@ -185,10 +186,10 @@ export default function App() {
         {activeView === 'customizer' && (
           <div className="max-w-6xl mx-auto py-10 px-4 space-y-8">
             <div className="space-y-2">
-              <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              <h1 className="text-3xl font-extrabold tracking-tight text-white">
                 Full-Featured QR Customizer Studio
               </h1>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
+              <p className="text-sm text-zinc-400">
                 Design custom patterns, linear gradients, add centered brand logos, and apply high-converting Call To Action frames.
               </p>
             </div>
@@ -233,7 +234,7 @@ export default function App() {
           <FAQSection />
         )}
 
-        {(activeView === 'privacy' || activeView === 'terms' || activeView === 'contact') && (
+        {(activeView === 'privacy' || activeView === 'cookies' || activeView === 'terms' || activeView === 'contact') && (
           <LegalPages page={activeView} onNavigate={handleNavigate} />
         )}
 
@@ -244,6 +245,9 @@ export default function App() {
 
       {/* Footer */}
       <Footer onNavigate={handleNavigate} onSelectTool={handleSelectTool} />
+
+      {/* GDPR / AdSense Cookie Consent Banner */}
+      <CookieConsentBanner onNavigate={handleNavigate} />
     </div>
   );
 }

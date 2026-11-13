@@ -109,8 +109,13 @@ export default function Footer({ onNavigate, onSelectTool }: FooterProps) {
                 </button>
               </li>
               <li>
+                <button onClick={() => onNavigate('cookies')} className="hover:text-amber-300 transition-colors cursor-pointer">
+                  Cookie &amp; Ad Policy
+                </button>
+              </li>
+              <li>
                 <button onClick={() => onNavigate('terms')} className="hover:text-amber-300 transition-colors cursor-pointer">
-                  Terms of Service
+                  Terms &amp; Disclaimer
                 </button>
               </li>
               <li>
@@ -146,6 +151,8 @@ export default function Footer({ onNavigate, onSelectTool }: FooterProps) {
           </div>
           <div className="flex flex-wrap items-center gap-4">
             <button onClick={() => onNavigate('privacy')} className="hover:text-amber-300 cursor-pointer">Privacy</button>
+            <button onClick={() => onNavigate('cookies')} className="hover:text-amber-300 cursor-pointer">Cookies</button>
+            <button onClick={() => window.dispatchEvent(new Event('2qrcode-open-cookie-settings'))} className="hover:text-amber-300 cursor-pointer">Cookie Settings</button>
             <button onClick={() => onNavigate('terms')} className="hover:text-amber-300 cursor-pointer">Terms</button>
             <button onClick={() => onNavigate('contact')} className="hover:text-amber-300 cursor-pointer">Contact</button>
             <span>&apos;QR Code&apos; is a registered trademark of DENSO WAVE INCORPORATED.</span>

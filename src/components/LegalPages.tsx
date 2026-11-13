@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Shield, FileText, Mail, Check, ArrowLeft } from 'lucide-react';
+import { Shield, FileText, Mail, Check, ArrowLeft, Cookie } from 'lucide-react';
 
 interface LegalPagesProps {
-  page: 'privacy' | 'terms' | 'contact';
+  page: 'privacy' | 'cookies' | 'terms' | 'contact';
   onNavigate: (view: string) => void;
 }
 
@@ -34,11 +34,12 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
           <span>Back to 2qrcode.com Generators</span>
         </button>
 
-        <div className="flex items-center gap-1 p-1 bg-zinc-900 border border-zinc-800 rounded-xl">
+        <div className="flex flex-wrap items-center gap-1 p-1 bg-zinc-900 border border-zinc-800 rounded-xl">
           {(
             [
               { id: 'privacy', label: 'Privacy Policy' },
-              { id: 'terms', label: 'Terms of Service' },
+              { id: 'cookies', label: 'Cookie & Ad Policy' },
+              { id: 'terms', label: 'Terms & Disclaimer' },
               { id: 'contact', label: 'Contact Us' },
             ] as const
           ).map((tab) => (
@@ -48,7 +49,7 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
               className={`px-3.5 py-1.5 text-xs font-bold rounded-lg whitespace-nowrap shrink-0 cursor-pointer transition-colors ${
                 page === tab.id
                   ? 'bg-amber-400 text-black'
-                  : 'text-zinc-400 hover:text-white'
+                  : 'text-zinc-300 hover:text-white'
               }`}
             >
               {tab.label}
@@ -66,7 +67,7 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
             </div>
             <h1 className="text-3xl font-extrabold text-white">Privacy Policy</h1>
             <p className="text-xs text-zinc-400 font-mono">
-              Effective Date: November 12, 2026 · Website: https://2qrcode.com
+              Effective Date: November 13, 2026 · Publisher: Afzal Naveed · https://2qrcode.com
             </p>
           </div>
 
@@ -80,14 +81,14 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
           <section className="space-y-2">
             <h2 className="text-lg font-bold text-amber-300">2. Google AdSense &amp; Third-Party Advertising Cookies</h2>
             <p>
-              2qrcode.com uses Google AdSense to serve advertisements and keep our 60+ QR generation tools and batch spreadsheet utilities 100% free without subscription fees.
+              2qrcode.com uses <strong>Google AdSense</strong> (Publisher ID: <code>ca-pub-8358033803354457</code>) to serve advertisements and keep our 60+ QR generation tools and batch spreadsheet utilities 100% free without subscription fees.
             </p>
             <ul className="list-disc pl-5 space-y-1.5 text-zinc-300">
               <li>
                 Third-party vendors, including Google, use cookies to serve ads based on a user&apos;s prior visits to this website or other websites.
               </li>
               <li>
-                Google&apos;s use of advertising cookies (such as the DoubleClick DART cookie) enables it and its partners to serve ads to our visitors based on their visit to 2qrcode.com and other sites on the Internet.
+                Google&apos;s use of advertising cookies (including the DoubleClick DART cookie) enables it and its partners to serve ads to our visitors based on their visit to 2qrcode.com and other sites on the Internet.
               </li>
               <li>
                 Users may opt out of personalized advertising at any time by visiting{' '}
@@ -99,7 +100,7 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
                 >
                   Google Ads Settings (adssettings.google.com)
                 </a>
-                , or by reviewing{' '}
+                , reviewing{' '}
                 <a
                   href="https://policies.google.com/technologies/ads"
                   target="_blank"
@@ -107,6 +108,24 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
                   className="text-amber-400 underline hover:text-yellow-300"
                 >
                   Google Advertising Privacy &amp; Terms
+                </a>
+                , or opting out of third-party vendor cookies via{' '}
+                <a
+                  href="https://optout.aboutads.info/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-amber-400 underline hover:text-yellow-300"
+                >
+                  Digital Advertising Alliance (aboutads.info)
+                </a>{' '}
+                and{' '}
+                <a
+                  href="https://optout.networkadvertising.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-amber-400 underline hover:text-yellow-300"
+                >
+                  Network Advertising Initiative
                 </a>
                 .
               </li>
@@ -116,14 +135,23 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
           <section className="space-y-2">
             <h2 className="text-lg font-bold text-amber-300">3. Local Browser Preferences (localStorage)</h2>
             <p>
-              We use standard browser <code>localStorage</code> solely to remember your chosen UI language (among our 16 supported languages), light/dark display theme, and any local tool ratings you submit. You may clear this data anytime via your browser settings.
+              We use standard browser <code>localStorage</code> solely to remember your chosen UI language (among our 16 supported languages), display theme, cookie consent choice, and any local tool ratings you submit. You may clear this data anytime via your browser settings.
             </p>
           </section>
 
           <section className="space-y-2">
-            <h2 className="text-lg font-bold text-amber-300">4. GDPR, CCPA &amp; Contact Rights</h2>
+            <h2 className="text-lg font-bold text-amber-300">4. GDPR, CCPA/CPRA &amp; Children&apos;s Privacy (COPPA)</h2>
             <p>
-              Visitors located in the European Economic Area (EEA), UK, or California retain full rights under GDPR and CCPA to request information, opt out of personalized cookies, or contact our publisher team regarding privacy compliance. Reach us at{' '}
+              Visitors located in the European Economic Area (EEA), UK, or California retain full rights under GDPR and CCPA/CPRA to access, limit, or opt out of personalized advertising cookies (including California &ldquo;Do Not Sell or Share My Personal Information&rdquo; preferences via our Cookie Settings banner or{' '}
+              <a
+                href="https://adssettings.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-amber-400 underline"
+              >
+                Google Ads Settings
+              </a>
+              ). 2qrcode.com does not knowingly collect personal information from children under 13 years of age in compliance with COPPA. Reach our publisher team at{' '}
               <button
                 onClick={() => onNavigate('contact')}
                 className="text-amber-400 underline font-semibold cursor-pointer"
@@ -136,6 +164,67 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
         </article>
       )}
 
+      {page === 'cookies' && (
+        <article className="p-8 sm:p-10 bg-zinc-950/90 border border-zinc-800 rounded-3xl space-y-6 text-sm text-zinc-300 leading-relaxed">
+          <div className="space-y-2 pb-4 border-b border-zinc-800">
+            <div className="flex items-center gap-2 text-xs font-bold text-amber-400">
+              <Cookie className="w-4 h-4" />
+              <span>2qrcode.com · Cookie Policy &amp; Ad Disclosure</span>
+            </div>
+            <h1 className="text-3xl font-extrabold text-white">Cookie &amp; Advertising Policy</h1>
+            <p className="text-xs text-zinc-400 font-mono">
+              Updated: November 13, 2026 · AdSense ID: ca-pub-8358033803354457
+            </p>
+          </div>
+
+          <section className="space-y-2">
+            <h2 className="text-lg font-bold text-amber-300">1. What Cookies &amp; Storage We Use</h2>
+            <p>
+              2qrcode.com keeps core tool operation completely stateless on our servers. Browser storage is divided into two clear categories:
+            </p>
+            <ul className="list-disc pl-5 space-y-1.5">
+              <li>
+                <strong>Essential Preferences:</strong> Stores your selected language, theme mode, and cookie consent choice in <code>localStorage</code> so the interface loads properly.
+              </li>
+              <li>
+                <strong>Advertising &amp; Measurement Cookies (Google AdSense):</strong> Set by Google and certified ad partners to prevent ad fraud, cap frequency, measure performance, and—when consented—display relevant ads.
+              </li>
+            </ul>
+          </section>
+
+          <section className="space-y-2">
+            <h2 className="text-lg font-bold text-amber-300">2. Managing or Withdrawing Consent</h2>
+            <p>
+              You can switch between &ldquo;Accept All&rdquo; and &ldquo;Essential Only (Non-Personalized Ads)&rdquo; at any time by reopening our Cookie Settings dialog below or blocking third-party cookies in your browser preferences.
+            </p>
+            <div className="pt-2">
+              <button
+                onClick={() => window.dispatchEvent(new Event('2qrcode-open-cookie-settings'))}
+                className="px-4 py-2 rounded-xl bg-amber-400 hover:bg-yellow-300 text-black font-extrabold text-xs cursor-pointer transition-colors"
+              >
+                Open Cookie Preferences
+              </button>
+            </div>
+          </section>
+
+          <section className="space-y-2">
+            <h2 className="text-lg font-bold text-amber-300">3. Authorized Digital Sellers (ads.txt)</h2>
+            <p>
+              Our authorized Google AdSense seller record is publicly verifiable at{' '}
+              <a
+                href="/ads.txt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-amber-400 underline font-mono"
+              >
+                https://2qrcode.com/ads.txt
+              </a>{' '}
+              (<code>google.com, pub-8358033803354457, DIRECT, f08c47fec0942fa0</code>).
+            </p>
+          </section>
+        </article>
+      )}
+
       {page === 'terms' && (
         <article className="p-8 sm:p-10 bg-zinc-950/90 border border-zinc-800 rounded-3xl space-y-6 text-sm text-zinc-300 leading-relaxed">
           <div className="space-y-2 pb-4 border-b border-zinc-800">
@@ -143,9 +232,9 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
               <FileText className="w-4 h-4" />
               <span>2qrcode.com · Platform Usage Agreement</span>
             </div>
-            <h1 className="text-3xl font-extrabold text-white">Terms of Service</h1>
+            <h1 className="text-3xl font-extrabold text-white">Terms of Service &amp; Disclaimer</h1>
             <p className="text-xs text-zinc-400 font-mono">
-              Last Updated: November 12, 2026 · Publisher: Afzal Naveed (2qrcode.com)
+              Last Updated: November 13, 2026 · Publisher: Afzal Naveed (2qrcode.com)
             </p>
           </div>
 
@@ -171,9 +260,9 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
           </section>
 
           <section className="space-y-2">
-            <h2 className="text-lg font-bold text-amber-300">4. Trademark Attribution &amp; Warranty Disclaimer</h2>
+            <h2 className="text-lg font-bold text-amber-300">4. Editorial Disclaimer &amp; Trademark Attribution</h2>
             <p>
-              &ldquo;QR Code&rdquo; is a registered trademark of DENSO WAVE INCORPORATED. 2qrcode.com provides its tools and editorial guides &ldquo;as is&rdquo; without warranties of any kind.
+              Editorial guides, print distance formulas, and software comparisons on 2qrcode.com are provided for informational and educational purposes &ldquo;as is&rdquo; without warranties of any kind. &ldquo;QR Code&rdquo; is a registered trademark of DENSO WAVE INCORPORATED.
             </p>
           </section>
         </article>

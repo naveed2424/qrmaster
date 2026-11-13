@@ -68,6 +68,7 @@ import {
 } from 'lucide-react';
 import { QRGeneratorTool, QRCategory, SupportedLanguage } from '../types/qr';
 import { TRANSLATIONS } from '../data/translations';
+import AdSenseUnit from './AdSenseUnit';
 
 interface GeneratorsDirectoryProps {
   generators: QRGeneratorTool[];
@@ -357,6 +358,11 @@ export default function GeneratorsDirectory({
           </div>
         )}
       </section>
+
+      {/* Well-spaced compliant AdSense placement separating tool directory and editorial guides */}
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
+        <AdSenseUnit slot="8358033803" />
+      </div>
 
       {/* "Create your QR code in three simple steps" matching PDF Page 1 with Golden Accents */}
       <section className="border-y border-amber-500/20 bg-zinc-950/60 py-16 px-4 relative backdrop-blur-md">

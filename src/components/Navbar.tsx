@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Globe, Menu, X, Sun, Moon } from 'lucide-react';
+import { Globe, Menu, X, Sun, Moon, ChevronDown, Check } from 'lucide-react';
 import { SupportedLanguage } from '../types/qr';
 import { TRANSLATIONS } from '../data/translations';
 import BrandLogo from './BrandLogo';
+import CountryFlag, { LANGUAGE_META } from './CountryFlag';
 
 interface NavbarProps {
   currentLang: SupportedLanguage;
@@ -13,6 +14,25 @@ interface NavbarProps {
   isDark: boolean;
   onToggleTheme: () => void;
 }
+
+const LANGUAGE_CODES: SupportedLanguage[] = [
+  'en',
+  'es',
+  'fr',
+  'de',
+  'pt',
+  'it',
+  'ja',
+  'ar',
+  'zh',
+  'hi',
+  'ru',
+  'ko',
+  'tr',
+  'id',
+  'nl',
+  'pl',
+];
 
 export default function Navbar({
   currentLang,
@@ -27,25 +47,6 @@ export default function Navbar({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
 
-  const languages: { code: SupportedLanguage; label: string; flag: string }[] = [
-    { code: 'en', label: 'English', flag: 'EN' },
-    { code: 'es', label: 'Español', flag: 'ES' },
-    { code: 'fr', label: 'Français', flag: 'FR' },
-    { code: 'de', label: 'Deutsch', flag: 'DE' },
-    { code: 'pt', label: 'Português', flag: 'PT' },
-    { code: 'it', label: 'Italiano', flag: 'IT' },
-    { code: 'ja', label: '日本語', flag: 'JA' },
-    { code: 'ar', label: 'العربية', flag: 'AR' },
-    { code: 'zh', label: '简体中文', flag: 'ZH' },
-    { code: 'hi', label: 'हिन्दी', flag: 'HI' },
-    { code: 'ru', label: 'Русский', flag: 'RU' },
-    { code: 'ko', label: '한국어', flag: 'KO' },
-    { code: 'tr', label: 'Türkçe', flag: 'TR' },
-    { code: 'id', label: 'Bahasa Indo', flag: 'ID' },
-    { code: 'nl', label: 'Nederlands', flag: 'NL' },
-    { code: 'pl', label: 'Polski', flag: 'PL' },
-  ];
-
   const navLinks = [
     { id: 'directory', label: 'Generators' },
     { id: 'batch', label: 'Batch CSV' },
@@ -57,17 +58,17 @@ export default function Navbar({
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-black/90 backdrop-blur-xl border-b border-amber-500/20 transition-all shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-8 h-20">
-        {/* Zone 1: Reference-Inspired Brand Logo */}
+    <header className="sticky top-0 z-50 bg-black/95 backdrop-blur-xl border-b border-amber-500/25 transition-all shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 flex items-center justify-between gap-2 sm:gap-4 lg:gap-8 h-18 sm:h-20">
+        {/* Zone 1: Brand Logo */}
         <button
           onClick={() => onNavigate('directory')}
-          className="text-left cursor-pointer transition-transform hover:scale-[1.02]"
+          className="text-left cursor-pointer transition-transform hover:scale-[1.02] shrink-0"
         >
           <BrandLogo size="md" />
         </button>
 
-        {/* Zone 2: Single-line clean text links with golden hover */}
+        {/* Zone 2: Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-7 text-xs font-bold tracking-wide uppercase">
           {navLinks.map((link) => {
             const isActive = activeView === link.id;
@@ -87,68 +88,117 @@ export default function Navbar({
           })}
         </nav>
 
-        {/* Zone 3: Language selector + Theme Toggle + Primary Action Button */}
-        <div className="flex items-center gap-3 shrink-0">
+        {/* Zone 3: Theme Toggle + High-Contrast Language Switcher + CTA + Mobile Menu */}
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           {/* Light / Dark Mode Toggle */}
           <button
             onClick={onToggleTheme}
-            className="p-2.5 rounded-xl border border-zinc-800 bg-zinc-900/80 text-zinc-300 hover:border-amber-500/40 hover:text-amber-300 transition-all cursor-pointer shadow-xs"
+            className="p-2 sm:p-2.5 rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-200 hover:border-amber-500/50 hover:text-amber-300 transition-all cursor-pointer shadow-xs"
             title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             aria-label="Toggle Theme"
           >
-            {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-zinc-300" />}
+            {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-zinc-200" />}
           </button>
 
-          {/* Language selector dropdown */}
+          {/* Distinct High-Contrast Language Selector Button with Country Flag */}
           <div className="relative">
             <button
-              onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-zinc-800 bg-zinc-900/80 text-xs font-bold text-zinc-200 hover:border-amber-500/40 hover:text-amber-300 transition-all cursor-pointer shadow-xs"
-              title="Select Language"
+              onClick={() => {
+                setLangDropdownOpen((prev) => !prev);
+                setMobileMenuOpen(false);
+              }}
+              aria-expanded={langDropdownOpen}
+              aria-label="Select Language"
+              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl border-2 border-amber-400 bg-sky-50 hover:bg-white text-slate-950 text-xs font-extrabold transition-all cursor-pointer shadow-md"
+              title={`Language: ${LANGUAGE_META[currentLang].label}`}
             >
-              <Globe className="w-3.5 h-3.5 text-amber-400" />
-              <span className="uppercase font-mono text-[11px]">{currentLang}</span>
+              <CountryFlag lang={currentLang} className="w-5 h-3.5" />
+              <span className="uppercase font-mono text-[11px] font-black">{currentLang}</span>
+              <ChevronDown className="w-3.5 h-3.5 text-slate-700" />
             </button>
 
             {langDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-48 max-h-80 overflow-y-auto bg-zinc-950 rounded-xl shadow-2xl border border-amber-500/30 py-1.5 z-50 backdrop-blur-md scrollbar-thin scrollbar-thumb-amber-500/20">
-                <div className="px-3 py-1.5 text-[10px] uppercase font-bold text-amber-400/80 border-b border-zinc-900 flex items-center justify-between">
-                  <span>Languages (16)</span>
-                  <Globe className="w-3 h-3 text-amber-400/60" />
+              <>
+                {/* Tap-outside backdrop for mobile & desktop */}
+                <div
+                  onClick={() => setLangDropdownOpen(false)}
+                  className="fixed inset-0 bg-black/70 z-[90]"
+                  aria-hidden="true"
+                />
+
+                {/* High-Contrast Ivory/Slate Language Picker Card (100% readable on phone & desktop) */}
+                <div
+                  role="dialog"
+                  aria-label="Language Selector"
+                  className="fixed inset-x-3 top-20 sm:inset-auto sm:absolute sm:right-0 sm:top-full sm:mt-2 sm:w-80 bg-slate-50 text-slate-950 rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.9)] border-2 border-amber-500 z-[100] overflow-hidden"
+                >
+                  <div className="px-4 py-3 bg-slate-900 text-white border-b border-amber-500/40 flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-xs font-extrabold tracking-wide">
+                      <Globe className="w-4 h-4 text-amber-400" />
+                      <span>Select Language (16)</span>
+                    </div>
+                    <button
+                      onClick={() => setLangDropdownOpen(false)}
+                      className="p-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-zinc-200 cursor-pointer"
+                      aria-label="Close Language Menu"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-1.5 p-2.5 max-h-[65vh] overflow-y-auto">
+                    {LANGUAGE_CODES.map((code) => {
+                      const meta = LANGUAGE_META[code];
+                      const active = currentLang === code;
+                      return (
+                        <button
+                          key={code}
+                          onClick={() => {
+                            onLanguageChange(code);
+                            setLangDropdownOpen(false);
+                          }}
+                          className={`text-left px-2.5 py-2 rounded-xl text-xs flex items-center justify-between gap-1.5 cursor-pointer transition-all ${
+                            active
+                              ? 'bg-amber-400 text-slate-950 font-extrabold border-2 border-amber-600 shadow-sm'
+                              : 'bg-white hover:bg-sky-100 text-slate-900 font-semibold border border-slate-200'
+                          }`}
+                        >
+                          <span className="flex items-center gap-2 min-w-0">
+                            <CountryFlag lang={code} className="w-5 h-3.5" />
+                            <span className="truncate">{meta.label}</span>
+                          </span>
+                          {active ? (
+                            <Check className="w-3.5 h-3.5 text-slate-950 shrink-0" />
+                          ) : (
+                            <span className="font-mono text-[10px] font-bold text-slate-500 shrink-0">
+                              {meta.countryCode}
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
-                {languages.map((l) => (
-                  <button
-                    key={l.code}
-                    onClick={() => {
-                      onLanguageChange(l.code);
-                      setLangDropdownOpen(false);
-                    }}
-                    className={`w-full text-left px-3.5 py-2 text-xs font-semibold flex items-center justify-between hover:bg-zinc-900 cursor-pointer transition-colors ${
-                      currentLang === l.code
-                        ? 'text-amber-400 font-bold bg-amber-500/10'
-                        : 'text-zinc-300 hover:text-white'
-                    }`}
-                  >
-                    <span>{l.label}</span>
-                    <span className="font-mono text-[10px] text-amber-400/70">{l.flag}</span>
-                  </button>
-                ))}
-              </div>
+              </>
             )}
           </div>
 
-          {/* Radiant Golden Action Button */}
+          {/* Primary Action Button */}
           <button
             onClick={onQuickCreate}
-            className="px-5 py-2.5 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:to-yellow-500 text-black rounded-xl text-xs font-extrabold tracking-wider uppercase whitespace-nowrap transition-all shadow-[0_0_20px_rgba(245,158,11,0.35)] hover:shadow-[0_0_25px_rgba(245,158,11,0.5)] cursor-pointer"
+            className="px-3 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:to-yellow-500 text-black rounded-xl text-[11px] sm:text-xs font-extrabold tracking-wider uppercase whitespace-nowrap transition-all shadow-[0_0_20px_rgba(245,158,11,0.35)] cursor-pointer"
           >
-            {t.quickCreate}
+            <span className="sm:hidden">+ QR</span>
+            <span className="hidden sm:inline">{t.quickCreate}</span>
           </button>
 
           {/* Mobile hamburger toggle */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-zinc-400 hover:text-amber-400 transition-colors"
+            onClick={() => {
+              setMobileMenuOpen((prev) => !prev);
+              setLangDropdownOpen(false);
+            }}
+            className="lg:hidden p-2 rounded-xl border border-zinc-800 bg-zinc-900 text-amber-400 hover:bg-zinc-800 transition-colors cursor-pointer"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -158,45 +208,67 @@ export default function Navbar({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-zinc-950 border-b border-amber-500/20 px-4 py-4 space-y-3">
-          <div className="space-y-1">
-            {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => {
-                  onNavigate(link.id);
-                  setMobileMenuOpen(false);
-                }}
-                className="block w-full text-left py-2.5 px-3 rounded-lg text-xs font-bold text-zinc-200 hover:bg-zinc-900 hover:text-amber-400 transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="pt-3 border-t border-zinc-900">
-            <div className="text-[10px] uppercase font-bold text-amber-400/80 mb-2 flex items-center gap-1.5">
-              <Globe className="w-3 h-3" />
-              <span>Select Language (16 Popular Languages)</span>
-            </div>
-            <div className="grid grid-cols-2 gap-1.5 max-h-48 overflow-y-auto pr-1">
-              {languages.map((l) => (
+        <div className="lg:hidden bg-slate-950 border-b-2 border-amber-500/40 px-4 py-4 space-y-4 max-h-[82vh] overflow-y-auto shadow-2xl">
+          <div className="grid grid-cols-2 gap-1.5">
+            {navLinks.map((link) => {
+              const isActive = activeView === link.id;
+              return (
                 <button
-                  key={l.code}
+                  key={link.id}
                   onClick={() => {
-                    onLanguageChange(l.code);
+                    onNavigate(link.id);
                     setMobileMenuOpen(false);
                   }}
-                  className={`text-left px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center justify-between transition-colors ${
-                    currentLang === l.code
-                      ? 'bg-amber-500/20 text-amber-300 font-bold border border-amber-500/40'
-                      : 'bg-zinc-900 text-zinc-300 hover:text-white'
+                  className={`text-left py-2.5 px-3 rounded-xl text-xs font-bold transition-colors cursor-pointer ${
+                    isActive
+                      ? 'bg-amber-400 text-black font-extrabold'
+                      : 'bg-zinc-900 text-zinc-100 hover:bg-zinc-800 hover:text-amber-300 border border-zinc-800'
                   }`}
                 >
-                  <span className="truncate">{l.label}</span>
-                  <span className="font-mono text-[10px] text-amber-400/70 ml-1">{l.flag}</span>
+                  {link.label}
                 </button>
-              ))}
+              );
+            })}
+          </div>
+
+          {/* High-Contrast Mobile Language Panel */}
+          <div className="p-3 rounded-2xl bg-slate-50 text-slate-950 border-2 border-amber-400 shadow-lg space-y-2.5">
+            <div className="text-[11px] uppercase font-extrabold text-slate-900 flex items-center justify-between border-b border-slate-200 pb-2">
+              <span className="flex items-center gap-1.5">
+                <Globe className="w-3.5 h-3.5 text-amber-600" />
+                <span>Select Language &amp; Country</span>
+              </span>
+              <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-900 text-amber-300">
+                16 Languages
+              </span>
+            </div>
+            <div className="grid grid-cols-2 gap-1.5 max-h-56 overflow-y-auto pr-0.5">
+              {LANGUAGE_CODES.map((code) => {
+                const meta = LANGUAGE_META[code];
+                const active = currentLang === code;
+                return (
+                  <button
+                    key={code}
+                    onClick={() => {
+                      onLanguageChange(code);
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`text-left px-2.5 py-2 rounded-xl text-xs flex items-center justify-between gap-1.5 transition-all cursor-pointer ${
+                      active
+                        ? 'bg-amber-400 text-slate-950 font-extrabold border-2 border-amber-600 shadow-xs'
+                        : 'bg-white text-slate-900 font-semibold border border-slate-300 hover:bg-sky-50'
+                    }`}
+                  >
+                    <span className="flex items-center gap-1.5 min-w-0">
+                      <CountryFlag lang={code} className="w-5 h-3.5" />
+                      <span className="truncate">{meta.label}</span>
+                    </span>
+                    <span className="font-mono text-[10px] font-bold text-slate-600 shrink-0">
+                      {meta.countryCode}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>

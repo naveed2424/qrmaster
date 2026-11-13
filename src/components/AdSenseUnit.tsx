@@ -7,7 +7,7 @@ interface AdSenseUnitProps {
 }
 
 export default function AdSenseUnit({
-  slot = '1234567890',
+  slot = '8358033803',
   format = 'auto',
   className = '',
 }: AdSenseUnitProps) {
@@ -15,18 +15,24 @@ export default function AdSenseUnit({
 
   useEffect(() => {
     try {
-      if (typeof window !== 'undefined') {
+      const el = adRef.current;
+      if (
+        typeof window !== 'undefined' &&
+        el &&
+        !el.dataset.adsbygoogleStatus &&
+        el.offsetWidth > 0
+      ) {
         const adsbygoogle = (window as any).adsbygoogle || [];
         adsbygoogle.push({});
       }
-    } catch (e) {
-      // Ignore adsbygoogle push errors during development or ad blocker presence
+    } catch {
+      // Ignore adsbygoogle push errors in local dev or when ad blockers are active
     }
   }, []);
 
   return (
     <div className={`my-8 text-center ${className}`}>
-      <div className="text-[10px] uppercase font-bold text-zinc-500 tracking-wider mb-1.5">
+      <div className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider mb-1.5">
         Advertisement
       </div>
       <div className="min-h-[100px] w-full max-w-4xl mx-auto rounded-2xl bg-zinc-950/60 border border-zinc-900 p-2 overflow-hidden flex items-center justify-center">
