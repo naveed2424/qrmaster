@@ -1,21 +1,26 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import {defineConfig} from 'vite';
+import { fileURLToPath } from 'url';
+import { defineConfig } from 'vite';
+
+const rootDir = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': rootDir,
       },
     },
     build: {
+      outDir: 'dist',
+      emptyOutDir: true,
       rollupOptions: {
         input: {
-          main: path.resolve(__dirname, 'index.html'),
-          video: path.resolve(__dirname, 'video.html'),
+          main: path.resolve(rootDir, 'index.html'),
+          video: path.resolve(rootDir, 'video.html'),
         },
       },
     },

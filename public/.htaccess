@@ -1,0 +1,53 @@
+# hosting.com (Apache / LiteSpeed) Configuration for 2qrcode.com
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+
+# Enforce HTTPS if behind standard cPanel / hosting.com SSL
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Ensure critical static & AdSense files always resolve directly
+RewriteRule ^(ads\.txt|robots\.txt|sitemap\.xml|favicon\.svg|video\.html)$ - [L]
+
+# Serve existing files and directories directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Fallback all other routes to React SPA entry point
+RewriteRule ^ /index.html [L]
+
+# Proper MIME Types for ES Modules, SVG & Media
+<IfModule mod_mime.c>
+  AddType application/javascript .js .mjs
+  AddType text/css .css
+  AddType image/svg+xml .svg
+  AddType video/mp4 .mp4
+  AddType audio/mpeg .mp3
+  AddType application/xml .xml
+  AddType text/plain .txt
+</IfModule>
+
+# Security & AdSense-Compatible Headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Prevent stale caching on entry HTML and AdSense/SEO root files
+  <FilesMatch "^(index\.html|video\.html|ads\.txt|robots\.txt|sitemap\.xml)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
+
+  # Cache hashed Vite assets aggressively
+  <FilesMatch "\.(js|css|jpg|jpeg|png|webp|svg|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# Enable Gzip Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml application/xml
+</IfModule>
