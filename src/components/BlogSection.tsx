@@ -26,6 +26,7 @@ import { BLOG_POSTS } from '../data/blogPosts';
 import { BLOG_EDITORIAL_CATEGORIES, MASTER_PROMPT_REGISTRY } from '../data/blogMasterGuidelines';
 import { QR_GENERATORS } from '../data/generators';
 import AdSenseUnit from './AdSenseUnit';
+import SubscribeAIInsightsCTA from './SubscribeAIInsightsCTA';
 import founderPortrait from '../assets/images/founder_portrait_polished_1794521132031.jpg';
 
 interface BlogSectionProps {
@@ -34,7 +35,13 @@ interface BlogSectionProps {
 }
 
 export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionProps) {
-  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(() => {
+    if (typeof window === 'undefined') return null;
+    const params = new URLSearchParams(window.location.search);
+    const postParam = params.get('post');
+    if (!postParam) return null;
+    return BLOG_POSTS.find((p) => p.id === postParam || p.slug === postParam) || null;
+  });
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [copiedLink, setCopiedLink] = useState(false);
@@ -132,31 +139,61 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
       .filter(Boolean) as { id: string; name: string; shortDescription: string; isView: boolean }[];
   };
 
-  // Render inline markdown including direct links to QR generators ([Text](tool:id) or [Text](view:id))
+  // Render inline markdown including tool/view links, internal post links, and external authoritative links
   const renderInlineContent = (text: string) => {
-    const tokenRegex = /(\[[^\]]+\]\((?:tool|view):[a-z0-9-]+\)|\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/gi;
+    const tokenRegex = /(\[[^\]]+\]\((?:(?:tool|view|post):[a-z0-9-]+|https?:\/\/[^\s)]+)\)|\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/gi;
     const parts = text.split(tokenRegex);
 
     return parts.map((part, i) => {
       if (!part) return null;
 
-      const linkMatch = part.match(/^\[([^\]]+)\]\((tool|view):([a-z0-9-]+)\)$/i);
-      if (linkMatch) {
-        const [, label, targetType, targetId] = linkMatch;
-        const href = targetType.toLowerCase() === 'view' ? `?view=${targetId}` : `?tool=${targetId}`;
+      const internalMatch = part.match(/^\[([^\]]+)\]\((tool|view|post):([a-z0-9-]+)\)$/i);
+      if (internalMatch) {
+        const [, label, targetType, targetId] = internalMatch;
+        const typeLower = targetType.toLowerCase();
+        const href =
+          typeLower === 'view'
+            ? `?view=${targetId}`
+            : typeLower === 'post'
+            ? `?view=blog&post=${targetId}`
+            : `?tool=${targetId}`;
         return (
           <a
             key={i}
             href={href}
             onClick={(e) => {
               e.preventDefault();
-              if (targetType.toLowerCase() === 'view' && onNavigate) {
+              if (typeLower === 'post') {
+                const targetPost = BLOG_POSTS.find((p) => p.id === targetId || p.slug === targetId);
+                if (targetPost) {
+                  setSelectedPost(targetPost);
+                  setExpandedFaqIndex(null);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              } else if (typeLower === 'view' && onNavigate) {
                 onNavigate(targetId);
               } else if (onSelectTool) {
                 onSelectTool(targetId);
               }
             }}
             className="text-amber-400 hover:text-yellow-300 font-bold underline decoration-amber-500/60 underline-offset-4 inline-flex items-center gap-1 transition-colors cursor-pointer"
+          >
+            <span>{label}</span>
+            <ExternalLink className="w-3 h-3 inline shrink-0" />
+          </a>
+        );
+      }
+
+      const externalMatch = part.match(/^\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)$/i);
+      if (externalMatch) {
+        const [, label, url] = externalMatch;
+        return (
+          <a
+            key={i}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sky-300 hover:text-sky-200 font-semibold underline decoration-sky-400/50 underline-offset-4 inline-flex items-center gap-1 transition-colors"
           >
             <span>{label}</span>
             <ExternalLink className="w-3 h-3 inline shrink-0" />
@@ -266,6 +303,22 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
             </div>
           </div>
 
+          {/* Featured Editorial Image */}
+          {selectedPost.featuredImage && (
+            <figure className="rounded-2xl overflow-hidden border border-zinc-800 bg-black shadow-xl">
+              <img
+                src={selectedPost.featuredImage}
+                alt={selectedPost.featuredImageAlt || selectedPost.title}
+                className="w-full aspect-video object-cover"
+              />
+              {selectedPost.featuredImageAlt && (
+                <figcaption className="px-4 py-2.5 text-[11px] text-zinc-400 bg-zinc-950/90 border-t border-zinc-900">
+                  {selectedPost.featuredImageAlt}
+                </figcaption>
+              )}
+            </figure>
+          )}
+
           {/* Key Takeaways Box (GEO & Answer Engine Optimization) */}
           {selectedPost.keyTakeaways && selectedPost.keyTakeaways.length > 0 && (
             <div className="p-5 bg-amber-500/10 border-2 border-amber-500/35 rounded-2xl space-y-2.5">
@@ -303,6 +356,25 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
               const trimmed = paragraph.trim();
               if (trimmed === '---') {
                 return <hr key={idx} className="border-zinc-800/80 my-6" />;
+              }
+              const imgMatch = trimmed.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+              if (imgMatch) {
+                const [, altText, imgSrc] = imgMatch;
+                return (
+                  <figure key={idx} className="my-6 rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 shadow-lg">
+                    <img
+                      src={imgSrc}
+                      alt={altText}
+                      loading="lazy"
+                      className="w-full h-auto object-cover"
+                    />
+                    {altText && (
+                      <figcaption className="px-4 py-2.5 text-xs text-zinc-400 bg-black/70 border-t border-zinc-800/80">
+                        {altText}
+                      </figcaption>
+                    )}
+                  </figure>
+                );
               }
               if (trimmed.startsWith('### ')) {
                 return (
@@ -531,6 +603,9 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
             </button>
           </div>
         </article>
+
+        {/* Persistent AI Insights Newsletter CTA */}
+        <SubscribeAIInsightsCTA compact />
       </div>
     );
   }
@@ -641,59 +716,79 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
               key={post.id}
               onClick={() => {
                 setSelectedPost(post);
+                setExpandedFaqIndex(null);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="p-6 sm:p-8 bg-zinc-950/90 border border-zinc-800/80 hover:border-amber-500/50 rounded-3xl hover:shadow-[0_4px_30px_rgba(245,158,11,0.2)] transition-all cursor-pointer flex flex-col justify-between group backdrop-blur-md"
+              className="overflow-hidden bg-zinc-950/90 border border-zinc-800/80 hover:border-amber-500/50 rounded-3xl hover:shadow-[0_4px_30px_rgba(245,158,11,0.2)] transition-all cursor-pointer flex flex-col justify-between group backdrop-blur-md"
             >
-              <div className="space-y-4">
-                {/* Category & Time */}
-                <div className="flex items-center justify-between text-xs">
-                  <span className={`px-2.5 py-0.5 rounded-md text-[10px] font-bold border ${getCategoryBadgeClass(post.category)}`}>
-                    {post.category}
+              {post.featuredImage && (
+                <div className="w-full aspect-video overflow-hidden border-b border-zinc-800/80 bg-black">
+                  <img
+                    src={post.featuredImage}
+                    alt={post.featuredImageAlt || post.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  />
+                </div>
+              )}
+              <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                <div className="space-y-4">
+                  {/* Category & Time */}
+                  <div className="flex items-center justify-between text-xs">
+                    <span className={`px-2.5 py-0.5 rounded-md text-[10px] font-bold border ${getCategoryBadgeClass(post.category)}`}>
+                      {post.category}
+                    </span>
+                    <div className="flex items-center gap-2 text-[11px] font-mono text-zinc-500">
+                      <span>{post.date}</span>
+                      <span>·</span>
+                      <span>{post.readTime}</span>
+                    </div>
+                  </div>
+
+                  <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-amber-300 transition-colors leading-snug">
+                    {post.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed line-clamp-3">
+                    {post.excerpt}
+                  </p>
+
+                  {/* Key Takeaways Highlight Box */}
+                  {post.keyTakeaways && post.keyTakeaways.length > 0 && (
+                    <div className="p-2.5 bg-black/40 border border-zinc-800/80 rounded-xl space-y-1 text-[11px] text-zinc-300">
+                      <span className="font-bold text-amber-300 block">💡 Core Takeaway:</span>
+                      <p className="line-clamp-2 text-zinc-300">{post.keyTakeaways[0]}</p>
+                    </div>
+                  )}
+                </div>
+
+                <div className="pt-6 border-t border-zinc-900 mt-6 flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs text-zinc-400">
+                    <img
+                      src={founderPortrait}
+                      alt={post.author}
+                      className="w-6 h-6 rounded-full object-cover border border-amber-400/50 shrink-0"
+                    />
+                    <span>{post.author}</span>
+                  </div>
+                  <span className="text-xs font-bold text-amber-400 group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                    <span>Read Guide</span>
+                    <span>&rarr;</span>
                   </span>
-                  <div className="flex items-center gap-2 text-[11px] font-mono text-zinc-500">
-                    <span>{post.date}</span>
-                    <span>·</span>
-                    <span>{post.readTime}</span>
-                  </div>
                 </div>
-
-                <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-amber-300 transition-colors leading-snug">
-                  {post.title}
-                </h3>
-
-                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed line-clamp-3">
-                  {post.excerpt}
-                </p>
-
-                {/* Key Takeaways Highlight Box */}
-                {post.keyTakeaways && post.keyTakeaways.length > 0 && (
-                  <div className="p-2.5 bg-black/40 border border-zinc-800/80 rounded-xl space-y-1 text-[11px] text-zinc-300">
-                    <span className="font-bold text-amber-300 block">💡 Core Takeaway:</span>
-                    <p className="line-clamp-2 text-zinc-300">{post.keyTakeaways[0]}</p>
-                  </div>
-                )}
-              </div>
-
-              <div className="pt-6 border-t border-zinc-900 mt-6 flex items-center justify-between">
-                <div className="flex items-center gap-2 text-xs text-zinc-400">
-                  <div className="w-5 h-5 rounded-full bg-amber-400/20 text-amber-300 text-[10px] font-bold flex items-center justify-center">
-                    A
-                  </div>
-                  <span>{post.author}</span>
-                </div>
-                <span className="text-xs font-bold text-amber-400 group-hover:translate-x-1 transition-transform flex items-center gap-1">
-                  <span>Read Guide</span>
-                  <span>&rarr;</span>
-                </span>
               </div>
             </article>
           ))}
         </div>
       )}
 
+      {/* Persistent AI Insights Newsletter CTA */}
+      <div className="pt-2">
+        <SubscribeAIInsightsCTA />
+      </div>
+
       {/* Compliant AdSense Placement (Catalog Footer) */}
-      <div className="pt-6">
+      <div className="pt-4">
         <AdSenseUnit slot="8358033803" />
       </div>
 
@@ -769,6 +864,18 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
                     <li key={idx}>{rule}</li>
                   ))}
                 </ul>
+              </div>
+
+              <div className="p-3.5 bg-zinc-900 border border-emerald-500/30 rounded-xl space-y-2">
+                <div className="text-xs font-extrabold text-emerald-300 uppercase tracking-wide">
+                  Locked Permanent Daily &amp; Future Post Standard ({MASTER_PROMPT_REGISTRY.dailyTrendingSeoPrompt.minWords}+ Words)
+                </div>
+                <p className="text-zinc-300">
+                  <strong>Media Rule:</strong> {MASTER_PROMPT_REGISTRY.dailyTrendingSeoPrompt.requiredMedia}
+                </p>
+                <p className="text-zinc-300">
+                  <strong>Linking Rule:</strong> {MASTER_PROMPT_REGISTRY.dailyTrendingSeoPrompt.requiredLinks}
+                </p>
               </div>
             </div>
 

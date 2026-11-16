@@ -99,6 +99,8 @@ export interface BlogPost {
   secondaryKeywords?: string[];
   category: BlogCategory;
   excerpt: string;
+  featuredImage?: string;
+  featuredImageAlt?: string;
   content: string;
   readTime: string;
   date: string;

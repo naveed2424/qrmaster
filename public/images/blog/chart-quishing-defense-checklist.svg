@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480" role="img" aria-label="Urban Street Security: Spotting Tampered Stickers (&#x27;Quishing&#x27;) vs. Safe Scans">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#09090b"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="480" rx="20" fill="url(#bg)"/>
+  <rect x="16" y="16" width="928" height="448" rx="16" fill="none" stroke="#27272a" stroke-width="1.5"/>
+  <rect x="40" y="34" width="6" height="42" rx="3" fill="#f59e0b"/>
+  <text x="58" y="54" fill="#ffffff" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="800">Urban Street Security: Spotting Tampered Stickers (&#x27;Quishing&#x27;) vs. Safe Scans</text>
+  <text x="58" y="76" fill="#a1a1aa" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13">Protecting yourself from fake parking meter and restaurant QR overlays in big cities</text>
+  <rect x="40" y="118" width="280" height="280" rx="14" fill="#121217" stroke="#f43f5e" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="56" y="134" width="248" height="24" rx="6" fill="#f43f5e" fill-opacity="0.16"/>
+  <text x="66" y="150" fill="#f43f5e" font-family="ui-monospace, monospace" font-size="11" font-weight="700">RED FLAGS TO INSPECT</text>
+  <text x="58" y="186" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="800">Tamper &amp; Phishing Signals</text>
+  <circle cx="63" cy="212" r="3" fill="#f43f5e"/>
+  <text x="74" y="216" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Raised vinyl sticker over metal</text>
+  <circle cx="63" cy="242" r="3" fill="#f43f5e"/>
+  <text x="74" y="246" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Crooked or mismatched font border</text>
+  <circle cx="63" cy="272" r="3" fill="#f43f5e"/>
+  <text x="74" y="276" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Shortened mystery redirect domain</text>
+  <circle cx="63" cy="302" r="3" fill="#f43f5e"/>
+  <text x="74" y="306" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Demands urgent card / login input</text>
+  <circle cx="63" cy="332" r="3" fill="#f43f5e"/>
+  <text x="74" y="336" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Missing HTTPS lock in preview bar</text>
+  <rect x="340" y="118" width="280" height="280" rx="14" fill="#121217" stroke="#34d399" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="356" y="134" width="248" height="24" rx="6" fill="#34d399" fill-opacity="0.16"/>
+  <text x="366" y="150" fill="#34d399" font-family="ui-monospace, monospace" font-size="11" font-weight="700">SAFE VERIFICATION HABIT</text>
+  <text x="358" y="186" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="800">3-Second Street Check</text>
+  <circle cx="363" cy="212" r="3" fill="#34d399"/>
+  <text x="374" y="216" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Run fingernail along edge lightly</text>
+  <circle cx="363" cy="242" r="3" fill="#34d399"/>
+  <text x="374" y="246" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Read native camera URL banner</text>
+  <circle cx="363" cy="272" r="3" fill="#34d399"/>
+  <text x="374" y="276" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Confirm official municipality root</text>
+  <circle cx="363" cy="302" r="3" fill="#34d399"/>
+  <text x="374" y="306" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Cross-check printed table numbers</text>
+  <circle cx="363" cy="332" r="3" fill="#34d399"/>
+  <text x="374" y="336" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Never bypass OS security warning</text>
+  <rect x="640" y="118" width="280" height="280" rx="14" fill="#121217" stroke="#fbbf24" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="656" y="134" width="248" height="24" rx="6" fill="#fbbf24" fill-opacity="0.16"/>
+  <text x="666" y="150" fill="#fbbf24" font-family="ui-monospace, monospace" font-size="11" font-weight="700">MERCHANT PROTECTION</text>
+  <text x="658" y="186" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="800">Hardware-Grade Anchors</text>
+  <circle cx="663" cy="212" r="3" fill="#fbbf24"/>
+  <text x="674" y="216" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Etch or print under clear acrylic</text>
+  <circle cx="663" cy="242" r="3" fill="#fbbf24"/>
+  <text x="674" y="246" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Use clean canonical domain paths</text>
+  <circle cx="663" cy="272" r="3" fill="#fbbf24"/>
+  <text x="674" y="276" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Set High (H) ECC with brand logo</text>
+  <circle cx="663" cy="302" r="3" fill="#fbbf24"/>
+  <text x="674" y="306" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Maintain 4-module white Quiet Zone</text>
+  <circle cx="663" cy="332" r="3" fill="#fbbf24"/>
+  <text x="674" y="336" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Audit signage weekly for overlays</text>
+  <line x1="40" y1="432" x2="920" y2="432" stroke="#27272a" stroke-width="1"/>
+  <text x="40" y="452" fill="#71717a" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11">Source: 2qrcode.com Physical Security Field Guide · 2qrcode.com Editorial Research</text>
+  <text x="920" y="452" text-anchor="end" fill="#f59e0b" font-family="ui-monospace, monospace" font-size="11" font-weight="700">2QRCODE.COM DATA BRIEF</text>
+</svg>

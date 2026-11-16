@@ -1,14 +1,34 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 
+function servePublicHtmlZipPlugin(): Plugin {
+  return {
+    name: 'serve-public-html-zip',
+    configureServer(server) {
+      server.middlewares.use('/download/2qrcode-public_html.zip', (_req, res, next) => {
+        const zipPath = path.resolve(rootDir, '2qrcode-public_html.zip');
+        if (!fs.existsSync(zipPath)) {
+          return next();
+        }
+        const stat = fs.statSync(zipPath);
+        res.setHeader('Content-Type', 'application/zip');
+        res.setHeader('Content-Length', String(stat.size));
+        res.setHeader('Content-Disposition', 'attachment; filename="2qrcode-public_html.zip"');
+        fs.createReadStream(zipPath).pipe(res);
+      });
+    },
+  };
+}
+
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [react(), tailwindcss(), servePublicHtmlZipPlugin()],
     resolve: {
       alias: {
         '@': rootDir,

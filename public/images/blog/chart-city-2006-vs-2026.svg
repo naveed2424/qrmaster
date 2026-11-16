@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480" role="img" aria-label="Two Decades in the Metropolis: Urban Life Comparison (2006 vs. 2026)">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#09090b"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="480" rx="20" fill="url(#bg)"/>
+  <rect x="16" y="16" width="928" height="448" rx="16" fill="none" stroke="#27272a" stroke-width="1.5"/>
+  <rect x="40" y="34" width="6" height="42" rx="3" fill="#f59e0b"/>
+  <text x="58" y="54" fill="#ffffff" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="800">Two Decades in the Metropolis: Urban Life Comparison (2006 vs. 2026)</text>
+  <text x="58" y="76" fill="#a1a1aa" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13">How predictive AI, mobile optics, and digital twins reshaped daily city infrastructure</text>
+  <rect x="40" y="118" width="280" height="280" rx="14" fill="#121217" stroke="#a1a1aa" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="56" y="134" width="248" height="24" rx="6" fill="#a1a1aa" fill-opacity="0.16"/>
+  <text x="66" y="150" fill="#a1a1aa" font-family="ui-monospace, monospace" font-size="11" font-weight="700">2006 ANALOG CITY</text>
+  <text x="58" y="186" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="800">Fragmented &amp; Reactive Friction</text>
+  <circle cx="63" cy="212" r="3" fill="#a1a1aa"/>
+  <text x="74" y="216" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Folded paper street atlases</text>
+  <circle cx="63" cy="242" r="3" fill="#a1a1aa"/>
+  <text x="74" y="246" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Exact-change bus &amp; toll queues</text>
+  <circle cx="63" cy="272" r="3" fill="#a1a1aa"/>
+  <text x="74" y="276" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Static printed transit timetables</text>
+  <circle cx="63" cy="302" r="3" fill="#a1a1aa"/>
+  <text x="74" y="306" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Unverified handwritten receipts</text>
+  <circle cx="63" cy="332" r="3" fill="#a1a1aa"/>
+  <text x="74" y="336" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Reactive grid blackout response</text>
+  <rect x="340" y="118" width="280" height="280" rx="14" fill="#121217" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="356" y="134" width="248" height="24" rx="6" fill="#38bdf8" fill-opacity="0.16"/>
+  <text x="366" y="150" fill="#38bdf8" font-family="ui-monospace, monospace" font-size="11" font-weight="700">2016 SMARTPHONE BRIDGE</text>
+  <text x="358" y="186" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="800">App Silos &amp; Ride-Hailing</text>
+  <circle cx="363" cy="212" r="3" fill="#38bdf8"/>
+  <text x="374" y="216" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">GPS turn-by-turn maps arrive</text>
+  <circle cx="363" cy="242" r="3" fill="#38bdf8"/>
+  <text x="374" y="246" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Fragmented proprietary tickets</text>
+  <circle cx="363" cy="272" r="3" fill="#38bdf8"/>
+  <text x="374" y="276" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Early bike-share kiosks</text>
+  <circle cx="363" cy="302" r="3" fill="#38bdf8"/>
+  <text x="374" y="306" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Basic camera barcode readers</text>
+  <circle cx="363" cy="332" r="3" fill="#38bdf8"/>
+  <text x="374" y="336" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Manual peak traffic surges</text>
+  <rect x="640" y="118" width="280" height="280" rx="14" fill="#121217" stroke="#fbbf24" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="656" y="134" width="248" height="24" rx="6" fill="#fbbf24" fill-opacity="0.16"/>
+  <text x="666" y="150" fill="#fbbf24" font-family="ui-monospace, monospace" font-size="11" font-weight="700">2026 AI-GUIDED CITY</text>
+  <text x="658" y="186" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="800">Predictive &amp; Multimodal Fabric</text>
+  <circle cx="663" cy="212" r="3" fill="#fbbf24"/>
+  <text x="674" y="216" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Unified MaaS transit routing</text>
+  <circle cx="663" cy="242" r="3" fill="#fbbf24"/>
+  <text x="674" y="246" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Sub-second adaptive traffic lights</text>
+  <circle cx="663" cy="272" r="3" fill="#fbbf24"/>
+  <text x="674" y="276" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Real-time air &amp; energy digital twins</text>
+  <circle cx="663" cy="302" r="3" fill="#fbbf24"/>
+  <text x="674" y="306" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">AI hospital triage &amp; imaging speed</text>
+  <circle cx="663" cy="332" r="3" fill="#fbbf24"/>
+  <text x="674" y="336" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Native OS QR physical anchors</text>
+  <line x1="40" y1="432" x2="920" y2="432" stroke="#27272a" stroke-width="1"/>
+  <text x="40" y="452" fill="#71717a" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11">Source: UN-Habitat, WEF &amp; Urban Mobility Benchmarks · 2qrcode.com Editorial Research</text>
+  <text x="920" y="452" text-anchor="end" fill="#f59e0b" font-family="ui-monospace, monospace" font-size="11" font-weight="700">2QRCODE.COM DATA BRIEF</text>
+</svg>

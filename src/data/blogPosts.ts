@@ -1,6 +1,10 @@
 import { BlogPost } from '../types/qr';
+import { AI_TREND_BLOG_POSTS_PART1 } from './aiTrendBlogPostsPart1';
+import { AI_TREND_BLOG_POSTS_PART2 } from './aiTrendBlogPostsPart2';
 
 export const BLOG_POSTS: BlogPost[] = [
+  ...AI_TREND_BLOG_POSTS_PART1,
+  ...AI_TREND_BLOG_POSTS_PART2,
   {
     id: 'post-1',
     slug: 'high-converting-qr-frames-cta-strategies',

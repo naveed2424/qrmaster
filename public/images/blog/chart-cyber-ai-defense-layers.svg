@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480" role="img" aria-label="Personal Defense Checklist for the Agentic AI Era">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#09090b"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="480" rx="20" fill="url(#bg)"/>
+  <rect x="16" y="16" width="928" height="448" rx="16" fill="none" stroke="#27272a" stroke-width="1.5"/>
+  <rect x="40" y="34" width="6" height="42" rx="3" fill="#f59e0b"/>
+  <text x="58" y="54" fill="#ffffff" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="800">Personal Defense Checklist for the Agentic AI Era</text>
+  <text x="58" y="76" fill="#a1a1aa" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13">Hardening identity, network privacy, and credential handoffs against automated scams</text>
+  <rect x="40" y="118" width="280" height="280" rx="14" fill="#121217" stroke="#34d399" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="56" y="134" width="248" height="24" rx="6" fill="#34d399" fill-opacity="0.16"/>
+  <text x="66" y="150" fill="#34d399" font-family="ui-monospace, monospace" font-size="11" font-weight="700">LAYER 1 · IDENTITY</text>
+  <text x="58" y="186" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="800">Phishing-Resistant Auth</text>
+  <circle cx="63" cy="212" r="3" fill="#34d399"/>
+  <text x="74" y="216" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Move off SMS verification codes</text>
+  <circle cx="63" cy="242" r="3" fill="#34d399"/>
+  <text x="74" y="246" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Back up Offline 2FA TOTP seeds</text>
+  <circle cx="63" cy="272" r="3" fill="#34d399"/>
+  <text x="74" y="276" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Audit active OAuth app tokens</text>
+  <circle cx="63" cy="302" r="3" fill="#34d399"/>
+  <text x="74" y="306" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Require biometrics before send</text>
+  <rect x="340" y="118" width="280" height="280" rx="14" fill="#121217" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="356" y="134" width="248" height="24" rx="6" fill="#38bdf8" fill-opacity="0.16"/>
+  <text x="366" y="150" fill="#38bdf8" font-family="ui-monospace, monospace" font-size="11" font-weight="700">LAYER 2 · NETWORK</text>
+  <text x="358" y="186" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="800">Encrypted Tunnel Hygiene</text>
+  <circle cx="363" cy="212" r="3" fill="#38bdf8"/>
+  <text x="374" y="216" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Provision WireGuard config QR</text>
+  <circle cx="363" cy="242" r="3" fill="#38bdf8"/>
+  <text x="374" y="246" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Block rogue cafe DNS spoofing</text>
+  <circle cx="363" cy="272" r="3" fill="#38bdf8"/>
+  <text x="374" y="276" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Separate work &amp; personal profiles</text>
+  <circle cx="363" cy="302" r="3" fill="#38bdf8"/>
+  <text x="374" y="306" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Never expose local API ports</text>
+  <rect x="640" y="118" width="280" height="280" rx="14" fill="#121217" stroke="#fbbf24" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="656" y="134" width="248" height="24" rx="6" fill="#fbbf24" fill-opacity="0.16"/>
+  <text x="666" y="150" fill="#fbbf24" font-family="ui-monospace, monospace" font-size="11" font-weight="700">LAYER 3 · VERIFICATION</text>
+  <text x="658" y="186" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="800">Out-of-Band Sanity Checks</text>
+  <circle cx="663" cy="212" r="3" fill="#fbbf24"/>
+  <text x="674" y="216" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Verify voice-cloned urgent calls</text>
+  <circle cx="663" cy="242" r="3" fill="#fbbf24"/>
+  <text x="674" y="246" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Use family/team verbal passphrases</text>
+  <circle cx="663" cy="272" r="3" fill="#fbbf24"/>
+  <text x="674" y="276" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Inspect QR destination URLs first</text>
+  <circle cx="663" cy="302" r="3" fill="#fbbf24"/>
+  <text x="674" y="306" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Keep critical recovery keys offline</text>
+  <line x1="40" y1="432" x2="920" y2="432" stroke="#27272a" stroke-width="1"/>
+  <text x="40" y="452" fill="#71717a" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11">Source: 2qrcode.com Cloud Security Field Playbook · 2qrcode.com Editorial Research</text>
+  <text x="920" y="452" text-anchor="end" fill="#f59e0b" font-family="ui-monospace, monospace" font-size="11" font-weight="700">2QRCODE.COM DATA BRIEF</text>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480" role="img" aria-label="Why Faster AI Drafting Can Still Increase Knowledge-Worker Burnout">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#09090b"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="480" rx="20" fill="url(#bg)"/>
+  <rect x="16" y="16" width="928" height="448" rx="16" fill="none" stroke="#27272a" stroke-width="1.5"/>
+  <rect x="40" y="34" width="6" height="42" rx="3" fill="#f59e0b"/>
+  <text x="58" y="54" fill="#ffffff" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="800">Why Faster AI Drafting Can Still Increase Knowledge-Worker Burnout</text>
+  <text x="58" y="76" fill="#a1a1aa" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13">Hidden operational friction replacing typing time with verification &amp; coordination load</text>
+  <rect x="40" y="118" width="280" height="280" rx="14" fill="#121217" stroke="#fbbf24" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="56" y="134" width="248" height="24" rx="6" fill="#fbbf24" fill-opacity="0.16"/>
+  <text x="66" y="150" fill="#fbbf24" font-family="ui-monospace, monospace" font-size="11" font-weight="700">1 · REVIEW OVERHEAD</text>
+  <text x="58" y="186" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="800">The &#x27;Plausible Error&#x27; Tax</text>
+  <circle cx="63" cy="212" r="3" fill="#fbbf24"/>
+  <text x="74" y="216" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Drafts generate in 4 seconds</text>
+  <circle cx="63" cy="242" r="3" fill="#fbbf24"/>
+  <text x="74" y="246" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Fact-checking takes 25 minutes</text>
+  <circle cx="63" cy="272" r="3" fill="#fbbf24"/>
+  <text x="74" y="276" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Subtle hallucinated figures</text>
+  <circle cx="63" cy="302" r="3" fill="#fbbf24"/>
+  <text x="74" y="306" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Accountability stays on staff</text>
+  <circle cx="63" cy="332" r="3" fill="#fbbf24"/>
+  <text x="74" y="336" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Higher mental vigilance cost</text>
+  <rect x="340" y="118" width="280" height="280" rx="14" fill="#121217" stroke="#f43f5e" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="356" y="134" width="248" height="24" rx="6" fill="#f43f5e" fill-opacity="0.16"/>
+  <text x="366" y="150" fill="#f43f5e" font-family="ui-monospace, monospace" font-size="11" font-weight="700">2 · OUTPUT INFLATION</text>
+  <text x="358" y="186" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="800">Volume Overload in Inboxes</text>
+  <circle cx="363" cy="212" r="3" fill="#f43f5e"/>
+  <text x="374" y="216" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Auto-written memos triple noise</text>
+  <circle cx="363" cy="242" r="3" fill="#f43f5e"/>
+  <text x="374" y="246" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Meeting summaries pile unread</text>
+  <circle cx="363" cy="272" r="3" fill="#f43f5e"/>
+  <text x="374" y="276" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Manager expectations compress</text>
+  <circle cx="363" cy="302" r="3" fill="#f43f5e"/>
+  <text x="374" y="306" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Deep creative blocks shrink</text>
+  <circle cx="363" cy="332" r="3" fill="#f43f5e"/>
+  <text x="374" y="336" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">&#x27;Always-on&#x27; response creep</text>
+  <rect x="640" y="118" width="280" height="280" rx="14" fill="#121217" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="656" y="134" width="248" height="24" rx="6" fill="#38bdf8" fill-opacity="0.16"/>
+  <text x="666" y="150" fill="#38bdf8" font-family="ui-monospace, monospace" font-size="11" font-weight="700">3 · SKILL ATROPHY</text>
+  <text x="658" y="186" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="800">Junior Pipeline Hollowing</text>
+  <circle cx="663" cy="212" r="3" fill="#38bdf8"/>
+  <text x="674" y="216" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Fewer starter drafting reps</text>
+  <circle cx="663" cy="242" r="3" fill="#38bdf8"/>
+  <text x="674" y="246" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Harder to debug senior work</text>
+  <circle cx="663" cy="272" r="3" fill="#38bdf8"/>
+  <text x="674" y="276" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Copy-paste homogoneity risk</text>
+  <circle cx="663" cy="302" r="3" fill="#38bdf8"/>
+  <text x="674" y="306" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Imposter syndrome under speed</text>
+  <circle cx="663" cy="332" r="3" fill="#38bdf8"/>
+  <text x="674" y="336" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="12.5">Need deliberate offline practice</text>
+  <line x1="40" y1="432" x2="920" y2="432" stroke="#27272a" stroke-width="1"/>
+  <text x="40" y="452" fill="#71717a" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11">Source: Enterprise Productivity &amp; Human-in-the-Loop Audits (2026) · 2qrcode.com Editorial Research</text>
+  <text x="920" y="452" text-anchor="end" fill="#f59e0b" font-family="ui-monospace, monospace" font-size="11" font-weight="700">2QRCODE.COM DATA BRIEF</text>
+</svg>
