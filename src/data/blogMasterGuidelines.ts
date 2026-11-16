@@ -79,7 +79,7 @@ export const MASTER_PROMPT_REGISTRY = {
   eeatPillars: {
     experience: 'Practical real-world measurements, live trend research, and hands-on engineering benchmarks.',
     expertise: 'Technical accuracy verified against ISO/IEC 18004 standards and primary research reports (Stanford HAI, Pew, WEF, Google Search Central).',
-    authoritativeness: 'Comprehensive topical coverage across 60+ specialized tools and 6 structured categories.',
+    authoritativeness: 'Comprehensive topical coverage across 70+ specialized tools and 6 structured categories.',
     trust: 'Transparent creator profile, zero duplicate/recycled photos, verified external citations, and lifetime free utility access.',
   },
   geoAeoRules: [

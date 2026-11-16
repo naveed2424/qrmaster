@@ -75,7 +75,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   en: {
     brandName: '2qrcode.com',
     tagline: '60 Free QR Code Generators with Logo & Frame Customizer',
-    navGenerators: 'All Generators (60+)',
+    navGenerators: 'All Generators (70+)',
     navCustomizer: 'Customizer Studio',
     navMetricConverter: 'Metric Print Calculator',
     navBlog: 'Blog & Tips',
@@ -86,8 +86,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     heroBadge: '100% Free Forever · Zero Sign-Up · Unlimited Scans',
     heroTitle: 'Create High-Converting QR Codes for',
     heroHighlight: 'Any Occasion in Seconds',
-    heroSub: 'Choose from 60+ specialized generators tailored for Wi-Fi, digital business cards, social media, crypto payments, menus, and media. Add your logo, custom colors, high-res frames, and download vector SVG/PNG without an account.',
-    searchPlaceholder: 'Search 60+ generators (e.g., Wi-Fi, vCard, Instagram, Bitcoin, Menu, PDF)...',
+    heroSub: 'Choose from 70+ specialized generators tailored for Wi-Fi, digital business cards, social media, crypto payments, menus, and media. Add your logo, custom colors, high-res frames, and download vector SVG/PNG without an account.',
+    searchPlaceholder: 'Search 70+ generators (e.g., Wi-Fi, vCard, Instagram, Bitcoin, Menu, PDF)...',
     categories: {
       all: 'All Tools',
       web: 'Web & Links',
@@ -145,7 +145,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   es: {
     brandName: '2qrcode.com',
     tagline: '60 Generadores de Códigos QR Gratuitos con Logo y Marcos',
-    navGenerators: 'Todos los Generadores (60+)',
+    navGenerators: 'Todos los Generadores (70+)',
     navCustomizer: 'Estudio de Diseño',
     navMetricConverter: 'Calculadora Métrica',
     navBlog: 'Blog y Consejos',
@@ -215,7 +215,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   fr: {
     brandName: '2qrcode.com',
     tagline: '60 Générateurs de QR Code Gratuits avec Logo & Cadres',
-    navGenerators: 'Générateurs (60+)',
+    navGenerators: 'Générateurs (70+)',
     navCustomizer: 'Studio Personnalisé',
     navMetricConverter: 'Convertisseur Métrique',
     navBlog: 'Blog & Conseils',
@@ -227,7 +227,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     heroTitle: 'Générez des QR Codes Performants pour',
     heroHighlight: 'Toutes les Occasions en Quelques Secondes',
     heroSub: 'Plus de 60 générateurs spécialisés : Wi-Fi, vCard, réseaux sociaux, menus de restaurant, paiements et fichiers. Intégrez votre logo et téléchargez en SVG et PNG haute définition sans frais.',
-    searchPlaceholder: 'Rechercher parmi 60+ outils (ex. Wi-Fi, vCard, Menu, PDF)...',
+    searchPlaceholder: 'Rechercher parmi 70+ outils (ex. Wi-Fi, vCard, Menu, PDF)...',
     categories: {
       all: 'Tous',
       web: 'Web & Liens',
@@ -285,7 +285,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   de: {
     brandName: '2qrcode.com',
     tagline: '60 Kostenlose QR-Code-Generatoren mit Logo & Rahmen',
-    navGenerators: 'Alle Generatoren (60+)',
+    navGenerators: 'Alle Generatoren (70+)',
     navCustomizer: 'Customizer Studio',
     navMetricConverter: 'Metrik-Rechner',
     navBlog: 'Blog & Ratgeber',
@@ -355,7 +355,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   pt: {
     brandName: '2qrcode.com',
     tagline: '60 Geradores de QR Code Grátis com Logo e Molduras',
-    navGenerators: 'Geradores (60+)',
+    navGenerators: 'Geradores (70+)',
     navCustomizer: 'Estúdio de Design',
     navMetricConverter: 'Calculadora Métrica',
     navBlog: 'Blog e Dicas',
@@ -425,7 +425,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   it: {
     brandName: '2qrcode.com',
     tagline: '60 Generatori di Codici QR Gratuiti con Logo e Cornici',
-    navGenerators: 'Tutti i Generatori (60+)',
+    navGenerators: 'Tutti i Generatori (70+)',
     navCustomizer: 'Studio Creativo',
     navMetricConverter: 'Calcolatore Metrico',
     navBlog: 'Blog e Consigli',
@@ -437,7 +437,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     heroTitle: 'Crea Codici QR Efficaci per',
     heroHighlight: 'Ogni Occasione in Pochi Secondi',
     heroSub: 'Oltre 60 generatori specifici per Wi-Fi, biglietti da visita vCard, social network, menu digitali e pagamenti. Inserisci il tuo logo e scarica in SVG e PNG.',
-    searchPlaceholder: 'Cerca tra 60+ strumenti (es. Wi-Fi, vCard, Menu, PDF)...',
+    searchPlaceholder: 'Cerca tra 70+ strumenti (es. Wi-Fi, vCard, Menu, PDF)...',
     categories: {
       all: 'Tutti',
       web: 'Web e Link',
@@ -495,7 +495,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   ja: {
     brandName: '2qrcode.com',
     tagline: 'ロゴ＆フレーム対応 60種の無料QRコード生成スタジオ',
-    navGenerators: '全ツール一覧 (60+)',
+    navGenerators: '全ツール一覧 (70+)',
     navCustomizer: 'デザインスタジオ',
     navMetricConverter: '印刷サイズ計算機',
     navBlog: 'ブログ＆解説',
@@ -634,8 +634,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   },
   zh: {
     brandName: '2qrcode.com',
-    tagline: '60+ 款免费二维码生成器，支持 Logo 与高分辨率画框',
-    navGenerators: '全部生成器 (60+)',
+    tagline: '70+ 款免费二维码生成器，支持 Logo 与高分辨率画框',
+    navGenerators: '全部生成器 (70+)',
     navCustomizer: '定制工作室',
     navMetricConverter: '印刷公制计算器',
     navBlog: '博客与技巧',
@@ -646,8 +646,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     heroBadge: '100% 永久免费 · 无需注册 · 无限次扫描',
     heroTitle: '几秒内为任何场景打造',
     heroHighlight: '超高转化率专业二维码',
-    heroSub: '精选 60+ 款专业生成器：Wi-Fi、电子名片、社交媒体、加密货币支付、餐厅菜单与多媒体。添加您的品牌 Logo、专属配色与精美边框，免登录直接导出矢量 SVG 与高清 PNG。',
-    searchPlaceholder: '搜索 60+ 款生成器（如 Wi-Fi、名片、微信、Instagram、菜单、PDF）...',
+    heroSub: '精选 70+ 款专业生成器：Wi-Fi、电子名片、社交媒体、加密货币支付、餐厅菜单与多媒体。添加您的品牌 Logo、专属配色与精美边框，免登录直接导出矢量 SVG 与高清 PNG。',
+    searchPlaceholder: '搜索 70+ 款生成器（如 Wi-Fi、名片、微信、Instagram、菜单、PDF）...',
     categories: {
       all: '全部工具',
       web: '网页与链接',
@@ -704,8 +704,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   },
   hi: {
     brandName: '2qrcode.com',
-    tagline: '60+ निःशुल्क क्यूआर कोड जेनरेटर लोगो और फ्रेम कस्टमाइज़र के साथ',
-    navGenerators: 'सभी जेनरेटर (60+)',
+    tagline: '70+ निःशुल्क क्यूआर कोड जेनरेटर लोगो और फ्रेम कस्टमाइज़र के साथ',
+    navGenerators: 'सभी जेनरेटर (70+)',
     navCustomizer: 'स्टूडियो',
     navMetricConverter: 'प्रिंट कैलकुलेटर',
     navBlog: 'ब्लॉग और टिप्स',
@@ -716,8 +716,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     heroBadge: '100% आजीवन निःशुल्क · कोई साइनअप नहीं · असीमित स्कैन',
     heroTitle: 'किसी भी कार्य के लिए बनाएं',
     heroHighlight: 'आकर्षक और प्रभावी क्यूआर कोड',
-    heroSub: 'वाई-फाई, डिजिटल बिजनेस कार्ड, सोशल मीडिया, क्रिप्टो पेमेंट, मेनू और फाइल्स के लिए 60+ विशेष टूल्स। अपना लोगो जोड़ें, कस्टम रंग चुनें और बिना अकाउंट के वेक्टर SVG व PNG डाउनलोड करें।',
-    searchPlaceholder: '60+ टूल्स खोजें (जैसे वाई-फाई, वीकार्ड, इंस्टाग्राम, मेनू, पीडीएफ)...',
+    heroSub: 'वाई-फाई, डिजिटल बिजनेस कार्ड, सोशल मीडिया, क्रिप्टो पेमेंट, मेनू और फाइल्स के लिए 70+ विशेष टूल्स। अपना लोगो जोड़ें, कस्टम रंग चुनें और बिना अकाउंट के वेक्टर SVG व PNG डाउनलोड करें।',
+    searchPlaceholder: '70+ टूल्स खोजें (जैसे वाई-फाई, वीकार्ड, इंस्टाग्राम, मेनू, पीडीएफ)...',
     categories: {
       all: 'सभी टूल्स',
       web: 'वेब और लिंक',
@@ -774,8 +774,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   },
   ru: {
     brandName: '2qrcode.com',
-    tagline: '60+ бесплатных генераторов QR-кодов с логотипом и рамками',
-    navGenerators: 'Все генераторы (60+)',
+    tagline: '70+ бесплатных генераторов QR-кодов с логотипом и рамками',
+    navGenerators: 'Все генераторы (70+)',
     navCustomizer: 'Студия дизайна',
     navMetricConverter: 'Метрический калькулятор',
     navBlog: 'Блог и советы',
@@ -787,7 +787,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     heroTitle: 'Создавайте профессиональные QR-коды для',
     heroHighlight: 'любых задач за считанные секунды',
     heroSub: 'Более 60 специализированных инструментов: Wi-Fi, визитки vCard, соцсети, меню ресторанов, криптоплатежи и файлы. Добавляйте логотип, фирменные цвета, стильные рамки и скачивайте векторные SVG и PNG без создания учетной записи.',
-    searchPlaceholder: 'Поиск среди 60+ инструментов (Wi-Fi, визитка, Instagram, Telegram, меню)...',
+    searchPlaceholder: 'Поиск среди 70+ инструментов (Wi-Fi, визитка, Instagram, Telegram, меню)...',
     categories: {
       all: 'Все инструменты',
       web: 'Веб и ссылки',
@@ -845,7 +845,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   ko: {
     brandName: '2qrcode.com',
     tagline: '로고 및 프레임 맞춤 제작 가능한 60여 개 무료 QR 코드 생성기',
-    navGenerators: '전체 생성기 (60+)',
+    navGenerators: '전체 생성기 (70+)',
     navCustomizer: '커스텀 스튜디오',
     navMetricConverter: '인쇄 규격 계산기',
     navBlog: '블로그 & 팁',
@@ -914,8 +914,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   },
   tr: {
     brandName: '2qrcode.com',
-    tagline: 'Logolu ve Çerçeveli 60+ Ücretsiz QR Kod Oluşturucu',
-    navGenerators: 'Tüm Araçlar (60+)',
+    tagline: 'Logolu ve Çerçeveli 70+ Ücretsiz QR Kod Oluşturucu',
+    navGenerators: 'Tüm Araçlar (70+)',
     navCustomizer: 'Tasarım Stüdyosu',
     navMetricConverter: 'Baskı Hesaplayıcı',
     navBlog: 'Blog & İpuçları',
@@ -927,7 +927,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     heroTitle: 'Her İhtiyaca Uygun Dönüşüm Odaklı',
     heroHighlight: 'Profesyonel QR Kodları Saniyeler İçinde',
     heroSub: 'Wi-Fi, dijital kartvizit, sosyal medya, kripto ödeme, menü ve dosyalar için 60’tan fazla özel araç. Logonuzu ve özel renklerinizi ekleyin, kayıt olmadan vektör SVG ve yüksek çözünürlüklü PNG indirin.',
-    searchPlaceholder: '60+ araç içinde ara (örn. Wi-Fi, vCard, Instagram, Menü, PDF)...',
+    searchPlaceholder: '70+ araç içinde ara (örn. Wi-Fi, vCard, Instagram, Menü, PDF)...',
     categories: {
       all: 'Tüm Araçlar',
       web: 'Web ve Bağlantılar',
@@ -984,8 +984,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   },
   id: {
     brandName: '2qrcode.com',
-    tagline: '60+ Generator QR Code Gratis dengan Kustomisasi Logo & Frame',
-    navGenerators: 'Semua Generator (60+)',
+    tagline: '70+ Generator QR Code Gratis dengan Kustomisasi Logo & Frame',
+    navGenerators: 'Semua Generator (70+)',
     navCustomizer: 'Studio Desain',
     navMetricConverter: 'Kalkulator Cetak Metrik',
     navBlog: 'Blog & Panduan',
@@ -997,7 +997,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     heroTitle: 'Buat QR Code Profesional Berkonversi Tinggi',
     heroHighlight: 'Untuk Berbagai Keperluan dalam Hitungan Detik',
     heroSub: 'Pilihan lebih dari 60 generator khusus: Wi-Fi, kartu nama digital, media sosial, pembayaran kripto, menu resto, dan dokumen. Tambahkan logo Anda, pilih warna khusus, dan unduh vektor SVG & PNG tanpa perlu login.',
-    searchPlaceholder: 'Cari 60+ generator (misal: Wi-Fi, vCard, Instagram, Menu, PDF)...',
+    searchPlaceholder: 'Cari 70+ generator (misal: Wi-Fi, vCard, Instagram, Menu, PDF)...',
     categories: {
       all: 'Semua Alat',
       web: 'Web & Tautan',
@@ -1054,8 +1054,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   },
   nl: {
     brandName: '2qrcode.com',
-    tagline: '60+ Gratis QR Code Generators met Logo & Frame Aanpassingen',
-    navGenerators: 'Alle Generators (60+)',
+    tagline: '70+ Gratis QR Code Generators met Logo & Frame Aanpassingen',
+    navGenerators: 'Alle Generators (70+)',
     navCustomizer: 'Customizer Studio',
     navMetricConverter: 'Metrische Print Calculator',
     navBlog: 'Blog & Tips',
@@ -1066,8 +1066,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     heroBadge: '100% Altijd Gratis · Geen Registratie · Onbeperkt Scannen',
     heroTitle: 'Maak Professionele QR Codes voor',
     heroHighlight: 'Elke Gelegenheid in Enkele Seconden',
-    heroSub: 'Kies uit 60+ gespecialiseerde generators voor Wi-Fi, vCard visitekaartjes, sociale media, crypto betalingen, restaurantmenu’s en bestanden. Voeg uw logo toe, kies eigen kleuren en download vector SVG & PNG zonder account.',
-    searchPlaceholder: 'Zoek 60+ tools (bijv. Wi-Fi, vCard, Instagram, Menu, PDF)...',
+    heroSub: 'Kies uit 70+ gespecialiseerde generators voor Wi-Fi, vCard visitekaartjes, sociale media, crypto betalingen, restaurantmenu’s en bestanden. Voeg uw logo toe, kies eigen kleuren en download vector SVG & PNG zonder account.',
+    searchPlaceholder: 'Zoek 70+ tools (bijv. Wi-Fi, vCard, Instagram, Menu, PDF)...',
     categories: {
       all: 'Alle Tools',
       web: 'Web & Links',
@@ -1124,8 +1124,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   },
   pl: {
     brandName: '2qrcode.com',
-    tagline: '60+ Darmowych Generatorów Kodów QR z Logo i Ramkami',
-    navGenerators: 'Wszystkie Generatory (60+)',
+    tagline: '70+ Darmowych Generatorów Kodów QR z Logo i Ramkami',
+    navGenerators: 'Wszystkie Generatory (70+)',
     navCustomizer: 'Studio Projektowe',
     navMetricConverter: 'Kalkulator Wydruku',
     navBlog: 'Blog i Porady',
@@ -1136,8 +1136,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     heroBadge: '100% Zawsze Za Darmo · Bez Rejestracji · Nielimitowane Skanowania',
     heroTitle: 'Twórz Profesjonalne Kody QR dla',
     heroHighlight: 'Każdej Okazji w Kilka Sekund',
-    heroSub: 'Wybieraj spośród 60+ generatorów: Wi-Fi, wizytówki vCard, media społecznościowe, płatności krypto, menu restauracji i pliki. Dodaj logo, własne kolory i pobieraj wektorowe SVG oraz PNG bez rejestracji.',
-    searchPlaceholder: 'Szukaj w 60+ generatorach (np. Wi-Fi, vCard, Instagram, Menu, PDF)...',
+    heroSub: 'Wybieraj spośród 70+ generatorów: Wi-Fi, wizytówki vCard, media społecznościowe, płatności krypto, menu restauracji i pliki. Dodaj logo, własne kolory i pobieraj wektorowe SVG oraz PNG bez rejestracji.',
+    searchPlaceholder: 'Szukaj w 70+ generatorach (np. Wi-Fi, vCard, Instagram, Menu, PDF)...',
     categories: {
       all: 'Wszystkie Narzędzia',
       web: 'Strony i Linki',

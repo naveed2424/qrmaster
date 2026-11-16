@@ -1,4 +1,5 @@
 import { QRGeneratorTool } from '../types/qr';
+import { EXTRA_QR_GENERATORS } from './extraGenerators';
 import {
   formatWifi,
   formatVCard,
@@ -1649,4 +1650,5 @@ export const QR_GENERATORS: QRGeneratorTool[] = [
       faqs: [{ question: 'Can the client enter their own amount?', answer: 'Yes, if you leave the amount field empty, the client chooses the amount.' }],
     },
   },
+  ...EXTRA_QR_GENERATORS,
 ];
