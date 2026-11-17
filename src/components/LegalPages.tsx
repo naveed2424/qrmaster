@@ -74,14 +74,14 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
           <section className="space-y-2">
             <h2 className="text-lg font-bold text-amber-300">1. Client-Side QR Generation &amp; Zero Payload Storage</h2>
             <p>
-              At <strong>2qrcode.com</strong>, your privacy is built into our architecture. All 60+ individual QR generators and our Batch CSV QR Code Generator compile QR code matrices directly inside your local web browser using HTML5 Canvas and vector SVG. Website URLs, Wi-Fi network passwords, vCard contact details, 2FA TOTP secrets, cryptocurrency wallet addresses, and uploaded CSV spreadsheets are never uploaded to, logged on, or stored by our servers.
+              At <strong>2qrcode.com</strong>, your privacy is built into our architecture. All 70+ individual QR generators and our Batch CSV QR Code Generator compile QR code matrices directly inside your local web browser using HTML5 Canvas and vector SVG. Website URLs, Wi-Fi network passwords, vCard contact details, 2FA TOTP secrets, cryptocurrency wallet addresses, and uploaded CSV spreadsheets are never uploaded to, logged on, or stored by our servers.
             </p>
           </section>
 
           <section className="space-y-2">
             <h2 className="text-lg font-bold text-amber-300">2. Google AdSense &amp; Third-Party Advertising Cookies</h2>
             <p>
-              2qrcode.com uses <strong>Google AdSense</strong> (Publisher ID: <code>ca-pub-8358033803354457</code>) to serve advertisements and keep our 60+ QR generation tools and batch spreadsheet utilities 100% free without subscription fees.
+              2qrcode.com uses <strong>Google AdSense</strong> (Publisher ID: <code>ca-pub-8358033803354457</code>) to serve advertisements and keep our 70+ QR generation tools and batch spreadsheet utilities 100% free without subscription fees.
             </p>
             <ul className="list-disc pl-5 space-y-1.5 text-zinc-300">
               <li>
@@ -306,8 +306,9 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
             <form onSubmit={handleContactSubmit} className="md:col-span-7 space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-zinc-300 mb-1.5">Your Name</label>
+                  <label htmlFor="contact-name" className="block text-xs font-semibold text-zinc-300 mb-1.5">Your Name</label>
                   <input
+                    id="contact-name"
                     type="text"
                     required
                     value={name}
@@ -317,8 +318,9 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-zinc-300 mb-1.5">Email Address</label>
+                  <label htmlFor="contact-email" className="block text-xs font-semibold text-zinc-300 mb-1.5">Email Address</label>
                   <input
+                    id="contact-email"
                     type="email"
                     required
                     value={email}
@@ -330,8 +332,9 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-zinc-300 mb-1.5">Inquiry Topic</label>
+                <label htmlFor="contact-topic" className="block text-xs font-semibold text-zinc-300 mb-1.5">Inquiry Topic</label>
                 <select
+                  id="contact-topic"
                   value={topic}
                   onChange={(e) => setTopic(e.target.value)}
                   className="w-full px-3.5 py-2.5 bg-zinc-900 border border-zinc-800 focus:border-amber-400 rounded-xl text-xs text-white focus:outline-hidden"
@@ -344,8 +347,9 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-zinc-300 mb-1.5">Message</label>
+                <label htmlFor="contact-message" className="block text-xs font-semibold text-zinc-300 mb-1.5">Message</label>
                 <textarea
+                  id="contact-message"
                   rows={4}
                   required
                   value={message}

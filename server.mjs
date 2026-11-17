@@ -67,8 +67,13 @@ app.get('/video.html', (_req, res) => {
   res.sendFile(path.join(distDir, 'video.html'));
 });
 
-// SPA fallback for client-side routes
-app.use((_req, res) => {
+// SPA fallback for client-side routes (always return HTTP 200 index.html)
+app.use((req, res) => {
+  if (/\.(js|css|map|png|jpg|jpeg|webp|svg|ico|woff2|mp4|mp3)$/i.test(req.path)) {
+    res.status(404).end('Not found');
+    return;
+  }
+  res.status(200);
   res.setHeader('Cache-Control', 'no-cache, must-revalidate');
   res.sendFile(distIndex);
 });

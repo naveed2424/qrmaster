@@ -1,23 +1,31 @@
 # hosting.com (Apache / LiteSpeed) Static Web Hosting Configuration for 2qrcode.com
-Options -MultiViews
-RewriteEngine On
-RewriteBase /
+DirectoryIndex index.html index.htm
+Options -MultiViews -Indexes
 
-# Always serve critical static, AdSense & SEO root files directly
-RewriteRule ^(ads\.txt|robots\.txt|sitemap\.xml|favicon\.svg|video\.html)$ - [L]
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
 
-# Serve existing static files, CSS, JS, images, audio & video directly
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
+  # Always serve critical static, AdSense & SEO root files directly
+  RewriteRule ^(ads\.txt|robots\.txt|sitemap\.xml|favicon\.ico|favicon\.svg|video\.html)$ - [L]
 
-# Route all other paths to the React SPA index.html
-RewriteRule ^ /index.html [L]
+  # Serve existing static files, CSS, JS, images, audio & video directly
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
 
-# Standard MIME Types for Vite ES Modules, SVG & Media
+  # Avoid rewriting already-targeted index.html
+  RewriteCond %{REQUEST_URI} !^/index\.html$ [NC]
+
+  # Route all other SPA page paths cleanly to React index.html with HTTP 200
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Standard MIME Types for Vite ES Modules, Icons, SVG & Media
 <IfModule mod_mime.c>
   AddType application/javascript .js .mjs
   AddType text/css .css
+  AddType image/x-icon .ico
   AddType image/svg+xml .svg
   AddType video/mp4 .mp4
   AddType audio/mpeg .mp3

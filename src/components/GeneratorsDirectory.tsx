@@ -161,6 +161,7 @@ export default function GeneratorsDirectory({
   const deferredSearch = useDeferredValue(searchQuery);
 
   const quickInputId = useId();
+  const searchInputId = useId();
 
   const filteredGenerators = useMemo(() => {
     return generators.filter((gen) => {
@@ -212,7 +213,7 @@ export default function GeneratorsDirectory({
           </h1>
 
           <p className="text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Choose from 60+ specialized generators: Wi-Fi, vCard business cards, social media, crypto payments, menus, and files. Add your logo, radiant golden colors, high-res frames, and download vector SVG/PNG without an account.
+            Choose from 70+ specialized generators: Wi-Fi, vCard business cards, social media, crypto payments, menus, and files. Add your logo, radiant golden colors, high-res frames, and download vector SVG/PNG without an account.
           </p>
 
           {/* Quick URL Input Bar matching reference site with golden accents */}
@@ -221,7 +222,7 @@ export default function GeneratorsDirectory({
             className="max-w-2xl mx-auto p-2 bg-zinc-950/90 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.8)] border border-amber-500/30 backdrop-blur-xl flex flex-col sm:flex-row items-center gap-2"
           >
             <div className="flex items-center gap-3 px-3 w-full sm:flex-1">
-              <Globe className="w-5 h-5 text-amber-400 shrink-0" />
+              <Globe className="w-5 h-5 text-amber-400 shrink-0" aria-hidden="true" />
               <label htmlFor={quickInputId} className="sr-only">Enter or paste URL</label>
               <input
                 id={quickInputId}
@@ -229,7 +230,7 @@ export default function GeneratorsDirectory({
                 value={quickUrl}
                 onChange={(e) => setQuickUrl(e.target.value)}
                 placeholder="Enter or paste website URL..."
-                className="w-full py-3 text-sm font-semibold bg-transparent text-white placeholder:text-zinc-500 focus:outline-hidden"
+                className="w-full py-3 text-sm font-semibold bg-transparent text-white placeholder:text-zinc-400 focus:outline-hidden"
               />
             </div>
             <button
@@ -248,13 +249,13 @@ export default function GeneratorsDirectory({
               className="px-4 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-amber-500/40 text-amber-300 font-bold inline-flex items-center gap-1.5 cursor-pointer transition-colors whitespace-nowrap"
             >
               <span>Open Batch CSV QR Generator</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
             </button>
           </div>
         </div>
       </section>
 
-      {/* 60 Generators Directory Header & Live Search */}
+      {/* 70+ Generators Directory Header & Live Search */}
       <section className="relative z-10 max-w-6xl mx-auto px-4 space-y-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
@@ -262,19 +263,21 @@ export default function GeneratorsDirectory({
               <span className="text-gold-gradient">Or select another type of QR code</span>
             </h2>
             <p className="text-xs text-zinc-400 mt-1">
-              Choose from 60+ individual tools on 2qrcode.com tailored for Wi-Fi, contacts, apps, menus, and payments.
+              Choose from 70+ individual tools on 2qrcode.com tailored for Wi-Fi, contacts, apps, menus, and payments.
             </p>
           </div>
 
           {/* Search Box */}
           <div className="relative w-full md:w-80">
-            <Search className="w-4 h-4 absolute left-3.5 top-3.5 text-amber-400/80" />
+            <Search className="w-4 h-4 absolute left-3.5 top-3.5 text-amber-400/80" aria-hidden="true" />
+            <label htmlFor={searchInputId} className="sr-only">Search 70+ QR generators</label>
             <input
+              id={searchInputId}
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search 60+ generators (e.g., Wi-Fi, vCard)..."
-              className="w-full pl-10 pr-4 py-2.5 text-xs font-semibold rounded-xl border border-zinc-800 bg-zinc-950/80 text-white placeholder:text-zinc-500 focus:outline-hidden focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors shadow-xs"
+              placeholder="Search 70+ generators (e.g., Wi-Fi, vCard)..."
+              className="w-full pl-10 pr-4 py-2.5 text-xs font-semibold rounded-xl border border-zinc-800 bg-zinc-950/80 text-white placeholder:text-zinc-400 focus:outline-hidden focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors shadow-xs"
             />
           </div>
         </div>
@@ -329,9 +332,9 @@ export default function GeneratorsDirectory({
 
               <div className="mt-4 pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs relative z-10">
                 <div className="flex items-center gap-1 text-amber-400 font-mono text-[11px]">
-                  <Star className="w-3.5 h-3.5 fill-amber-400" />
+                  <Star className="w-3.5 h-3.5 fill-amber-400" aria-hidden="true" />
                   <span className="font-bold text-zinc-200">{gen.rating.toFixed(1)}</span>
-                  <span className="text-zinc-500">({gen.ratingCount})</span>
+                  <span className="text-zinc-400">({gen.ratingCount})</span>
                 </div>
                 <span className="text-[11px] font-bold text-amber-400 group-hover:text-yellow-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                   Create <ArrowRight className="w-3 h-3" />

@@ -110,9 +110,9 @@ export default function FAQSection() {
           <HelpCircle className="w-4 h-4" />
           <span>Knowledge Base</span>
         </div>
-        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
           Frequently Asked <span className="text-gold-gradient">Questions</span>
-        </h2>
+        </h1>
         <p className="text-sm text-zinc-400">
           Everything you need to know about QR generation, printing specs, and commercial rights.
         </p>
@@ -143,13 +143,14 @@ export default function FAQSection() {
             <div key={idx} className="py-4.5 first:pt-0 last:pb-0">
               <button
                 onClick={() => setOpenIndex(isOpen ? null : idx)}
+                aria-expanded={isOpen}
                 className="w-full flex items-center justify-between text-left gap-4 font-bold text-sm sm:text-base text-zinc-100 hover:text-amber-300 transition-colors cursor-pointer"
               >
                 <span>{faq.question}</span>
                 {isOpen ? (
-                  <ChevronUp className="w-5 h-5 text-amber-400 shrink-0" />
+                  <ChevronUp className="w-5 h-5 text-amber-400 shrink-0" aria-hidden="true" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-zinc-500 shrink-0" />
+                  <ChevronDown className="w-5 h-5 text-zinc-400 shrink-0" aria-hidden="true" />
                 )}
               </button>
               {isOpen && (

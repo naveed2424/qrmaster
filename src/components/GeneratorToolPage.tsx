@@ -107,7 +107,7 @@ export default function GeneratorToolPage({
                 <span className="text-xl font-extrabold text-white">
                   {tool.rating.toFixed(1)}
                 </span>
-                <span className="text-xs text-zinc-500">/ 5.0</span>
+                <span className="text-xs text-zinc-400">/ 5.0</span>
               </div>
               <div className="text-[11px] text-zinc-400 font-medium">
                 {(tool.ratingCount + (hasRated ? 1 : 0)).toLocaleString()} verified ratings
@@ -168,10 +168,10 @@ export default function GeneratorToolPage({
                       value={currentVal}
                       placeholder={field.placeholder}
                       onChange={(e) => handleFieldChange(field.id, e.target.value)}
-                      className="w-full px-3.5 py-2.5 text-xs font-mono rounded-xl border border-zinc-800 bg-zinc-900 text-white placeholder:text-zinc-600 focus:outline-hidden focus:border-amber-400 focus:ring-1 focus:ring-amber-400"
+                      className="w-full px-3.5 py-2.5 text-xs font-mono rounded-xl border border-zinc-800 bg-zinc-900 text-white placeholder:text-zinc-400 focus:outline-hidden focus:border-amber-400 focus:ring-1 focus:ring-amber-400"
                     />
                     {field.helperText && (
-                      <p className="text-[11px] text-zinc-500 mt-1">{field.helperText}</p>
+                      <p className="text-[11px] text-zinc-400 mt-1">{field.helperText}</p>
                     )}
                   </div>
                 );
@@ -205,10 +205,10 @@ export default function GeneratorToolPage({
                     value={currentVal}
                     placeholder={field.placeholder}
                     onChange={(e) => handleFieldChange(field.id, e.target.value)}
-                    className="w-full px-3.5 py-2.5 text-xs font-semibold rounded-xl border border-zinc-800 bg-zinc-900 text-white placeholder:text-zinc-600 focus:outline-hidden focus:border-amber-400 focus:ring-1 focus:ring-amber-400"
+                    className="w-full px-3.5 py-2.5 text-xs font-semibold rounded-xl border border-zinc-800 bg-zinc-900 text-white placeholder:text-zinc-400 focus:outline-hidden focus:border-amber-400 focus:ring-1 focus:ring-amber-400"
                   />
                   {field.helperText && (
-                    <p className="text-[11px] text-zinc-500 mt-1">{field.helperText}</p>
+                    <p className="text-[11px] text-zinc-400 mt-1">{field.helperText}</p>
                   )}
                 </div>
               );
@@ -236,6 +236,7 @@ export default function GeneratorToolPage({
                   key={star}
                   type="button"
                   disabled={hasRated}
+                  aria-label={`Rate ${star} out of 5 stars`}
                   onMouseEnter={() => !hasRated && setHoverRating(star)}
                   onMouseLeave={() => !hasRated && setHoverRating(0)}
                   onClick={() => handleRateSubmit(star)}
@@ -245,8 +246,9 @@ export default function GeneratorToolPage({
                     className={`w-5 h-5 ${
                       (hoverRating || userRating || (hasRated ? 5 : 0)) >= star
                         ? 'fill-amber-400 text-amber-400 drop-shadow-[0_0_6px_rgba(251,191,36,0.5)]'
-                        : 'text-zinc-700'
+                        : 'text-zinc-600'
                     }`}
+                    aria-hidden="true"
                   />
                 </button>
               ))}
@@ -377,13 +379,14 @@ export default function GeneratorToolPage({
               <div key={idx} className="py-4.5">
                 <button
                   onClick={() => setExpandedFaqIndex(isOpen ? null : idx)}
+                  aria-expanded={isOpen}
                   className="w-full flex items-center justify-between text-left gap-4 font-bold text-sm sm:text-base text-zinc-100 hover:text-amber-300 transition-colors cursor-pointer"
                 >
                   <span>{faq.question}</span>
                   {isOpen ? (
-                    <ChevronUp className="w-4 h-4 text-amber-400 shrink-0" />
+                    <ChevronUp className="w-4 h-4 text-amber-400 shrink-0" aria-hidden="true" />
                   ) : (
-                    <ChevronDown className="w-4 h-4 text-zinc-500 shrink-0" />
+                    <ChevronDown className="w-4 h-4 text-zinc-400 shrink-0" aria-hidden="true" />
                   )}
                 </button>
                 {isOpen && (
@@ -408,7 +411,7 @@ export default function GeneratorToolPage({
               onClick={() => onSelectTool('overview')}
               className="text-xs font-bold text-amber-400 hover:text-yellow-300 cursor-pointer"
             >
-              View All 60+ Tools &rarr;
+              View All 70+ Tools &rarr;
             </button>
           </div>
 

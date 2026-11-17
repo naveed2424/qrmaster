@@ -61,29 +61,40 @@ export default function Navbar({
     <header className="sticky top-0 z-50 bg-black/95 backdrop-blur-xl border-b border-amber-500/25 transition-all shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 flex items-center justify-between gap-2 sm:gap-4 lg:gap-8 h-18 sm:h-20">
         {/* Zone 1: Brand Logo */}
-        <button
-          onClick={() => onNavigate('directory')}
+        <a
+          href="/"
+          aria-label="2qrcode.com Home"
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate('directory');
+          }}
           className="text-left cursor-pointer transition-transform hover:scale-[1.02] shrink-0"
         >
           <BrandLogo size="md" />
-        </button>
+        </a>
 
         {/* Zone 2: Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-7 text-xs font-bold tracking-wide uppercase">
+        <nav aria-label="Primary Navigation" className="hidden lg:flex items-center gap-7 text-xs font-bold tracking-wide uppercase">
           {navLinks.map((link) => {
             const isActive = activeView === link.id;
+            const href = link.id === 'directory' ? '/' : `?view=${link.id}`;
             return (
-              <button
+              <a
                 key={link.id}
-                onClick={() => onNavigate(link.id)}
+                href={href}
+                aria-current={isActive ? 'page' : undefined}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate(link.id);
+                }}
                 className={`whitespace-nowrap transition-all py-1.5 cursor-pointer ${
                   isActive
                     ? 'text-amber-400 font-extrabold border-b-2 border-amber-400 shadow-[0_2px_10px_rgba(251,191,36,0.3)]'
-                    : 'text-zinc-400 hover:text-amber-300'
+                    : 'text-zinc-300 hover:text-amber-300'
                 }`}
               >
                 {link.label}
-              </button>
+              </a>
             );
           })}
         </nav>
@@ -170,7 +181,7 @@ export default function Navbar({
                           {active ? (
                             <Check className="w-3.5 h-3.5 text-slate-950 shrink-0" />
                           ) : (
-                            <span className="font-mono text-[10px] font-bold text-slate-500 shrink-0">
+                            <span className="font-mono text-[10px] font-bold text-slate-600 shrink-0">
                               {meta.countryCode}
                             </span>
                           )}

@@ -1,8 +1,10 @@
 import { BlogPost } from '../types/qr';
 import { AI_TREND_BLOG_POSTS_PART1 } from './aiTrendBlogPostsPart1';
 import { AI_TREND_BLOG_POSTS_PART2 } from './aiTrendBlogPostsPart2';
+import { AI_TREND_BLOG_POSTS_PART3 } from './aiTrendBlogPostsPart3';
 
 export const BLOG_POSTS: BlogPost[] = [
+  ...AI_TREND_BLOG_POSTS_PART3,
   ...AI_TREND_BLOG_POSTS_PART1,
   ...AI_TREND_BLOG_POSTS_PART2,
   {

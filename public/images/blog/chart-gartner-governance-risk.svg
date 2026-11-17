@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480" role="img" aria-label="Enterprise AI Governance Readiness vs. Disruption Forecasts">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#09090b"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="480" rx="20" fill="url(#bg)"/>
+  <rect x="16" y="16" width="928" height="448" rx="16" fill="none" stroke="#27272a" stroke-width="1.5"/>
+  <rect x="40" y="34" width="6" height="42" rx="3" fill="#f59e0b"/>
+  <text x="58" y="54" fill="#ffffff" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="800">Enterprise AI Governance Readiness vs. Disruption Forecasts</text>
+  <text x="58" y="76" fill="#a1a1aa" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13">Key risk indicators highlighted during November 2026 London I&amp;O Conference</text>
+  <text x="44" y="138" fill="#e4e4e7" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Rate Own AI Governance Weak</text>
+  <text x="44" y="156" fill="#71717a" font-family="system-ui, sans-serif" font-size="11">IT infrastructure &amp; operations leaders surveyed</text>
+  <rect x="345" y="124" width="450" height="28" rx="8" fill="#18181b" stroke="#27272a"/>
+  <rect x="345" y="124" width="256" height="28" rx="8" fill="url(#rose)"/>
+  <text x="813" y="143" fill="#ffffff" font-family="ui-monospace, monospace" font-size="15" font-weight="800">57%</text>
+  <text x="44" y="206" fill="#e4e4e7" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Core Disruption Risk by 2028</text>
+  <text x="44" y="224" fill="#71717a" font-family="system-ui, sans-serif" font-size="11">Firms scaling unchecked autonomous AI agents</text>
+  <rect x="345" y="192" width="450" height="28" rx="8" fill="#18181b" stroke="#27272a"/>
+  <rect x="345" y="192" width="180" height="28" rx="8" fill="url(#gold)"/>
+  <text x="813" y="211" fill="#ffffff" font-family="ui-monospace, monospace" font-size="15" font-weight="800">40%</text>
+  <text x="44" y="274" fill="#e4e4e7" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Cite Chip Export Oversight Risk</text>
+  <text x="44" y="292" fill="#71717a" font-family="system-ui, sans-serif" font-size="11">Compliance focus after US/Pax Silica controls</text>
+  <rect x="345" y="260" width="450" height="28" rx="8" fill="#18181b" stroke="#27272a"/>
+  <rect x="345" y="260" width="306" height="28" rx="8" fill="url(#cyan)"/>
+  <text x="813" y="279" fill="#ffffff" font-family="ui-monospace, monospace" font-size="15" font-weight="800">68%</text>
+  <text x="44" y="342" fill="#e4e4e7" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Mandate Zero-Trust Audit Logs</text>
+  <text x="44" y="360" fill="#71717a" font-family="system-ui, sans-serif" font-size="11">Teams logging every agentic tool/API action</text>
+  <rect x="345" y="328" width="450" height="28" rx="8" fill="#18181b" stroke="#27272a"/>
+  <rect x="345" y="328" width="153" height="28" rx="8" fill="url(#emerald)"/>
+  <text x="813" y="347" fill="#ffffff" font-family="ui-monospace, monospace" font-size="15" font-weight="800">34%</text>
+  <line x1="40" y1="432" x2="920" y2="432" stroke="#27272a" stroke-width="1"/>
+  <text x="40" y="452" fill="#71717a" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11">Source: Gartner IT Infrastructure &amp; Operations Survey (Nov 2026) · 2qrcode.com Editorial Brief</text>
+  <text x="920" y="452" text-anchor="end" fill="#f59e0b" font-family="ui-monospace, monospace" font-size="11" font-weight="700">2QRCODE.COM DATA BRIEF</text>
+</svg>

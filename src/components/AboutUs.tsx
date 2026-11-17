@@ -44,7 +44,7 @@ export default function AboutUs() {
           </div>
 
           <h2>Executive Profile</h2>
-          <p style="font-size:13px;">Senior Software &amp; Cloud Security Architect specializing in HTML5, JavaScript/TypeScript, Java enterprise systems, Technical SEO, and zero-trust cloud infrastructure. Creator of <strong>2qrcode.com</strong>, a privacy-first suite of 60+ static QR utilities and CSV batch generation pipelines.</p>
+          <p style="font-size:13px;">Senior Software &amp; Cloud Security Architect specializing in HTML5, JavaScript/TypeScript, Java enterprise systems, Technical SEO, and zero-trust cloud infrastructure. Creator of <strong>2qrcode.com</strong>, a privacy-first suite of 70+ static QR utilities and CSV batch generation pipelines.</p>
 
           <h2>Core Technical Expertise</h2>
           <div class="skills">
@@ -56,7 +56,7 @@ export default function AboutUs() {
 
           <h2>Selected Engineering Experience</h2>
           <ul>
-            <li><strong>Founder &amp; Lead Systems Architect — 2qrcode.com (2025–Present):</strong> Engineered 60+ client-side ISO/IEC 18004 QR generators and an in-browser Batch CSV-to-ZIP compiler with Canvas 2D, Reed-Solomon Error Correction, and full multilingual localization.</li>
+            <li><strong>Founder &amp; Lead Systems Architect — 2qrcode.com (2025–Present):</strong> Engineered 70+ client-side ISO/IEC 18004 QR generators and an in-browser Batch CSV-to-ZIP compiler with Canvas 2D, Reed-Solomon Error Correction, and full multilingual localization.</li>
             <li><strong>Full-Stack Java &amp; JavaScript Engineer:</strong> Designed scalable web platforms combining enterprise Java backend services with high-speed HTML5/JavaScript interfaces, automated batch tooling, and strict security validation.</li>
             <li><strong>Technical SEO &amp; Cloud Security Specialist:</strong> Audited and hardened cloud web deployments, implemented CSP/HTTPS defenses, structured semantic JSON-LD graphs, and built compliant digital publishing architectures.</li>
           </ul>
@@ -125,6 +125,8 @@ export default function AboutUs() {
                 (e.currentTarget as HTMLImageElement).src = '/assets/aistudio/naveed_281548ed.jpeg';
               }}
               alt="Afzal Naveed — Creator of 2qrcode.com"
+              width={144}
+              height={144}
               className="w-full h-full object-cover rounded-[14px] bg-zinc-900"
             />
           </div>
@@ -153,7 +155,7 @@ export default function AboutUs() {
             Hello! I am <strong className="text-amber-300">Afzal Naveed</strong>, a software engineer and cloud security specialist with deep hands-on experience across <strong className="text-white">HTML5, JavaScript, Java, Technical SEO, and Cloud Security</strong>. Like thousands of business owners and developers, I grew frustrated watching &ldquo;free&rdquo; QR platforms silently hijack printed menus and brochures behind $30/month paywalls after 14 days.
           </p>
           <p>
-            I engineered <strong className="text-amber-300">2qrcode.com</strong> as a permanent, transparent alternative: a suite of 60+ specialized QR code generators plus an in-browser Batch CSV generator designed to stay 100% free forever with zero account logins and zero expiring links.
+            I engineered <strong className="text-amber-300">2qrcode.com</strong> as a permanent, transparent alternative: a suite of 70+ specialized QR code generators plus an in-browser Batch CSV generator designed to stay 100% free forever with zero account logins and zero expiring links.
           </p>
           <p>
             Every QR matrix, SVG vector, and CSV batch ZIP file is compiled directly inside your browser using optimized HTML5 Canvas and client-side JavaScript—ensuring your Wi-Fi passwords, vCards, 2FA secrets, and business data never touch an external database.
@@ -211,7 +213,7 @@ export default function AboutUs() {
                   <span className="font-mono text-amber-400 shrink-0">2025 – Present</span>
                 </div>
                 <p className="text-zinc-400 leading-relaxed">
-                  Architected a zero-server client-side QR platform featuring 60+ specialized formats, Batch CSV-to-ZIP generation, 300 DPI print sizing math, 16-language localization, and full AdSense/E-E-A-T compliance.
+                  Architected a zero-server client-side QR platform featuring 70+ specialized formats, Batch CSV-to-ZIP generation, 300 DPI print sizing math, 16-language localization, and full AdSense/E-E-A-T compliance.
                 </p>
               </div>
 
@@ -300,7 +302,7 @@ export default function AboutUs() {
             <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
               <pillar.icon className="w-5 h-5" />
             </div>
-            <h4 className="text-sm font-bold text-white">{pillar.title}</h4>
+            <h3 className="text-sm font-bold text-white">{pillar.title}</h3>
             <p className="text-xs text-zinc-400 leading-relaxed">{pillar.desc}</p>
           </div>
         ))}
@@ -308,9 +310,9 @@ export default function AboutUs() {
 
       {/* Promises */}
       <div className="p-8 bg-amber-500/10 border border-amber-500/30 rounded-3xl space-y-4">
-        <h3 className="text-lg font-extrabold text-amber-300">
+        <h2 className="text-lg font-extrabold text-amber-300">
           Our Permanent Guarantees to Every Visitor
-        </h3>
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-zinc-200">
           <div className="flex items-center gap-2">
             <CheckCircle className="w-4 h-4 text-amber-400 shrink-0" />

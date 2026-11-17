@@ -123,22 +123,22 @@ export default function ReviewsSection() {
           <span className="text-xs font-extrabold uppercase tracking-wider text-amber-400">
             Real Community Feedback
           </span>
-          <h2 className="text-3xl font-extrabold tracking-tight text-white mt-1">
+          <h1 className="text-3xl font-extrabold tracking-tight text-white mt-1">
             Loved by <span className="text-gold-gradient">Small Businesses, Cafes & Creators</span>
-          </h2>
+          </h1>
           <p className="text-xs text-zinc-400 mt-1">
-            Over 100,000+ QR codes generated across 60 specialized categories worldwide.
+            Over 100,000+ QR codes generated across 70+ specialized categories worldwide.
           </p>
         </div>
 
         <div className="flex items-center gap-4 bg-zinc-950 border border-amber-500/30 p-4 rounded-2xl shadow-xl shrink-0">
           <div className="flex items-center text-amber-400">
-            <Star className="w-8 h-8 fill-amber-400 text-amber-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.5)]" />
+            <Star className="w-8 h-8 fill-amber-400 text-amber-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.5)]" aria-hidden="true" />
           </div>
           <div>
             <div className="flex items-baseline gap-1 font-mono">
               <span className="text-2xl font-extrabold text-white">{avgRating}</span>
-              <span className="text-xs text-zinc-500">/ 5.0</span>
+              <span className="text-xs text-zinc-400">/ 5.0</span>
             </div>
             <p className="text-xs font-medium text-zinc-400">
               Based on {reviews.length + 8420} verified ratings
@@ -150,9 +150,9 @@ export default function ReviewsSection() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Reviews List (8 cols) */}
         <div className="lg:col-span-8 space-y-4">
-          <h3 className="text-base font-extrabold text-white">
+          <h2 className="text-base font-extrabold text-white">
             Recent Verified Reviews
-          </h3>
+          </h2>
 
           <div className="space-y-4">
             {reviews.map((rev) => (
@@ -163,7 +163,7 @@ export default function ReviewsSection() {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <div className="flex items-center gap-2">
-                      <h4 className="text-sm font-bold text-white">{rev.author}</h4>
+                      <h3 className="text-sm font-bold text-white">{rev.author}</h3>
                       {rev.verified && (
                         <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-400">
                           <CheckCircle className="w-3 h-3 text-amber-400" />
@@ -197,8 +197,8 @@ export default function ReviewsSection() {
         {/* Submit Review Form (4 cols) */}
         <div className="lg:col-span-4 bg-zinc-950/90 border border-amber-500/25 rounded-2xl p-6 shadow-2xl space-y-4 backdrop-blur-xl">
           <div className="flex items-center gap-2 pb-2 border-b border-zinc-800">
-            <MessageSquarePlus className="w-4 h-4 text-amber-400" />
-            <h3 className="text-sm font-extrabold text-white">Leave Your Review</h3>
+            <MessageSquarePlus className="w-4 h-4 text-amber-400" aria-hidden="true" />
+            <h2 className="text-sm font-extrabold text-white">Leave Your Review</h2>
           </div>
 
           {submitted ? (
@@ -264,21 +264,23 @@ export default function ReviewsSection() {
               </div>
 
               <div>
-                <label className="block font-bold text-zinc-300 mb-1">
+                <span className="block font-bold text-zinc-300 mb-1">
                   Rating (1-5 Stars)
-                </label>
+                </span>
                 <div className="flex items-center gap-1">
                   {[1, 2, 3, 4, 5].map((s) => (
                     <button
                       key={s}
                       type="button"
                       onClick={() => setRating(s)}
+                      aria-label={`Select ${s} out of 5 stars`}
                       className="p-1 cursor-pointer"
                     >
                       <Star
                         className={`w-5 h-5 ${
-                          rating >= s ? 'fill-amber-400 text-amber-400' : 'text-zinc-700'
+                          rating >= s ? 'fill-amber-400 text-amber-400' : 'text-zinc-600'
                         }`}
+                        aria-hidden="true"
                       />
                     </button>
                   ))}

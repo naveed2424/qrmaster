@@ -160,10 +160,10 @@ export default function QRStudio({
       {/* Studio Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-zinc-800/80">
         <div>
-          <h3 className="text-xl font-extrabold text-white flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-amber-400" />
+          <h2 className="text-xl font-extrabold text-white flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-amber-400" aria-hidden="true" />
             <span className="text-gold-gradient">{t.studioTitle}</span>
-          </h3>
+          </h2>
           <p className="text-xs text-zinc-400 mt-0.5">
             Personalize your QR code colors, shape, logo, and Call-to-Action frame.
           </p>
@@ -276,6 +276,7 @@ export default function QRStudio({
                     </label>
                     <input
                       type="checkbox"
+                      aria-label="Enable gradient color"
                       checked={customization.useGradient}
                       onChange={(e) => update({ useGradient: e.target.checked })}
                       className="accent-amber-500 rounded-sm cursor-pointer"
@@ -453,6 +454,7 @@ export default function QRStudio({
                 <input
                   ref={fileInputRef}
                   type="file"
+                  aria-label="Upload custom center brand logo"
                   accept="image/png,image/jpeg,image/svg+xml"
                   onChange={handleCustomLogoUpload}
                   className="hidden"
@@ -460,14 +462,14 @@ export default function QRStudio({
 
                 <div className="flex justify-center">
                   <div className="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-[0_0_15px_rgba(251,191,36,0.2)]">
-                    <Upload className="w-6 h-6" />
+                    <Upload className="w-6 h-6" aria-hidden="true" />
                   </div>
                 </div>
 
                 <div>
-                  <h4 className="text-sm font-bold text-white">
+                  <h3 className="text-sm font-bold text-white">
                     {t.uploadCustomLogo}
-                  </h4>
+                  </h3>
                   <p className="text-xs text-zinc-400 mt-0.5">
                     Supports PNG, JPG, or SVG with automatic centered protective mask
                   </p>
@@ -538,6 +540,7 @@ export default function QRStudio({
                   </div>
                   <input
                     type="range"
+                    aria-label="Center logo size percentage"
                     min="16"
                     max="28"
                     value={customization.logoSizePercent}
@@ -654,7 +657,7 @@ export default function QRStudio({
         <div className="lg:col-span-5 flex flex-col items-center space-y-5 bg-black/60 p-6 sm:p-7 rounded-3xl border border-amber-500/20 backdrop-blur-md shadow-2xl">
           <div className="w-full flex items-center justify-between text-xs text-zinc-400 font-semibold">
             <span className="flex items-center gap-1.5 text-amber-400">
-              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
               Live Vector Preview
             </span>
             <span className="font-mono text-[11px] text-zinc-400">{customization.size} × {customization.size} px</span>
@@ -664,6 +667,7 @@ export default function QRStudio({
           <div className="p-4 bg-zinc-950 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.9)] border border-amber-500/30 flex items-center justify-center max-w-full overflow-hidden">
             <canvas
               ref={canvasRef}
+              aria-label={`Generated ${toolName || 'custom'} QR code preview`}
               className="max-w-[280px] sm:max-w-[320px] h-auto object-contain transition-transform duration-200 hover:scale-[1.01]"
             />
           </div>

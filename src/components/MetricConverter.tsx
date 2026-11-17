@@ -56,9 +56,9 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
           <Ruler className="w-4 h-4" />
           <span>Professional Print Tool</span>
         </div>
-        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
           <span className="text-gold-gradient">{t.metricConverterTitle}</span>
-        </h2>
+        </h1>
         <p className="mt-2 text-sm text-zinc-400 max-w-3xl leading-relaxed">
           {t.metricConverterSub}
         </p>
@@ -69,10 +69,10 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
         {/* Left: Interactive Metric & DPI Converter */}
         <div className="p-7 bg-zinc-950/90 border border-amber-500/25 rounded-3xl shadow-2xl space-y-6 backdrop-blur-xl">
           <div className="flex items-center justify-between pb-4 border-b border-zinc-800">
-            <h3 className="text-base font-extrabold text-white flex items-center gap-2">
-              <Maximize2 className="w-4 h-4 text-amber-400" />
+            <h2 className="text-base font-extrabold text-white flex items-center gap-2">
+              <Maximize2 className="w-4 h-4 text-amber-400" aria-hidden="true" />
               <span>Dimension & Pixel Converter</span>
-            </h3>
+            </h2>
             <span className="text-xs font-mono font-bold text-amber-400">Live Recalculation</span>
           </div>
 
@@ -92,7 +92,7 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
                   onChange={(e) => setMm(Math.max(5, Number(e.target.value) || 0))}
                   className="w-full px-2.5 py-1.5 text-sm font-mono font-bold rounded-lg border border-zinc-700 bg-zinc-950 text-amber-300 focus:outline-hidden focus:border-amber-400"
                 />
-                <span className="absolute right-2 top-2 text-xs text-zinc-500 pointer-events-none">mm</span>
+                <span className="absolute right-2 top-2 text-xs text-zinc-400 pointer-events-none">mm</span>
               </div>
             </div>
 
@@ -111,7 +111,7 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
                   onChange={(e) => setMm(Math.max(5, (Number(e.target.value) || 0) * 10))}
                   className="w-full px-2.5 py-1.5 text-sm font-mono font-bold rounded-lg border border-zinc-700 bg-zinc-950 text-amber-300 focus:outline-hidden focus:border-amber-400"
                 />
-                <span className="absolute right-2 top-2 text-xs text-zinc-500 pointer-events-none">cm</span>
+                <span className="absolute right-2 top-2 text-xs text-zinc-400 pointer-events-none">cm</span>
               </div>
             </div>
 
@@ -130,7 +130,7 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
                   onChange={(e) => setMm(Math.max(5, Math.round((Number(e.target.value) || 0) * 25.4)))}
                   className="w-full px-2.5 py-1.5 text-sm font-mono font-bold rounded-lg border border-zinc-700 bg-zinc-950 text-amber-300 focus:outline-hidden focus:border-amber-400"
                 />
-                <span className="absolute right-2 top-2 text-xs text-zinc-500 pointer-events-none">in</span>
+                <span className="absolute right-2 top-2 text-xs text-zinc-400 pointer-events-none">in</span>
               </div>
             </div>
 
@@ -164,7 +164,7 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
                   readOnly
                   className="w-full px-2.5 py-1.5 text-sm font-mono font-medium rounded-lg border border-zinc-700 bg-zinc-950 text-zinc-300"
                 />
-                <span className="absolute right-2 top-2 text-xs text-zinc-500">px</span>
+                <span className="absolute right-2 top-2 text-xs text-zinc-400 pointer-events-none">px</span>
               </div>
             </div>
 
@@ -181,7 +181,7 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
                   readOnly
                   className="w-full px-2.5 py-1.5 text-sm font-mono font-medium rounded-lg border border-zinc-700 bg-zinc-950 text-zinc-300"
                 />
-                <span className="absolute right-2 top-2 text-xs text-zinc-500">px</span>
+                <span className="absolute right-2 top-2 text-xs text-zinc-400 pointer-events-none">px</span>
               </div>
             </div>
           </div>
@@ -195,6 +195,7 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
             </div>
             <input
               type="range"
+              aria-label="QR print width slider in millimeters"
               min="20"
               max="200"
               step="1"
@@ -227,10 +228,10 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
         {/* Right: 10:1 Scan Distance Rule Calculator */}
         <div className="p-7 bg-zinc-950/90 border border-amber-500/25 rounded-3xl shadow-2xl space-y-6 backdrop-blur-xl">
           <div className="flex items-center justify-between pb-4 border-b border-zinc-800">
-            <h3 className="text-base font-extrabold text-white flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-400" />
+            <h2 className="text-base font-extrabold text-white flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-amber-400" aria-hidden="true" />
               <span>{t.distanceCalculator}</span>
-            </h3>
+            </h2>
             <div className="flex items-center gap-1 bg-zinc-900 border border-zinc-800 p-0.5 rounded-xl text-xs">
               <button
                 onClick={() => setDistanceUnit('meters')}
@@ -289,9 +290,9 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
             <div className="flex items-start gap-3">
               <CheckCircle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-sm font-bold text-white">
+                <h3 className="text-sm font-bold text-white">
                   Optimal Print Size for {distanceMeters} {distanceUnit}:
-                </h4>
+                </h3>
                 <div className="mt-1 flex items-baseline gap-2 font-mono text-2xl font-extrabold text-amber-300">
                   <span>{optimalMm} mm</span>
                   <span className="text-sm font-normal text-zinc-400">({optimalInches} in)</span>
@@ -314,9 +315,9 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
       <div className="bg-zinc-950/90 border border-amber-500/25 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-4 backdrop-blur-xl">
         <div className="flex items-center justify-between pb-3 border-b border-zinc-800">
           <div>
-            <h3 className="text-lg font-extrabold text-white">
+            <h2 className="text-lg font-extrabold text-white">
               Standard Physical Print Reference Guide
-            </h3>
+            </h2>
             <p className="text-xs text-zinc-400 mt-0.5">
               Certified guidelines for commercial graphic designers and print shops
             </p>

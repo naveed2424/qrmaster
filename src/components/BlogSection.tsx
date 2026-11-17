@@ -251,7 +251,7 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
             <span>Back to All Articles ({BLOG_POSTS.length})</span>
           </button>
 
-          <span className="text-[11px] font-mono text-zinc-500 hidden sm:inline-block">
+          <span className="text-[11px] font-mono text-zinc-400 hidden sm:inline-block">
             Home &gt; Blog &gt; {selectedPost.category}
           </span>
         </div>
@@ -263,19 +263,19 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
               <span className={`px-2.5 py-1 rounded-md text-[11px] font-bold border ${getCategoryBadgeClass(selectedPost.category)}`}>
                 {selectedPost.category}
               </span>
-              <span className="text-zinc-600">·</span>
+              <span className="text-zinc-500" aria-hidden="true">·</span>
               <span className="flex items-center gap-1 text-zinc-400">
-                <Calendar className="w-3.5 h-3.5 text-amber-400" />
+                <Calendar className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
                 {selectedPost.date}
               </span>
-              <span className="text-zinc-600">·</span>
+              <span className="text-zinc-500" aria-hidden="true">·</span>
               <span className="flex items-center gap-1 text-zinc-400">
-                <Clock className="w-3.5 h-3.5 text-amber-400" />
+                <Clock className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
                 {selectedPost.readTime}
               </span>
-              <span className="text-zinc-600">·</span>
+              <span className="text-zinc-500" aria-hidden="true">·</span>
               <span className="flex items-center gap-1 text-amber-300 font-semibold">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
                 Verified ISO/IEC 18004
               </span>
             </div>
@@ -289,6 +289,8 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
               <img
                 src={founderPortrait}
                 alt="Afzal Naveed"
+                width={36}
+                height={36}
                 className="w-9 h-9 rounded-full object-cover border border-amber-400/60 shadow-md shrink-0"
               />
               <div>
@@ -309,6 +311,8 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
               <img
                 src={selectedPost.featuredImage}
                 alt={selectedPost.featuredImageAlt || selectedPost.title}
+                width={1280}
+                height={720}
                 className="w-full aspect-video object-cover"
               />
               {selectedPost.featuredImageAlt && (
@@ -365,6 +369,8 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
                     <img
                       src={imgSrc}
                       alt={altText}
+                      width={1280}
+                      height={720}
                       loading="lazy"
                       className="w-full h-auto object-cover"
                     />
@@ -518,13 +524,14 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
                     >
                       <button
                         onClick={() => setExpandedFaqIndex(isOpen ? null : fIdx)}
+                        aria-expanded={isOpen}
                         className="w-full p-4 text-left flex items-center justify-between gap-3 text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition-colors cursor-pointer"
                       >
                         <span>{faq.question}</span>
                         {isOpen ? (
-                          <ChevronUp className="w-4 h-4 text-amber-400 shrink-0" />
+                          <ChevronUp className="w-4 h-4 text-amber-400 shrink-0" aria-hidden="true" />
                         ) : (
-                          <ChevronDown className="w-4 h-4 text-zinc-500 shrink-0" />
+                          <ChevronDown className="w-4 h-4 text-zinc-400 shrink-0" aria-hidden="true" />
                         )}
                       </button>
                       {isOpen && (
@@ -544,12 +551,14 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
             <img
               src={founderPortrait}
               alt="Afzal Naveed"
+              width={56}
+              height={56}
               className="w-14 h-14 rounded-2xl object-cover border border-amber-400/60 shrink-0 shadow-lg"
             />
             <div className="space-y-1.5 text-center sm:text-left">
               <div className="text-xs font-bold text-white flex items-center justify-center sm:justify-start gap-1.5">
                 <span>About the Author: {selectedPost.author}</span>
-                <Award className="w-3.5 h-3.5 text-amber-400" />
+                <Award className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
               </div>
               <p className="text-xs text-zinc-400 leading-relaxed">
                 Afzal Naveed is the founder and lead systems architect of 2qrcode.com, specializing in HTML5, JavaScript, Java enterprise systems, Technical SEO, cloud security, and ISO/IEC 18004 QR workflows.
@@ -560,9 +569,9 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
           {/* Related Articles Footer */}
           {relatedArticles.length > 0 && (
             <div className="pt-6 border-t border-zinc-800 space-y-3">
-              <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
                 Recommended Related Articles
-              </h4>
+              </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {relatedArticles.map((ra) => (
                   <button
@@ -619,9 +628,9 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
           <BookOpen className="w-3.5 h-3.5" />
           <span>SEO Knowledge Platform & Editorial Hub</span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
           QR Engineering, Strategies & <span className="text-gold-gradient">Customization Playbooks</span>
-        </h2>
+        </h1>
         <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-2xl mx-auto">
           {BLOG_POSTS.length} comprehensive, E-E-A-T verified master guides detailing physical print engineering, CSV batch automation, payment &amp; security QR workflows, and strategies to profit from QR codes without subscription traps.
         </p>
@@ -632,7 +641,7 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
             onClick={() => setShowGuidelinesModal(true)}
             className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 border border-amber-500/30 text-amber-300 text-xs font-bold rounded-xl transition-all cursor-pointer shadow-md hover:border-amber-400"
           >
-            <FileText className="w-3.5 h-3.5 text-amber-400" />
+            <FileText className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
             <span>View Registered Master Prompt & Editorial Guidelines</span>
           </button>
         </div>
@@ -642,18 +651,20 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
       <div className="space-y-4">
         {/* Search Bar */}
         <div className="relative max-w-xl mx-auto">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" aria-hidden="true" />
+          <label htmlFor="blog-search-input" className="sr-only">Search editorial articles and guides</label>
           <input
+            id="blog-search-input"
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search guides (e.g. 10:1 ratio, restaurant menu, vCard, scam expose)..."
-            className="w-full pl-10 pr-4 py-2.5 bg-zinc-950 border border-zinc-800 focus:border-amber-400 rounded-2xl text-xs text-white placeholder-zinc-500 focus:outline-hidden transition-all shadow-inner"
+            className="w-full pl-10 pr-14 py-2.5 bg-zinc-950 border border-zinc-800 focus:border-amber-400 rounded-2xl text-xs text-white placeholder-zinc-400 focus:outline-hidden transition-all shadow-inner"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-zinc-500 hover:text-white"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-zinc-400 hover:text-white cursor-pointer"
             >
               Clear
             </button>
@@ -714,18 +725,30 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
           {filteredPosts.map((post) => (
             <article
               key={post.id}
+              tabIndex={0}
+              role="button"
               onClick={() => {
                 setSelectedPost(post);
                 setExpandedFaqIndex(null);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="overflow-hidden bg-zinc-950/90 border border-zinc-800/80 hover:border-amber-500/50 rounded-3xl hover:shadow-[0_4px_30px_rgba(245,158,11,0.2)] transition-all cursor-pointer flex flex-col justify-between group backdrop-blur-md"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setSelectedPost(post);
+                  setExpandedFaqIndex(null);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+              className="overflow-hidden bg-zinc-950/90 border border-zinc-800/80 hover:border-amber-500/50 rounded-3xl hover:shadow-[0_4px_30px_rgba(245,158,11,0.2)] transition-all cursor-pointer flex flex-col justify-between group backdrop-blur-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
             >
               {post.featuredImage && (
                 <div className="w-full aspect-video overflow-hidden border-b border-zinc-800/80 bg-black">
                   <img
                     src={post.featuredImage}
                     alt={post.featuredImageAlt || post.title}
+                    width={1280}
+                    height={720}
                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
                   />
@@ -734,20 +757,20 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
               <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
                 <div className="space-y-4">
                   {/* Category & Time */}
-                  <div className="flex items-center justify-between text-xs">
+                  <div className="flex items-center justify-between text-xs gap-2">
                     <span className={`px-2.5 py-0.5 rounded-md text-[10px] font-bold border ${getCategoryBadgeClass(post.category)}`}>
                       {post.category}
                     </span>
-                    <div className="flex items-center gap-2 text-[11px] font-mono text-zinc-500">
+                    <div className="flex items-center gap-2 text-[11px] font-mono text-zinc-400">
                       <span>{post.date}</span>
-                      <span>·</span>
+                      <span aria-hidden="true">·</span>
                       <span>{post.readTime}</span>
                     </div>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-amber-300 transition-colors leading-snug">
+                  <h2 className="text-lg sm:text-xl font-bold text-white group-hover:text-amber-300 transition-colors leading-snug">
                     {post.title}
-                  </h3>
+                  </h2>
 
                   <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed line-clamp-3">
                     {post.excerpt}
@@ -767,13 +790,15 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
                     <img
                       src={founderPortrait}
                       alt={post.author}
+                      width={24}
+                      height={24}
                       className="w-6 h-6 rounded-full object-cover border border-amber-400/50 shrink-0"
                     />
                     <span>{post.author}</span>
                   </div>
                   <span className="text-xs font-bold text-amber-400 group-hover:translate-x-1 transition-transform flex items-center gap-1">
                     <span>Read Guide</span>
-                    <span>&rarr;</span>
+                    <span aria-hidden="true">&rarr;</span>
                   </span>
                 </div>
               </div>
@@ -808,6 +833,7 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
               </div>
               <button
                 onClick={() => setShowGuidelinesModal(false)}
+                aria-label="Close Guidelines Modal"
                 className="p-2 rounded-xl bg-zinc-900 text-zinc-400 hover:text-white cursor-pointer"
               >
                 ✕
@@ -849,7 +875,7 @@ export default function BlogSection({ onSelectTool, onNavigate }: BlogSectionPro
                 <ul className="list-disc pl-5 space-y-1 text-zinc-300">
                   <li><strong>Experience:</strong> Every guide includes practical measurements, physical testing rules, and concrete real-world numbers.</li>
                   <li><strong>Expertise:</strong> All technical explanations adhere to ISO/IEC 18004 QR standards and Reed-Solomon algorithmic proofs.</li>
-                  <li><strong>Authoritativeness:</strong> Deep topical authority with 60+ specialized generators directly linked from articles.</li>
+                  <li><strong>Authoritativeness:</strong> Deep topical authority with 70+ specialized generators directly linked from articles.</li>
                   <li><strong>Trust:</strong> Transparent author identity, zero sponsored spam, zero deceptive paywalls, 100% free lifetime access.</li>
                 </ul>
               </div>

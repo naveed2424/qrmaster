@@ -510,6 +510,7 @@ export default function BatchQRGenerator({
                   <textarea
                     value={rawCsvText}
                     onChange={(e) => applyCsvSource(e.target.value, 'pasted-batch.csv')}
+                    aria-label="Paste or edit raw CSV data"
                     rows={7}
                     spellCheck={false}
                     placeholder="label,url,cta_text&#10;Table-01,https://2qrcode.com/?table=1,VIEW MENU"
@@ -559,9 +560,10 @@ export default function BatchQRGenerator({
                       <button
                         onClick={() => handleDownloadSampleCsv(preset)}
                         title={`Download ${preset.filename}`}
+                        aria-label={`Download ${preset.filename}`}
                         className="p-2 rounded-lg bg-zinc-950 border border-zinc-800 text-zinc-400 hover:text-amber-300 hover:border-amber-500/40 shrink-0 cursor-pointer"
                       >
-                        <Download className="w-3.5 h-3.5" />
+                        <Download className="w-3.5 h-3.5" aria-hidden="true" />
                       </button>
                     </div>
                   ))}
@@ -614,6 +616,7 @@ export default function BatchQRGenerator({
                     Filename / Label Column
                   </label>
                   <select
+                    aria-label="Filename or Label Column"
                     value={mapping.labelColumn}
                     onChange={(e) => setMapping((prev) => ({ ...prev, labelColumn: e.target.value }))}
                     className="w-full px-3 py-2.5 bg-zinc-900 border border-zinc-800 rounded-xl text-xs font-medium text-white focus:outline-hidden focus:border-amber-400"
@@ -643,6 +646,7 @@ export default function BatchQRGenerator({
                     </label>
                   </div>
                   <select
+                    aria-label="Per-Row CTA Banner Column"
                     disabled={!useCsvCtaColumn}
                     value={mapping.ctaColumn}
                     onChange={(e) => setMapping((prev) => ({ ...prev, ctaColumn: e.target.value }))}
@@ -665,6 +669,7 @@ export default function BatchQRGenerator({
                     QR Content / URL Column
                   </label>
                   <select
+                    aria-label="QR Content or URL Column"
                     value={mapping.contentColumn}
                     onChange={(e) => setMapping((prev) => ({ ...prev, contentColumn: e.target.value }))}
                     className="w-full px-3 py-2.5 bg-zinc-900 border border-zinc-800 rounded-xl text-xs font-medium text-white focus:outline-hidden focus:border-amber-400"
@@ -820,7 +825,7 @@ export default function BatchQRGenerator({
                 <div className="text-[11px] font-mono text-zinc-400 truncate">
                   {referenceItem.payload}
                 </div>
-                <div className="text-[11px] text-zinc-500 font-mono tabular-nums pt-1">
+                <div className="text-[11px] text-zinc-400 font-mono tabular-nums pt-1">
                   {customization.dotStyle} · ECC {customization.errorCorrection} · {customization.size}px
                 </div>
               </div>
@@ -1121,16 +1126,17 @@ export default function BatchQRGenerator({
               </h2>
 
               <div className="relative">
-                <Search className="w-3.5 h-3.5 text-zinc-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Search className="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-1/2 -translate-y-1/2" aria-hidden="true" />
                 <input
                   type="text"
+                  aria-label="Filter batch QR codes by label or URL"
                   value={filterQuery}
                   onChange={(e) => {
                     setFilterQuery(e.target.value);
                     setCurrentPage(1);
                   }}
                   placeholder="Filter labels or URLs..."
-                  className="pl-8 pr-3 py-2 bg-zinc-900 border border-zinc-800 rounded-xl text-xs text-white placeholder:text-zinc-500 focus:outline-hidden focus:border-amber-400"
+                  className="pl-8 pr-3 py-2 bg-zinc-900 border border-zinc-800 rounded-xl text-xs text-white placeholder:text-zinc-400 focus:outline-hidden focus:border-amber-400"
                 />
               </div>
 
@@ -1138,7 +1144,7 @@ export default function BatchQRGenerator({
                 onClick={handleAddBlankRow}
                 className="px-3.5 py-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 text-xs font-bold rounded-xl flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0"
               >
-                <Plus className="w-3.5 h-3.5 text-amber-400" />
+                <Plus className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
                 <span>Add Row</span>
               </button>
 
@@ -1146,20 +1152,22 @@ export default function BatchQRGenerator({
                 <button
                   onClick={() => setViewMode('grid')}
                   title="Card Grid View"
+                  aria-label="Switch to Card Grid View"
                   className={`p-1.5 rounded-lg cursor-pointer ${
                     viewMode === 'grid' ? 'bg-amber-400 text-black' : 'text-zinc-400 hover:text-white'
                   }`}
                 >
-                  <Grid className="w-3.5 h-3.5" />
+                  <Grid className="w-3.5 h-3.5" aria-hidden="true" />
                 </button>
                 <button
                   onClick={() => setViewMode('table')}
                   title="Compact Table View"
+                  aria-label="Switch to Compact Table View"
                   className={`p-1.5 rounded-lg cursor-pointer ${
                     viewMode === 'table' ? 'bg-amber-400 text-black' : 'text-zinc-400 hover:text-white'
                   }`}
                 >
-                  <TableIcon className="w-3.5 h-3.5" />
+                  <TableIcon className="w-3.5 h-3.5" aria-hidden="true" />
                 </button>
               </div>
             </div>
@@ -1238,7 +1246,7 @@ export default function BatchQRGenerator({
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
-                      <div className="text-[11px] font-mono tabular-nums text-zinc-500">
+                      <div className="text-[11px] font-mono tabular-nums text-zinc-400">
                         #{String(item.index + 1).padStart(3, '0')}
                       </div>
                       <h3 className="text-sm font-bold text-white truncate" title={item.label}>
@@ -1248,9 +1256,10 @@ export default function BatchQRGenerator({
                     <button
                       onClick={() => handleDeleteRow(item.index)}
                       title="Remove item"
-                      className="p-1.5 rounded-lg text-zinc-500 hover:text-red-400 hover:bg-zinc-900 cursor-pointer"
+                      aria-label={`Remove ${item.label}`}
+                      className="p-1.5 rounded-lg text-zinc-400 hover:text-red-400 hover:bg-zinc-900 cursor-pointer"
                     >
-                      <Trash2 className="w-3.5 h-3.5" />
+                      <Trash2 className="w-3.5 h-3.5" aria-hidden="true" />
                     </button>
                   </div>
 
@@ -1314,7 +1323,7 @@ export default function BatchQRGenerator({
                 <tbody className="divide-y divide-zinc-800/80">
                   {paginatedItems.map((item) => (
                     <tr key={item.id} className="hover:bg-zinc-900/40">
-                      <td className="py-2.5 px-4 font-mono tabular-nums text-zinc-500">
+                      <td className="py-2.5 px-4 font-mono tabular-nums text-zinc-400">
                         {item.index + 1}
                       </td>
                       <td className="py-2.5 px-4">
@@ -1375,10 +1384,11 @@ export default function BatchQRGenerator({
                         </button>
                         <button
                           onClick={() => handleDeleteRow(item.index)}
-                          className="p-1.5 text-zinc-500 hover:text-red-400 cursor-pointer inline-flex align-middle"
+                          className="p-1.5 text-zinc-400 hover:text-red-400 cursor-pointer inline-flex align-middle"
                           title="Delete row"
+                          aria-label={`Delete ${item.label}`}
                         >
-                          <Trash2 className="w-3.5 h-3.5" />
+                          <Trash2 className="w-3.5 h-3.5" aria-hidden="true" />
                         </button>
                       </td>
                     </tr>

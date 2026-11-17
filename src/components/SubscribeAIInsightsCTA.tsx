@@ -69,9 +69,9 @@ export default function SubscribeAIInsightsCTA({ compact = false }: SubscribeAII
               Editorial Briefing
             </span>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight text-balance">
+          <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight text-balance">
             Subscribe to AI Insights
-          </h3>
+          </h2>
           <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
             Receive research-backed dispatches on AI in daily life, smart-city infrastructure, and Google Trends security briefings directly in your inbox.
           </p>
@@ -150,7 +150,7 @@ export default function SubscribeAIInsightsCTA({ compact = false }: SubscribeAII
                   <span>{error}</span>
                 </p>
               ) : (
-                <p className="text-[11px] text-zinc-500 pt-0.5">
+                <p className="text-[11px] text-zinc-400 pt-0.5">
                   Zero spam. Unsubscribe anytime · No third-party tracking.
                 </p>
               )}
