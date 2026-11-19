@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 510" width="1040" height="510" role="img" aria-label="5-Minute Pre-Press Print Preflight Before Ordering 5,000 Units">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFDF9"/>
+      <stop offset="55%" stop-color="#FBF2E3"/>
+      <stop offset="100%" stop-color="#F3DFBF"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#92400E"/>
+    </linearGradient>
+    <linearGradient id="darkCard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#291D0E"/>
+      <stop offset="100%" stop-color="#452E14"/>
+    </linearGradient>
+  </defs>
+  <rect width="1040" height="510" rx="20" fill="url(#bgGrad)"/>
+  <rect x="8" y="8" width="1024" height="494" rx="16" fill="none" stroke="#DFC7A0" stroke-width="2"/>
+  
+  <text x="60" y="64" font-family="Plus Jakarta Sans, sans-serif" font-size="26" font-weight="800" fill="#1C1917">5-Minute Pre-Press Print Preflight Before Ordering 5,000 Units</text>
+  <text x="60" y="96" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="500" fill="#57534E">Run this physical desktop paper test so you never scrap a full commercial print batch</text>
+  <line x1="60" y1="118" x2="980" y2="118" stroke="#DFC7A0" stroke-width="1.5"/>
+  
+        <rect x="60" y="145" width="212" height="245" rx="16" fill="#FFFFFF" stroke="#DFC7A0" stroke-width="2"/>
+        <rect x="60" y="145" width="212" height="10" rx="5" fill="#291D0E"/>
+        <circle cx="96" cy="192" r="18" fill="#291D0E"/>
+        <text x="96" y="198" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" font-weight="800" fill="#FFFFFF">1</text>
+        <text x="80" y="242" font-family="Plus Jakarta Sans, sans-serif" font-size="17" font-weight="800" fill="#1C1917">Print 1:1 Actual Size</text>
+        <text x="80" y="264" font-family="Plus Jakarta Sans, sans-serif" font-size="17" font-weight="800" fill="#1C1917"></text>
+        <text x="80" y="302" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="500" fill="#44403C">Print on ordinary office paper a</text>
+        <text x="80" y="324" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="500" fill="#44403C">t exact 100% scale—never zoomed </text>
+        <text x="80" y="346" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="500" fill="#44403C">in</text><text x="284" y="275" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="800" fill="#92400E">→</text>
+        <rect x="296" y="145" width="212" height="245" rx="16" fill="#FFFFFF" stroke="#DFC7A0" stroke-width="2"/>
+        <rect x="296" y="145" width="212" height="10" rx="5" fill="#92400E"/>
+        <circle cx="332" cy="192" r="18" fill="#92400E"/>
+        <text x="332" y="198" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" font-weight="800" fill="#FFFFFF">2</text>
+        <text x="316" y="242" font-family="Plus Jakarta Sans, sans-serif" font-size="17" font-weight="800" fill="#1C1917">Dim Light &amp; Angle Test</text>
+        <text x="316" y="264" font-family="Plus Jakarta Sans, sans-serif" font-size="17" font-weight="800" fill="#1C1917"></text>
+        <text x="316" y="302" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="500" fill="#44403C">Test in warm low cafe light at 3</text>
+        <text x="316" y="324" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="500" fill="#44403C">0° tilt with 2 different phones</text>
+        <text x="316" y="346" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="500" fill="#44403C"></text><text x="520" y="275" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="800" fill="#92400E">→</text>
+        <rect x="532" y="145" width="212" height="245" rx="16" fill="#FFFFFF" stroke="#DFC7A0" stroke-width="2"/>
+        <rect x="532" y="145" width="212" height="10" rx="5" fill="#065F46"/>
+        <circle cx="568" cy="192" r="18" fill="#065F46"/>
+        <text x="568" y="198" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" font-weight="800" fill="#FFFFFF">3</text>
+        <text x="552" y="242" font-family="Plus Jakarta Sans, sans-serif" font-size="17" font-weight="800" fill="#1C1917">Verify Destination Live</text>
+        <text x="552" y="264" font-family="Plus Jakarta Sans, sans-serif" font-size="17" font-weight="800" fill="#1C1917"></text>
+        <text x="552" y="302" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="500" fill="#44403C">Tap link completely through on c</text>
+        <text x="552" y="324" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="500" fill="#44403C">ellular—check HTTPS &amp; mobile loa</text>
+        <text x="552" y="346" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="500" fill="#44403C">d</text><text x="756" y="275" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="800" fill="#92400E">→</text>
+        <rect x="768" y="145" width="212" height="245" rx="16" fill="#FFFFFF" stroke="#DFC7A0" stroke-width="2"/>
+        <rect x="768" y="145" width="212" height="10" rx="5" fill="#B45309"/>
+        <circle cx="804" cy="192" r="18" fill="#B45309"/>
+        <text x="804" y="198" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" font-weight="800" fill="#FFFFFF">4</text>
+        <text x="788" y="242" font-family="Plus Jakarta Sans, sans-serif" font-size="17" font-weight="800" fill="#1C1917">Export Vector SVG</text>
+        <text x="788" y="264" font-family="Plus Jakarta Sans, sans-serif" font-size="17" font-weight="800" fill="#1C1917"></text>
+        <text x="788" y="302" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="500" fill="#44403C">Send true SVG paths + metric pro</text>
+        <text x="788" y="324" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="500" fill="#44403C">of dimensions to the commercial </text>
+        <text x="788" y="346" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="500" fill="#44403C">press</text>
+  <rect x="60" y="420" width="920" height="44" rx="10" fill="#291D0E"/>
+  <text x="80" y="447" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#FDE68A">Check your exact dimensions effortlessly using 2qrcode.com&#x27;s interactive 10:1 Metric Print Calculator.</text>
+
+  <text x="1012" y="490" text-anchor="end" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#785219" opacity="0.85">2qrcode.com · ISO/IEC 18004 Engineering Hub</text>
+</svg>

@@ -381,38 +381,38 @@ export default function BatchQRGenerator({
     <>
       <div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 space-y-10 no-print">
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-zinc-800/80">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-[#E6D0AC]">
           <div className="space-y-2.5 max-w-3xl">
-            <div className="text-xs font-semibold text-amber-400 tracking-wide">
+            <div className="text-xs font-semibold text-amber-800 tracking-wide">
               2qrcode.com · Bulk Operations &amp; Spreadsheet Automation
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight [text-wrap:balance]">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-stone-900 leading-tight [text-wrap:balance]">
               Batch CSV <span className="text-gold-gradient">QR Code Generator</span>
             </h1>
-            <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
+            <p className="text-sm sm:text-base text-stone-700 leading-relaxed">
               Upload any CSV or paste spreadsheet rows to generate dozens or hundreds of standardized QR codes in seconds. Lock in your brand colors, dot pattern, logo, and frame CTA once, then download everything in a single ZIP archive.
             </p>
           </div>
 
           {/* Summary Metrics Strip */}
-          <div className="flex items-center gap-6 px-5 py-3.5 bg-zinc-950 border border-zinc-800 rounded-2xl shrink-0">
+          <div className="flex items-center gap-6 px-5 py-3.5 bg-[#FFFDF9]/92 border border-[#DFC7A0] rounded-2xl shadow-[0_12px_36px_-12px_rgba(120,82,25,0.14)] shrink-0">
             <div>
-              <div className="text-[11px] text-zinc-400">Parsed Rows</div>
-              <div className="text-xl font-bold font-mono tabular-nums text-white">
+              <div className="text-[11px] font-medium text-stone-600">Parsed Rows</div>
+              <div className="text-xl font-bold font-mono tabular-nums text-stone-900">
                 {batchItems.length}
               </div>
             </div>
-            <div className="h-8 w-px bg-zinc-800" />
+            <div className="h-8 w-px bg-[#E6D0AC]" />
             <div>
-              <div className="text-[11px] text-zinc-400">Ready Codes</div>
-              <div className="text-xl font-bold font-mono tabular-nums text-amber-400">
+              <div className="text-[11px] font-medium text-stone-600">Ready Codes</div>
+              <div className="text-xl font-bold font-mono tabular-nums text-amber-800">
                 {validItems.length}
               </div>
             </div>
-            <div className="h-8 w-px bg-zinc-800" />
+            <div className="h-8 w-px bg-[#E6D0AC]" />
             <div>
-              <div className="text-[11px] text-zinc-400">Export Size</div>
-              <div className="text-xl font-bold font-mono tabular-nums text-zinc-200">
+              <div className="text-[11px] font-medium text-stone-600">Export Size</div>
+              <div className="text-xl font-bold font-mono tabular-nums text-stone-800">
                 {customization.size}px
               </div>
             </div>
@@ -424,26 +424,26 @@ export default function BatchQRGenerator({
           {/* LEFT: Step 1 & 2 — CSV Upload + Column Mapping (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             {/* CSV Source Panel */}
-            <div className="p-6 bg-zinc-950/95 border border-zinc-800 rounded-3xl space-y-5">
+            <div className="p-6 bg-[#FFFDF9]/92 border border-[#DFC7A0] rounded-3xl shadow-[0_12px_36px_-12px_rgba(120,82,25,0.14)] space-y-5">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
-                  <h2 className="text-base font-bold text-white flex items-center gap-2">
-                    <FileSpreadsheet className="w-4 h-4 text-amber-400" />
+                  <h2 className="text-base font-bold text-stone-900 flex items-center gap-2">
+                    <FileSpreadsheet className="w-4 h-4 text-amber-800" />
                     <span>01. Import CSV Data Source</span>
                   </h2>
-                  <p className="text-xs text-zinc-400 mt-0.5">
-                    Active file: <span className="font-mono text-zinc-200">{sourceFilename}</span>
+                  <p className="text-xs text-stone-600 mt-0.5">
+                    Active file: <span className="font-mono font-semibold text-stone-800">{sourceFilename}</span>
                   </p>
                 </div>
 
                 {/* Upload vs Paste Switcher */}
-                <div className="flex items-center gap-1 p-1 bg-zinc-900 border border-zinc-800 rounded-xl shrink-0">
+                <div className="flex items-center gap-1 p-1 bg-[#FBF2E3] border border-[#E2CAA4] rounded-xl shrink-0">
                   <button
                     onClick={() => setInputMode('upload')}
                     className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                       inputMode === 'upload'
-                        ? 'bg-amber-400 text-black'
-                        : 'text-zinc-400 hover:text-white'
+                        ? 'bg-amber-400 text-stone-950 font-extrabold shadow-xs'
+                        : 'text-stone-700 hover:text-stone-900'
                     }`}
                   >
                     Upload CSV File
@@ -452,8 +452,8 @@ export default function BatchQRGenerator({
                     onClick={() => setInputMode('paste')}
                     className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                       inputMode === 'paste'
-                        ? 'bg-amber-400 text-black'
-                        : 'text-zinc-400 hover:text-white'
+                        ? 'bg-amber-400 text-stone-950 font-extrabold shadow-xs'
+                        : 'text-stone-700 hover:text-stone-900'
                     }`}
                   >
                     Paste / Edit CSV
@@ -471,8 +471,8 @@ export default function BatchQRGenerator({
                   onDrop={handleDrop}
                   className={`p-7 border-2 border-dashed rounded-2xl text-center space-y-3 transition-colors ${
                     isDragging
-                      ? 'border-amber-400 bg-amber-500/10'
-                      : 'border-zinc-800 bg-black/40 hover:border-amber-500/40'
+                      ? 'border-amber-700 bg-amber-100/70'
+                      : 'border-[#D4B483] bg-[#FBF2E3]/70 hover:border-amber-700/60'
                   }`}
                 >
                   <input
@@ -485,21 +485,21 @@ export default function BatchQRGenerator({
                     }}
                     className="hidden"
                   />
-                  <div className="w-11 h-11 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center mx-auto">
+                  <div className="w-11 h-11 rounded-2xl bg-amber-100 border border-amber-700/25 text-amber-800 flex items-center justify-center mx-auto">
                     <Upload className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
-                    <div className="text-sm font-bold text-white">
+                    <div className="text-sm font-bold text-stone-900">
                       Drag and drop your CSV file here
                     </div>
-                    <p className="text-xs text-zinc-400">
+                    <p className="text-xs text-stone-700">
                       Supports comma, semicolon, or tab-separated spreadsheets exported from Excel or Google Sheets.
                     </p>
                   </div>
                   <div className="pt-1 flex flex-wrap items-center justify-center gap-2">
                     <label
                       htmlFor={fileInputId}
-                      className="px-5 py-2.5 bg-gradient-to-r from-amber-400 to-yellow-500 text-black font-extrabold text-xs rounded-xl cursor-pointer whitespace-nowrap shrink-0 hover:from-amber-300 hover:to-yellow-400 transition-all"
+                      className="px-5 py-2.5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-stone-950 border border-amber-700/25 font-extrabold text-xs rounded-xl cursor-pointer whitespace-nowrap shrink-0 hover:from-amber-300 hover:to-yellow-400 transition-all shadow-xs"
                     >
                       Select CSV File
                     </label>
@@ -514,13 +514,13 @@ export default function BatchQRGenerator({
                     rows={7}
                     spellCheck={false}
                     placeholder="label,url,cta_text&#10;Table-01,https://2qrcode.com/?table=1,VIEW MENU"
-                    className="w-full p-3.5 bg-black border border-zinc-800 focus:border-amber-400 rounded-xl font-mono text-xs text-zinc-200 focus:outline-hidden leading-relaxed"
+                    className="w-full p-3.5 bg-white border border-[#D4B483] focus:border-amber-700 rounded-xl font-mono text-xs text-stone-900 placeholder:text-stone-500 focus:outline-hidden leading-relaxed"
                   />
-                  <div className="text-[11px] text-zinc-400 flex items-center justify-between">
+                  <div className="text-[11px] text-stone-600 flex items-center justify-between">
                     <span>First line is treated as column headers. Changes apply live.</span>
                     <button
                       onClick={() => applyCsvSource('', 'empty.csv')}
-                      className="text-zinc-400 hover:text-amber-300 font-semibold cursor-pointer"
+                      className="text-stone-700 hover:text-amber-800 font-semibold cursor-pointer"
                     >
                       Clear Editor
                     </button>
@@ -529,7 +529,7 @@ export default function BatchQRGenerator({
               )}
 
               {parseError && (
-                <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-xl flex items-center gap-2 text-xs text-red-300">
+                <div className="p-3 bg-rose-50 border border-rose-300 rounded-xl flex items-center gap-2 text-xs text-rose-800 font-medium">
                   <AlertCircle className="w-4 h-4 shrink-0" />
                   <span>{parseError}</span>
                 </div>
@@ -537,23 +537,23 @@ export default function BatchQRGenerator({
 
               {/* Ready-to-Use CSV Templates */}
               <div className="pt-2 space-y-2.5">
-                <div className="text-xs font-bold text-zinc-300">
+                <div className="text-xs font-bold text-stone-800">
                   Load or download a ready-to-use CSV template:
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {BATCH_TEMPLATES.map((preset) => (
                     <div
                       key={preset.id}
-                      className="p-3 bg-zinc-900/70 border border-zinc-800 rounded-xl flex items-center justify-between gap-2"
+                      className="p-3 bg-[#FBF2E3]/80 border border-[#E2CAA4] rounded-xl flex items-center justify-between gap-2 hover:border-amber-700/40 transition-colors"
                     >
                       <button
                         onClick={() => applyCsvSource(preset.csv, preset.filename)}
                         className="text-left min-w-0 flex-1 cursor-pointer group"
                       >
-                        <div className="text-xs font-bold text-white group-hover:text-amber-300 truncate">
+                        <div className="text-xs font-bold text-stone-900 group-hover:text-amber-800 truncate">
                           {preset.name}
                         </div>
-                        <div className="text-[11px] text-zinc-400 truncate">
+                        <div className="text-[11px] text-stone-600 truncate">
                           {preset.description}
                         </div>
                       </button>
@@ -561,7 +561,7 @@ export default function BatchQRGenerator({
                         onClick={() => handleDownloadSampleCsv(preset)}
                         title={`Download ${preset.filename}`}
                         aria-label={`Download ${preset.filename}`}
-                        className="p-2 rounded-lg bg-zinc-950 border border-zinc-800 text-zinc-400 hover:text-amber-300 hover:border-amber-500/40 shrink-0 cursor-pointer"
+                        className="p-2 rounded-lg bg-white border border-[#D4B483] text-stone-700 hover:text-amber-800 hover:border-amber-700/50 shrink-0 cursor-pointer"
                       >
                         <Download className="w-3.5 h-3.5" aria-hidden="true" />
                       </button>
@@ -572,20 +572,20 @@ export default function BatchQRGenerator({
             </div>
 
             {/* Step 2: Column Mapping & Payload Builder */}
-            <div className="p-6 bg-zinc-950/95 border border-zinc-800 rounded-3xl space-y-5">
+            <div className="p-6 bg-[#FFFDF9]/92 border border-[#DFC7A0] rounded-3xl shadow-[0_12px_36px_-12px_rgba(120,82,25,0.14)] space-y-5">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
-                  <h2 className="text-base font-bold text-white flex items-center gap-2">
-                    <SlidersHorizontal className="w-4 h-4 text-amber-400" />
+                  <h2 className="text-base font-bold text-stone-900 flex items-center gap-2">
+                    <SlidersHorizontal className="w-4 h-4 text-amber-800" />
                     <span>02. Map CSV Columns to QR Payload</span>
                   </h2>
-                  <p className="text-xs text-zinc-400 mt-0.5">
+                  <p className="text-xs text-stone-600 mt-0.5">
                     Detected columns: {parsed.headers.length > 0 ? parsed.headers.join(', ') : 'None'}
                   </p>
                 </div>
 
                 {/* Format Mode Segmented Buttons */}
-                <div className="flex items-center gap-1 p-1 bg-zinc-900 border border-zinc-800 rounded-xl overflow-x-auto">
+                <div className="flex items-center gap-1 p-1 bg-[#FBF2E3] border border-[#E2CAA4] rounded-xl overflow-x-auto">
                   {(
                     [
                       { id: 'direct', label: 'Direct Column' },
@@ -599,8 +599,8 @@ export default function BatchQRGenerator({
                       onClick={() => setMapping((prev) => ({ ...prev, mode: m.id }))}
                       className={`px-2.5 py-1.5 text-xs font-bold rounded-lg whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
                         mapping.mode === m.id
-                          ? 'bg-amber-400 text-black'
-                          : 'text-zinc-400 hover:text-white'
+                          ? 'bg-amber-400 text-stone-950 font-extrabold shadow-xs'
+                          : 'text-stone-700 hover:text-stone-900'
                       }`}
                     >
                       {m.label}
@@ -612,14 +612,14 @@ export default function BatchQRGenerator({
               {/* Common Label + Frame CTA Column Selectors */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-zinc-300 mb-1.5">
+                  <label className="block text-xs font-semibold text-stone-800 mb-1.5">
                     Filename / Label Column
                   </label>
                   <select
                     aria-label="Filename or Label Column"
                     value={mapping.labelColumn}
                     onChange={(e) => setMapping((prev) => ({ ...prev, labelColumn: e.target.value }))}
-                    className="w-full px-3 py-2.5 bg-zinc-900 border border-zinc-800 rounded-xl text-xs font-medium text-white focus:outline-hidden focus:border-amber-400"
+                    className="w-full px-3 py-2.5 bg-white border border-[#D4B483] rounded-xl text-xs font-medium text-stone-900 focus:outline-hidden focus:border-amber-700"
                   >
                     <option value="">Auto-number (001, 002...)</option>
                     {parsed.headers.map((h) => (
@@ -632,15 +632,15 @@ export default function BatchQRGenerator({
 
                 <div>
                   <div className="flex items-center justify-between mb-1.5">
-                    <label className="text-xs font-semibold text-zinc-300">
+                    <label className="text-xs font-semibold text-stone-800">
                       Per-Row CTA Banner Column
                     </label>
-                    <label className="flex items-center gap-1.5 text-[11px] text-amber-300 cursor-pointer">
+                    <label className="flex items-center gap-1.5 text-[11px] font-semibold text-amber-800 cursor-pointer">
                       <input
                         type="checkbox"
                         checked={useCsvCtaColumn}
                         onChange={(e) => setUseCsvCtaColumn(e.target.checked)}
-                        className="accent-amber-400"
+                        className="accent-amber-700"
                       />
                       <span>Use CSV column</span>
                     </label>
@@ -650,7 +650,7 @@ export default function BatchQRGenerator({
                     disabled={!useCsvCtaColumn}
                     value={mapping.ctaColumn}
                     onChange={(e) => setMapping((prev) => ({ ...prev, ctaColumn: e.target.value }))}
-                    className="w-full px-3 py-2.5 bg-zinc-900 border border-zinc-800 rounded-xl text-xs font-medium text-white focus:outline-hidden focus:border-amber-400 disabled:opacity-40"
+                    className="w-full px-3 py-2.5 bg-white border border-[#D4B483] rounded-xl text-xs font-medium text-stone-900 focus:outline-hidden focus:border-amber-700 disabled:opacity-50"
                   >
                     <option value="">Use standardized frame CTA ({customization.frameText})</option>
                     {parsed.headers.map((h) => (
@@ -665,14 +665,14 @@ export default function BatchQRGenerator({
               {/* Mode-Specific Column Selectors */}
               {mapping.mode === 'direct' && (
                 <div>
-                  <label className="block text-xs font-semibold text-zinc-300 mb-1.5">
+                  <label className="block text-xs font-semibold text-stone-800 mb-1.5">
                     QR Content / URL Column
                   </label>
                   <select
                     aria-label="QR Content or URL Column"
                     value={mapping.contentColumn}
                     onChange={(e) => setMapping((prev) => ({ ...prev, contentColumn: e.target.value }))}
-                    className="w-full px-3 py-2.5 bg-zinc-900 border border-zinc-800 rounded-xl text-xs font-medium text-white focus:outline-hidden focus:border-amber-400"
+                    className="w-full px-3 py-2.5 bg-white border border-[#D4B483] rounded-xl text-xs font-medium text-stone-900 focus:outline-hidden focus:border-amber-700"
                   >
                     {parsed.headers.map((h) => (
                       <option key={h} value={h}>
@@ -685,7 +685,7 @@ export default function BatchQRGenerator({
 
               {mapping.mode === 'url-template' && (
                 <div className="space-y-2">
-                  <label className="block text-xs font-semibold text-zinc-300">
+                  <label className="block text-xs font-semibold text-stone-800">
                     Dynamic Payload Pattern (insert CSV columns using {'{{column_name}}'})
                   </label>
                   <input
@@ -693,7 +693,7 @@ export default function BatchQRGenerator({
                     value={mapping.urlTemplate}
                     onChange={(e) => setMapping((prev) => ({ ...prev, urlTemplate: e.target.value }))}
                     placeholder="https://2qrcode.com/item/{{sku}}"
-                    className="w-full px-3.5 py-2.5 bg-zinc-900 border border-zinc-800 focus:border-amber-400 rounded-xl font-mono text-xs text-amber-300 focus:outline-hidden"
+                    className="w-full px-3.5 py-2.5 bg-white border border-[#D4B483] focus:border-amber-700 rounded-xl font-mono text-xs text-amber-900 focus:outline-hidden"
                   />
                   <div className="flex flex-wrap gap-1.5">
                     {parsed.headers.map((h) => (
@@ -706,7 +706,7 @@ export default function BatchQRGenerator({
                             urlTemplate: `${prev.urlTemplate}{{${h}}}`,
                           }))
                         }
-                        className="px-2 py-1 text-[11px] font-mono rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-amber-400 hover:text-amber-300 cursor-pointer"
+                        className="px-2 py-1 text-[11px] font-mono rounded-lg bg-[#FBF2E3] border border-[#D4B483] text-stone-800 hover:border-amber-700 hover:text-amber-900 cursor-pointer"
                       >
                         + {`{{${h}}}`}
                       </button>
@@ -718,11 +718,11 @@ export default function BatchQRGenerator({
               {mapping.mode === 'wifi' && (
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div>
-                    <label className="block text-xs font-semibold text-zinc-300 mb-1">Network SSID</label>
+                    <label className="block text-xs font-semibold text-stone-800 mb-1">Network SSID</label>
                     <select
                       value={mapping.wifiSsidColumn}
                       onChange={(e) => setMapping((prev) => ({ ...prev, wifiSsidColumn: e.target.value }))}
-                      className="w-full px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-xl text-xs text-white"
+                      className="w-full px-3 py-2 bg-white border border-[#D4B483] rounded-xl text-xs text-stone-900"
                     >
                       {parsed.headers.map((h) => (
                         <option key={h} value={h}>{h}</option>
@@ -730,11 +730,11 @@ export default function BatchQRGenerator({
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-zinc-300 mb-1">Password</label>
+                    <label className="block text-xs font-semibold text-stone-800 mb-1">Password</label>
                     <select
                       value={mapping.wifiPasswordColumn}
                       onChange={(e) => setMapping((prev) => ({ ...prev, wifiPasswordColumn: e.target.value }))}
-                      className="w-full px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-xl text-xs text-white"
+                      className="w-full px-3 py-2 bg-white border border-[#D4B483] rounded-xl text-xs text-stone-900"
                     >
                       <option value="">None / Open</option>
                       {parsed.headers.map((h) => (
@@ -743,11 +743,11 @@ export default function BatchQRGenerator({
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-zinc-300 mb-1">Security (WPA/WEP)</label>
+                    <label className="block text-xs font-semibold text-stone-800 mb-1">Security (WPA/WEP)</label>
                     <select
                       value={mapping.wifiEncryptionColumn}
                       onChange={(e) => setMapping((prev) => ({ ...prev, wifiEncryptionColumn: e.target.value }))}
-                      className="w-full px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-xl text-xs text-white"
+                      className="w-full px-3 py-2 bg-white border border-[#D4B483] rounded-xl text-xs text-stone-900"
                     >
                       <option value="">Default WPA/WPA2</option>
                       {parsed.headers.map((h) => (
@@ -770,7 +770,7 @@ export default function BatchQRGenerator({
                     { key: 'vcardUrlColumn', label: 'Website URL' },
                   ].map((field) => (
                     <div key={field.key}>
-                      <label className="block text-[11px] font-semibold text-zinc-400 mb-1">
+                      <label className="block text-[11px] font-semibold text-stone-700 mb-1">
                         {field.label}
                       </label>
                       <select
@@ -778,7 +778,7 @@ export default function BatchQRGenerator({
                         onChange={(e) =>
                           setMapping((prev) => ({ ...prev, [field.key]: e.target.value }))
                         }
-                        className="w-full px-2.5 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-xs text-white"
+                        className="w-full px-2.5 py-2 bg-white border border-[#D4B483] rounded-lg text-xs text-stone-900"
                       >
                         <option value="">Unmapped</option>
                         {parsed.headers.map((h) => (
@@ -793,22 +793,22 @@ export default function BatchQRGenerator({
           </div>
 
           {/* RIGHT: Step 3 — Standardized Custom Styles & Live Reference Card (5 cols) */}
-          <div className="lg:col-span-5 p-6 bg-zinc-950/95 border border-amber-500/25 rounded-3xl space-y-5">
-            <div className="flex items-center justify-between gap-2 pb-4 border-b border-zinc-800">
+          <div className="lg:col-span-5 p-6 bg-[#FFFDF9]/92 border border-amber-700/35 rounded-3xl shadow-[0_12px_36px_-12px_rgba(120,82,25,0.16)] space-y-5">
+            <div className="flex items-center justify-between gap-2 pb-4 border-b border-[#E6D0AC]">
               <div>
-                <h2 className="text-base font-bold text-white flex items-center gap-2">
-                  <Palette className="w-4 h-4 text-amber-400" />
+                <h2 className="text-base font-bold text-stone-900 flex items-center gap-2">
+                  <Palette className="w-4 h-4 text-amber-800" />
                   <span>03. Standardized Batch Style</span>
                 </h2>
-                <p className="text-xs text-zinc-400 mt-0.5">
+                <p className="text-xs text-stone-600 mt-0.5">
                   Applies identically across all {validItems.length} QR codes
                 </p>
               </div>
             </div>
 
             {/* Live Reference Preview */}
-            <div className="p-4 bg-black/70 border border-zinc-800 rounded-2xl flex items-center gap-4">
-              <div className="p-2 bg-zinc-950 border border-zinc-800 rounded-xl shrink-0">
+            <div className="p-4 bg-[#FBF2E3]/90 border border-[#DFC7A0] rounded-2xl flex items-center gap-4">
+              <div className="p-2 bg-white border border-[#DFC7A0] rounded-xl shrink-0 shadow-xs">
                 <BatchQRThumbnail
                   payload={referenceItem.payload}
                   customization={referenceItem.rowCustomization}
@@ -816,23 +816,23 @@ export default function BatchQRGenerator({
                 />
               </div>
               <div className="min-w-0 space-y-1">
-                <div className="text-[11px] font-semibold text-amber-400">
+                <div className="text-[11px] font-semibold text-amber-800">
                   Live Batch Reference Preview
                 </div>
-                <div className="text-sm font-bold text-white truncate">
+                <div className="text-sm font-bold text-stone-900 truncate">
                   {referenceItem.label}
                 </div>
-                <div className="text-[11px] font-mono text-zinc-400 truncate">
+                <div className="text-[11px] font-mono text-stone-700 truncate">
                   {referenceItem.payload}
                 </div>
-                <div className="text-[11px] text-zinc-400 font-mono tabular-nums pt-1">
+                <div className="text-[11px] text-stone-600 font-mono tabular-nums pt-1">
                   {customization.dotStyle} · ECC {customization.errorCorrection} · {customization.size}px
                 </div>
               </div>
             </div>
 
             {/* Compact Style Tabs */}
-            <div className="flex items-center gap-1 p-1 bg-zinc-900 border border-zinc-800 rounded-xl">
+            <div className="flex items-center gap-1 p-1 bg-[#FBF2E3] border border-[#E2CAA4] rounded-xl">
               {[
                 { id: 'style', label: 'Colors & Dots', icon: Palette },
                 { id: 'logo', label: 'Brand Logo', icon: ImageIcon },
@@ -843,8 +843,8 @@ export default function BatchQRGenerator({
                   onClick={() => setStyleTab(t.id as any)}
                   className={`flex-1 py-2 px-2.5 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
                     styleTab === t.id
-                      ? 'bg-amber-400 text-black'
-                      : 'text-zinc-400 hover:text-white'
+                      ? 'bg-amber-400 text-stone-950 font-extrabold shadow-xs'
+                      : 'text-stone-700 hover:text-stone-900'
                   }`}
                 >
                   <t.icon className="w-3.5 h-3.5" />
@@ -858,10 +858,10 @@ export default function BatchQRGenerator({
                 {/* Quick Color Palettes */}
                 <div className="flex flex-wrap gap-1.5">
                   {[
-                    { name: 'Imperial Gold', fg: '#facc15', bg: '#000000', grad: '#ca8a04' },
+                    { name: 'Champagne Gold', fg: '#291D0E', bg: '#FFFDF8', grad: '#92400E' },
                     { name: 'Classic Ink', fg: '#0f172a', bg: '#ffffff', grad: '#334155' },
-                    { name: 'Emerald Dark', fg: '#10b981', bg: '#050505', grad: '#047857' },
                     { name: 'Amber Print', fg: '#b45309', bg: '#ffffff', grad: '#78350f' },
+                    { name: 'Emerald Ink', fg: '#065f46', bg: '#ffffff', grad: '#047857' },
                   ].map((p) => (
                     <button
                       key={p.name}
@@ -873,13 +873,13 @@ export default function BatchQRGenerator({
                           eyeFrameColor: p.fg,
                           eyeBallColor: p.fg,
                           frameColor: p.fg,
-                          frameTextColor: p.bg === '#ffffff' ? '#ffffff' : '#000000',
+                          frameTextColor: '#ffffff',
                         })
                       }
-                      className="px-2.5 py-1.5 rounded-lg border border-zinc-800 bg-zinc-900 text-[11px] font-semibold text-zinc-200 hover:border-amber-400 flex items-center gap-1.5 cursor-pointer"
+                      className="px-2.5 py-1.5 rounded-lg border border-[#D4B483] bg-[#FBF2E3] text-[11px] font-semibold text-stone-800 hover:border-amber-700 flex items-center gap-1.5 cursor-pointer"
                     >
                       <span
-                        className="w-3 h-3 rounded-full border border-white/20"
+                        className="w-3 h-3 rounded-full border border-stone-900/20"
                         style={{ backgroundColor: p.fg }}
                       />
                       <span>{p.name}</span>
@@ -889,8 +889,8 @@ export default function BatchQRGenerator({
 
                 {/* Color Inputs */}
                 <div className="grid grid-cols-3 gap-2.5">
-                  <label className="p-2.5 bg-zinc-900 rounded-xl border border-zinc-800 block cursor-pointer">
-                    <span className="block text-[11px] text-zinc-400 mb-1">Pattern</span>
+                  <label className="p-2.5 bg-[#FBF2E3] rounded-xl border border-[#E2CAA4] block cursor-pointer">
+                    <span className="block text-[11px] font-medium text-stone-700 mb-1">Pattern</span>
                     <div className="flex items-center gap-2">
                       <input
                         type="color"
@@ -904,14 +904,14 @@ export default function BatchQRGenerator({
                         }
                         className="w-6 h-6 rounded bg-transparent border-0 cursor-pointer"
                       />
-                      <span className="text-[11px] font-mono text-zinc-200 uppercase">
+                      <span className="text-[11px] font-mono text-stone-900 uppercase">
                         {customization.fgColor}
                       </span>
                     </div>
                   </label>
 
-                  <label className="p-2.5 bg-zinc-900 rounded-xl border border-zinc-800 block cursor-pointer">
-                    <span className="block text-[11px] text-zinc-400 mb-1">Background</span>
+                  <label className="p-2.5 bg-[#FBF2E3] rounded-xl border border-[#E2CAA4] block cursor-pointer">
+                    <span className="block text-[11px] font-medium text-stone-700 mb-1">Background</span>
                     <div className="flex items-center gap-2">
                       <input
                         type="color"
@@ -919,20 +919,20 @@ export default function BatchQRGenerator({
                         onChange={(e) => updateStyle({ bgColor: e.target.value })}
                         className="w-6 h-6 rounded bg-transparent border-0 cursor-pointer"
                       />
-                      <span className="text-[11px] font-mono text-zinc-200 uppercase">
+                      <span className="text-[11px] font-mono text-stone-900 uppercase">
                         {customization.bgColor}
                       </span>
                     </div>
                   </label>
 
-                  <div className="p-2.5 bg-zinc-900 rounded-xl border border-zinc-800">
+                  <div className="p-2.5 bg-[#FBF2E3] rounded-xl border border-[#E2CAA4]">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-[11px] text-zinc-400">Gradient</span>
+                      <span className="text-[11px] font-medium text-stone-700">Gradient</span>
                       <input
                         type="checkbox"
                         checked={customization.useGradient}
                         onChange={(e) => updateStyle({ useGradient: e.target.checked })}
-                        className="accent-amber-400 cursor-pointer"
+                        className="accent-amber-700 cursor-pointer"
                       />
                     </div>
                     <div className="flex items-center gap-2">
@@ -943,7 +943,7 @@ export default function BatchQRGenerator({
                         onChange={(e) => updateStyle({ gradientColor2: e.target.value })}
                         className="w-6 h-6 rounded bg-transparent border-0 cursor-pointer disabled:opacity-30"
                       />
-                      <span className="text-[11px] font-mono text-zinc-200 uppercase">
+                      <span className="text-[11px] font-mono text-stone-900 uppercase">
                         {customization.gradientColor2}
                       </span>
                     </div>
@@ -953,13 +953,13 @@ export default function BatchQRGenerator({
                 {/* Dot Style & Corner Eye */}
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-[11px] font-semibold text-zinc-400 mb-1.5">
+                    <label className="block text-[11px] font-semibold text-stone-700 mb-1.5">
                       Dot Matrix Style
                     </label>
                     <select
                       value={customization.dotStyle}
                       onChange={(e) => updateStyle({ dotStyle: e.target.value as any })}
-                      className="w-full px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-xl text-xs font-semibold text-white"
+                      className="w-full px-3 py-2 bg-white border border-[#D4B483] rounded-xl text-xs font-semibold text-stone-900"
                     >
                       <option value="square">Classic Square</option>
                       <option value="rounded">Soft Rounded</option>
@@ -968,13 +968,13 @@ export default function BatchQRGenerator({
                     </select>
                   </div>
                   <div>
-                    <label className="block text-[11px] font-semibold text-zinc-400 mb-1.5">
+                    <label className="block text-[11px] font-semibold text-stone-700 mb-1.5">
                       Corner Eye Geometry
                     </label>
                     <select
                       value={customization.cornerStyle}
                       onChange={(e) => updateStyle({ cornerStyle: e.target.value as any })}
-                      className="w-full px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-xl text-xs font-semibold text-white"
+                      className="w-full px-3 py-2 bg-white border border-[#D4B483] rounded-xl text-xs font-semibold text-stone-900"
                     >
                       <option value="square">Square Eyes</option>
                       <option value="rounded">Rounded Eyes</option>
@@ -998,14 +998,14 @@ export default function BatchQRGenerator({
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => logoUploadRef.current?.click()}
-                    className="flex-1 py-2.5 px-3 bg-zinc-900 hover:bg-zinc-800 border border-amber-500/40 text-amber-300 text-xs font-bold rounded-xl cursor-pointer whitespace-nowrap"
+                    className="flex-1 py-2.5 px-3 bg-[#FBF2E3] hover:bg-amber-100 border border-amber-700/35 text-amber-900 text-xs font-bold rounded-xl cursor-pointer whitespace-nowrap"
                   >
                     Upload Center Logo (PNG/SVG)
                   </button>
                   {(customization.customLogoUrl || customization.logoPreset) && (
                     <button
                       onClick={() => updateStyle({ customLogoUrl: null, logoPreset: null })}
-                      className="py-2.5 px-3 bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white text-xs font-bold rounded-xl cursor-pointer flex items-center gap-1"
+                      className="py-2.5 px-3 bg-white border border-[#D4B483] text-stone-700 hover:text-stone-900 text-xs font-bold rounded-xl cursor-pointer flex items-center gap-1"
                     >
                       <X className="w-3.5 h-3.5" />
                       <span>Clear</span>
@@ -1028,12 +1028,12 @@ export default function BatchQRGenerator({
                         }
                         className={`p-2 rounded-xl border text-[11px] font-semibold flex flex-col items-center gap-1 cursor-pointer transition-colors ${
                           active
-                            ? 'border-amber-400 bg-amber-500/15 text-amber-300'
-                            : 'border-zinc-800 bg-zinc-900 text-zinc-300 hover:border-zinc-700'
+                            ? 'border-amber-700 bg-amber-100 text-amber-950'
+                            : 'border-[#E2CAA4] bg-[#FBF2E3] text-stone-800 hover:border-amber-700/50'
                         }`}
                       >
                         <div
-                          className="w-4 h-4 text-amber-400"
+                          className="w-4 h-4 text-amber-800"
                           dangerouslySetInnerHTML={{ __html: item.svg }}
                         />
                         <span className="truncate w-full text-center">{item.label}</span>
@@ -1048,13 +1048,13 @@ export default function BatchQRGenerator({
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-[11px] font-semibold text-zinc-400 mb-1.5">
+                    <label className="block text-[11px] font-semibold text-stone-700 mb-1.5">
                       Standard Frame Style
                     </label>
                     <select
                       value={customization.frameType}
                       onChange={(e) => updateStyle({ frameType: e.target.value as any })}
-                      className="w-full px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-xl text-xs font-semibold text-white"
+                      className="w-full px-3 py-2 bg-white border border-[#D4B483] rounded-xl text-xs font-semibold text-stone-900"
                     >
                       <option value="none">No Frame (Clean)</option>
                       <option value="bottom-bar">Bottom Ribbon</option>
@@ -1066,7 +1066,7 @@ export default function BatchQRGenerator({
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-semibold text-zinc-400 mb-1.5">
+                    <label className="block text-[11px] font-semibold text-stone-700 mb-1.5">
                       Default CTA Banner
                     </label>
                     <input
@@ -1074,20 +1074,20 @@ export default function BatchQRGenerator({
                       maxLength={24}
                       value={customization.frameText}
                       onChange={(e) => updateStyle({ frameText: e.target.value })}
-                      className="w-full px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-xl text-xs font-bold text-white uppercase"
+                      className="w-full px-3 py-2 bg-white border border-[#D4B483] rounded-xl text-xs font-bold text-stone-900 uppercase"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-[11px] font-semibold text-zinc-400 mb-1.5">
+                    <label className="block text-[11px] font-semibold text-stone-700 mb-1.5">
                       Export Resolution
                     </label>
                     <select
                       value={customization.size}
                       onChange={(e) => updateStyle({ size: Number(e.target.value) })}
-                      className="w-full px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-xl text-xs font-mono font-bold text-amber-300"
+                      className="w-full px-3 py-2 bg-white border border-[#D4B483] rounded-xl text-xs font-mono font-bold text-amber-900"
                     >
                       <option value={512}>512 × 512 px (Web)</option>
                       <option value={1024}>1024 × 1024 px (Standard)</option>
@@ -1096,13 +1096,13 @@ export default function BatchQRGenerator({
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-semibold text-zinc-400 mb-1.5">
+                    <label className="block text-[11px] font-semibold text-stone-700 mb-1.5">
                       Error Correction
                     </label>
                     <select
                       value={customization.errorCorrection}
                       onChange={(e) => updateStyle({ errorCorrection: e.target.value as any })}
-                      className="w-full px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-xl text-xs font-mono font-bold text-white"
+                      className="w-full px-3 py-2 bg-white border border-[#D4B483] rounded-xl text-xs font-mono font-bold text-stone-900"
                     >
                       <option value="L">Level L (7%)</option>
                       <option value="M">Level M (15%)</option>
@@ -1117,16 +1117,16 @@ export default function BatchQRGenerator({
         </div>
 
         {/* Step 4: Batch Output Queue & Bulk Download Toolbar */}
-        <div className="p-6 bg-zinc-950/95 border border-zinc-800 rounded-3xl space-y-6">
+        <div className="p-6 bg-[#FFFDF9]/92 border border-[#DFC7A0] rounded-3xl shadow-[0_12px_36px_-12px_rgba(120,82,25,0.14)] space-y-6">
           {/* Toolbar */}
-          <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 pb-5 border-b border-zinc-800">
+          <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 pb-5 border-b border-[#E6D0AC]">
             <div className="flex flex-wrap items-center gap-3">
-              <h2 className="text-lg font-extrabold text-white">
+              <h2 className="text-lg font-extrabold text-stone-900">
                 04. Generated Batch ({filteredItems.length})
               </h2>
 
               <div className="relative">
-                <Search className="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-1/2 -translate-y-1/2" aria-hidden="true" />
+                <Search className="w-3.5 h-3.5 text-stone-600 absolute left-3 top-1/2 -translate-y-1/2" aria-hidden="true" />
                 <input
                   type="text"
                   aria-label="Filter batch QR codes by label or URL"
@@ -1136,25 +1136,25 @@ export default function BatchQRGenerator({
                     setCurrentPage(1);
                   }}
                   placeholder="Filter labels or URLs..."
-                  className="pl-8 pr-3 py-2 bg-zinc-900 border border-zinc-800 rounded-xl text-xs text-white placeholder:text-zinc-400 focus:outline-hidden focus:border-amber-400"
+                  className="pl-8 pr-3 py-2 bg-white border border-[#D4B483] rounded-xl text-xs text-stone-900 placeholder:text-stone-500 focus:outline-hidden focus:border-amber-700"
                 />
               </div>
 
               <button
                 onClick={handleAddBlankRow}
-                className="px-3.5 py-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 text-xs font-bold rounded-xl flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0"
+                className="px-3.5 py-2 bg-[#FBF2E3] hover:bg-amber-100 border border-[#D4B483] text-stone-900 text-xs font-bold rounded-xl flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0"
               >
-                <Plus className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
+                <Plus className="w-3.5 h-3.5 text-amber-800" aria-hidden="true" />
                 <span>Add Row</span>
               </button>
 
-              <div className="flex items-center gap-1 p-1 bg-zinc-900 border border-zinc-800 rounded-xl">
+              <div className="flex items-center gap-1 p-1 bg-[#FBF2E3] border border-[#E2CAA4] rounded-xl">
                 <button
                   onClick={() => setViewMode('grid')}
                   title="Card Grid View"
                   aria-label="Switch to Card Grid View"
                   className={`p-1.5 rounded-lg cursor-pointer ${
-                    viewMode === 'grid' ? 'bg-amber-400 text-black' : 'text-zinc-400 hover:text-white'
+                    viewMode === 'grid' ? 'bg-amber-400 text-stone-950' : 'text-stone-700 hover:text-stone-900'
                   }`}
                 >
                   <Grid className="w-3.5 h-3.5" aria-hidden="true" />
@@ -1164,7 +1164,7 @@ export default function BatchQRGenerator({
                   title="Compact Table View"
                   aria-label="Switch to Compact Table View"
                   className={`p-1.5 rounded-lg cursor-pointer ${
-                    viewMode === 'table' ? 'bg-amber-400 text-black' : 'text-zinc-400 hover:text-white'
+                    viewMode === 'table' ? 'bg-amber-400 text-stone-950' : 'text-stone-700 hover:text-stone-900'
                   }`}
                 >
                   <TableIcon className="w-3.5 h-3.5" aria-hidden="true" />
@@ -1174,15 +1174,15 @@ export default function BatchQRGenerator({
 
             {/* Bulk Export Controls */}
             <div className="flex flex-wrap items-center gap-2.5">
-              <div className="flex items-center gap-1 p-1 bg-zinc-900 border border-zinc-800 rounded-xl">
+              <div className="flex items-center gap-1 p-1 bg-[#FBF2E3] border border-[#E2CAA4] rounded-xl">
                 {(['png', 'svg', 'jpg'] as const).map((fmt) => (
                   <button
                     key={fmt}
                     onClick={() => setExportFormat(fmt)}
                     className={`px-3 py-1.5 text-xs font-mono font-bold uppercase rounded-lg cursor-pointer transition-colors ${
                       exportFormat === fmt
-                        ? 'bg-amber-400 text-black'
-                        : 'text-zinc-400 hover:text-white'
+                        ? 'bg-amber-400 text-stone-950'
+                        : 'text-stone-700 hover:text-stone-900'
                     }`}
                   >
                     {fmt}
@@ -1193,16 +1193,16 @@ export default function BatchQRGenerator({
               <button
                 onClick={handlePrintSheet}
                 disabled={validItems.length === 0 || isPreparingPrint}
-                className="px-4 py-2.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 font-bold rounded-xl text-xs flex items-center gap-1.5 cursor-pointer disabled:opacity-40 whitespace-nowrap shrink-0"
+                className="px-4 py-2.5 bg-white hover:bg-[#FBF2E3] border border-[#D4B483] text-stone-900 font-bold rounded-xl text-xs flex items-center gap-1.5 cursor-pointer disabled:opacity-40 whitespace-nowrap shrink-0"
               >
-                <Printer className="w-4 h-4 text-amber-400" />
+                <Printer className="w-4 h-4 text-amber-800" />
                 <span>{isPreparingPrint ? 'Preparing Sheet...' : 'Print Sheet'}</span>
               </button>
 
               <button
                 onClick={handleDownloadZip}
                 disabled={validItems.length === 0 || isExporting}
-                className="px-5 py-2.5 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:to-yellow-500 text-black font-extrabold rounded-xl text-xs flex items-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.3)] cursor-pointer disabled:opacity-40 whitespace-nowrap shrink-0"
+                className="px-5 py-2.5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-400 text-stone-950 border border-amber-700/25 font-extrabold rounded-xl text-xs flex items-center gap-2 shadow-[0_6px_18px_rgba(180,120,20,0.22)] cursor-pointer disabled:opacity-40 whitespace-nowrap shrink-0"
               >
                 <Download className="w-4 h-4" />
                 <span>
@@ -1215,7 +1215,7 @@ export default function BatchQRGenerator({
           </div>
 
           {exportMessage && (
-            <div className="p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl flex items-center gap-2 text-xs text-emerald-300">
+            <div className="p-3 bg-emerald-50 border border-emerald-300 rounded-xl flex items-center gap-2 text-xs text-emerald-800 font-medium">
               <Check className="w-4 h-4 shrink-0" />
               <span>{exportMessage}</span>
             </div>
@@ -1223,15 +1223,15 @@ export default function BatchQRGenerator({
 
           {/* Empty State */}
           {filteredItems.length === 0 ? (
-            <div className="p-12 text-center bg-black/40 border border-zinc-800 rounded-2xl space-y-3">
-              <FileSpreadsheet className="w-8 h-8 text-zinc-600 mx-auto" />
-              <h3 className="text-sm font-bold text-white">No QR codes in current batch</h3>
-              <p className="text-xs text-zinc-400">
+            <div className="p-12 text-center bg-[#FBF2E3]/70 border border-[#DFC7A0] rounded-2xl space-y-3">
+              <FileSpreadsheet className="w-8 h-8 text-stone-500 mx-auto" />
+              <h3 className="text-sm font-bold text-stone-900">No QR codes in current batch</h3>
+              <p className="text-xs text-stone-700">
                 Upload a CSV file, load a sample template above, or click Add Row to start generating.
               </p>
               <button
                 onClick={() => applyCsvSource(BATCH_TEMPLATES[0].csv, BATCH_TEMPLATES[0].filename)}
-                className="px-4 py-2 bg-amber-400 text-black font-bold text-xs rounded-xl cursor-pointer"
+                className="px-4 py-2 bg-amber-400 text-stone-950 font-extrabold text-xs rounded-xl cursor-pointer"
               >
                 Load Sample CSV
               </button>
@@ -1242,14 +1242,14 @@ export default function BatchQRGenerator({
               {paginatedItems.map((item) => (
                 <div
                   key={item.id}
-                  className="p-4 bg-black/50 border border-zinc-800 hover:border-amber-500/40 rounded-2xl flex flex-col justify-between gap-3 transition-colors"
+                  className="p-4 bg-[#FFFDF9] border border-[#DFC7A0] hover:border-amber-700/45 rounded-2xl shadow-xs flex flex-col justify-between gap-3 transition-colors"
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
-                      <div className="text-[11px] font-mono tabular-nums text-zinc-400">
+                      <div className="text-[11px] font-mono tabular-nums text-stone-600">
                         #{String(item.index + 1).padStart(3, '0')}
                       </div>
-                      <h3 className="text-sm font-bold text-white truncate" title={item.label}>
+                      <h3 className="text-sm font-bold text-stone-900 truncate" title={item.label}>
                         {item.label}
                       </h3>
                     </div>
@@ -1257,13 +1257,13 @@ export default function BatchQRGenerator({
                       onClick={() => handleDeleteRow(item.index)}
                       title="Remove item"
                       aria-label={`Remove ${item.label}`}
-                      className="p-1.5 rounded-lg text-zinc-400 hover:text-red-400 hover:bg-zinc-900 cursor-pointer"
+                      className="p-1.5 rounded-lg text-stone-600 hover:text-rose-700 hover:bg-rose-50 cursor-pointer"
                     >
                       <Trash2 className="w-3.5 h-3.5" aria-hidden="true" />
                     </button>
                   </div>
 
-                  <div className="p-3 bg-zinc-950 rounded-xl border border-zinc-900 flex items-center justify-center">
+                  <div className="p-3 bg-white rounded-xl border border-[#E6D0AC] flex items-center justify-center">
                     {item.isValid ? (
                       <BatchQRThumbnail
                         payload={item.payload}
@@ -1271,7 +1271,7 @@ export default function BatchQRGenerator({
                         className="w-36 h-36"
                       />
                     ) : (
-                      <div className="w-36 h-36 flex items-center justify-center text-xs text-red-400 text-center px-2">
+                      <div className="w-36 h-36 flex items-center justify-center text-xs text-rose-700 font-medium text-center px-2">
                         Empty payload in mapped column
                       </div>
                     )}
@@ -1279,7 +1279,7 @@ export default function BatchQRGenerator({
 
                   <div className="space-y-2.5">
                     <div
-                      className="text-[11px] font-mono text-zinc-400 truncate bg-zinc-900/80 px-2.5 py-1.5 rounded-lg"
+                      className="text-[11px] font-mono text-stone-700 truncate bg-[#FBF2E3] px-2.5 py-1.5 rounded-lg"
                       title={item.payload}
                     >
                       {item.payload || '—'}
@@ -1288,15 +1288,15 @@ export default function BatchQRGenerator({
                       <button
                         disabled={!item.isValid}
                         onClick={() => handleDownloadSingle(item, 'png')}
-                        className="py-2 px-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 text-[11px] font-bold rounded-lg flex items-center justify-center gap-1 cursor-pointer disabled:opacity-40"
+                        className="py-2 px-2 bg-[#FBF2E3] hover:bg-amber-100 border border-[#D4B483] text-stone-900 text-[11px] font-bold rounded-lg flex items-center justify-center gap-1 cursor-pointer disabled:opacity-40"
                       >
-                        <Download className="w-3 h-3 text-amber-400" />
+                        <Download className="w-3 h-3 text-amber-800" />
                         <span>PNG</span>
                       </button>
                       <button
                         disabled={!item.isValid}
                         onClick={() => handleDownloadSingle(item, 'svg')}
-                        className="py-2 px-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-amber-300 text-[11px] font-bold rounded-lg flex items-center justify-center gap-1 cursor-pointer disabled:opacity-40"
+                        className="py-2 px-2 bg-[#FBF2E3] hover:bg-amber-100 border border-[#D4B483] text-amber-900 text-[11px] font-bold rounded-lg flex items-center justify-center gap-1 cursor-pointer disabled:opacity-40"
                       >
                         <Download className="w-3 h-3" />
                         <span>SVG</span>
@@ -1308,10 +1308,10 @@ export default function BatchQRGenerator({
             </div>
           ) : (
             /* High-Density Editable Table View */
-            <div className="overflow-x-auto border border-zinc-800 rounded-2xl">
+            <div className="overflow-x-auto border border-[#DFC7A0] rounded-2xl">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
-                  <tr className="bg-zinc-900/90 border-b border-zinc-800 text-zinc-400">
+                  <tr className="bg-[#FBF2E3] border-b border-[#E2CAA4] text-stone-700">
                     <th className="py-3 px-4 font-semibold">#</th>
                     <th className="py-3 px-4 font-semibold">Preview</th>
                     <th className="py-3 px-4 font-semibold">Label</th>
@@ -1320,10 +1320,10 @@ export default function BatchQRGenerator({
                     <th className="py-3 px-4 font-semibold text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-zinc-800/80">
+                <tbody className="divide-y divide-[#E6D0AC] bg-white">
                   {paginatedItems.map((item) => (
-                    <tr key={item.id} className="hover:bg-zinc-900/40">
-                      <td className="py-2.5 px-4 font-mono tabular-nums text-zinc-400">
+                    <tr key={item.id} className="hover:bg-[#FBF4E8]/80">
+                      <td className="py-2.5 px-4 font-mono tabular-nums text-stone-600">
                         {item.index + 1}
                       </td>
                       <td className="py-2.5 px-4">
@@ -1334,7 +1334,7 @@ export default function BatchQRGenerator({
                             className="w-12 h-12"
                           />
                         ) : (
-                          <span className="text-red-400">—</span>
+                          <span className="text-rose-700">—</span>
                         )}
                       </td>
                       <td className="py-2.5 px-4">
@@ -1345,10 +1345,10 @@ export default function BatchQRGenerator({
                             onChange={(e) =>
                               handleUpdateRowCell(item.index, mapping.labelColumn, e.target.value)
                             }
-                            className="w-40 px-2.5 py-1.5 bg-zinc-900 border border-zinc-800 rounded-lg text-xs text-white focus:outline-hidden focus:border-amber-400"
+                            className="w-40 px-2.5 py-1.5 bg-white border border-[#D4B483] rounded-lg text-xs text-stone-900 focus:outline-hidden focus:border-amber-700"
                           />
                         ) : (
-                          <span className="font-bold text-white">{item.label}</span>
+                          <span className="font-bold text-stone-900">{item.label}</span>
                         )}
                       </td>
                       <td className="py-2.5 px-4 max-w-md">
@@ -1359,32 +1359,32 @@ export default function BatchQRGenerator({
                             onChange={(e) =>
                               handleUpdateRowCell(item.index, mapping.contentColumn, e.target.value)
                             }
-                            className="w-full px-2.5 py-1.5 bg-zinc-900 border border-zinc-800 rounded-lg font-mono text-[11px] text-zinc-200 focus:outline-hidden focus:border-amber-400"
+                            className="w-full px-2.5 py-1.5 bg-white border border-[#D4B483] rounded-lg font-mono text-[11px] text-stone-900 focus:outline-hidden focus:border-amber-700"
                           />
                         ) : (
-                          <span className="font-mono text-[11px] text-zinc-300 truncate block">
+                          <span className="font-mono text-[11px] text-stone-700 truncate block">
                             {item.payload}
                           </span>
                         )}
                       </td>
                       <td className="py-2.5 px-4">
                         {item.isValid ? (
-                          <span className="text-emerald-400 font-semibold">Ready</span>
+                          <span className="text-emerald-800 font-semibold">Ready</span>
                         ) : (
-                          <span className="text-red-400 font-semibold">Empty</span>
+                          <span className="text-rose-700 font-semibold">Empty</span>
                         )}
                       </td>
                       <td className="py-2.5 px-4 text-right space-x-2 whitespace-nowrap">
                         <button
                           disabled={!item.isValid}
                           onClick={() => handleDownloadSingle(item, exportFormat)}
-                          className="px-2.5 py-1.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-amber-300 font-bold rounded-lg cursor-pointer disabled:opacity-40"
+                          className="px-2.5 py-1.5 bg-[#FBF2E3] hover:bg-amber-100 border border-[#D4B483] text-amber-900 font-bold rounded-lg cursor-pointer disabled:opacity-40"
                         >
                           Download {exportFormat.toUpperCase()}
                         </button>
                         <button
                           onClick={() => handleDeleteRow(item.index)}
-                          className="p-1.5 text-zinc-400 hover:text-red-400 cursor-pointer inline-flex align-middle"
+                          className="p-1.5 text-stone-600 hover:text-rose-700 cursor-pointer inline-flex align-middle"
                           title="Delete row"
                           aria-label={`Delete ${item.label}`}
                         >
@@ -1400,7 +1400,7 @@ export default function BatchQRGenerator({
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="flex items-center justify-between pt-2 text-xs text-zinc-400">
+            <div className="flex items-center justify-between pt-2 text-xs text-stone-700">
               <div className="font-mono tabular-nums">
                 Page {safePage} of {totalPages} · Showing {paginatedItems.length} of {filteredItems.length} codes
               </div>
@@ -1408,7 +1408,7 @@ export default function BatchQRGenerator({
                 <button
                   disabled={safePage <= 1}
                   onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                  className="px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-200 disabled:opacity-40 cursor-pointer flex items-center gap-1"
+                  className="px-3 py-1.5 bg-white border border-[#D4B483] rounded-lg text-stone-900 font-semibold disabled:opacity-40 cursor-pointer flex items-center gap-1 hover:bg-[#FBF2E3]"
                 >
                   <ChevronLeft className="w-3.5 h-3.5" />
                   <span>Prev</span>
@@ -1416,7 +1416,7 @@ export default function BatchQRGenerator({
                 <button
                   disabled={safePage >= totalPages}
                   onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                  className="px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-200 disabled:opacity-40 cursor-pointer flex items-center gap-1"
+                  className="px-3 py-1.5 bg-white border border-[#D4B483] rounded-lg text-stone-900 font-semibold disabled:opacity-40 cursor-pointer flex items-center gap-1 hover:bg-[#FBF2E3]"
                 >
                   <span>Next</span>
                   <ChevronRight className="w-3.5 h-3.5" />

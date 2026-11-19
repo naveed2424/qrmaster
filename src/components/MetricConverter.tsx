@@ -52,14 +52,14 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
     <div className="space-y-12 max-w-5xl mx-auto py-10 px-4">
       {/* Header */}
       <div>
-        <div className="flex items-center gap-2 text-xs font-extrabold text-amber-400 uppercase tracking-wider mb-2">
+        <div className="flex items-center gap-2 text-xs font-extrabold text-amber-800 uppercase tracking-wider mb-2">
           <Ruler className="w-4 h-4" />
           <span>Professional Print Tool</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-stone-900">
           <span className="text-gold-gradient">{t.metricConverterTitle}</span>
         </h1>
-        <p className="mt-2 text-sm text-zinc-400 max-w-3xl leading-relaxed">
+        <p className="mt-2 text-sm text-stone-700 max-w-3xl leading-relaxed">
           {t.metricConverterSub}
         </p>
       </div>
@@ -67,19 +67,19 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
       {/* Main 2-Column Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         {/* Left: Interactive Metric & DPI Converter */}
-        <div className="p-7 bg-zinc-950/90 border border-amber-500/25 rounded-3xl shadow-2xl space-y-6 backdrop-blur-xl">
-          <div className="flex items-center justify-between pb-4 border-b border-zinc-800">
-            <h2 className="text-base font-extrabold text-white flex items-center gap-2">
-              <Maximize2 className="w-4 h-4 text-amber-400" aria-hidden="true" />
+        <div className="p-7 bg-[#FFFDF9]/92 border border-[#DFC7A0] rounded-3xl shadow-[0_12px_36px_-12px_rgba(120,82,25,0.14)] space-y-6 backdrop-blur-xl">
+          <div className="flex items-center justify-between pb-4 border-b border-[#E6D0AC]">
+            <h2 className="text-base font-extrabold text-stone-900 flex items-center gap-2">
+              <Maximize2 className="w-4 h-4 text-amber-800" aria-hidden="true" />
               <span>Dimension & Pixel Converter</span>
             </h2>
-            <span className="text-xs font-mono font-bold text-amber-400">Live Recalculation</span>
+            <span className="text-xs font-mono font-bold text-amber-800">Live Recalculation</span>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {/* MM */}
-            <div className="p-3 bg-zinc-900 rounded-2xl border border-zinc-800">
-              <label htmlFor={mmInputId} className="block text-[11px] font-bold text-zinc-300 mb-1">
+            <div className="p-3 bg-[#FBF2E3] rounded-2xl border border-[#E2CAA4]">
+              <label htmlFor={mmInputId} className="block text-[11px] font-bold text-stone-800 mb-1">
                 Millimeters (mm)
               </label>
               <div className="relative">
@@ -90,15 +90,15 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
                   max="5000"
                   value={mm}
                   onChange={(e) => setMm(Math.max(5, Number(e.target.value) || 0))}
-                  className="w-full px-2.5 py-1.5 text-sm font-mono font-bold rounded-lg border border-zinc-700 bg-zinc-950 text-amber-300 focus:outline-hidden focus:border-amber-400"
+                  className="w-full px-2.5 py-1.5 text-sm font-mono font-bold rounded-lg border border-[#D4B483] bg-white text-amber-900 focus:outline-hidden focus:border-amber-700"
                 />
-                <span className="absolute right-2 top-2 text-xs text-zinc-400 pointer-events-none">mm</span>
+                <span className="absolute right-2 top-2 text-xs text-stone-600 pointer-events-none">mm</span>
               </div>
             </div>
 
             {/* CM */}
-            <div className="p-3 bg-zinc-900 rounded-2xl border border-zinc-800">
-              <label htmlFor={cmInputId} className="block text-[11px] font-bold text-zinc-300 mb-1">
+            <div className="p-3 bg-[#FBF2E3] rounded-2xl border border-[#E2CAA4]">
+              <label htmlFor={cmInputId} className="block text-[11px] font-bold text-stone-800 mb-1">
                 Centimeters (cm)
               </label>
               <div className="relative">
@@ -109,15 +109,15 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
                   min="1"
                   value={cm}
                   onChange={(e) => setMm(Math.max(5, (Number(e.target.value) || 0) * 10))}
-                  className="w-full px-2.5 py-1.5 text-sm font-mono font-bold rounded-lg border border-zinc-700 bg-zinc-950 text-amber-300 focus:outline-hidden focus:border-amber-400"
+                  className="w-full px-2.5 py-1.5 text-sm font-mono font-bold rounded-lg border border-[#D4B483] bg-white text-amber-900 focus:outline-hidden focus:border-amber-700"
                 />
-                <span className="absolute right-2 top-2 text-xs text-zinc-400 pointer-events-none">cm</span>
+                <span className="absolute right-2 top-2 text-xs text-stone-600 pointer-events-none">cm</span>
               </div>
             </div>
 
             {/* Inches */}
-            <div className="p-3 bg-zinc-900 rounded-2xl border border-zinc-800">
-              <label htmlFor={inInputId} className="block text-[11px] font-bold text-zinc-300 mb-1">
+            <div className="p-3 bg-[#FBF2E3] rounded-2xl border border-[#E2CAA4]">
+              <label htmlFor={inInputId} className="block text-[11px] font-bold text-stone-800 mb-1">
                 Inches (in)
               </label>
               <div className="relative">
@@ -128,15 +128,15 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
                   min="0.4"
                   value={inches}
                   onChange={(e) => setMm(Math.max(5, Math.round((Number(e.target.value) || 0) * 25.4)))}
-                  className="w-full px-2.5 py-1.5 text-sm font-mono font-bold rounded-lg border border-zinc-700 bg-zinc-950 text-amber-300 focus:outline-hidden focus:border-amber-400"
+                  className="w-full px-2.5 py-1.5 text-sm font-mono font-bold rounded-lg border border-[#D4B483] bg-white text-amber-900 focus:outline-hidden focus:border-amber-700"
                 />
-                <span className="absolute right-2 top-2 text-xs text-zinc-400 pointer-events-none">in</span>
+                <span className="absolute right-2 top-2 text-xs text-stone-600 pointer-events-none">in</span>
               </div>
             </div>
 
             {/* 300 DPI */}
-            <div className="p-3 bg-amber-500/10 rounded-2xl border border-amber-500/30">
-              <label htmlFor={px300InputId} className="block text-[11px] font-bold text-amber-300 mb-1">
+            <div className="p-3 bg-amber-100/90 rounded-2xl border border-amber-700/25">
+              <label htmlFor={px300InputId} className="block text-[11px] font-bold text-amber-900 mb-1">
                 300 DPI (Print)
               </label>
               <div className="relative">
@@ -145,15 +145,15 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
                   type="number"
                   value={px300}
                   readOnly
-                  className="w-full px-2.5 py-1.5 text-sm font-mono font-extrabold rounded-lg border border-amber-500/40 bg-zinc-950 text-yellow-300"
+                  className="w-full px-2.5 py-1.5 text-sm font-mono font-extrabold rounded-lg border border-amber-700/30 bg-white text-amber-900"
                 />
-                <span className="absolute right-2 top-2 text-xs text-amber-400 font-bold">px</span>
+                <span className="absolute right-2 top-2 text-xs text-amber-800 font-bold">px</span>
               </div>
             </div>
 
             {/* 150 DPI */}
-            <div className="p-3 bg-zinc-900 rounded-2xl border border-zinc-800">
-              <label htmlFor={px150InputId} className="block text-[11px] font-bold text-zinc-300 mb-1">
+            <div className="p-3 bg-[#FBF2E3] rounded-2xl border border-[#E2CAA4]">
+              <label htmlFor={px150InputId} className="block text-[11px] font-bold text-stone-800 mb-1">
                 150 DPI (Draft)
               </label>
               <div className="relative">
@@ -162,15 +162,15 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
                   type="number"
                   value={px150}
                   readOnly
-                  className="w-full px-2.5 py-1.5 text-sm font-mono font-medium rounded-lg border border-zinc-700 bg-zinc-950 text-zinc-300"
+                  className="w-full px-2.5 py-1.5 text-sm font-mono font-medium rounded-lg border border-[#D4B483] bg-white text-stone-800"
                 />
-                <span className="absolute right-2 top-2 text-xs text-zinc-400 pointer-events-none">px</span>
+                <span className="absolute right-2 top-2 text-xs text-stone-600 pointer-events-none">px</span>
               </div>
             </div>
 
             {/* 72 DPI */}
-            <div className="p-3 bg-zinc-900 rounded-2xl border border-zinc-800">
-              <label htmlFor={px72InputId} className="block text-[11px] font-bold text-zinc-300 mb-1">
+            <div className="p-3 bg-[#FBF2E3] rounded-2xl border border-[#E2CAA4]">
+              <label htmlFor={px72InputId} className="block text-[11px] font-bold text-stone-800 mb-1">
                 72 DPI (Screen)
               </label>
               <div className="relative">
@@ -179,18 +179,18 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
                   type="number"
                   value={px72}
                   readOnly
-                  className="w-full px-2.5 py-1.5 text-sm font-mono font-medium rounded-lg border border-zinc-700 bg-zinc-950 text-zinc-300"
+                  className="w-full px-2.5 py-1.5 text-sm font-mono font-medium rounded-lg border border-[#D4B483] bg-white text-stone-800"
                 />
-                <span className="absolute right-2 top-2 text-xs text-zinc-400 pointer-events-none">px</span>
+                <span className="absolute right-2 top-2 text-xs text-stone-600 pointer-events-none">px</span>
               </div>
             </div>
           </div>
 
           {/* Quick Slider */}
           <div className="space-y-2 pt-2">
-            <div className="flex justify-between text-xs text-zinc-400 font-semibold">
+            <div className="flex justify-between text-xs text-stone-700 font-semibold">
               <span>20 mm (Min Card)</span>
-              <span className="font-mono text-amber-400 font-extrabold">{mm} mm ({inches} in)</span>
+              <span className="font-mono text-amber-800 font-extrabold">{mm} mm ({inches} in)</span>
               <span>200 mm (Banner)</span>
             </div>
             <input
@@ -201,16 +201,16 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
               step="1"
               value={Math.min(200, mm)}
               onChange={(e) => setMm(Number(e.target.value))}
-              className="w-full accent-amber-400 cursor-pointer"
+              className="w-full accent-amber-700 cursor-pointer"
             />
           </div>
 
           {/* Visual Scale Indicator */}
-          <div className="p-4 bg-zinc-900/90 rounded-2xl border border-zinc-800 flex items-center justify-between">
+          <div className="p-4 bg-[#FBF2E3] rounded-2xl border border-[#E2CAA4] flex items-center justify-between">
             <div className="space-y-1">
-              <span className="text-xs font-bold text-amber-300">Physical Scale Simulation</span>
-              <p className="text-xs text-zinc-400">
-                A QR code of <strong className="text-white font-mono">{mm}mm</strong> has a diagonal area of <span className="font-mono text-amber-400">{Math.round(mm * 1.414)}mm</span>.
+              <span className="text-xs font-bold text-amber-900">Physical Scale Simulation</span>
+              <p className="text-xs text-stone-700">
+                A QR code of <strong className="text-stone-900 font-mono">{mm}mm</strong> has a diagonal area of <span className="font-mono font-bold text-amber-800">{Math.round(mm * 1.414)}mm</span>.
               </p>
             </div>
             <div
@@ -218,7 +218,7 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
                 width: `${Math.min(70, Math.max(22, mm * 0.7))}px`,
                 height: `${Math.min(70, Math.max(22, mm * 0.7))}px`,
               }}
-              className="bg-gradient-to-br from-amber-400 to-yellow-600 rounded-xl shadow-[0_0_15px_rgba(245,158,11,0.3)] flex items-center justify-center text-black text-xs font-mono font-extrabold shrink-0 transition-all duration-150"
+              className="bg-gradient-to-br from-amber-400 to-yellow-500 border border-amber-700/25 rounded-xl shadow-[0_6px_15px_rgba(180,120,18,0.25)] flex items-center justify-center text-stone-950 text-xs font-mono font-extrabold shrink-0 transition-all duration-150"
             >
               QR
             </div>
@@ -226,19 +226,19 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
         </div>
 
         {/* Right: 10:1 Scan Distance Rule Calculator */}
-        <div className="p-7 bg-zinc-950/90 border border-amber-500/25 rounded-3xl shadow-2xl space-y-6 backdrop-blur-xl">
-          <div className="flex items-center justify-between pb-4 border-b border-zinc-800">
-            <h2 className="text-base font-extrabold text-white flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-400" aria-hidden="true" />
+        <div className="p-7 bg-[#FFFDF9]/92 border border-[#DFC7A0] rounded-3xl shadow-[0_12px_36px_-12px_rgba(120,82,25,0.14)] space-y-6 backdrop-blur-xl">
+          <div className="flex items-center justify-between pb-4 border-b border-[#E6D0AC]">
+            <h2 className="text-base font-extrabold text-stone-900 flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-amber-800" aria-hidden="true" />
               <span>{t.distanceCalculator}</span>
             </h2>
-            <div className="flex items-center gap-1 bg-zinc-900 border border-zinc-800 p-0.5 rounded-xl text-xs">
+            <div className="flex items-center gap-1 bg-[#FBF2E3] border border-[#E2CAA4] p-0.5 rounded-xl text-xs">
               <button
                 onClick={() => setDistanceUnit('meters')}
                 className={`px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${
                   distanceUnit === 'meters'
-                    ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-black shadow-xs'
-                    : 'text-zinc-400 hover:text-white'
+                    ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-stone-950 shadow-xs'
+                    : 'text-stone-700 hover:text-stone-900'
                 }`}
               >
                 Meters (m)
@@ -247,8 +247,8 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
                 onClick={() => setDistanceUnit('feet')}
                 className={`px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${
                   distanceUnit === 'feet'
-                    ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-black shadow-xs'
-                    : 'text-zinc-400 hover:text-white'
+                    ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-stone-950 shadow-xs'
+                    : 'text-stone-700 hover:text-stone-900'
                 }`}
               >
                 Feet (ft)
@@ -257,7 +257,7 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
           </div>
 
           <div>
-            <label htmlFor={scanDistanceInputId} className="block text-xs font-bold text-zinc-300 mb-1.5">
+            <label htmlFor={scanDistanceInputId} className="block text-xs font-bold text-stone-800 mb-1.5">
               {t.scanDistance}
             </label>
             <div className="flex items-center gap-3">
@@ -270,61 +270,61 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
                   max="100"
                   value={distanceMeters}
                   onChange={(e) => setDistanceMeters(Math.max(0.1, Number(e.target.value) || 0))}
-                  className="w-full px-3.5 py-2.5 text-base font-mono font-extrabold rounded-xl border border-zinc-700 bg-zinc-900 text-white focus:outline-hidden focus:border-amber-400"
+                  className="w-full px-3.5 py-2.5 text-base font-mono font-extrabold rounded-xl border border-[#D4B483] bg-white text-stone-900 focus:outline-hidden focus:border-amber-700"
                 />
-                <span className="absolute right-3.5 top-3 text-xs font-bold text-amber-400">
+                <span className="absolute right-3.5 top-3 text-xs font-bold text-amber-800">
                   {distanceUnit === 'meters' ? 'm' : 'ft'}
                 </span>
               </div>
               <button
                 onClick={() => setMm(optimalMm)}
-                className="px-5 py-2.5 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:to-yellow-500 text-black font-extrabold rounded-xl text-xs uppercase tracking-wide whitespace-nowrap transition-all shadow-[0_0_15px_rgba(245,158,11,0.3)] cursor-pointer"
+                className="px-5 py-2.5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 border border-amber-700/25 font-extrabold rounded-xl text-xs uppercase tracking-wide whitespace-nowrap transition-all shadow-[0_6px_16px_rgba(180,120,18,0.2)] cursor-pointer"
               >
                 Apply to Converter
               </button>
             </div>
           </div>
 
-          {/* Results Box in Gold */}
-          <div className="p-5 bg-amber-500/10 border border-amber-500/30 rounded-2xl space-y-3">
+          {/* Results Box in Champagne Gold */}
+          <div className="p-5 bg-amber-100/90 border border-amber-700/25 rounded-2xl space-y-3">
             <div className="flex items-start gap-3">
-              <CheckCircle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-amber-800 shrink-0 mt-0.5" />
               <div>
-                <h3 className="text-sm font-bold text-white">
+                <h3 className="text-sm font-bold text-stone-900">
                   Optimal Print Size for {distanceMeters} {distanceUnit}:
                 </h3>
-                <div className="mt-1 flex items-baseline gap-2 font-mono text-2xl font-extrabold text-amber-300">
+                <div className="mt-1 flex items-baseline gap-2 font-mono text-2xl font-extrabold text-amber-900">
                   <span>{optimalMm} mm</span>
-                  <span className="text-sm font-normal text-zinc-400">({optimalInches} in)</span>
+                  <span className="text-sm font-normal text-stone-700">({optimalInches} in)</span>
                 </div>
-                <p className="text-xs text-zinc-300 mt-1">
-                  At 300 DPI, export canvas should be at least <strong className="font-mono text-amber-400">{optimalPx300} × {optimalPx300} px</strong>.
+                <p className="text-xs text-stone-700 mt-1">
+                  At 300 DPI, export canvas should be at least <strong className="font-mono text-amber-900">{optimalPx300} × {optimalPx300} px</strong>.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="p-3.5 bg-zinc-900/80 border border-zinc-800 rounded-xl flex items-start gap-2 text-xs text-zinc-400 leading-relaxed">
-            <Info className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+          <div className="p-3.5 bg-[#FBF2E3] border border-[#E2CAA4] rounded-xl flex items-start gap-2 text-xs text-stone-700 leading-relaxed">
+            <Info className="w-4 h-4 text-amber-800 shrink-0 mt-0.5" />
             <span>{t.ratioNotice}</span>
           </div>
         </div>
       </div>
 
       {/* Preset Standards Table */}
-      <div className="bg-zinc-950/90 border border-amber-500/25 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-4 backdrop-blur-xl">
-        <div className="flex items-center justify-between pb-3 border-b border-zinc-800">
+      <div className="bg-[#FFFDF9]/92 border border-[#DFC7A0] rounded-3xl p-6 sm:p-8 shadow-[0_12px_36px_-12px_rgba(120,82,25,0.14)] space-y-4 backdrop-blur-xl">
+        <div className="flex items-center justify-between pb-3 border-b border-[#E6D0AC]">
           <div>
-            <h2 className="text-lg font-extrabold text-white">
+            <h2 className="text-lg font-extrabold text-stone-900">
               Standard Physical Print Reference Guide
             </h2>
-            <p className="text-xs text-zinc-400 mt-0.5">
+            <p className="text-xs text-stone-700 mt-0.5">
               Certified guidelines for commercial graphic designers and print shops
             </p>
           </div>
           <button
             onClick={() => window.print()}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-zinc-800 bg-zinc-900 text-xs font-bold text-zinc-200 hover:border-amber-400 hover:text-amber-300 transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-[#DFC7A0] bg-[#FBF2E3] text-xs font-bold text-stone-800 hover:border-amber-700/50 hover:text-amber-900 transition-colors cursor-pointer"
           >
             <Printer className="w-3.5 h-3.5" />
             <span>Print Guide</span>
@@ -334,7 +334,7 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
-              <tr className="border-b border-zinc-800 text-amber-400 font-extrabold uppercase tracking-wider">
+              <tr className="border-b border-[#DFC7A0] text-amber-900 font-extrabold uppercase tracking-wider bg-[#FBF2E3]/70">
                 <th className="py-3 px-3">Print Medium</th>
                 <th className="py-3 px-3">Typical Scan Distance</th>
                 <th className="py-3 px-3">Recommended Metric Width</th>
@@ -342,14 +342,14 @@ export default function MetricConverter({ currentLang }: MetricConverterProps) {
                 <th className="py-3 px-3">Design Tips</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-zinc-800/80 text-zinc-300 font-medium">
+            <tbody className="divide-y divide-[#E6D0AC] text-stone-700 font-medium">
               {presets.map((p) => (
-                <tr key={p.name} className="hover:bg-zinc-900/60 transition-colors">
-                  <td className="py-3.5 px-3 font-bold text-white">{p.name}</td>
-                  <td className="py-3.5 px-3 font-mono text-zinc-400">{p.dist}</td>
-                  <td className="py-3.5 px-3 font-mono font-bold text-amber-300">{p.size}</td>
-                  <td className="py-3.5 px-3 font-mono text-zinc-400">{p.inSize}</td>
-                  <td className="py-3.5 px-3 text-zinc-400">{p.notes}</td>
+                <tr key={p.name} className="hover:bg-[#FBF2E3]/70 transition-colors">
+                  <td className="py-3.5 px-3 font-bold text-stone-900">{p.name}</td>
+                  <td className="py-3.5 px-3 font-mono text-stone-600">{p.dist}</td>
+                  <td className="py-3.5 px-3 font-mono font-bold text-amber-800">{p.size}</td>
+                  <td className="py-3.5 px-3 font-mono text-stone-600">{p.inSize}</td>
+                  <td className="py-3.5 px-3 text-stone-700">{p.notes}</td>
                 </tr>
               ))}
             </tbody>

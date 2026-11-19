@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 600" width="1040" height="600" role="img" aria-label="Top Real-World Causes of Failed QR Scans in Print Audits">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFDF9"/>
+      <stop offset="55%" stop-color="#FBF2E3"/>
+      <stop offset="100%" stop-color="#F3DFBF"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#92400E"/>
+    </linearGradient>
+    <linearGradient id="darkCard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#291D0E"/>
+      <stop offset="100%" stop-color="#452E14"/>
+    </linearGradient>
+  </defs>
+  <rect width="1040" height="600" rx="20" fill="url(#bgGrad)"/>
+  <rect x="8" y="8" width="1024" height="584" rx="16" fill="none" stroke="#DFC7A0" stroke-width="2"/>
+  
+  <text x="60" y="64" font-family="Plus Jakarta Sans, sans-serif" font-size="26" font-weight="800" fill="#1C1917">Top Real-World Causes of Failed QR Scans in Print Audits</text>
+  <text x="60" y="96" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="500" fill="#57534E">Frequency of optical decode failures observed across flyers, menus, packaging, and window decals</text>
+  <line x1="60" y1="118" x2="980" y2="118" stroke="#DFC7A0" stroke-width="1.5"/>
+  
+        <text x="60" y="175" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="700" fill="#1C1917">Missing 4-Module Quiet Zone Border</text>
+        <rect x="330" y="155" width="520" height="32" rx="8" fill="#F3E5CD" stroke="#DFC7A0"/>
+        <rect x="330" y="155" width="488" height="32" rx="8" fill="#9F1239"/>
+        <text x="870" y="177" font-family="JetBrains Mono, monospace" font-size="15" font-weight="800" fill="#291D0E">Most Common (~32%)</text>
+        <text x="60" y="247" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="700" fill="#1C1917">Low Contrast / Inverted Light-on-Dark</text>
+        <rect x="330" y="227" width="520" height="32" rx="8" fill="#F3E5CD" stroke="#DFC7A0"/>
+        <rect x="330" y="227" width="384" height="32" rx="8" fill="#B45309"/>
+        <text x="870" y="249" font-family="JetBrains Mono, monospace" font-size="15" font-weight="800" fill="#291D0E">Frequent Failure (~24%)</text>
+        <text x="60" y="319" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="700" fill="#1C1917">Over-Dense URL + Tiny Print (&lt;15mm)</text>
+        <rect x="330" y="299" width="520" height="32" rx="8" fill="#F3E5CD" stroke="#DFC7A0"/>
+        <rect x="330" y="299" width="312" height="32" rx="8" fill="#92400E"/>
+        <text x="870" y="321" font-family="JetBrains Mono, monospace" font-size="15" font-weight="800" fill="#291D0E">Dense Dot Blur (~19%)</text>
+        <text x="60" y="391" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="700" fill="#1C1917">72 DPI Screenshot / Lossy JPEG Export</text>
+        <rect x="330" y="371" width="520" height="32" rx="8" fill="#F3E5CD" stroke="#DFC7A0"/>
+        <rect x="330" y="371" width="249" height="32" rx="8" fill="#D97706"/>
+        <text x="870" y="393" font-family="JetBrains Mono, monospace" font-size="15" font-weight="800" fill="#291D0E">Ringing Artifacts (~15%)</text>
+        <text x="60" y="463" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="700" fill="#1C1917">Glare Foil / Steep Bottle Curvature</text>
+        <rect x="330" y="443" width="520" height="32" rx="8" fill="#F3E5CD" stroke="#DFC7A0"/>
+        <rect x="330" y="443" width="176" height="32" rx="8" fill="#78716C"/>
+        <text x="870" y="465" font-family="JetBrains Mono, monospace" font-size="15" font-weight="800" fill="#291D0E">Specular Warp (~10%)</text>
+  <rect x="60" y="528" width="920" height="40" rx="10" fill="#FFFFFF" stroke="#DFC7A0"/>
+  <text x="78" y="553" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="600" fill="#785219">90% of scanning complaints vanish immediately by preserving a white Quiet Zone + exporting crisp SVG.</text>
+
+  <text x="1012" y="580" text-anchor="end" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#785219" opacity="0.85">2qrcode.com · ISO/IEC 18004 Engineering Hub</text>
+</svg>

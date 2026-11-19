@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Globe, Menu, X, Sun, Moon, ChevronDown, Check } from 'lucide-react';
+import { Globe, Menu, X, Sparkles, Sun, ChevronDown, Check } from 'lucide-react';
 import { SupportedLanguage } from '../types/qr';
 import { TRANSLATIONS } from '../data/translations';
 import BrandLogo from './BrandLogo';
@@ -34,6 +34,28 @@ const LANGUAGE_CODES: SupportedLanguage[] = [
   'pl',
 ];
 
+const NAV_LINK_LABELS: Record<
+  SupportedLanguage,
+  { directory: string; batch: string; customizer: string; converter: string; blog: string; about: string; faqs: string }
+> = {
+  en: { directory: 'Generators', batch: 'Batch CSV', customizer: 'Studio', converter: 'Print Math', blog: 'Blog', about: 'About', faqs: 'FAQs' },
+  es: { directory: 'Generadores', batch: 'CSV Lote', customizer: 'Estudio', converter: 'Métricas', blog: 'Blog', about: 'Acerca de', faqs: 'FAQ' },
+  fr: { directory: 'Générateurs', batch: 'CSV Lot', customizer: 'Studio', converter: 'Calculateur', blog: 'Blog', about: 'À Propos', faqs: 'FAQ' },
+  de: { directory: 'Generatoren', batch: 'CSV Stapel', customizer: 'Studio', converter: 'Druckmaß', blog: 'Blog', about: 'Über uns', faqs: 'FAQ' },
+  pt: { directory: 'Geradores', batch: 'CSV Lote', customizer: 'Estúdio', converter: 'Métricas', blog: 'Blog', about: 'Sobre', faqs: 'FAQ' },
+  it: { directory: 'Generatori', batch: 'CSV Multiplo', customizer: 'Studio', converter: 'Calcolatore', blog: 'Blog', about: 'Chi siamo', faqs: 'FAQ' },
+  ja: { directory: '生成ツール', batch: 'CSV一括', customizer: 'スタジオ', converter: '印刷計算', blog: 'ブログ', about: '運営者', faqs: 'FAQ' },
+  ar: { directory: 'المولدات', batch: 'CSV دفعة', customizer: 'الاستوديو', converter: 'حاسبة الطباعة', blog: 'المدونة', about: 'من نحن', faqs: 'الأسئلة' },
+  zh: { directory: '生成器', batch: '批量CSV', customizer: '工作室', converter: '印刷尺寸', blog: '博客', about: '关于', faqs: '常见问题' },
+  hi: { directory: 'जनरेटर', batch: 'बैच CSV', customizer: 'स्टूडियो', converter: 'प्रिंट माप', blog: 'ब्लॉग', about: 'परिचय', faqs: 'सवाल-जवाब' },
+  ru: { directory: 'Генераторы', batch: 'Пакет CSV', customizer: 'Студия', converter: 'Печать', blog: 'Блог', about: 'О нас', faqs: 'FAQ' },
+  ko: { directory: '생성기', batch: '일괄 CSV', customizer: '스튜디오', converter: '인쇄 계산', blog: '블로그', about: '소개', faqs: 'FAQ' },
+  tr: { directory: 'Oluşturucular', batch: 'Toplu CSV', customizer: 'Stüdyo', converter: 'Baskı Hesap', blog: 'Blog', about: 'Hakkında', faqs: 'SSS' },
+  id: { directory: 'Generator', batch: 'CSV Massal', customizer: 'Studio', converter: 'Ukur Cetak', blog: 'Blog', about: 'Tentang', faqs: 'FAQ' },
+  nl: { directory: 'Generatoren', batch: 'Batch CSV', customizer: 'Studio', converter: 'Printmaat', blog: 'Blog', about: 'Over ons', faqs: 'FAQ' },
+  pl: { directory: 'Generatory', batch: 'CSV Masowo', customizer: 'Studio', converter: 'Wydruk', blog: 'Blog', about: 'O nas', faqs: 'FAQ' },
+};
+
 export default function Navbar({
   currentLang,
   onLanguageChange,
@@ -44,21 +66,22 @@ export default function Navbar({
   onToggleTheme,
 }: NavbarProps) {
   const t = TRANSLATIONS[currentLang];
+  const nl = NAV_LINK_LABELS[currentLang] || NAV_LINK_LABELS.en;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
 
   const navLinks = [
-    { id: 'directory', label: 'Generators' },
-    { id: 'batch', label: 'Batch CSV' },
-    { id: 'customizer', label: 'Studio' },
-    { id: 'converter', label: 'Print Math' },
-    { id: 'blog', label: 'Blog' },
-    { id: 'about', label: 'About' },
-    { id: 'faqs', label: 'FAQs' },
+    { id: 'directory', label: nl.directory },
+    { id: 'batch', label: nl.batch },
+    { id: 'customizer', label: nl.customizer },
+    { id: 'converter', label: nl.converter },
+    { id: 'blog', label: nl.blog },
+    { id: 'about', label: nl.about },
+    { id: 'faqs', label: nl.faqs },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-black/95 backdrop-blur-xl border-b border-amber-500/25 transition-all shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+    <header className="sticky top-0 z-50 bg-[#FBF4E7]/95 backdrop-blur-xl border-b border-[#DFC69C] transition-all shadow-[0_6px_28px_rgba(120,82,25,0.10)]">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 flex items-center justify-between gap-2 sm:gap-4 lg:gap-8 h-18 sm:h-20">
         {/* Zone 1: Brand Logo */}
         <a
@@ -74,7 +97,7 @@ export default function Navbar({
         </a>
 
         {/* Zone 2: Desktop Nav */}
-        <nav aria-label="Primary Navigation" className="hidden lg:flex items-center gap-7 text-xs font-bold tracking-wide uppercase">
+        <nav aria-label="Primary Navigation" data-no-translate="true" className="hidden lg:flex items-center gap-5 xl:gap-7 text-xs font-bold tracking-wide uppercase">
           {navLinks.map((link) => {
             const isActive = activeView === link.id;
             const href = link.id === 'directory' ? '/' : `?view=${link.id}`;
@@ -89,8 +112,8 @@ export default function Navbar({
                 }}
                 className={`whitespace-nowrap transition-all py-1.5 cursor-pointer ${
                   isActive
-                    ? 'text-amber-400 font-extrabold border-b-2 border-amber-400 shadow-[0_2px_10px_rgba(251,191,36,0.3)]'
-                    : 'text-zinc-300 hover:text-amber-300'
+                    ? 'text-amber-800 font-extrabold border-b-2 border-amber-700'
+                    : 'text-stone-700 hover:text-amber-800'
                 }`}
               >
                 {link.label}
@@ -99,19 +122,19 @@ export default function Navbar({
           })}
         </nav>
 
-        {/* Zone 3: Theme Toggle + High-Contrast Language Switcher + CTA + Mobile Menu */}
+        {/* Zone 3: Champagne Tone Toggle + High-Contrast Language Switcher + CTA + Mobile Menu */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-          {/* Light / Dark Mode Toggle */}
+          {/* Champagne Silk / Pearl Tone Toggle */}
           <button
             onClick={onToggleTheme}
-            className="p-2 sm:p-2.5 rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-200 hover:border-amber-500/50 hover:text-amber-300 transition-all cursor-pointer shadow-xs"
-            title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-            aria-label="Toggle Theme"
+            className="p-2 sm:p-2.5 rounded-xl border border-[#D9BE91] bg-[#FFFDF8] text-amber-800 hover:border-amber-600 hover:bg-[#FAF0DE] transition-all cursor-pointer shadow-xs"
+            title={isDark ? 'Switch to Warm Silk Champagne' : 'Switch to Pearl Champagne'}
+            aria-label="Switch Champagne Background Tone"
           >
-            {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-zinc-200" />}
+            {isDark ? <Sparkles className="w-4 h-4 text-amber-700" aria-hidden="true" /> : <Sun className="w-4 h-4 text-amber-700" aria-hidden="true" />}
           </button>
 
-          {/* Distinct High-Contrast Language Selector Button with Country Flag */}
+          {/* High-Contrast Language Selector Button with Country Flag */}
           <div className="relative">
             <button
               onClick={() => {
@@ -120,44 +143,42 @@ export default function Navbar({
               }}
               aria-expanded={langDropdownOpen}
               aria-label="Select Language"
-              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl border-2 border-amber-400 bg-sky-50 hover:bg-white text-slate-950 text-xs font-extrabold transition-all cursor-pointer shadow-md"
+              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl border border-[#CFA96D] bg-[#FFFDF8] hover:bg-white text-stone-900 text-xs font-extrabold transition-all cursor-pointer shadow-xs"
               title={`Language: ${LANGUAGE_META[currentLang].label}`}
             >
               <CountryFlag lang={currentLang} className="w-5 h-3.5" />
-              <span className="uppercase font-mono text-[11px] font-black">{currentLang}</span>
-              <ChevronDown className="w-3.5 h-3.5 text-slate-700" />
+              <span data-no-translate="true" className="uppercase font-mono text-[11px] font-black">{currentLang}</span>
+              <ChevronDown className="w-3.5 h-3.5 text-stone-700" aria-hidden="true" />
             </button>
 
             {langDropdownOpen && (
               <>
-                {/* Tap-outside backdrop for mobile & desktop */}
                 <div
                   onClick={() => setLangDropdownOpen(false)}
-                  className="fixed inset-0 bg-black/70 z-[90]"
+                  className="fixed inset-0 bg-stone-900/35 backdrop-blur-xs z-[90]"
                   aria-hidden="true"
                 />
 
-                {/* High-Contrast Ivory/Slate Language Picker Card (100% readable on phone & desktop) */}
                 <div
                   role="dialog"
                   aria-label="Language Selector"
-                  className="fixed inset-x-3 top-20 sm:inset-auto sm:absolute sm:right-0 sm:top-full sm:mt-2 sm:w-80 bg-slate-50 text-slate-950 rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.9)] border-2 border-amber-500 z-[100] overflow-hidden"
+                  className="fixed inset-x-3 top-20 sm:inset-auto sm:absolute sm:right-0 sm:top-full sm:mt-2 sm:w-80 bg-[#FFFDF9] text-stone-900 rounded-2xl shadow-[0_24px_60px_rgba(120,82,25,0.25)] border-2 border-[#D4B075] z-[100] overflow-hidden"
                 >
-                  <div className="px-4 py-3 bg-slate-900 text-white border-b border-amber-500/40 flex items-center justify-between">
+                  <div className="px-4 py-3 bg-[#F4E3C7] text-stone-900 border-b border-[#D8B986] flex items-center justify-between">
                     <div className="flex items-center gap-2 text-xs font-extrabold tracking-wide">
-                      <Globe className="w-4 h-4 text-amber-400" />
+                      <Globe className="w-4 h-4 text-amber-800" aria-hidden="true" />
                       <span>Select Language (16)</span>
                     </div>
                     <button
                       onClick={() => setLangDropdownOpen(false)}
-                      className="p-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-zinc-200 cursor-pointer"
+                      className="p-1 rounded-lg bg-[#FFFDF9] hover:bg-amber-100 text-stone-800 cursor-pointer border border-[#D8B986]"
                       aria-label="Close Language Menu"
                     >
-                      <X className="w-4 h-4" />
+                      <X className="w-4 h-4" aria-hidden="true" />
                     </button>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-1.5 p-2.5 max-h-[65vh] overflow-y-auto">
+                  <div data-no-translate="true" className="grid grid-cols-2 gap-1.5 p-2.5 max-h-[65vh] overflow-y-auto">
                     {LANGUAGE_CODES.map((code) => {
                       const meta = LANGUAGE_META[code];
                       const active = currentLang === code;
@@ -170,8 +191,8 @@ export default function Navbar({
                           }}
                           className={`text-left px-2.5 py-2 rounded-xl text-xs flex items-center justify-between gap-1.5 cursor-pointer transition-all ${
                             active
-                              ? 'bg-amber-400 text-slate-950 font-extrabold border-2 border-amber-600 shadow-sm'
-                              : 'bg-white hover:bg-sky-100 text-slate-900 font-semibold border border-slate-200'
+                              ? 'bg-amber-400 text-stone-950 font-extrabold border-2 border-amber-700 shadow-xs'
+                              : 'bg-white hover:bg-[#FAF0DE] text-stone-900 font-semibold border border-[#E5D0AE]'
                           }`}
                         >
                           <span className="flex items-center gap-2 min-w-0">
@@ -179,9 +200,9 @@ export default function Navbar({
                             <span className="truncate">{meta.label}</span>
                           </span>
                           {active ? (
-                            <Check className="w-3.5 h-3.5 text-slate-950 shrink-0" />
+                            <Check className="w-3.5 h-3.5 text-stone-950 shrink-0" aria-hidden="true" />
                           ) : (
-                            <span className="font-mono text-[10px] font-bold text-slate-600 shrink-0">
+                            <span className="font-mono text-[10px] font-bold text-stone-600 shrink-0">
                               {meta.countryCode}
                             </span>
                           )}
@@ -197,7 +218,8 @@ export default function Navbar({
           {/* Primary Action Button */}
           <button
             onClick={onQuickCreate}
-            className="px-3 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:to-yellow-500 text-black rounded-xl text-[11px] sm:text-xs font-extrabold tracking-wider uppercase whitespace-nowrap transition-all shadow-[0_0_20px_rgba(245,158,11,0.35)] cursor-pointer"
+            data-no-translate="true"
+            className="px-3 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 border border-amber-700/25 rounded-xl text-[11px] sm:text-xs font-extrabold tracking-wider uppercase whitespace-nowrap transition-all shadow-[0_4px_16px_rgba(180,115,20,0.22)] cursor-pointer"
           >
             <span className="sm:hidden">+ QR</span>
             <span className="hidden sm:inline">{t.quickCreate}</span>
@@ -209,51 +231,56 @@ export default function Navbar({
               setMobileMenuOpen((prev) => !prev);
               setLangDropdownOpen(false);
             }}
-            className="lg:hidden p-2 rounded-xl border border-zinc-800 bg-zinc-900 text-amber-400 hover:bg-zinc-800 transition-colors cursor-pointer"
+            aria-expanded={mobileMenuOpen}
+            className="lg:hidden p-2 rounded-xl border border-[#D9BE91] bg-[#FFFDF8] text-amber-800 hover:bg-[#FAF0DE] transition-colors cursor-pointer"
             aria-label="Toggle Menu"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" aria-hidden="true" /> : <Menu className="w-5 h-5" aria-hidden="true" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-slate-950 border-b-2 border-amber-500/40 px-4 py-4 space-y-4 max-h-[82vh] overflow-y-auto shadow-2xl">
-          <div className="grid grid-cols-2 gap-1.5">
+        <div className="lg:hidden bg-[#FBF4E7] border-b-2 border-[#D4B075] px-4 py-4 space-y-4 max-h-[82vh] overflow-y-auto shadow-2xl">
+          <nav aria-label="Mobile Navigation" data-no-translate="true" className="grid grid-cols-2 gap-1.5">
             {navLinks.map((link) => {
               const isActive = activeView === link.id;
+              const href = link.id === 'directory' ? '/' : `?view=${link.id}`;
               return (
-                <button
+                <a
                   key={link.id}
-                  onClick={() => {
+                  href={href}
+                  aria-current={isActive ? 'page' : undefined}
+                  onClick={(e) => {
+                    e.preventDefault();
                     onNavigate(link.id);
                     setMobileMenuOpen(false);
                   }}
                   className={`text-left py-2.5 px-3 rounded-xl text-xs font-bold transition-colors cursor-pointer ${
                     isActive
-                      ? 'bg-amber-400 text-black font-extrabold'
-                      : 'bg-zinc-900 text-zinc-100 hover:bg-zinc-800 hover:text-amber-300 border border-zinc-800'
+                      ? 'bg-amber-400 text-stone-950 font-extrabold border border-amber-700/30'
+                      : 'bg-[#FFFDF8] text-stone-800 hover:bg-[#FAF0DE] hover:text-amber-900 border border-[#DFC7A0]'
                   }`}
                 >
                   {link.label}
-                </button>
+                </a>
               );
             })}
-          </div>
+          </nav>
 
           {/* High-Contrast Mobile Language Panel */}
-          <div className="p-3 rounded-2xl bg-slate-50 text-slate-950 border-2 border-amber-400 shadow-lg space-y-2.5">
-            <div className="text-[11px] uppercase font-extrabold text-slate-900 flex items-center justify-between border-b border-slate-200 pb-2">
+          <div className="p-3 rounded-2xl bg-[#FFFDF9] text-stone-900 border-2 border-[#D4B075] shadow-md space-y-2.5">
+            <div className="text-[11px] uppercase font-extrabold text-stone-900 flex items-center justify-between border-b border-[#E6D0AC] pb-2">
               <span className="flex items-center gap-1.5">
-                <Globe className="w-3.5 h-3.5 text-amber-600" />
+                <Globe className="w-3.5 h-3.5 text-amber-800" aria-hidden="true" />
                 <span>Select Language &amp; Country</span>
               </span>
-              <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-900 text-amber-300">
+              <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-[#F4E3C7] text-amber-900 font-bold">
                 16 Languages
               </span>
             </div>
-            <div className="grid grid-cols-2 gap-1.5 max-h-56 overflow-y-auto pr-0.5">
+            <div data-no-translate="true" className="grid grid-cols-2 gap-1.5 max-h-56 overflow-y-auto pr-0.5">
               {LANGUAGE_CODES.map((code) => {
                 const meta = LANGUAGE_META[code];
                 const active = currentLang === code;
@@ -266,15 +293,15 @@ export default function Navbar({
                     }}
                     className={`text-left px-2.5 py-2 rounded-xl text-xs flex items-center justify-between gap-1.5 transition-all cursor-pointer ${
                       active
-                        ? 'bg-amber-400 text-slate-950 font-extrabold border-2 border-amber-600 shadow-xs'
-                        : 'bg-white text-slate-900 font-semibold border border-slate-300 hover:bg-sky-50'
+                        ? 'bg-amber-400 text-stone-950 font-extrabold border-2 border-amber-700 shadow-xs'
+                        : 'bg-white text-stone-900 font-semibold border border-[#E5D0AE] hover:bg-[#FAF0DE]'
                     }`}
                   >
                     <span className="flex items-center gap-1.5 min-w-0">
                       <CountryFlag lang={code} className="w-5 h-3.5" />
                       <span className="truncate">{meta.label}</span>
                     </span>
-                    <span className="font-mono text-[10px] font-bold text-slate-600 shrink-0">
+                    <span className="font-mono text-[10px] font-bold text-stone-600 shrink-0">
                       {meta.countryCode}
                     </span>
                   </button>

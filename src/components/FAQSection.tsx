@@ -106,14 +106,14 @@ export default function FAQSection() {
   return (
     <div className="max-w-4xl mx-auto py-12 px-4 space-y-10">
       <div className="text-center space-y-3">
-        <div className="inline-flex items-center gap-1.5 text-xs font-extrabold text-amber-400 uppercase tracking-wider">
+        <div className="inline-flex items-center gap-1.5 text-xs font-extrabold text-amber-800 uppercase tracking-wider">
           <HelpCircle className="w-4 h-4" />
           <span>Knowledge Base</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-stone-900">
           Frequently Asked <span className="text-gold-gradient">Questions</span>
         </h1>
-        <p className="text-sm text-zinc-400">
+        <p className="text-sm text-stone-700">
           Everything you need to know about QR generation, printing specs, and commercial rights.
         </p>
       </div>
@@ -126,8 +126,8 @@ export default function FAQSection() {
             onClick={() => setSelectedCat(c)}
             className={`px-4 py-2 text-xs font-bold rounded-xl transition-all whitespace-nowrap cursor-pointer ${
               selectedCat === c
-                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-black shadow-[0_0_15px_rgba(245,158,11,0.3)]'
-                : 'bg-zinc-950 border border-zinc-800 text-zinc-400 hover:text-white'
+                ? 'bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-stone-950 border border-amber-700/25 shadow-[0_6px_16px_rgba(180,120,18,0.2)]'
+                : 'bg-[#FFFDF9]/90 border border-[#DFC7A0] text-stone-700 hover:text-amber-900 hover:border-amber-700/40'
             }`}
           >
             {c}
@@ -136,7 +136,7 @@ export default function FAQSection() {
       </div>
 
       {/* Accordion */}
-      <div className="bg-zinc-950/90 border border-amber-500/25 rounded-3xl p-6 sm:p-8 shadow-2xl divide-y divide-zinc-800 backdrop-blur-xl">
+      <div className="bg-[#FFFDF9]/92 border border-[#DFC7A0] rounded-3xl p-6 sm:p-8 shadow-[0_12px_36px_-12px_rgba(120,82,25,0.14)] divide-y divide-[#E6D0AC] backdrop-blur-xl">
         {filtered.map((faq, idx) => {
           const isOpen = openIndex === idx;
           return (
@@ -144,17 +144,17 @@ export default function FAQSection() {
               <button
                 onClick={() => setOpenIndex(isOpen ? null : idx)}
                 aria-expanded={isOpen}
-                className="w-full flex items-center justify-between text-left gap-4 font-bold text-sm sm:text-base text-zinc-100 hover:text-amber-300 transition-colors cursor-pointer"
+                className="w-full flex items-center justify-between text-left gap-4 font-bold text-sm sm:text-base text-stone-900 hover:text-amber-800 transition-colors cursor-pointer"
               >
                 <span>{faq.question}</span>
                 {isOpen ? (
-                  <ChevronUp className="w-5 h-5 text-amber-400 shrink-0" aria-hidden="true" />
+                  <ChevronUp className="w-5 h-5 text-amber-800 shrink-0" aria-hidden="true" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-zinc-400 shrink-0" aria-hidden="true" />
+                  <ChevronDown className="w-5 h-5 text-stone-600 shrink-0" aria-hidden="true" />
                 )}
               </button>
               {isOpen && (
-                <p className="mt-3 text-xs sm:text-sm text-zinc-400 leading-relaxed pr-6">
+                <p className="mt-3 text-xs sm:text-sm text-stone-700 leading-relaxed pr-6">
                   {faq.answer}
                 </p>
               )}

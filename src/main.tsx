@@ -47,15 +47,15 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900 p-6">
-          <div className="max-w-md w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-lg text-center space-y-4">
-            <div className="w-12 h-12 bg-amber-100 dark:bg-amber-950/50 text-amber-600 rounded-xl flex items-center justify-center mx-auto text-xl font-bold">
+        <div className="min-h-screen flex items-center justify-center bg-[#F7E7CE] p-6">
+          <div className="max-w-md w-full bg-[#FFFDF9] border border-[#DFC7A0] rounded-2xl p-6 shadow-lg text-center space-y-4">
+            <div className="w-12 h-12 bg-[#FBF2E3] border border-[#D4B483] text-amber-800 rounded-xl flex items-center justify-center mx-auto text-xl font-bold">
               !
             </div>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white">
+            <h2 className="text-lg font-bold text-stone-900">
               Something unexpected happened
             </h2>
-            <p className="text-xs text-slate-600 dark:text-slate-400">
+            <p className="text-xs text-stone-700">
               The application recovered. Click below to reload and continue generating your QR codes.
             </p>
             <button
@@ -63,7 +63,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
                 this.setState({ hasError: false });
                 window.location.reload();
               }}
-              className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold cursor-pointer shadow-xs transition-colors"
+              className="px-4 py-2 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 border border-amber-700/25 text-stone-950 rounded-xl text-xs font-extrabold cursor-pointer shadow-xs transition-colors"
             >
               Reload Studio
             </button>

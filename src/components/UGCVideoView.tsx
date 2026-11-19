@@ -654,7 +654,7 @@ export default function UGCVideoView() {
         canvasCtx.fillText('https://2qrcode.com', 360, 330);
         canvasCtx.fillStyle = '#ffffff';
         canvasCtx.font = '800 26px sans-serif';
-        canvasCtx.fillText('👑 60+ FREE GENERATORS', 360, 400);
+        canvasCtx.fillText('👑 70+ FREE GENERATORS', 360, 400);
         canvasCtx.fillStyle = '#a1a1aa';
         canvasCtx.font = '600 21px sans-serif';
         canvasCtx.fillText('Wi-Fi · vCard · Menus · Reviews · Crypto', 360, 460);
@@ -758,7 +758,7 @@ export default function UGCVideoView() {
 I found the hidden antidote: https://2qrcode.com/ 🔗 (Tap the link in bio!)
 
 ✅ 100% Free Forever (No credit card, no sign-up)
-✅ Over 60 specialized generators:
+✅ Over 70 specialized generators:
   • Wi-Fi quick connect for cafes & restaurants ☕
   • vCard 3.0 digital business cards for realtors 🏠
   • Google review booster for clinics & salons ⭐
@@ -786,15 +786,15 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
     <div className="max-w-7xl mx-auto py-8 sm:py-12 px-4 space-y-10">
       {/* Top Banner & Header */}
       <div className="text-center max-w-3xl mx-auto space-y-3">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-extrabold bg-amber-500/15 text-amber-300 border border-amber-500/30 shadow-[0_0_15px_rgba(251,191,36,0.2)]">
-          <VideoIcon className="w-4 h-4 text-amber-400" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-extrabold bg-[#FBF2E3] text-amber-900 border border-amber-700/30 shadow-[0_6px_20px_-6px_rgba(120,82,25,0.18)]">
+          <VideoIcon className="w-4 h-4 text-amber-800" />
           <span>EXACTLY 60 SECONDS TIKTOK UGC AD WITH HUMAN VOICEOVER & AUDIO</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-stone-900 leading-tight">
           Viral TikTok UGC Promo for <br />
           <span className="text-gold-gradient">https://2qrcode.com/</span>
         </h1>
-        <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+        <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
           60-second high-energy UGC video with full human voiceover audio, rhythmic background music, sound effects, clickable TikTok link, and direct MP4/WebM video export with audio embedded into the video file!
         </p>
       </div>
@@ -804,13 +804,13 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
         {/* Left Column: Vertical 9:16 TikTok Phone Simulator (5 cols) */}
         <div className="lg:col-span-5 flex flex-col items-center">
           {/* Mode Switcher */}
-          <div className="flex items-center gap-2 p-1.5 bg-zinc-900 border border-zinc-800 rounded-2xl mb-4 w-full max-w-[380px] shadow-lg">
+          <div className="flex items-center gap-2 p-1.5 bg-[#FBF2E3] border border-[#E2CAA4] rounded-2xl mb-4 w-full max-w-[380px] shadow-sm">
             <button
               onClick={() => setPreviewMode('mp4')}
               className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                 previewMode === 'mp4'
-                  ? 'bg-amber-400 text-black shadow-md font-extrabold'
-                  : 'text-zinc-400 hover:text-white'
+                  ? 'bg-amber-400 text-stone-950 shadow-xs font-extrabold'
+                  : 'text-stone-700 hover:text-stone-900'
               }`}
             >
               <VideoIcon className="w-3.5 h-3.5" />
@@ -820,8 +820,8 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
               onClick={() => setPreviewMode('interactive')}
               className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                 previewMode === 'interactive'
-                  ? 'bg-amber-400 text-black shadow-md font-extrabold'
-                  : 'text-zinc-400 hover:text-white'
+                  ? 'bg-amber-400 text-stone-950 shadow-xs font-extrabold'
+                  : 'text-stone-700 hover:text-stone-900'
               }`}
             >
               <Sparkles className="w-3.5 h-3.5" />
@@ -829,7 +829,7 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
             </button>
           </div>
 
-          <div className="w-full max-w-[380px] aspect-[9/16] bg-black rounded-[42px] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.95)] border-4 border-zinc-800 relative overflow-hidden select-none">
+          <div className="w-full max-w-[380px] aspect-[9/16] bg-black rounded-[42px] p-3 shadow-[0_24px_60px_-15px_rgba(68,45,10,0.45)] border-4 border-stone-800 relative overflow-hidden select-none">
             {/* Phone Bezel Speaker & Dynamic Island */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-5 bg-zinc-900 rounded-full z-40 flex items-center justify-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-zinc-950 border border-zinc-800" />
@@ -867,9 +867,9 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
 
                 {/* Big Scene Headlines */}
                 <div className="text-center space-y-1">
-                  <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight drop-shadow-md">
+                  <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight drop-shadow-md">
                     {activeScene.title}
-                  </h3>
+                  </h2>
                   <p className="text-xs font-bold text-amber-300">
                     {activeScene.subtitle}
                   </p>
@@ -1009,7 +1009,7 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
 
                   {activeScene.mockupContent === 'cta_bio' && (
                     <div className="space-y-3">
-                      <div className="text-xs font-extrabold text-amber-400 uppercase tracking-widest animate-pulse">
+                      <div className="text-xs font-extrabold text-amber-400 uppercase tracking-widest">
                         👇 Tap Bio Link Below 👇
                       </div>
                       <a
@@ -1094,10 +1094,11 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
                     setLiked(!liked);
                     playSoundEffect('pop');
                   }}
+                  aria-label="Like video"
                   className="flex flex-col items-center cursor-pointer group"
                 >
                   <div className={`p-2 rounded-full transition-transform group-hover:scale-110 ${liked ? 'text-red-500' : 'text-white'}`}>
-                    <Heart className={`w-6 h-6 ${liked ? 'fill-red-500' : ''}`} />
+                    <Heart className={`w-6 h-6 ${liked ? 'fill-red-500' : ''}`} aria-hidden="true" />
                   </div>
                   <span className="text-[10px] font-bold text-white">{liked ? '84.3K' : '84.2K'}</span>
                 </button>
@@ -1105,7 +1106,7 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
                 {/* Comment */}
                 <div className="flex flex-col items-center cursor-pointer">
                   <div className="p-2 rounded-full text-white">
-                    <MessageCircle className="w-6 h-6" />
+                    <MessageCircle className="w-6 h-6" aria-hidden="true" />
                   </div>
                   <span className="text-[10px] font-bold text-white">1,248</span>
                 </div>
@@ -1116,10 +1117,11 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
                     setBookmarked(!bookmarked);
                     playSoundEffect('pop');
                   }}
+                  aria-label="Bookmark video"
                   className="flex flex-col items-center cursor-pointer group"
                 >
                   <div className={`p-2 rounded-full transition-transform group-hover:scale-110 ${bookmarked ? 'text-amber-400' : 'text-white'}`}>
-                    <Bookmark className={`w-6 h-6 ${bookmarked ? 'fill-amber-400' : ''}`} />
+                    <Bookmark className={`w-6 h-6 ${bookmarked ? 'fill-amber-400' : ''}`} aria-hidden="true" />
                   </div>
                   <span className="text-[10px] font-bold text-white">34.9K</span>
                 </button>
@@ -1127,10 +1129,11 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
                 {/* Share */}
                 <button
                   onClick={copyTikTokCaption}
+                  aria-label="Copy TikTok caption"
                   className="flex flex-col items-center cursor-pointer"
                 >
                   <div className="p-2 rounded-full text-white">
-                    <Send className="w-6 h-6" />
+                    <Send className="w-6 h-6" aria-hidden="true" />
                   </div>
                   <span className="text-[10px] font-bold text-white">12.4K</span>
                 </button>
@@ -1140,31 +1143,32 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
           </div>
 
           {/* Quick Play & Time Counter under phone */}
-          <div className="mt-4 flex items-center gap-3 font-mono text-xs text-amber-400 font-bold">
+          <div className="mt-4 flex items-center gap-3 font-mono text-xs text-amber-900 font-bold">
             <button
               onClick={togglePlay}
-              className="p-2.5 rounded-xl bg-amber-400 text-black hover:bg-yellow-300 transition-colors shadow-md cursor-pointer"
+              aria-label={isPlaying ? 'Pause video preview' : 'Play video preview'}
+              className="p-2.5 rounded-xl bg-amber-400 text-stone-950 hover:bg-yellow-300 transition-colors shadow-sm cursor-pointer"
             >
-              {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-black" />}
+              {isPlaying ? <Pause className="w-4 h-4" aria-hidden="true" /> : <Play className="w-4 h-4 fill-stone-950" aria-hidden="true" />}
             </button>
             <span>
               {formatSeconds(currentTime)} / 01:00
             </span>
-            <span className="text-zinc-500 font-normal">({Math.round((currentTime / TOTAL_DURATION_SEC) * 100)}%)</span>
+            <span className="text-stone-600 font-normal">({Math.round((currentTime / TOTAL_DURATION_SEC) * 100)}%)</span>
           </div>
         </div>
 
         {/* Right Column: UGC Video Controls, Scene Timeline & TikTok Toolkit (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
           {/* Main Playback & Video Download Action Card */}
-          <div className="p-6 bg-zinc-950/90 border border-amber-500/30 rounded-3xl shadow-2xl space-y-5 backdrop-blur-xl">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-zinc-800">
+          <div className="p-6 bg-[#FFFDF9]/92 border border-[#DFC7A0] rounded-3xl shadow-[0_12px_36px_-12px_rgba(120,82,25,0.14)] space-y-5 backdrop-blur-xl">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#E6D0AC]">
               <div>
-                <h3 className="text-lg font-extrabold text-white flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-amber-400" />
+                <h2 className="text-lg font-extrabold text-stone-900 flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-amber-800" aria-hidden="true" />
                   <span>60-Second TikTok UGC Studio (With Audio & Voiceover)</span>
-                </h3>
-                <p className="text-xs text-zinc-400 mt-0.5">
+                </h2>
+                <p className="text-xs text-stone-700 mt-0.5">
                   The downloaded video includes synchronized human speech voiceover narration, background beats, and sound effects embedded directly into the video file!
                 </p>
               </div>
@@ -1173,22 +1177,23 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
               <div className="flex items-center gap-2 shrink-0">
                 <button
                   onClick={() => setIsMuted(!isMuted)}
+                  aria-label={isMuted ? 'Unmute Audio' : 'Mute Audio'}
                   className={`p-2 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
                     isMuted
-                      ? 'border-red-500/40 text-red-400 bg-red-500/10'
-                      : 'border-zinc-800 text-zinc-300 bg-zinc-900 hover:text-white'
+                      ? 'border-rose-300 text-rose-800 bg-rose-50'
+                      : 'border-[#D4B483] text-stone-700 bg-white hover:text-stone-900'
                   }`}
                   title={isMuted ? 'Unmute Audio' : 'Mute Audio'}
                 >
-                  {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                  {isMuted ? <VolumeX className="w-4 h-4" aria-hidden="true" /> : <Volume2 className="w-4 h-4" aria-hidden="true" />}
                 </button>
 
                 <button
                   onClick={() => setVoiceoverEnabled(!voiceoverEnabled)}
                   className={`px-3 py-1.5 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
                     voiceoverEnabled
-                      ? 'border-amber-400 bg-amber-500/20 text-amber-300'
-                      : 'border-zinc-800 text-zinc-400 bg-zinc-900'
+                      ? 'border-amber-700/45 bg-amber-100 text-amber-950'
+                      : 'border-[#D4B483] text-stone-600 bg-white'
                   }`}
                 >
                   Voiceover: {voiceoverEnabled ? 'ON' : 'OFF'}
@@ -1198,8 +1203,8 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
                   onClick={() => setBgMusicEnabled(!bgMusicEnabled)}
                   className={`px-3 py-1.5 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
                     bgMusicEnabled
-                      ? 'border-amber-400 bg-amber-500/20 text-amber-300'
-                      : 'border-zinc-800 text-zinc-400 bg-zinc-900'
+                      ? 'border-amber-700/45 bg-amber-100 text-amber-950'
+                      : 'border-[#D4B483] text-stone-600 bg-white'
                   }`}
                 >
                   BGM Beat: {bgMusicEnabled ? 'ON' : 'OFF'}
@@ -1208,16 +1213,16 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
             </div>
 
             {/* Facebook Reels / TikTok Upload Error Fix Notice */}
-            <div className="p-4 bg-amber-500/10 border border-amber-500/35 rounded-2xl flex items-start gap-3">
-              <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+            <div className="p-4 bg-[#FBF2E3] border border-amber-700/30 rounded-2xl flex items-start gap-3">
+              <AlertTriangle className="w-5 h-5 text-amber-800 shrink-0 mt-0.5" />
               <div className="space-y-1 text-xs">
-                <div className="font-extrabold text-amber-300">
+                <div className="font-extrabold text-amber-950">
                   Fixed: Facebook Reels & TikTok Upload Error ("Your file can't be uploaded: ... .webm")
                 </div>
-                <p className="text-zinc-300 leading-relaxed">
+                <p className="text-stone-700 leading-relaxed">
                   Facebook Reels and TikTok strictly block <strong>.webm</strong> files. Social media requires broadcast <strong>.MP4</strong> (H.264 video with AAC audio).
                 </p>
-                <p className="text-amber-400 font-bold">
+                <p className="text-amber-900 font-bold">
                   👇 Click the golden button below to download the official <strong>60-second broadcast MP4</strong>. It uploads directly to Facebook Reels, TikTok & Instagram Reels without any error!
                 </p>
               </div>
@@ -1229,31 +1234,31 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
               <a
                 href="/video/qrmust-tiktok-ugc-60s.mp4"
                 download="qrmust-tiktok-facebook-reels-60s.mp4"
-                className="w-full py-4 px-5 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:to-yellow-500 text-black font-black rounded-2xl text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-3 transition-all shadow-[0_0_30px_rgba(245,158,11,0.5)] hover:scale-101 cursor-pointer"
+                className="w-full py-4 px-5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-400 text-stone-950 border border-amber-700/25 font-black rounded-2xl text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-3 transition-all shadow-[0_8px_24px_rgba(180,120,20,0.25)] hover:scale-101 cursor-pointer"
               >
                 <Download className="w-5 h-5 shrink-0" />
                 <div className="text-left">
                   <div className="font-black text-sm">Download Official MP4 (Facebook Reels & TikTok Ready)</div>
-                  <div className="text-[11px] font-bold text-black/80 normal-case">1080×1920 · 60s · H.264 High Profile + AAC Audio · Verified 100% Uploadable</div>
+                  <div className="text-[11px] font-bold text-stone-900/85 normal-case">1080×1920 · 60s · H.264 High Profile + AAC Audio · Verified 100% Uploadable</div>
                 </div>
               </a>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <button
                   onClick={copyTikTokCaption}
-                  className="py-3.5 px-4 bg-zinc-900 hover:bg-zinc-800 border border-amber-500/30 text-amber-300 font-extrabold rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  className="py-3.5 px-4 bg-[#FBF2E3] hover:bg-amber-100 border border-[#D4B483] text-amber-950 font-extrabold rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
                 >
-                  {copiedCaption ? <Check className="w-4 h-4 text-amber-400" /> : <Copy className="w-4 h-4" />}
+                  {copiedCaption ? <Check className="w-4 h-4 text-emerald-700" /> : <Copy className="w-4 h-4 text-amber-800" />}
                   <span>{copiedCaption ? 'Copied Caption!' : 'Copy Facebook / TikTok Post Caption'}</span>
                 </button>
 
                 <button
                   onClick={handleRecordAndDownloadVideo}
                   disabled={isRecording}
-                  className="py-3.5 px-4 bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white font-bold rounded-2xl text-xs tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50"
+                  className="py-3.5 px-4 bg-white hover:bg-[#FBF2E3] border border-[#D4B483] text-stone-800 hover:text-stone-950 font-bold rounded-2xl text-xs tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50"
                   title="Record a custom live take from the canvas simulator"
                 >
-                  <VideoIcon className="w-4 h-4 shrink-0 text-amber-400" />
+                  <VideoIcon className="w-4 h-4 shrink-0 text-amber-800" />
                   <span>
                     {isRecording ? `Recording (${recordingProgress}%)` : 'Record Custom Take (WebM)'}
                   </span>
@@ -1262,21 +1267,21 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
             </div>
 
             {/* Sound Verification Status Banner */}
-            <div className="p-3.5 bg-amber-500/10 border border-amber-500/25 rounded-2xl flex items-center justify-between text-xs">
+            <div className="p-3.5 bg-[#FBF2E3]/90 border border-[#E2CAA4] rounded-2xl flex items-center justify-between text-xs">
               <div className="space-y-0.5">
-                <span className="font-bold text-white flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-amber-400" />
-                  Embedded Audio Status: <span className="text-amber-300 font-mono">100% Armed & Ready</span>
+                <span className="font-bold text-stone-900 flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-amber-800" />
+                  Embedded Audio Status: <span className="text-emerald-800 font-mono font-bold">100% Armed & Ready</span>
                 </span>
-                <p className="text-[11px] text-zinc-400">
-                  Target clickable link: <strong className="text-amber-300 font-mono">https://2qrcode.com/</strong>
+                <p className="text-[11px] text-stone-700">
+                  Target clickable link: <strong className="text-amber-900 font-mono">https://2qrcode.com/</strong>
                 </p>
               </div>
               <a
                 href="https://2qrcode.com/"
                 target="_blank"
                 rel="noreferrer"
-                className="px-3.5 py-1.5 bg-zinc-900 border border-amber-400/40 text-amber-300 rounded-xl font-bold hover:bg-amber-400 hover:text-black transition-colors"
+                className="px-3.5 py-1.5 bg-white border border-amber-700/40 text-amber-900 rounded-xl font-bold hover:bg-amber-400 hover:text-stone-950 transition-colors"
               >
                 Test Link &rarr;
               </a>
@@ -1284,16 +1289,16 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
           </div>
 
           {/* 60-Second Scene Timeline (7 Scenes) */}
-          <div className="bg-zinc-950/90 border border-amber-500/20 rounded-3xl p-6 shadow-xl space-y-4 backdrop-blur-xl">
+          <div className="bg-[#FFFDF9]/92 border border-[#DFC7A0] rounded-3xl p-6 shadow-[0_12px_36px_-12px_rgba(120,82,25,0.14)] space-y-4 backdrop-blur-xl">
             <div className="flex items-center justify-between">
-              <h4 className="text-sm font-extrabold text-white">
+              <h3 className="text-sm font-extrabold text-stone-900">
                 60-Second Scene Timeline (7 Scenes)
-              </h4>
+              </h3>
               <button
                 onClick={handleRestart}
-                className="text-xs text-amber-400 hover:text-yellow-300 flex items-center gap-1 font-bold cursor-pointer"
+                className="text-xs text-amber-800 hover:text-amber-950 flex items-center gap-1 font-bold cursor-pointer"
               >
-                <RotateCcw className="w-3.5 h-3.5" /> Restart Video
+                <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" /> Restart Video
               </button>
             </div>
 
@@ -1306,20 +1311,20 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
                     onClick={() => jumpToScene(idx)}
                     className={`p-3 text-left rounded-2xl border transition-all cursor-pointer ${
                       isActive
-                        ? 'border-amber-400 bg-amber-500/15 shadow-[0_0_15px_rgba(251,191,36,0.2)]'
-                        : 'border-zinc-800 bg-zinc-900/70 hover:border-zinc-700'
+                        ? 'border-amber-700/60 bg-amber-100/80 shadow-xs'
+                        : 'border-[#E2CAA4] bg-[#FBF2E3]/70 hover:border-amber-700/40'
                     }`}
                   >
                     <div className="flex items-center justify-between text-[11px] font-mono mb-1">
-                      <span className={`font-bold ${isActive ? 'text-amber-300' : 'text-zinc-400'}`}>
+                      <span className={`font-bold ${isActive ? 'text-amber-950' : 'text-stone-600'}`}>
                         Scene {scene.id} ({scene.startSec}s - {scene.endSec}s)
                       </span>
                       {isActive && (
-                        <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+                        <span className="w-2 h-2 rounded-full bg-amber-700 animate-ping" />
                       )}
                     </div>
-                    <div className="text-xs font-bold text-white truncate">{scene.title}</div>
-                    <p className="text-[11px] text-zinc-400 line-clamp-1 mt-0.5">
+                    <div className="text-xs font-bold text-stone-900 truncate">{scene.title}</div>
+                    <p className="text-[11px] text-stone-700 line-clamp-1 mt-0.5">
                       {scene.subtitle}
                     </p>
                   </button>
@@ -1329,18 +1334,18 @@ Create your free QR code right now at https://2qrcode.com/ 🚀
           </div>
 
           {/* Full Voiceover Script Transcript */}
-          <div className="bg-zinc-950/90 border border-zinc-800 rounded-3xl p-6 shadow-xl space-y-3">
-            <h4 className="text-sm font-extrabold text-white flex items-center justify-between">
+          <div className="bg-[#FFFDF9]/92 border border-[#DFC7A0] rounded-3xl p-6 shadow-[0_12px_36px_-12px_rgba(120,82,25,0.14)] space-y-3">
+            <h3 className="text-sm font-extrabold text-stone-900 flex items-center justify-between">
               <span>Full 60-Second Voiceover Script Transcript</span>
-              <span className="text-xs font-mono text-amber-400 font-bold">01:00 Runtime</span>
-            </h4>
-            <div className="p-4 bg-zinc-900/90 rounded-2xl border border-zinc-800 max-h-52 overflow-y-auto text-xs text-zinc-300 space-y-3 font-mono leading-relaxed">
+              <span className="text-xs font-mono text-amber-800 font-bold">01:00 Runtime</span>
+            </h3>
+            <div className="p-4 bg-[#FBF2E3] rounded-2xl border border-[#E2CAA4] max-h-52 overflow-y-auto text-xs text-stone-800 space-y-3 font-mono leading-relaxed">
               {UGC_SCENES.map((scene) => (
                 <div key={scene.id} className="space-y-1">
-                  <span className="text-[11px] font-bold text-amber-400">
+                  <span className="text-[11px] font-bold text-amber-900">
                     [{scene.startSec}s - {scene.endSec}s] {scene.title}:
                   </span>
-                  <p className="text-zinc-300">{scene.narrationText}</p>
+                  <p className="text-stone-800">{scene.narrationText}</p>
                 </div>
               ))}
             </div>

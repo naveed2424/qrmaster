@@ -39,18 +39,18 @@ export default function CookieConsentBanner({ onNavigate }: CookieConsentBannerP
     <div
       role="dialog"
       aria-label="Cookie and Advertising Preferences"
-      className="fixed bottom-3 inset-x-3 sm:left-auto sm:right-5 sm:bottom-5 sm:max-w-md z-[80] bg-slate-950 border-2 border-amber-400/70 rounded-2xl p-4 sm:p-5 shadow-[0_20px_50px_rgba(0,0,0,0.9)] space-y-3"
+      className="fixed bottom-3 inset-x-3 sm:left-auto sm:right-5 sm:bottom-5 sm:max-w-md z-[80] bg-[#FFFDF9]/98 border-2 border-amber-700/45 rounded-2xl p-4 sm:p-5 shadow-[0_20px_50px_rgba(105,72,22,0.22)] backdrop-blur-xl space-y-3"
     >
       <div className="flex items-start gap-3">
-        <div className="w-9 h-9 rounded-xl bg-amber-500/15 border border-amber-500/40 text-amber-400 flex items-center justify-center shrink-0">
+        <div className="w-9 h-9 rounded-xl bg-amber-100 border border-amber-700/25 text-amber-800 flex items-center justify-center shrink-0">
           <Cookie className="w-4 h-4" />
         </div>
         <div className="space-y-1 text-xs">
-          <div className="font-extrabold text-white flex items-center gap-1.5">
+          <div className="font-extrabold text-stone-900 flex items-center gap-1.5">
             <span>Privacy &amp; AdSense Cookies</span>
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
           </div>
-          <p className="text-zinc-300 leading-relaxed">
+          <p className="text-stone-700 leading-relaxed">
             Your QR code inputs stay 100% private inside your browser. To keep 2qrcode.com free forever, Google AdSense uses cookies for ad delivery and measurement.
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function CookieConsentBanner({ onNavigate }: CookieConsentBannerP
             onNavigate('cookies');
             setVisible(false);
           }}
-          className="text-[11px] font-semibold text-amber-300 underline hover:text-yellow-200 cursor-pointer"
+          className="text-[11px] font-semibold text-amber-800 underline hover:text-amber-950 cursor-pointer"
         >
           Cookie Policy &amp; Opt-Out
         </button>
@@ -70,13 +70,13 @@ export default function CookieConsentBanner({ onNavigate }: CookieConsentBannerP
         <div className="flex items-center gap-2 ml-auto">
           <button
             onClick={() => handleSave('essential')}
-            className="px-3 py-1.5 rounded-lg border border-zinc-700 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 text-xs font-semibold cursor-pointer transition-colors"
+            className="px-3 py-1.5 rounded-lg border border-[#D4B483] bg-[#FBF2E3] hover:bg-[#F4E3C8] text-stone-800 text-xs font-semibold cursor-pointer transition-colors"
           >
             Essential Only
           </button>
           <button
             onClick={() => handleSave('all')}
-            className="px-3.5 py-1.5 rounded-lg bg-amber-400 hover:bg-yellow-300 text-black text-xs font-extrabold cursor-pointer transition-colors shadow-sm"
+            className="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-stone-950 border border-amber-700/25 text-xs font-extrabold cursor-pointer transition-colors shadow-sm"
           >
             Accept All
           </button>

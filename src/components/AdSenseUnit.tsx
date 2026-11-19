@@ -32,10 +32,10 @@ export default function AdSenseUnit({
 
   return (
     <div className={`my-8 text-center ${className}`}>
-      <div className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider mb-1.5">
+      <div className="text-[10px] uppercase font-bold text-stone-600 tracking-wider mb-1.5">
         Advertisement
       </div>
-      <div className="min-h-[100px] w-full max-w-4xl mx-auto rounded-2xl bg-zinc-950/60 border border-zinc-900 p-2 overflow-hidden flex items-center justify-center">
+      <div className="min-h-[100px] w-full max-w-4xl mx-auto rounded-2xl bg-[#FFFDF9]/85 border border-[#DFC7A0] p-2 overflow-hidden flex items-center justify-center shadow-[0_6px_20px_-8px_rgba(120,82,25,0.12)]">
         <ins
           ref={adRef}
           className="adsbygoogle"

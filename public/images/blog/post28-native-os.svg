@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 520" width="1040" height="520" role="img" aria-label="Cloud-Dependent URL Redirect vs. Native Zero-Signal Protocol">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFDF9"/>
+      <stop offset="55%" stop-color="#FBF2E3"/>
+      <stop offset="100%" stop-color="#F3DFBF"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#92400E"/>
+    </linearGradient>
+    <linearGradient id="darkCard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#291D0E"/>
+      <stop offset="100%" stop-color="#452E14"/>
+    </linearGradient>
+  </defs>
+  <rect width="1040" height="520" rx="20" fill="url(#bgGrad)"/>
+  <rect x="8" y="8" width="1024" height="504" rx="16" fill="none" stroke="#DFC7A0" stroke-width="2"/>
+  
+  <text x="60" y="64" font-family="Plus Jakarta Sans, sans-serif" font-size="26" font-weight="800" fill="#1C1917">Cloud-Dependent URL Redirect vs. Native Zero-Signal Protocol</text>
+  <text x="60" y="96" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="500" fill="#57534E">Why critical access codes should never depend on cellular towers or external shortlink servers</text>
+  <line x1="60" y1="118" x2="980" y2="118" stroke="#DFC7A0" stroke-width="1.5"/>
+  <rect x="60" y="140" width="444" height="275" rx="16" fill="#FFF1F2" stroke="#FDA4AF" stroke-width="2"/>
+  <text x="86" y="178" font-family="Plus Jakarta Sans, sans-serif" font-size="18" font-weight="800" fill="#9F1239">Cloud-Dependent Redirect URL</text>
+  <text x="86" y="218" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" fill="#881337">✕  Fails completely inside concrete basements/planes</text><text x="86" y="260" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" fill="#881337">✕  Breaks permanently if shortlink vendor shuts down</text><text x="86" y="302" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" fill="#881337">✕  Exposes visitor IP &amp; timestamps to trackers</text><text x="86" y="344" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" fill="#881337">✕  Needs cellular signal + browser tab loading</text><text x="86" y="386" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" fill="#881337">✕  Multi-tap copy-paste for Wi-Fi passwords</text>
+  <rect x="536" y="140" width="444" height="275" rx="16" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="2"/>
+  <text x="562" y="178" font-family="Plus Jakarta Sans, sans-serif" font-size="18" font-weight="800" fill="#065F46">Pure Offline Native Payload QR</text>
+  <text x="562" y="218" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" fill="#065F46">✓  Works in airplane mode, basements &amp; rural parks</text><text x="562" y="260" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" fill="#065F46">✓  Mathematically impossible to expire or delete</text><text x="562" y="302" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" fill="#065F46">✓  Zero network call—strictly device-to-optical read</text><text x="562" y="344" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" fill="#065F46">✓  Triggers native OS &#x27;Join Wi-Fi&#x27; / &#x27;Add Contact&#x27;</text><text x="562" y="386" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" fill="#065F46">✓  Instant 1-tap save directly into Contacts/Calendar</text>
+  <rect x="60" y="438" width="920" height="40" rx="10" fill="#FFFFFF" stroke="#DFC7A0"/>
+  <text x="80" y="463" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#785219">Standardized via W3C/ZXing Wi-Fi Syntax, IETF RFC 6350/2426 vCard, and RFC 5545 iCalendar Specifications</text>
+
+  <text x="1012" y="500" text-anchor="end" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#785219" opacity="0.85">2qrcode.com · ISO/IEC 18004 Engineering Hub</text>
+</svg>

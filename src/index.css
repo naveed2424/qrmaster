@@ -5,42 +5,78 @@
   :root {
     --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
-    color-scheme: dark;
+    --champagne-base: #F7E7CE;
+    --champagne-soft: #FBF4E8;
+    --champagne-deep: #EED8B5;
+    color-scheme: light;
   }
 
   body {
     font-family: var(--font-sans);
-    background-color: #070709;
-    color: #f4f4f5;
+    background-color: var(--champagne-base);
+    color: #1c1917;
     overflow-x: hidden;
   }
 }
 
-/* Luxurious Gold Text Gradients */
+/* Burnished Gold Text Gradient for Champagne Surfaces (WCAG AA High-Contrast) */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #fef08a 0%, #facc15 35%, #eab308 70%, #ca8a04 100%);
+  background: linear-gradient(135deg, #78350f 0%, #b45309 42%, #92400e 76%, #451a03 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gold-bright {
-  color: #fbbf24;
+  color: #92400e;
 }
 
 .bg-gold-gradient {
-  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
 }
 
 .border-gold-glow {
-  border-color: rgba(234, 179, 8, 0.3);
-  box-shadow: 0 0 20px -5px rgba(234, 179, 8, 0.15);
+  border-color: rgba(180, 115, 20, 0.32);
+  box-shadow: 0 10px 28px -8px rgba(154, 107, 47, 0.16);
 }
 
 .shadow-gold-subtle {
-  box-shadow: 0 4px 25px -4px rgba(234, 179, 8, 0.12);
+  box-shadow: 0 8px 26px -6px rgba(154, 107, 47, 0.14);
 }
 
-/* High performance GPU animations for floating QR codes */
+/* Smooth GPU-Composited Champagne Silk & Floating QR Animations */
+@keyframes champagneDrift1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translate3d(5%, 4%, 0) scale(1.12);
+    opacity: 0.9;
+  }
+}
+
+@keyframes champagneDrift2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(-6%, -4%, 0) scale(1.14);
+    opacity: 0.85;
+  }
+}
+
+@keyframes champagneSheen {
+  0%, 100% {
+    transform: translate3d(-12%, -6%, 0) rotate(-6deg);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate3d(12%, 6%, 0) rotate(-4deg);
+    opacity: 0.6;
+  }
+}
+
 @keyframes qrFloat1 {
   0%, 100% {
     transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
@@ -79,30 +115,34 @@
 
 @keyframes laserScan {
   0% {
-    transform: translateY(-100%);
+    transform: translate3d(0, -100%, 0);
     opacity: 0;
   }
   20% {
-    opacity: 0.6;
+    opacity: 0.5;
   }
   80% {
-    opacity: 0.6;
+    opacity: 0.5;
   }
   100% {
-    transform: translateY(120vh);
+    transform: translate3d(0, 120vh, 0);
     opacity: 0;
   }
 }
 
-@keyframes glowPulse {
-  0%, 100% {
-    opacity: 0.35;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.18);
-  }
+.animate-champagne-drift-1 {
+  animation: champagneDrift1 16s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-champagne-drift-2 {
+  animation: champagneDrift2 22s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-champagne-sheen {
+  animation: champagneSheen 18s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 .animate-qr-float-1 {
@@ -130,8 +170,17 @@
   will-change: transform, opacity;
 }
 
-.animate-glow-pulse {
-  animation: glowPulse 8s ease-in-out infinite;
+@media (prefers-reduced-motion: reduce) {
+  .animate-champagne-drift-1,
+  .animate-champagne-drift-2,
+  .animate-champagne-sheen,
+  .animate-qr-float-1,
+  .animate-qr-float-2,
+  .animate-qr-float-3,
+  .animate-qr-float-4,
+  .animate-laser-scan {
+    animation: none !important;
+  }
 }
 
 @media print {

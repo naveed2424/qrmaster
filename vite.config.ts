@@ -42,6 +42,21 @@ export default defineConfig(() => {
           main: path.resolve(rootDir, 'index.html'),
           video: path.resolve(rootDir, 'video.html'),
         },
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('react') || id.includes('react-dom')) {
+                return 'react-vendor';
+              }
+              if (id.includes('lucide-react')) {
+                return 'icons-vendor';
+              }
+              if (id.includes('qrcode') || id.includes('jszip') || id.includes('canvas-confetti')) {
+                return 'qr-tools-vendor';
+              }
+            }
+          },
+        },
       },
     },
     server: {

@@ -16,10 +16,10 @@ export default function BrandLogo({ className = '', size = 'md' }: BrandLogoProp
     <div className={`flex items-center gap-3 select-none ${className}`}>
       {/* Reference Dual-Eye Scanner Mark from the PDF Screenshot */}
       <div
-        className={`${iconSizes[size]} relative shrink-0 p-1 rounded-xl bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-700 p-[1.5px] shadow-[0_0_15px_rgba(251,191,36,0.3)]`}
+        className={`${iconSizes[size]} relative shrink-0 rounded-xl bg-gradient-to-br from-amber-500 via-yellow-500 to-amber-700 p-[1.5px] shadow-[0_4px_14px_rgba(146,94,24,0.22)]`}
       >
-        <div className="w-full h-full bg-zinc-950 rounded-[10px] flex items-center justify-center p-1 relative overflow-hidden">
-          <svg viewBox="0 0 28 28" fill="none" className="w-full h-full text-amber-400">
+        <div className="w-full h-full bg-[#291D0E] rounded-[10px] flex items-center justify-center p-1 relative overflow-hidden">
+          <svg viewBox="0 0 28 28" fill="none" aria-hidden="true" className="w-full h-full text-amber-400">
             {/* Top-Left Finder Eye */}
             <rect x="2" y="2" width="10" height="10" rx="3" stroke="#facc15" strokeWidth="2.2" />
             <rect x="5" y="5" width="4" height="4" rx="1.2" fill="#fde047" />
@@ -32,7 +32,7 @@ export default function BrandLogo({ className = '', size = 'md' }: BrandLogoProp
             <rect x="2" y="16" width="10" height="10" rx="3" stroke="#facc15" strokeWidth="2.2" />
             <rect x="5" y="19" width="4" height="4" rx="1.2" fill="#fde047" />
 
-            {/* Bottom-Right Alignment Pattern Dots (Matching reference site) */}
+            {/* Bottom-Right Alignment Pattern Dots */}
             <circle cx="20" cy="18" r="2" fill="#facc15" />
             <circle cx="20" cy="24" r="2" fill="#eab308" />
           </svg>
@@ -40,10 +40,10 @@ export default function BrandLogo({ className = '', size = 'md' }: BrandLogoProp
       </div>
 
       {/* Typography: 2qrcode.com */}
-      <div className="flex items-center text-left leading-none">
-        <span className="text-lg sm:text-xl font-extrabold tracking-tight text-white whitespace-nowrap shrink-0">
+      <div className="flex items-center text-left leading-none" data-no-translate="true">
+        <span className="text-lg sm:text-xl font-extrabold tracking-tight text-stone-900 whitespace-nowrap shrink-0">
           <span className="text-gold-gradient">2qrcode</span>
-          <span className="text-zinc-200">.com</span>
+          <span className="text-stone-800">.com</span>
         </span>
       </div>
     </div>

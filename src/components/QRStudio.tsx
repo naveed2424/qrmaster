@@ -156,27 +156,27 @@ export default function QRStudio({
   };
 
   return (
-    <div className="bg-zinc-950/90 border border-amber-500/25 rounded-3xl p-6 sm:p-8 shadow-[0_10px_40px_rgba(0,0,0,0.8)] backdrop-blur-xl space-y-6">
+    <div className="bg-[#FFFDF9]/92 border border-[#DFC7A0] rounded-3xl p-6 sm:p-8 shadow-[0_14px_40px_-12px_rgba(120,82,25,0.16)] backdrop-blur-xl space-y-6">
       {/* Studio Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-zinc-800/80">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-[#E6D0AC]">
         <div>
-          <h2 className="text-xl font-extrabold text-white flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-amber-400" aria-hidden="true" />
+          <h2 className="text-xl font-extrabold text-stone-900 flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-amber-800" aria-hidden="true" />
             <span className="text-gold-gradient">{t.studioTitle}</span>
           </h2>
-          <p className="text-xs text-zinc-400 mt-0.5">
+          <p className="text-xs text-stone-700 mt-0.5">
             Personalize your QR code colors, shape, logo, and Call-to-Action frame.
           </p>
         </div>
 
         {/* Tab switchers */}
-        <div className="flex items-center gap-1.5 p-1 bg-zinc-900 border border-zinc-800 rounded-xl shrink-0">
+        <div className="flex items-center gap-1.5 p-1 bg-[#FBF2E3] border border-[#E2CAA4] rounded-xl shrink-0">
           <button
             onClick={() => setActiveTab('design')}
             className={`px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all whitespace-nowrap cursor-pointer ${
               activeTab === 'design'
-                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-black shadow-sm font-extrabold'
-                : 'text-zinc-400 hover:text-amber-300'
+                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-stone-950 shadow-sm font-extrabold'
+                : 'text-stone-700 hover:text-amber-900'
             }`}
           >
             Design & Color
@@ -185,8 +185,8 @@ export default function QRStudio({
             onClick={() => setActiveTab('logo')}
             className={`px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all whitespace-nowrap cursor-pointer ${
               activeTab === 'logo'
-                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-black shadow-sm font-extrabold'
-                : 'text-zinc-400 hover:text-amber-300'
+                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-stone-950 shadow-sm font-extrabold'
+                : 'text-stone-700 hover:text-amber-900'
             }`}
           >
             Logo & Brand
@@ -195,8 +195,8 @@ export default function QRStudio({
             onClick={() => setActiveTab('frame')}
             className={`px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all whitespace-nowrap cursor-pointer ${
               activeTab === 'frame'
-                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-black shadow-sm font-extrabold'
-                : 'text-zinc-400 hover:text-amber-300'
+                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-stone-950 shadow-sm font-extrabold'
+                : 'text-stone-700 hover:text-amber-900'
             }`}
           >
             Frame & CTA
@@ -213,17 +213,17 @@ export default function QRStudio({
             <div className="space-y-6">
               {/* Color Presets */}
               <div>
-                <label className="block text-xs font-extrabold text-amber-300 uppercase tracking-wider mb-2.5">
+                <label className="block text-xs font-extrabold text-amber-900 uppercase tracking-wider mb-2.5">
                   Luminous Color Palettes
                 </label>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    { label: 'Imperial Gold', fg: '#facc15', bg: '#000000', grad: '#ca8a04', name: '👑 Imperial Gold' },
-                    { label: 'Radiant Amber', fg: '#fbbf24', bg: '#09090b', grad: '#d97706', name: '🌟 Radiant Amber' },
-                    { label: 'Champagne White', fg: '#ffffff', bg: '#09090b', grad: '#fde047', name: '✨ Champagne' },
-                    { label: 'Cyber Emerald', fg: '#10b981', bg: '#050505', grad: '#047857', name: '💎 Emerald' },
-                    { label: 'Electric Blue', fg: '#38bdf8', bg: '#030712', grad: '#0284c7', name: '⚡ Cyber Blue' },
-                    { label: 'Light Gold on White', fg: '#b45309', bg: '#ffffff', grad: '#78350f', name: '☀️ Gold White' },
+                    { label: 'Champagne Gold', fg: '#291D0E', bg: '#FFFDF8', grad: '#92400E', name: 'Champagne Gold' },
+                    { label: 'Classic Ink', fg: '#0f172a', bg: '#ffffff', grad: '#334155', name: 'Classic Ink' },
+                    { label: 'Royal Amber', fg: '#b45309', bg: '#FFFDF8', grad: '#78350f', name: 'Royal Amber' },
+                    { label: 'Emerald Print', fg: '#047857', bg: '#ffffff', grad: '#065f46', name: 'Emerald Print' },
+                    { label: 'Sapphire Blue', fg: '#1d4ed8', bg: '#ffffff', grad: '#0369a1', name: 'Sapphire Blue' },
+                    { label: 'Imperial Noir', fg: '#facc15', bg: '#1c1917', grad: '#ca8a04', name: 'Imperial Noir' },
                   ].map((p) => (
                     <button
                       key={p.name}
@@ -232,15 +232,15 @@ export default function QRStudio({
                           fgColor: p.fg,
                           bgColor: p.bg,
                           gradientColor2: p.grad,
-                          eyeFrameColor: p.fg,
+                          eyeFrameColor: p.grad,
                           eyeBallColor: p.fg,
-                          frameColor: p.fg,
-                          frameTextColor: p.bg === '#ffffff' ? '#ffffff' : '#000000',
+                          frameColor: '#F59E0B',
+                          frameTextColor: '#1C1409',
                         })
                       }
-                      className="px-3 py-1.5 text-xs font-bold rounded-xl border border-zinc-800 hover:border-amber-400/60 flex items-center gap-2 transition-all bg-zinc-900/90 text-zinc-200 cursor-pointer shadow-xs"
+                      className="px-3 py-1.5 text-xs font-bold rounded-xl border border-[#DFC7A0] hover:border-amber-700/60 flex items-center gap-2 transition-all bg-[#FBF2E3] text-stone-800 cursor-pointer shadow-xs"
                     >
-                      <span className="w-3.5 h-3.5 rounded-full shrink-0 border border-white/20" style={{ backgroundColor: p.fg }} />
+                      <span className="w-3.5 h-3.5 rounded-full shrink-0 border border-stone-900/20" style={{ backgroundColor: p.fg }} />
                       <span>{p.name}</span>
                     </button>
                   ))}
@@ -250,8 +250,8 @@ export default function QRStudio({
               {/* Exact Color Controls */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {/* Foreground */}
-                <div className="p-3 bg-zinc-900/90 rounded-2xl border border-zinc-800 hover:border-zinc-700">
-                  <label htmlFor={fgColorInputId} className="block text-[11px] font-bold text-zinc-300 mb-1">
+                <div className="p-3 bg-[#FBF2E3] rounded-2xl border border-[#E2CAA4] hover:border-amber-700/40">
+                  <label htmlFor={fgColorInputId} className="block text-[11px] font-bold text-stone-800 mb-1">
                     Pattern Color
                   </label>
                   <div className="flex items-center gap-2">
@@ -260,18 +260,18 @@ export default function QRStudio({
                       type="color"
                       value={customization.fgColor}
                       onChange={(e) => update({ fgColor: e.target.value })}
-                      className="w-8 h-8 rounded-lg cursor-pointer border border-zinc-700 p-0 bg-transparent"
+                      className="w-8 h-8 rounded-lg cursor-pointer border border-[#D4B483] p-0 bg-transparent"
                     />
-                    <span className="text-xs font-mono font-bold text-amber-300 uppercase">
+                    <span className="text-xs font-mono font-bold text-amber-900 uppercase">
                       {customization.fgColor}
                     </span>
                   </div>
                 </div>
 
                 {/* Gradient Color 2 */}
-                <div className="p-3 bg-zinc-900/90 rounded-2xl border border-zinc-800 hover:border-zinc-700">
+                <div className="p-3 bg-[#FBF2E3] rounded-2xl border border-[#E2CAA4] hover:border-amber-700/40">
                   <div className="flex items-center justify-between mb-1">
-                    <label htmlFor={gradColor2InputId} className="text-[11px] font-bold text-zinc-300">
+                    <label htmlFor={gradColor2InputId} className="text-[11px] font-bold text-stone-800">
                       Gradient Color
                     </label>
                     <input
@@ -279,7 +279,7 @@ export default function QRStudio({
                       aria-label="Enable gradient color"
                       checked={customization.useGradient}
                       onChange={(e) => update({ useGradient: e.target.checked })}
-                      className="accent-amber-500 rounded-sm cursor-pointer"
+                      className="accent-amber-700 rounded-sm cursor-pointer"
                       title="Toggle gradient"
                     />
                   </div>
@@ -290,17 +290,17 @@ export default function QRStudio({
                       disabled={!customization.useGradient}
                       value={customization.gradientColor2}
                       onChange={(e) => update({ gradientColor2: e.target.value })}
-                      className="w-8 h-8 rounded-lg cursor-pointer border border-zinc-700 p-0 disabled:opacity-30 bg-transparent"
+                      className="w-8 h-8 rounded-lg cursor-pointer border border-[#D4B483] p-0 disabled:opacity-30 bg-transparent"
                     />
-                    <span className="text-xs font-mono font-bold text-amber-300 uppercase">
+                    <span className="text-xs font-mono font-bold text-amber-900 uppercase">
                       {customization.gradientColor2}
                     </span>
                   </div>
                 </div>
 
                 {/* Background */}
-                <div className="p-3 bg-zinc-900/90 rounded-2xl border border-zinc-800 hover:border-zinc-700">
-                  <label htmlFor={bgColorInputId} className="block text-[11px] font-bold text-zinc-300 mb-1">
+                <div className="p-3 bg-[#FBF2E3] rounded-2xl border border-[#E2CAA4] hover:border-amber-700/40">
+                  <label htmlFor={bgColorInputId} className="block text-[11px] font-bold text-stone-800 mb-1">
                     Background
                   </label>
                   <div className="flex items-center gap-2">
@@ -309,17 +309,17 @@ export default function QRStudio({
                       type="color"
                       value={customization.bgColor}
                       onChange={(e) => update({ bgColor: e.target.value })}
-                      className="w-8 h-8 rounded-lg cursor-pointer border border-zinc-700 p-0 bg-transparent"
+                      className="w-8 h-8 rounded-lg cursor-pointer border border-[#D4B483] p-0 bg-transparent"
                     />
-                    <span className="text-xs font-mono font-bold text-amber-300 uppercase">
+                    <span className="text-xs font-mono font-bold text-amber-900 uppercase">
                       {customization.bgColor}
                     </span>
                   </div>
                 </div>
 
                 {/* Eye Frame Color */}
-                <div className="p-3 bg-zinc-900/90 rounded-2xl border border-zinc-800 hover:border-zinc-700">
-                  <label htmlFor={eyeFrameColorInputId} className="block text-[11px] font-bold text-zinc-300 mb-1">
+                <div className="p-3 bg-[#FBF2E3] rounded-2xl border border-[#E2CAA4] hover:border-amber-700/40">
+                  <label htmlFor={eyeFrameColorInputId} className="block text-[11px] font-bold text-stone-800 mb-1">
                     Eye Outer Frame
                   </label>
                   <div className="flex items-center gap-2">
@@ -328,17 +328,17 @@ export default function QRStudio({
                       type="color"
                       value={customization.eyeFrameColor || customization.fgColor}
                       onChange={(e) => update({ eyeFrameColor: e.target.value })}
-                      className="w-8 h-8 rounded-lg cursor-pointer border border-zinc-700 p-0 bg-transparent"
+                      className="w-8 h-8 rounded-lg cursor-pointer border border-[#D4B483] p-0 bg-transparent"
                     />
-                    <span className="text-xs font-mono font-bold text-amber-300 uppercase">
+                    <span className="text-xs font-mono font-bold text-amber-900 uppercase">
                       {customization.eyeFrameColor || customization.fgColor}
                     </span>
                   </div>
                 </div>
 
                 {/* Eye Ball Color */}
-                <div className="p-3 bg-zinc-900/90 rounded-2xl border border-zinc-800 hover:border-zinc-700">
-                  <label htmlFor={eyeBallColorInputId} className="block text-[11px] font-bold text-zinc-300 mb-1">
+                <div className="p-3 bg-[#FBF2E3] rounded-2xl border border-[#E2CAA4] hover:border-amber-700/40">
+                  <label htmlFor={eyeBallColorInputId} className="block text-[11px] font-bold text-stone-800 mb-1">
                     Eye Inner Pupil
                   </label>
                   <div className="flex items-center gap-2">
@@ -347,9 +347,9 @@ export default function QRStudio({
                       type="color"
                       value={customization.eyeBallColor || customization.fgColor}
                       onChange={(e) => update({ eyeBallColor: e.target.value })}
-                      className="w-8 h-8 rounded-lg cursor-pointer border border-zinc-700 p-0 bg-transparent"
+                      className="w-8 h-8 rounded-lg cursor-pointer border border-[#D4B483] p-0 bg-transparent"
                     />
-                    <span className="text-xs font-mono font-bold text-amber-300 uppercase">
+                    <span className="text-xs font-mono font-bold text-amber-900 uppercase">
                       {customization.eyeBallColor || customization.fgColor}
                     </span>
                   </div>
@@ -358,7 +358,7 @@ export default function QRStudio({
 
               {/* Dot Matrix Style */}
               <div>
-                <label className="block text-xs font-extrabold text-amber-300 uppercase tracking-wider mb-2">
+                <label className="block text-xs font-extrabold text-amber-900 uppercase tracking-wider mb-2">
                   Dot Matrix Pattern
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -373,12 +373,12 @@ export default function QRStudio({
                       onClick={() => update({ dotStyle: s.id as any })}
                       className={`p-3 text-left rounded-2xl border transition-all cursor-pointer ${
                         customization.dotStyle === s.id
-                          ? 'border-amber-400 bg-amber-500/15 text-white shadow-[0_0_15px_rgba(251,191,36,0.2)]'
-                          : 'border-zinc-800 bg-zinc-900/80 hover:border-zinc-700 text-zinc-300'
+                          ? 'border-amber-700 bg-amber-100/90 text-stone-900 shadow-[0_6px_16px_rgba(180,120,18,0.16)]'
+                          : 'border-[#E2CAA4] bg-[#FBF2E3] hover:border-amber-700/40 text-stone-800'
                       }`}
                     >
                       <div className="text-xs font-bold">{s.label}</div>
-                      <div className="text-[10px] text-zinc-400 mt-0.5">{s.desc}</div>
+                      <div className="text-[10px] text-stone-600 mt-0.5">{s.desc}</div>
                     </button>
                   ))}
                 </div>
@@ -386,7 +386,7 @@ export default function QRStudio({
 
               {/* Corner Eye Shapes */}
               <div>
-                <label className="block text-xs font-extrabold text-amber-300 uppercase tracking-wider mb-2">
+                <label className="block text-xs font-extrabold text-amber-900 uppercase tracking-wider mb-2">
                   Eye Corner Geometry
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -401,8 +401,8 @@ export default function QRStudio({
                       onClick={() => update({ cornerStyle: c.id as any })}
                       className={`py-2.5 px-3 text-center text-xs font-bold rounded-xl border transition-all cursor-pointer ${
                         customization.cornerStyle === c.id
-                          ? 'border-amber-400 bg-amber-500/15 text-amber-300 shadow-[0_0_15px_rgba(251,191,36,0.2)]'
-                          : 'border-zinc-800 bg-zinc-900/80 hover:border-zinc-700 text-zinc-300'
+                          ? 'border-amber-700 bg-amber-100/90 text-amber-950 shadow-[0_6px_16px_rgba(180,120,18,0.16)]'
+                          : 'border-[#E2CAA4] bg-[#FBF2E3] hover:border-amber-700/40 text-stone-800'
                       }`}
                     >
                       {c.label}
@@ -414,10 +414,10 @@ export default function QRStudio({
               {/* Error Correction Level */}
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <label className="text-xs font-extrabold text-amber-300 uppercase tracking-wider">
+                  <label className="text-xs font-extrabold text-amber-900 uppercase tracking-wider">
                     Error Correction Level
                   </label>
-                  <span className="text-[11px] text-zinc-400 font-mono">
+                  <span className="text-[11px] text-stone-600 font-mono">
                     Recommended: Level H for Logos
                   </span>
                 </div>
@@ -433,8 +433,8 @@ export default function QRStudio({
                       onClick={() => update({ errorCorrection: lvl.id as any })}
                       className={`p-2.5 text-center rounded-xl border text-xs transition-all cursor-pointer ${
                         customization.errorCorrection === lvl.id
-                          ? 'border-amber-400 bg-gradient-to-r from-amber-400 to-yellow-500 text-black font-extrabold shadow-[0_0_15px_rgba(245,158,11,0.3)]'
-                          : 'border-zinc-800 bg-zinc-900/80 text-zinc-300 hover:border-zinc-700'
+                          ? 'border-amber-700/40 bg-gradient-to-r from-amber-400 to-yellow-500 text-stone-950 font-extrabold shadow-[0_6px_16px_rgba(180,120,18,0.2)]'
+                          : 'border-[#E2CAA4] bg-[#FBF2E3] text-stone-800 hover:border-amber-700/40'
                       }`}
                     >
                       <div className="font-bold">{lvl.label}</div>
@@ -450,7 +450,7 @@ export default function QRStudio({
           {activeTab === 'logo' && (
             <div className="space-y-6">
               {/* Custom Logo Upload */}
-              <div className="p-6 border-2 border-dashed border-amber-500/30 rounded-2xl bg-zinc-900/60 text-center space-y-3">
+              <div className="p-6 border-2 border-dashed border-[#D4B483] rounded-2xl bg-[#FBF2E3] text-center space-y-3">
                 <input
                   ref={fileInputRef}
                   type="file"
@@ -461,16 +461,16 @@ export default function QRStudio({
                 />
 
                 <div className="flex justify-center">
-                  <div className="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-[0_0_15px_rgba(251,191,36,0.2)]">
+                  <div className="w-12 h-12 rounded-2xl bg-amber-100 border border-amber-700/25 flex items-center justify-center text-amber-800 shadow-xs">
                     <Upload className="w-6 h-6" aria-hidden="true" />
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-bold text-white">
+                  <h3 className="text-sm font-bold text-stone-900">
                     {t.uploadCustomLogo}
                   </h3>
-                  <p className="text-xs text-zinc-400 mt-0.5">
+                  <p className="text-xs text-stone-700 mt-0.5">
                     Supports PNG, JPG, or SVG with automatic centered protective mask
                   </p>
                 </div>
@@ -478,14 +478,14 @@ export default function QRStudio({
                 <div className="flex justify-center gap-2 pt-1">
                   <button
                     onClick={() => fileInputRef.current?.click()}
-                    className="px-5 py-2.5 bg-gradient-to-r from-amber-400 to-yellow-500 text-black rounded-xl text-xs font-extrabold tracking-wide uppercase transition-all shadow-[0_0_15px_rgba(245,158,11,0.35)] cursor-pointer"
+                    className="px-5 py-2.5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-stone-950 border border-amber-700/25 rounded-xl text-xs font-extrabold tracking-wide uppercase transition-all shadow-[0_6px_16px_rgba(180,120,18,0.2)] cursor-pointer"
                   >
                     Select Logo File
                   </button>
                   {(customization.customLogoUrl || customization.logoPreset) && (
                     <button
                       onClick={() => update({ customLogoUrl: null, logoPreset: null })}
-                      className="px-3.5 py-2.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer"
+                      className="px-3.5 py-2.5 bg-white hover:bg-[#F4E3C8] border border-[#D4B483] text-stone-800 rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer"
                     >
                       <X className="w-3.5 h-3.5" />
                       Remove
@@ -496,7 +496,7 @@ export default function QRStudio({
 
               {/* Preset Brand Logos */}
               <div>
-                <label className="block text-xs font-extrabold text-amber-300 uppercase tracking-wider mb-2.5">
+                <label className="block text-xs font-extrabold text-amber-900 uppercase tracking-wider mb-2.5">
                   Popular Brand Mark Presets
                 </label>
                 <div className="grid grid-cols-3 sm:grid-cols-4 gap-2.5">
@@ -514,12 +514,12 @@ export default function QRStudio({
                         }
                         className={`p-2.5 flex items-center gap-2 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
                           isSelected
-                            ? 'border-amber-400 bg-amber-500/20 text-amber-300 ring-2 ring-amber-400/50 shadow-[0_0_15px_rgba(251,191,36,0.25)]'
-                            : 'border-zinc-800 bg-zinc-900/90 text-zinc-300 hover:border-zinc-700'
+                            ? 'border-amber-700 bg-amber-100/90 text-amber-950 ring-2 ring-amber-600/35 shadow-sm'
+                            : 'border-[#E2CAA4] bg-[#FBF2E3] text-stone-800 hover:border-amber-700/40'
                         }`}
                       >
                         <div
-                          className="w-5 h-5 shrink-0 flex items-center justify-center text-amber-400"
+                          className="w-5 h-5 shrink-0 flex items-center justify-center text-amber-800"
                           dangerouslySetInnerHTML={{ __html: item.svg }}
                         />
                         <span className="truncate">{item.label}</span>
@@ -531,10 +531,10 @@ export default function QRStudio({
 
               {/* Logo Size Percentage */}
               {(customization.logoPreset || customization.customLogoUrl) && (
-                <div className="p-4 bg-zinc-900/90 rounded-2xl space-y-2 border border-zinc-800">
-                  <div className="flex justify-between text-xs font-bold text-zinc-200">
+                <div className="p-4 bg-[#FBF2E3] rounded-2xl space-y-2 border border-[#E2CAA4]">
+                  <div className="flex justify-between text-xs font-bold text-stone-800">
                     <span>Center Logo Scale</span>
-                    <span className="font-mono text-amber-400 font-extrabold">
+                    <span className="font-mono text-amber-800 font-extrabold">
                       {customization.logoSizePercent}%
                     </span>
                   </div>
@@ -545,9 +545,9 @@ export default function QRStudio({
                     max="28"
                     value={customization.logoSizePercent}
                     onChange={(e) => update({ logoSizePercent: Number(e.target.value) })}
-                    className="w-full accent-amber-400 cursor-pointer"
+                    className="w-full accent-amber-700 cursor-pointer"
                   />
-                  <p className="text-[11px] text-zinc-400">
+                  <p className="text-[11px] text-stone-700">
                     Reed-Solomon Error Correction Level H (30% parity) is locked to guarantee error-free scanning with center logos.
                   </p>
                 </div>
@@ -560,7 +560,7 @@ export default function QRStudio({
             <div className="space-y-6">
               {/* Frame Styles */}
               <div>
-                <label className="block text-xs font-extrabold text-amber-300 uppercase tracking-wider mb-2.5">
+                <label className="block text-xs font-extrabold text-amber-900 uppercase tracking-wider mb-2.5">
                   Frame Style
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
@@ -577,8 +577,8 @@ export default function QRStudio({
                       onClick={() => update({ frameType: f.id as any })}
                       className={`p-3 text-left rounded-2xl border text-xs font-bold transition-all cursor-pointer ${
                         customization.frameType === f.id
-                          ? 'border-amber-400 bg-amber-500/20 text-amber-300 ring-1 ring-amber-400/50 shadow-[0_0_15px_rgba(251,191,36,0.2)]'
-                          : 'border-zinc-800 bg-zinc-900/90 hover:border-zinc-700 text-zinc-300'
+                          ? 'border-amber-700 bg-amber-100/90 text-amber-950 ring-1 ring-amber-600/35 shadow-sm'
+                          : 'border-[#E2CAA4] bg-[#FBF2E3] hover:border-amber-700/40 text-stone-800'
                       }`}
                     >
                       {f.label}
@@ -591,7 +591,7 @@ export default function QRStudio({
                 <>
                   {/* CTA Text */}
                   <div>
-                    <label htmlFor={frameTextInputId} className="block text-xs font-extrabold text-amber-300 uppercase tracking-wider mb-1.5">
+                    <label htmlFor={frameTextInputId} className="block text-xs font-extrabold text-amber-900 uppercase tracking-wider mb-1.5">
                       Frame Banner Call-To-Action
                     </label>
                     <input
@@ -601,7 +601,7 @@ export default function QRStudio({
                       value={customization.frameText}
                       onChange={(e) => update({ frameText: e.target.value })}
                       placeholder="e.g., SCAN ME, CONNECT WI-FI, VIEW MENU"
-                      className="w-full px-4 py-2.5 text-sm font-extrabold uppercase tracking-wider rounded-xl border border-zinc-700 bg-zinc-900 text-white focus:outline-hidden focus:border-amber-400 focus:ring-1 focus:ring-amber-400"
+                      className="w-full px-4 py-2.5 text-sm font-extrabold uppercase tracking-wider rounded-xl border border-[#D4B483] bg-white text-stone-900 focus:outline-hidden focus:border-amber-700 focus:ring-1 focus:ring-amber-700"
                     />
 
                     {/* Quick CTA suggestions */}
@@ -619,7 +619,7 @@ export default function QRStudio({
                         <button
                           key={chip}
                           onClick={() => update({ frameText: chip })}
-                          className="px-2.5 py-1 text-[11px] font-bold rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-amber-500/40 hover:text-amber-300 transition-colors cursor-pointer"
+                          className="px-2.5 py-1 text-[11px] font-bold rounded-lg bg-[#FBF2E3] border border-[#E2CAA4] text-stone-800 hover:border-amber-700/50 hover:text-amber-950 transition-colors cursor-pointer"
                         >
                           {chip}
                         </button>
@@ -629,8 +629,8 @@ export default function QRStudio({
 
                   {/* Frame Color */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="p-3 bg-zinc-900/90 rounded-2xl border border-zinc-800">
-                      <label htmlFor={frameColorInputId} className="block text-[11px] font-bold text-zinc-300 mb-1">
+                    <div className="p-3 bg-[#FBF2E3] rounded-2xl border border-[#E2CAA4]">
+                      <label htmlFor={frameColorInputId} className="block text-[11px] font-bold text-stone-800 mb-1">
                         Frame Accent Color
                       </label>
                       <div className="flex items-center gap-2">
@@ -639,9 +639,9 @@ export default function QRStudio({
                           type="color"
                           value={customization.frameColor}
                           onChange={(e) => update({ frameColor: e.target.value })}
-                          className="w-8 h-8 rounded-lg cursor-pointer border border-zinc-700 p-0 bg-transparent"
+                          className="w-8 h-8 rounded-lg cursor-pointer border border-[#D4B483] p-0 bg-transparent"
                         />
-                        <span className="text-xs font-mono font-bold text-amber-300 uppercase">
+                        <span className="text-xs font-mono font-bold text-amber-900 uppercase">
                           {customization.frameColor}
                         </span>
                       </div>
@@ -654,17 +654,17 @@ export default function QRStudio({
         </div>
 
         {/* Live Preview & Download Column (5 cols) */}
-        <div className="lg:col-span-5 flex flex-col items-center space-y-5 bg-black/60 p-6 sm:p-7 rounded-3xl border border-amber-500/20 backdrop-blur-md shadow-2xl">
-          <div className="w-full flex items-center justify-between text-xs text-zinc-400 font-semibold">
-            <span className="flex items-center gap-1.5 text-amber-400">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
+        <div className="lg:col-span-5 flex flex-col items-center space-y-5 bg-[#FBF2E3]/90 p-6 sm:p-7 rounded-3xl border border-[#DFC7A0] backdrop-blur-md shadow-[0_10px_28px_-10px_rgba(120,82,25,0.14)]">
+          <div className="w-full flex items-center justify-between text-xs text-stone-700 font-semibold">
+            <span className="flex items-center gap-1.5 text-amber-800 font-bold">
+              <Sparkles className="w-3.5 h-3.5 text-amber-800" aria-hidden="true" />
               Live Vector Preview
             </span>
-            <span className="font-mono text-[11px] text-zinc-400">{customization.size} × {customization.size} px</span>
+            <span className="font-mono text-[11px] text-stone-600">{customization.size} × {customization.size} px</span>
           </div>
 
           {/* Canvas Wrapper */}
-          <div className="p-4 bg-zinc-950 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.9)] border border-amber-500/30 flex items-center justify-center max-w-full overflow-hidden">
+          <div className="p-4 bg-white rounded-2xl shadow-[0_12px_30px_-8px_rgba(120,82,25,0.2)] border border-[#DFC7A0] flex items-center justify-center max-w-full overflow-hidden">
             <canvas
               ref={canvasRef}
               aria-label={`Generated ${toolName || 'custom'} QR code preview`}
@@ -674,7 +674,7 @@ export default function QRStudio({
 
           {/* Size / Resolution selector */}
           <div className="w-full flex items-center justify-between gap-2 text-xs">
-            <span className="font-bold text-zinc-300">Export Res:</span>
+            <span className="font-bold text-stone-800">Export Res:</span>
             <div className="flex items-center gap-1.5">
               {[
                 { label: '512px', size: 512 },
@@ -686,8 +686,8 @@ export default function QRStudio({
                   onClick={() => update({ size: res.size })}
                   className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all cursor-pointer ${
                     customization.size === res.size
-                      ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-black shadow-xs'
-                      : 'bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white'
+                      ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-stone-950 border border-amber-700/25 shadow-xs'
+                      : 'bg-white border border-[#DFC7A0] text-stone-700 hover:text-stone-950'
                   }`}
                 >
                   {res.label}
@@ -701,7 +701,7 @@ export default function QRStudio({
             <div className="grid grid-cols-3 gap-2">
               <button
                 onClick={() => handleDownload('png')}
-                className="py-3 px-2 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:to-yellow-500 text-black font-extrabold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all shadow-[0_0_15px_rgba(245,158,11,0.3)] cursor-pointer"
+                className="py-3 px-2 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 border border-amber-700/25 font-extrabold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all shadow-[0_6px_16px_rgba(180,120,18,0.22)] cursor-pointer"
                 title="Download high-resolution PNG image"
               >
                 <Download className="w-3.5 h-3.5 shrink-0" />
@@ -709,7 +709,7 @@ export default function QRStudio({
               </button>
               <button
                 onClick={() => handleDownload('svg')}
-                className="py-3 px-2 bg-zinc-900 hover:bg-zinc-800 border border-amber-500/40 text-amber-300 font-extrabold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer"
+                className="py-3 px-2 bg-white hover:bg-[#FFFDF9] border border-amber-700/35 text-amber-900 font-extrabold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer"
                 title="Download scalable vector SVG"
               >
                 <Download className="w-3.5 h-3.5 shrink-0" />
@@ -717,7 +717,7 @@ export default function QRStudio({
               </button>
               <button
                 onClick={() => handleDownload('jpg')}
-                className="py-3 px-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 font-extrabold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer"
+                className="py-3 px-2 bg-white hover:bg-[#FFFDF9] border border-[#DFC7A0] text-stone-800 font-extrabold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer"
                 title="Download JPG image"
               >
                 <Download className="w-3.5 h-3.5 shrink-0" />
@@ -728,14 +728,14 @@ export default function QRStudio({
             <div className="grid grid-cols-2 gap-2">
               <button
                 onClick={handleCopy}
-                className="w-full py-2.5 px-3 border border-zinc-800 bg-zinc-900/90 hover:bg-zinc-800 text-zinc-200 font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                className="w-full py-2.5 px-3 border border-[#DFC7A0] bg-white hover:bg-[#FFFDF9] text-stone-800 font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
               >
-                {copied ? <Check className="w-3.5 h-3.5 text-amber-400" /> : <Copy className="w-3.5 h-3.5" />}
+                {copied ? <Check className="w-3.5 h-3.5 text-amber-800" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>{copied ? 'Copied Image!' : t.copyImage}</span>
               </button>
               <button
                 onClick={handlePrint}
-                className="w-full py-2.5 px-3 border border-zinc-800 bg-zinc-900/90 hover:bg-zinc-800 text-zinc-200 font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                className="w-full py-2.5 px-3 border border-[#DFC7A0] bg-white hover:bg-[#FFFDF9] text-stone-800 font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
               >
                 <Printer className="w-3.5 h-3.5" />
                 <span>{t.printCode}</span>
@@ -743,7 +743,7 @@ export default function QRStudio({
             </div>
           </div>
 
-          <div className="text-[11px] text-center text-amber-400/80 font-medium">
+          <div className="text-[11px] text-center text-amber-800 font-semibold">
             100% Free · No sign-up required · Unlimited lifetime scans
           </div>
         </div>

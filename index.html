@@ -8,7 +8,7 @@
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="aTHKXUG67I0xg2v2kLM54KqOCH2YOQ3NL55aWnuZQn0" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="theme-color" content="#070709" />
+    <meta name="theme-color" content="#F7E7CE" />
     <link rel="canonical" href="https://2qrcode.com/" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -28,16 +28,49 @@
         });
       } catch (e) {}
 
-      // Suppress noisy external chrome-extension:// errors from breaking the page
-      window.addEventListener('error', function(e) {
-        if (e.filename && e.filename.indexOf('chrome-extension://') !== -1) {
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          return true;
+      // Suppress noisy external browser extension errors & async rejections (e.g. MetaMask inpage.js)
+      (function() {
+        function isExtensionError(msg, src, stack) {
+          var combined = (msg || '') + ' ' + (src || '') + ' ' + (stack || '');
+          return (
+            combined.indexOf('chrome-extension://') !== -1 ||
+            combined.indexOf('moz-extension://') !== -1 ||
+            combined.indexOf('safari-extension://') !== -1 ||
+            combined.indexOf('Failed to connect to MetaMask') !== -1 ||
+            combined.indexOf('inpage.js') !== -1
+          );
         }
-      }, true);
+
+        window.addEventListener('error', function(e) {
+          var stack = e.error && e.error.stack ? String(e.error.stack) : '';
+          if (isExtensionError(e.message, e.filename, stack)) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+
+        window.addEventListener('unhandledrejection', function(e) {
+          var reason = e.reason;
+          var msg = '';
+          var stack = '';
+          if (typeof reason === 'string') {
+            msg = reason;
+          } else if (reason && typeof reason === 'object') {
+            msg = reason.message ? String(reason.message) : String(reason);
+            stack = reason.stack ? String(reason.stack) : '';
+          }
+          if (isExtensionError(msg, '', stack)) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+      })();
     </script>
     <title>2qrcode.com – 70+ Free QR Code Generators, Batch CSV & Customizer</title>
+    <meta name="author" content="Afzal Naveed" />
+    <meta name="keywords" content="free qr code generator, static qr code never expires, batch csv qr generator, gs1 digital link 2d qr code, wifi qr code, vcard qr code, google review qr code" />
     <meta name="description" content="Generate 70+ types of custom QR codes and bulk CSV batches for free on 2qrcode.com with your logo, custom colors, frames, and high-res PNG/SVG/JPG exports." />
     
     <!-- OpenGraph -->
@@ -45,39 +78,81 @@
     <meta property="og:url" content="https://2qrcode.com/" />
     <meta property="og:title" content="2qrcode.com – 70+ Free QR Code Generators & Batch CSV Studio" />
     <meta property="og:description" content="Generate 70+ types of custom QR codes or bulk CSV batches for free on 2qrcode.com with logo, custom colors, frames, and high-res PNG/SVG/JPG exports." />
-    <meta property="og:image" content="https://2qrcode.com/images/blog/ai-daily-life-hero.jpg" />
+    <meta property="og:image" content="https://2qrcode.com/images/blog/post25-hero.svg" />
     <meta property="og:site_name" content="2qrcode.com" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="2qrcode.com – 70+ Free QR Code Generators & Batch CSV Tool" />
     <meta name="twitter:description" content="Create single or batch CSV QR codes for free on 2qrcode.com with custom branding, logo support, error correction, and instant print metric converter." />
-    <meta name="twitter:image" content="https://2qrcode.com/images/blog/ai-daily-life-hero.jpg" />
+    <meta name="twitter:image" content="https://2qrcode.com/images/blog/post25-hero.svg" />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts (Non-Render-Blocking for Maximum PageSpeed) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" /></noscript>
 
-    <!-- Schema.org WebApplication Structured Data -->
+    <!-- Schema.org @graph Structured Data (WebSite + WebApplication + Person E-E-A-T) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "2qrcode.com",
-      "url": "https://2qrcode.com",
-      "applicationCategory": "DesignApplication",
-      "operatingSystem": "All",
-      "description": "Free suite of 70+ QR code generators and Batch CSV QR tool with logo upload, custom frame design, SVG/PNG/JPG export, metric print dimension calculator, and zero sign-up requirement.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://2qrcode.com/#website",
+          "name": "2qrcode.com",
+          "url": "https://2qrcode.com/",
+          "description": "Free suite of 70+ client-side static QR code generators, batch CSV builder, and print engineering guides.",
+          "publisher": {
+            "@id": "https://2qrcode.com/#founder"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://2qrcode.com/?view=blog&q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://2qrcode.com/#webapp",
+          "name": "2qrcode.com",
+          "url": "https://2qrcode.com/",
+          "applicationCategory": "DesignApplication",
+          "operatingSystem": "All",
+          "description": "Free suite of 70+ QR code generators and Batch CSV QR tool with logo upload, custom frame design, SVG/PNG/JPG export, metric print dimension calculator, and zero sign-up requirement.",
+          "creator": {
+            "@id": "https://2qrcode.com/#founder"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://2qrcode.com/#founder",
+          "name": "Afzal Naveed",
+          "jobTitle": "Founder & Senior QR Systems Architect",
+          "url": "https://2qrcode.com/?view=about",
+          "image": "https://2qrcode.com/assets/aistudio/Portrait_dans_un_bureau_techno_inspirant_318ff21b.png",
+          "knowsAbout": [
+            "ISO/IEC 18004 QR Codes",
+            "GS1 Digital Link 2D Barcodes",
+            "HTML5 Canvas",
+            "Technical SEO",
+            "Cloud Security",
+            "Java",
+            "TypeScript"
+          ]
+        }
+      ]
     }
     </script>
   </head>
-  <body class="bg-[#070709] text-zinc-100 font-sans antialiased selection:bg-amber-400 selection:text-black">
+  <body class="bg-[#F7E7CE] text-stone-900 font-sans antialiased selection:bg-amber-300 selection:text-stone-950">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

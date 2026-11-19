@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 528" width="1040" height="528" role="img" aria-label="Offline QR Payload Compactness vs. Print Minimum Size">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFDF9"/>
+      <stop offset="55%" stop-color="#FBF2E3"/>
+      <stop offset="100%" stop-color="#F3DFBF"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#92400E"/>
+    </linearGradient>
+    <linearGradient id="darkCard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#291D0E"/>
+      <stop offset="100%" stop-color="#452E14"/>
+    </linearGradient>
+  </defs>
+  <rect width="1040" height="528" rx="20" fill="url(#bgGrad)"/>
+  <rect x="8" y="8" width="1024" height="512" rx="16" fill="none" stroke="#DFC7A0" stroke-width="2"/>
+  
+  <text x="60" y="64" font-family="Plus Jakarta Sans, sans-serif" font-size="26" font-weight="800" fill="#1C1917">Offline QR Payload Compactness vs. Print Minimum Size</text>
+  <text x="60" y="96" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="500" fill="#57534E">Comparing character budgets across internet-free native URI schemas (at Error Correction M/H)</text>
+  <line x1="60" y1="118" x2="980" y2="118" stroke="#DFC7A0" stroke-width="1.5"/>
+  
+        <text x="60" y="175" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="700" fill="#1C1917">Wi-Fi Credentials (WIFI:T:WPA;...)</text>
+        <rect x="330" y="155" width="520" height="32" rx="8" fill="#F3E5CD" stroke="#DFC7A0"/>
+        <rect x="330" y="155" width="176" height="32" rx="8" fill="#065F46"/>
+        <text x="870" y="177" font-family="JetBrains Mono, monospace" font-size="15" font-weight="800" fill="#291D0E">~45–75 chars (Very Dense Safe)</text>
+        <text x="60" y="247" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="700" fill="#1C1917">Plaintext / Serial Pass (~120 chars)</text>
+        <rect x="330" y="227" width="520" height="32" rx="8" fill="#F3E5CD" stroke="#DFC7A0"/>
+        <rect x="330" y="227" width="249" height="32" rx="8" fill="#92400E"/>
+        <text x="870" y="249" font-family="JetBrains Mono, monospace" font-size="15" font-weight="800" fill="#291D0E">~80–120 chars (Crisp @ 25mm)</text>
+        <text x="60" y="319" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="700" fill="#1C1917">Event Invite (BEGIN:VEVENT)</text>
+        <rect x="330" y="299" width="520" height="32" rx="8" fill="#F3E5CD" stroke="#DFC7A0"/>
+        <rect x="330" y="299" width="374" height="32" rx="8" fill="#B45309"/>
+        <text x="870" y="321" font-family="JetBrains Mono, monospace" font-size="15" font-weight="800" fill="#291D0E">~160–240 chars (Best @ 35mm+)</text>
+        <text x="60" y="391" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="700" fill="#1C1917">Rich vCard 3.0 Contact Profile</text>
+        <rect x="330" y="371" width="520" height="32" rx="8" fill="#F3E5CD" stroke="#DFC7A0"/>
+        <rect x="330" y="371" width="478" height="32" rx="8" fill="#D97706"/>
+        <text x="870" y="393" font-family="JetBrains Mono, monospace" font-size="15" font-weight="800" fill="#291D0E">~220–350 chars (Best @ 40mm+)</text>
+  <rect x="60" y="456" width="920" height="40" rx="10" fill="#FFFFFF" stroke="#DFC7A0"/>
+  <text x="78" y="481" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="600" fill="#785219">Warning: Bloated vCards with 400+ character notes create ultra-tight modules—keep offline business cards concise!</text>
+
+  <text x="1012" y="508" text-anchor="end" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#785219" opacity="0.85">2qrcode.com · ISO/IEC 18004 Engineering Hub</text>
+</svg>

@@ -118,29 +118,29 @@ export default function ReviewsSection() {
   return (
     <div className="max-w-6xl mx-auto py-12 px-4 space-y-12">
       {/* Header and Aggregate Score */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-zinc-800">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-[#DFC7A0]">
         <div>
-          <span className="text-xs font-extrabold uppercase tracking-wider text-amber-400">
+          <span className="text-xs font-extrabold uppercase tracking-wider text-amber-800">
             Real Community Feedback
           </span>
-          <h1 className="text-3xl font-extrabold tracking-tight text-white mt-1">
+          <h1 className="text-3xl font-extrabold tracking-tight text-stone-900 mt-1">
             Loved by <span className="text-gold-gradient">Small Businesses, Cafes & Creators</span>
           </h1>
-          <p className="text-xs text-zinc-400 mt-1">
+          <p className="text-xs text-stone-700 mt-1">
             Over 100,000+ QR codes generated across 70+ specialized categories worldwide.
           </p>
         </div>
 
-        <div className="flex items-center gap-4 bg-zinc-950 border border-amber-500/30 p-4 rounded-2xl shadow-xl shrink-0">
-          <div className="flex items-center text-amber-400">
-            <Star className="w-8 h-8 fill-amber-400 text-amber-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.5)]" aria-hidden="true" />
+        <div className="flex items-center gap-4 bg-[#FFFDF9]/95 border border-[#DFC7A0] p-4 rounded-2xl shadow-[0_10px_28px_-10px_rgba(120,82,25,0.14)] shrink-0">
+          <div className="flex items-center text-amber-600">
+            <Star className="w-8 h-8 fill-amber-500 text-amber-600" aria-hidden="true" />
           </div>
           <div>
             <div className="flex items-baseline gap-1 font-mono">
-              <span className="text-2xl font-extrabold text-white">{avgRating}</span>
-              <span className="text-xs text-zinc-400">/ 5.0</span>
+              <span className="text-2xl font-extrabold text-stone-900">{avgRating}</span>
+              <span className="text-xs text-stone-600">/ 5.0</span>
             </div>
-            <p className="text-xs font-medium text-zinc-400">
+            <p className="text-xs font-medium text-stone-600">
               Based on {reviews.length + 8420} verified ratings
             </p>
           </div>
@@ -150,7 +150,7 @@ export default function ReviewsSection() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Reviews List (8 cols) */}
         <div className="lg:col-span-8 space-y-4">
-          <h2 className="text-base font-extrabold text-white">
+          <h2 className="text-base font-extrabold text-stone-900">
             Recent Verified Reviews
           </h2>
 
@@ -158,35 +158,35 @@ export default function ReviewsSection() {
             {reviews.map((rev) => (
               <div
                 key={rev.id}
-                className="p-5 bg-zinc-950/90 border border-zinc-800/80 hover:border-amber-500/40 rounded-2xl shadow-md space-y-3 transition-all"
+                className="p-5 bg-[#FFFDF9]/92 border border-[#DFC7A0] hover:border-amber-700/45 rounded-2xl shadow-[0_8px_24px_-10px_rgba(120,82,25,0.12)] space-y-3 transition-all"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <div className="flex items-center gap-2">
-                      <h3 className="text-sm font-bold text-white">{rev.author}</h3>
+                      <h3 className="text-sm font-bold text-stone-900">{rev.author}</h3>
                       {rev.verified && (
-                        <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-400">
-                          <CheckCircle className="w-3 h-3 text-amber-400" />
+                        <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-800">
+                          <CheckCircle className="w-3 h-3 text-amber-700" />
                           Verified User
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-zinc-400">{rev.role}</p>
+                    <p className="text-xs text-stone-600">{rev.role}</p>
                   </div>
 
-                  <div className="flex items-center gap-1 text-amber-400">
+                  <div className="flex items-center gap-1 text-amber-600">
                     {[...Array(rev.rating)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      <Star key={i} className="w-3.5 h-3.5 fill-amber-500 text-amber-600" />
                     ))}
                   </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
                   "{rev.comment}"
                 </p>
 
-                <div className="pt-2 flex items-center justify-between text-[11px] text-zinc-400 border-t border-zinc-900">
-                  <span className="font-semibold text-amber-400">Tool: {rev.toolUsed}</span>
+                <div className="pt-2 flex items-center justify-between text-[11px] text-stone-600 border-t border-[#E6D0AC]">
+                  <span className="font-semibold text-amber-800">Tool: {rev.toolUsed}</span>
                   <span>{rev.date}</span>
                 </div>
               </div>
@@ -195,26 +195,26 @@ export default function ReviewsSection() {
         </div>
 
         {/* Submit Review Form (4 cols) */}
-        <div className="lg:col-span-4 bg-zinc-950/90 border border-amber-500/25 rounded-2xl p-6 shadow-2xl space-y-4 backdrop-blur-xl">
-          <div className="flex items-center gap-2 pb-2 border-b border-zinc-800">
-            <MessageSquarePlus className="w-4 h-4 text-amber-400" aria-hidden="true" />
-            <h2 className="text-sm font-extrabold text-white">Leave Your Review</h2>
+        <div className="lg:col-span-4 bg-[#FFFDF9]/92 border border-[#DFC7A0] rounded-2xl p-6 shadow-[0_12px_36px_-12px_rgba(120,82,25,0.14)] space-y-4 backdrop-blur-xl">
+          <div className="flex items-center gap-2 pb-2 border-b border-[#E6D0AC]">
+            <MessageSquarePlus className="w-4 h-4 text-amber-800" aria-hidden="true" />
+            <h2 className="text-sm font-extrabold text-stone-900">Leave Your Review</h2>
           </div>
 
           {submitted ? (
-            <div className="p-4 bg-amber-500/10 border border-amber-500/30 rounded-xl text-center space-y-2">
-              <CheckCircle className="w-6 h-6 text-amber-400 mx-auto" />
-              <p className="text-xs font-bold text-amber-300">
+            <div className="p-4 bg-amber-100/90 border border-amber-700/25 rounded-xl text-center space-y-2">
+              <CheckCircle className="w-6 h-6 text-amber-800 mx-auto" />
+              <p className="text-xs font-bold text-amber-900">
                 Thank you for your feedback!
               </p>
-              <p className="text-[11px] text-zinc-300">
+              <p className="text-[11px] text-stone-700">
                 Your review has been published to the community board.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3 text-xs">
               <div>
-                <label htmlFor={authorNameInputId} className="block font-bold text-zinc-300 mb-1">
+                <label htmlFor={authorNameInputId} className="block font-bold text-stone-800 mb-1">
                   Your Full Name
                 </label>
                 <input
@@ -224,12 +224,12 @@ export default function ReviewsSection() {
                   placeholder="e.g. Alex Morgan"
                   value={authorName}
                   onChange={(e) => setAuthorName(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-800 bg-zinc-900 text-white focus:outline-hidden focus:border-amber-400"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-[#D4B483] bg-white text-stone-900 placeholder:text-stone-500 focus:outline-hidden focus:border-amber-700"
                 />
               </div>
 
               <div>
-                <label htmlFor={roleInputId} className="block font-bold text-zinc-300 mb-1">
+                <label htmlFor={roleInputId} className="block font-bold text-stone-800 mb-1">
                   Business / Role (Optional)
                 </label>
                 <input
@@ -238,19 +238,19 @@ export default function ReviewsSection() {
                   placeholder="e.g. Restaurant Manager, Designer"
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-800 bg-zinc-900 text-white focus:outline-hidden focus:border-amber-400"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-[#D4B483] bg-white text-stone-900 placeholder:text-stone-500 focus:outline-hidden focus:border-amber-700"
                 />
               </div>
 
               <div>
-                <label htmlFor={toolUsedInputId} className="block font-bold text-zinc-300 mb-1">
+                <label htmlFor={toolUsedInputId} className="block font-bold text-stone-800 mb-1">
                   Tool Used
                 </label>
                 <select
                   id={toolUsedInputId}
                   value={toolUsed}
                   onChange={(e) => setToolUsed(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-800 bg-zinc-900 text-white focus:outline-hidden focus:border-amber-400"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-[#D4B483] bg-white text-stone-900 focus:outline-hidden focus:border-amber-700"
                 >
                   <option value="Wi-Fi Network Quick Connect">Wi-Fi Network Quick Connect</option>
                   <option value="vCard 3.0 Digital Business Card">vCard 3.0 Digital Business Card</option>
@@ -264,7 +264,7 @@ export default function ReviewsSection() {
               </div>
 
               <div>
-                <span className="block font-bold text-zinc-300 mb-1">
+                <span className="block font-bold text-stone-800 mb-1">
                   Rating (1-5 Stars)
                 </span>
                 <div className="flex items-center gap-1">
@@ -278,18 +278,18 @@ export default function ReviewsSection() {
                     >
                       <Star
                         className={`w-5 h-5 ${
-                          rating >= s ? 'fill-amber-400 text-amber-400' : 'text-zinc-600'
+                          rating >= s ? 'fill-amber-500 text-amber-600' : 'text-stone-300'
                         }`}
                         aria-hidden="true"
                       />
                     </button>
                   ))}
-                  <span className="ml-2 font-mono font-bold text-amber-400">{rating} / 5</span>
+                  <span className="ml-2 font-mono font-bold text-amber-800">{rating} / 5</span>
                 </div>
               </div>
 
               <div>
-                <label htmlFor={commentInputId} className="block font-bold text-zinc-300 mb-1">
+                <label htmlFor={commentInputId} className="block font-bold text-stone-800 mb-1">
                   Your Review & Experience
                 </label>
                 <textarea
@@ -299,13 +299,13 @@ export default function ReviewsSection() {
                   placeholder="How did this tool help your business or project?"
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-800 bg-zinc-900 text-white focus:outline-hidden focus:border-amber-400"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-[#D4B483] bg-white text-stone-900 placeholder:text-stone-500 focus:outline-hidden focus:border-amber-700"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-2.5 px-4 bg-gradient-to-r from-amber-400 to-yellow-500 text-black font-extrabold rounded-xl text-xs uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(245,158,11,0.3)] cursor-pointer"
+                className="w-full py-2.5 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 border border-amber-700/25 font-extrabold rounded-xl text-xs uppercase tracking-wider transition-all shadow-[0_6px_18px_rgba(180,120,18,0.2)] cursor-pointer"
               >
                 Submit Community Review
               </button>

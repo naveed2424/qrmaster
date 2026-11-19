@@ -25,6 +25,37 @@ export interface QRToolFAQ {
   answer: string;
 }
 
+export interface QRToolSEOImage {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+export interface QRToolBacklinkAnchor {
+  anchorKeyword: string;
+  targetType: 'tool' | 'view' | 'post' | 'external';
+  target: string;
+  contextNote: string;
+}
+
+export interface QRToolSEOArticle {
+  toolId: string;
+  seoTitle: string;
+  metaDescription: string;
+  primaryKeyword: string;
+  longTailKeywords: string[];
+  lastUpdated: string;
+  author: string;
+  authorRole: string;
+  headline: string;
+  executiveSummary: string;
+  keyTakeaways: string[];
+  images: [QRToolSEOImage, QRToolSEOImage];
+  backlinks: QRToolBacklinkAnchor[];
+  content: string;
+  expandedFaqs?: QRToolFAQ[];
+}
+
 export interface QRGeneratorTool {
   id: string;
   name: string;
