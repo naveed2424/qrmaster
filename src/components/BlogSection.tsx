@@ -33,13 +33,13 @@ const FOUNDER_PORTRAIT = '/assets/aistudio/Portrait_dans_un_bureau_techno_inspir
 
 const HIGH_TRAFFIC_TOPIC_CHIPS = [
   'GS1 2027',
+  'WhatsApp QR',
+  'PDF QR',
+  'Coupon QR',
+  'GPS Maps',
   'Quishing Security',
   'Google Reviews',
   'Offline QR',
-  'Expired QR Fix',
-  "Won't Scan",
-  '300 DPI',
-  'Batch CSV',
 ];
 
 function parsePublishedIsoDate(dateStr?: string): string {
@@ -580,6 +580,7 @@ export default function BlogSection({
                 alt={selectedPost.featuredImageAlt || selectedPost.title}
                 width={1280}
                 height={720}
+                referrerPolicy="no-referrer"
                 className={`w-full aspect-video ${
                   selectedPost.featuredImage.toLowerCase().endsWith('.svg')
                     ? 'object-contain bg-[#FBF2E3]'
@@ -677,6 +678,7 @@ export default function BlogSection({
                       width={1280}
                       height={720}
                       loading="lazy"
+                      referrerPolicy="no-referrer"
                       className={`w-full h-auto ${isSvg ? 'object-contain bg-[#FBF2E3]' : 'object-cover'}`}
                     />
                     {altText && (
@@ -1081,6 +1083,7 @@ export default function BlogSection({
                       width={1280}
                       height={720}
                       loading="lazy"
+                      referrerPolicy="no-referrer"
                       className={`w-full h-full ${
                         post.featuredImage.toLowerCase().endsWith('.svg')
                           ? 'object-contain bg-[#FBF2E3]'

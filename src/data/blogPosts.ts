@@ -1,10 +1,18 @@
 import { BlogPost } from '../types/qr';
+import { QR_TOOL_BLOG_POSTS_PART8 } from './qrToolBlogPostsPart8';
+import { QR_TOOL_BLOG_POSTS_PART7 } from './qrToolBlogPostsPart7';
+import { QR_TOOL_BLOG_POSTS_PART5 } from './qrToolBlogPostsPart5';
+import { QR_TOOL_BLOG_POSTS_PART6 } from './qrToolBlogPostsPart6';
 import { QR_SEO_BLOG_POSTS_PART4 } from './qrSeoBlogPostsPart4';
 import { AI_TREND_BLOG_POSTS_PART1 } from './aiTrendBlogPostsPart1';
 import { AI_TREND_BLOG_POSTS_PART2 } from './aiTrendBlogPostsPart2';
 import { AI_TREND_BLOG_POSTS_PART3 } from './aiTrendBlogPostsPart3';
 
 export const BLOG_POSTS: BlogPost[] = [
+  ...QR_TOOL_BLOG_POSTS_PART8,
+  ...QR_TOOL_BLOG_POSTS_PART7,
+  ...QR_TOOL_BLOG_POSTS_PART6,
+  ...QR_TOOL_BLOG_POSTS_PART5,
   ...QR_SEO_BLOG_POSTS_PART4,
   ...AI_TREND_BLOG_POSTS_PART3,
   ...AI_TREND_BLOG_POSTS_PART1,
