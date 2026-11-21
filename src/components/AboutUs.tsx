@@ -1,7 +1,7 @@
 import { Shield, Heart, Zap, Globe, Cpu, CheckCircle, Code2, Server, Search, Lock, Printer, Mail } from 'lucide-react';
 import fallbackPortrait from '../assets/images/founder_portrait_polished_1794521132031.jpg';
 
-const FOUNDER_PORTRAIT = '/assets/aistudio/Portrait_dans_un_bureau_techno_inspirant_318ff21b.png';
+const FOUNDER_PORTRAIT = '/assets/aistudio/Portrait_professionnel_dans_un_bureau_moderne_7ddf5c42.png';
 
 export default function AboutUs() {
   const handlePrintCV = () => {
@@ -129,6 +129,7 @@ export default function AboutUs() {
               alt="Afzal Naveed — Creator & Lead Systems Architect of 2qrcode.com"
               width={144}
               height={144}
+              referrerPolicy="no-referrer"
               className="w-full h-full object-cover object-top rounded-[14px] bg-[#FBF2E3]"
             />
           </div>
