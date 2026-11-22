@@ -141,11 +141,6 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://2qrcode.com/?tool=instagram</loc>
-    <lastmod>2026-11-19</lastmod>
-    <priority>0.85</priority>
-  </url>
-  <url>
     <loc>https://2qrcode.com/?tool=geo</loc>
     <lastmod>2026-11-19</lastmod>
     <priority>0.85</priority>
@@ -219,6 +214,93 @@
     <loc>https://2qrcode.com/?tool=paypal</loc>
     <lastmod>2026-11-21</lastmod>
     <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?tool=email</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?tool=sms</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?tool=phone</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?tool=spotify</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?tool=discord</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?tool=github</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?tool=zoom</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 10 Dedicated Tool-Focused Long-Tail SEO & Backlink Blog Guides (Nov 22, 2026) -->
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=free-website-url-qr-code-generator-utm-attribution-print-svg</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=dynamic-landing-page-qr-code-generator-campaign-attribution-waitlists</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=direct-email-mailto-qr-code-generator-support-warranty-b2b-quotes</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=sms-text-message-qr-code-generator-vip-optins-contests-retail</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=one-tap-phone-call-tel-qr-code-generator-emergency-service-clinics</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=spotify-song-playlist-qr-code-generator-vinyl-cafes-merch</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=discord-server-invite-qr-code-generator-esports-creators-hackathons</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=github-repository-release-qr-code-generator-talks-hackathons-swag</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=two-factor-authentication-totp-qr-code-generator-airgapped-devops</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=zoom-meeting-quick-join-qr-code-generator-boardrooms-hybrid-campus</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.95</priority>
   </url>
 
   <!-- 10 Dedicated Tool-Focused Long-Tail SEO & Backlink Blog Guides (Nov 21, 2026) -->

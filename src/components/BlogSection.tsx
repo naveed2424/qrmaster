@@ -29,7 +29,7 @@ import AdSenseUnit from './AdSenseUnit';
 import SubscribeAIInsightsCTA from './SubscribeAIInsightsCTA';
 import fallbackPortrait from '../assets/images/founder_portrait_polished_1794521132031.jpg';
 
-const FOUNDER_PORTRAIT = '/assets/aistudio/Portrait_dans_un_bureau_techno_inspirant_318ff21b.png';
+const FOUNDER_PORTRAIT = '/assets/aistudio/Portrait_professionnel_dans_un_bureau_moderne_7ddf5c42.png';
 
 const HIGH_TRAFFIC_TOPIC_CHIPS = [
   'GS1 2027',
@@ -557,6 +557,7 @@ export default function BlogSection({
                   alt="Afzal Naveed — Founder & Senior QR Systems Architect"
                   width={40}
                   height={40}
+                  referrerPolicy="no-referrer"
                   className="w-10 h-10 rounded-full object-cover object-top border border-amber-700/50 shadow-sm shrink-0 group-hover:scale-105 transition-transform"
                 />
                 <div>
@@ -866,6 +867,7 @@ export default function BlogSection({
               alt="Afzal Naveed — Founder & Senior QR Systems Architect"
               width={64}
               height={64}
+              referrerPolicy="no-referrer"
               className="w-16 h-16 rounded-2xl object-cover object-top border border-amber-700/40 shrink-0 shadow-sm"
             />
             <div className="space-y-2 text-center sm:text-left flex-1">
@@ -1145,6 +1147,7 @@ export default function BlogSection({
                         alt={post.author}
                         width={28}
                         height={28}
+                        referrerPolicy="no-referrer"
                         className="w-7 h-7 rounded-full object-cover object-top border border-amber-700/40 shrink-0"
                       />
                       <span>{post.author}</span>

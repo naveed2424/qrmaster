@@ -25,7 +25,7 @@ import { TRANSLATIONS } from '../data/translations';
 import { getToolSeoGuide } from '../data/toolSeoGuides';
 import fallbackPortrait from '../assets/images/founder_portrait_polished_1794521132031.jpg';
 
-const FOUNDER_PORTRAIT = '/assets/aistudio/Portrait_dans_un_bureau_techno_inspirant_318ff21b.png';
+const FOUNDER_PORTRAIT = '/assets/aistudio/Portrait_professionnel_dans_un_bureau_moderne_7ddf5c42.png';
 
 function upsertToolMeta(attrName: 'name' | 'property', attrValue: string, content: string) {
   let el = document.querySelector(`meta[${attrName}="${attrValue}"]`) as HTMLMetaElement | null;
