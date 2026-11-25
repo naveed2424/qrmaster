@@ -216,7 +216,7 @@ export default function App() {
       blog: {
         title: 'QR Engineering, AI & Customization Blog | 2qrcode.com',
         description:
-          '70 E-E-A-T verified guides covering dedicated QR tools, GS1 Sunrise 2027 2D barcodes, quishing security, Google Review growth, offline QR codes, and print engineering.',
+          '80 E-E-A-T verified guides covering dedicated QR tools, GS1 Sunrise 2027 2D barcodes, quishing security, Google Review growth, offline QR codes, and print engineering.',
         canonical: 'https://2qrcode.com/?view=blog',
       },
       reviews: {
