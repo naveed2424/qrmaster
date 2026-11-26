@@ -1,24 +1,54 @@
 # hosting.com (Apache / LiteSpeed) Static Web Hosting Configuration for 2qrcode.com
 DirectoryIndex index.html index.htm
 Options -MultiViews -Indexes
+ErrorDocument 404 /index.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
+  # Enforce canonical HTTPS + non-www host (proxy & Cloudflare compatible)
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteCond %{HTTP_HOST} ^(www\.)?2qrcode\.com$ [NC]
+  RewriteRule ^(.*)$ https://2qrcode.com/$1 [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^www\.2qrcode\.com$ [NC]
+  RewriteRule ^(.*)$ https://2qrcode.com/$1 [R=301,L]
+
+  # Canonicalize external /index.html requests to / (preserves query strings like ?tool= or ?view=)
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ https://2qrcode.com/ [R=301,L]
+
+  # 301 Redirect clean vanity paths to canonical query routes
+  RewriteRule ^blog/?$ https://2qrcode.com/?view=blog [R=301,L,NC,QSA]
+  RewriteRule ^batch/?$ https://2qrcode.com/?view=batch [R=301,L,NC,QSA]
+  RewriteRule ^customizer/?$ https://2qrcode.com/?view=customizer [R=301,L,NC,QSA]
+  RewriteRule ^converter/?$ https://2qrcode.com/?view=converter [R=301,L,NC,QSA]
+  RewriteRule ^about/?$ https://2qrcode.com/?view=about [R=301,L,NC,QSA]
+  RewriteRule ^faqs?/?$ https://2qrcode.com/?view=faqs [R=301,L,NC,QSA]
+  RewriteRule ^reviews/?$ https://2qrcode.com/?view=reviews [R=301,L,NC,QSA]
+  RewriteRule ^contact/?$ https://2qrcode.com/?view=contact [R=301,L,NC,QSA]
+  RewriteRule ^privacy(-policy)?/?$ https://2qrcode.com/?view=privacy [R=301,L,NC,QSA]
+  RewriteRule ^cookies(-policy)?/?$ https://2qrcode.com/?view=cookies [R=301,L,NC,QSA]
+  RewriteRule ^terms(-of-service)?/?$ https://2qrcode.com/?view=terms [R=301,L,NC,QSA]
+  RewriteRule ^video/?$ https://2qrcode.com/?view=video [R=301,L,NC,QSA]
+
   # Always serve critical static, AdSense & SEO root files directly
   RewriteRule ^(ads\.txt|robots\.txt|sitemap\.xml|favicon\.ico|favicon\.svg|video\.html)$ - [L]
+
+  # Serve root / cleanly via DirectoryIndex
+  RewriteRule ^$ index.html [L]
 
   # Serve existing static files, CSS, JS, images, audio & video directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Avoid rewriting already-targeted index.html
+  # Return real HTTP 404 (via ErrorDocument 404 /index.html) for nonexistent paths instead of 200 OK
+  RewriteCond %{REQUEST_URI} !^/$
   RewriteCond %{REQUEST_URI} !^/index\.html$ [NC]
-
-  # Route all other SPA page paths cleanly to React index.html with HTTP 200
-  RewriteRule ^ index.html [L]
+  RewriteRule ^ - [R=404,L]
 </IfModule>
 
 # Standard MIME Types for Vite ES Modules, Icons, SVG & Media

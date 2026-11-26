@@ -7,9 +7,9 @@
     <meta name="google-adsense-account" content="ca-pub-8358033803354457" />
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="aTHKXUG67I0xg2v2kLM54KqOCH2YOQ3NL55aWnuZQn0" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta id="robots-meta" name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#F7E7CE" />
-    <link rel="canonical" href="https://2qrcode.com/" />
+    <link id="canonical-link" rel="canonical" href="https://2qrcode.com/" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8358033803354457"
@@ -75,7 +75,193 @@
     
     <!-- OpenGraph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://2qrcode.com/" />
+    <meta id="og-url-meta" property="og:url" content="https://2qrcode.com/" />
+    <script>
+      // Synchronous pre-hydration canonical & robots resolver for Search Console & social crawlers
+      (function() {
+        try {
+          var loc = window.location;
+          var pathname = loc.pathname || '/';
+          var params = new URLSearchParams(loc.search || '');
+          var canonEl = document.getElementById('canonical-link');
+          var ogUrlEl = document.getElementById('og-url-meta');
+          var robotsEl = document.getElementById('robots-meta');
+
+          var VALID_VIEWS = {
+            customizer: 1, batch: 1, converter: 1, blog: 1, reviews: 1,
+            about: 1, faqs: 1, privacy: 1, cookies: 1, terms: 1, contact: 1, video: 1
+          };
+          var VALID_TOOLS = 'url,multilink,landing,appstore,bookmark,shortlink,form,portfolio,instagram,whatsapp,facebook,youtube,tiktok,twitter,linkedin,telegram,discord,spotify,threads,vcard,menu,coupon,business,reviews,sku,realestate,booking,job,email,sms,phone,facetime,skype,viber,mecard,pdf,mp3,video,images,presentation,ebook,event,zoom,meet,geo,boardingpass,hotel,wedding,wifi,2fa,plaintext,clipboard,github,ssh,wireguard,bitcoin,ethereum,solana,paypal,upi,venmo,cashapp,sepa,pix,podcast,twitch,pinterest,calendly,airbnb,matter,docker,rss'.split(',');
+          var TOOL_LOOKUP = {};
+          for (var ti = 0; ti < VALID_TOOLS.length; ti++) TOOL_LOOKUP[VALID_TOOLS[ti]] = VALID_TOOLS[ti];
+
+          var LEGACY_SLUGS = {
+            'quishing-qr-code-phishing-scams-protection-guide-2026': 'quishing-qr-code-phishing-scams-parking-meter-security-guide',
+            'google-review-qr-code-get-more-5-star-reviews-2026': 'google-review-qr-code-triple-5-star-ratings-local-seo-2026',
+            'offline-qr-codes-wifi-vcard-ical-plaintext-without-internet': 'offline-zero-signal-qr-codes-wifi-vcard-ical-no-internet',
+            'why-printed-qr-code-wont-scan-fix-12-print-ink-mistakes': 'why-qr-code-wont-scan-print-ink-contrast-troubleshooting',
+            'why-qr-code-wont-scan-fix-12-print-ink-mistakes': 'why-qr-code-wont-scan-print-ink-contrast-troubleshooting',
+            'free-qr-code-expired-deactivated-scam-rescue-permanent-static-qr': 'free-qr-code-expired-how-to-decode-rescue-rebuild-forever'
+          };
+
+          var POST_ID_SLUGS = {
+            'post-1': 'high-converting-qr-frames-cta-strategies',
+            'post-2': 'add-logos-to-qr-codes-error-correction-guide',
+            'post-3': 'dynamic-vs-static-qr-codes-small-businesses',
+            'post-4': '60-creative-ways-businesses-creators-profit-from-qr-codes',
+            'post-5': 'definitive-guide-qr-code-print-sizing-10-to-1-ratio-dpi-math',
+            'post-6': 'restaurants-eliminate-menu-printing-costs-free-qr-wifi',
+            'post-7': 'vcard-3-vs-traditional-paper-business-cards-2026-playbook',
+            'post-8': 'exposing-expiring-qr-code-scam-subscription-traps',
+            'post-9': 'bulk-generate-500-standardized-qr-codes-from-csv-spreadsheet',
+            'post-10': 'contactless-crypto-paypal-upi-qr-payments-checkout-guide',
+            'post-11': 'zero-typing-customer-support-whatsapp-ical-gps-2fa-qr-codes',
+            'post-12': 'social-media-creator-qr-codes-double-follower-conversion',
+            'post-13': 'service-business-real-estate-clinics-hotel-qr-workflows',
+            'post-14': 'pdf-manuals-slide-decks-github-resumes-clean-qr-density-guide',
+            'post-15': 'ai-in-daily-life-2026-benefits-hidden-side-effects-guide',
+            'post-16': 'ai-workplace-automation-burnout-career-resilience-2026',
+            'post-17': 'living-in-big-city-guided-by-ai-two-decades-transformation',
+            'post-18': 'big-city-daily-survival-playbook-ai-menus-cashless-privacy',
+            'post-19': 'agentic-ai-security-shift-google-trends-november-2026',
+            'post-20': 'google-november-2026-core-update-ai-compute-trends-seo',
+            'post-21': 'gartner-november-2026-ai-governance-agent-risks-chip-controls',
+            'post-22': 'fbi-warning-free-online-file-converters-malware-webassembly-safety',
+            'post-23': 'browser-webgpu-local-edge-ai-zero-server-privacy-2026',
+            'post-24': 'svg-png-webp-avif-300dpi-pdf-file-conversion-field-guide-2026',
+            'post-25': 'gs1-sunrise-2027-digital-link-2d-qr-codes-retail-barcodes',
+            'post-26': 'quishing-qr-code-phishing-scams-parking-meter-security-guide',
+            'post-27': 'google-review-qr-code-triple-5-star-ratings-local-seo-2026',
+            'post-28': 'offline-zero-signal-qr-codes-wifi-vcard-ical-no-internet',
+            'post-29': 'why-qr-code-wont-scan-print-ink-contrast-troubleshooting',
+            'post-30': 'free-qr-code-expired-how-to-decode-rescue-rebuild-forever',
+            'post-31': 'whatsapp-direct-chat-qr-code-generator-prefilled-message-guide',
+            'post-32': 'multi-link-tree-bio-qr-code-generator-creators-business-cards',
+            'post-33': 'app-store-play-store-qr-code-generator-mobile-app-installs',
+            'post-34': 'pdf-to-qr-code-generator-permanent-manuals-menus-brochures',
+            'post-35': 'calendar-event-ical-qr-code-generator-events-weddings-webinars',
+            'post-36': 'google-maps-gps-location-qr-code-generator-directions-guide',
+            'post-37': 'instagram-profile-qr-code-generator-branded-logo-salon-packaging',
+            'post-38': 'discount-coupon-promo-qr-code-generator-receipts-unboxing-mailers',
+            'post-39': 'appointment-booking-calendly-qr-code-generator-salons-clinics',
+            'post-40': 'short-link-redirect-qr-code-generator-low-density-tiny-prints',
+            'post-41': 'wifi-qr-code-generator-instant-guest-network-login-cafes-airbnb',
+            'post-42': 'vcard-3-digital-business-card-qr-code-generator-networking-guide',
+            'post-43': 'restaurant-digital-menu-qr-code-generator-tables-bars-allergens',
+            'post-44': 'youtube-video-qr-code-generator-unboxing-tutorials-museums',
+            'post-45': 'tiktok-profile-challenge-qr-code-generator-retail-events',
+            'post-46': 'linkedin-profile-company-qr-code-generator-conferences-keynotes',
+            'post-47': 'real-estate-property-tour-qr-code-generator-yard-signs-flyers',
+            'post-48': 'hotel-check-in-concierge-guide-qr-code-generator-guest-rooms',
+            'post-49': 'wedding-rsvp-registry-qr-code-generator-invitations-photos',
+            'post-50': 'paypal-instant-pay-qr-code-generator-markets-freelancers-salons',
+            'post-51': 'free-website-url-qr-code-generator-utm-attribution-print-svg',
+            'post-52': 'dynamic-landing-page-qr-code-generator-campaign-attribution-waitlists',
+            'post-53': 'direct-email-mailto-qr-code-generator-support-warranty-b2b-quotes',
+            'post-54': 'sms-text-message-qr-code-generator-vip-optins-contests-retail',
+            'post-55': 'one-tap-phone-call-tel-qr-code-generator-emergency-service-clinics',
+            'post-56': 'spotify-song-playlist-qr-code-generator-vinyl-cafes-merch',
+            'post-57': 'discord-server-invite-qr-code-generator-esports-creators-hackathons',
+            'post-58': 'github-repository-release-qr-code-generator-talks-hackathons-swag',
+            'post-59': 'two-factor-authentication-totp-qr-code-generator-airgapped-devops',
+            'post-60': 'zoom-meeting-quick-join-qr-code-generator-boardrooms-hybrid-campus',
+            'post-61': 'feedback-survey-form-qr-code-generator-hotels-clinics-cafes',
+            'post-62': 'portfolio-resume-link-qr-code-generator-architects-designers-cvs',
+            'post-63': 'browser-bookmark-qr-code-generator-docs-syllabi-recipes',
+            'post-64': 'facebook-page-group-qr-code-generator-local-stores-community-events',
+            'post-65': 'telegram-channel-chat-qr-code-generator-meetups-alerts-creators',
+            'post-66': 'inventory-sku-product-batch-qr-code-generator-warehouse-logistics',
+            'post-67': 'job-posting-careers-qr-code-generator-storefronts-career-fairs',
+            'post-68': 'wireguard-vpn-config-qr-code-generator-zero-knowledge-onboarding',
+            'post-69': 'upi-quick-pay-india-qr-code-generator-gpay-phonepe-paytm',
+            'post-70': 'bitcoin-wallet-payment-qr-code-generator-bip21-pos-invoices',
+            'post-71': 'google-reviews-booster-qr-code-generator-counters-receipts-vans',
+            'post-72': 'business-profile-hub-qr-code-generator-storefronts-reception-doors',
+            'post-73': 'slide-deck-pitch-deck-qr-code-generator-keynotes-boardrooms',
+            'post-74': 'google-meet-direct-join-qr-code-generator-huddle-rooms-campus',
+            'post-75': 'sepa-epc-bank-transfer-eur-qr-code-generator-girocode-invoices',
+            'post-76': 'pix-instant-payment-br-code-qr-code-generator-brazil-counters',
+            'post-77': 'venmo-payment-handle-qr-code-generator-markets-salons-tips',
+            'post-78': 'cash-app-cashtag-qr-code-generator-barbershops-merch-tables',
+            'post-79': 'vacation-rental-welcome-rules-qr-code-generator-airbnb-vrbo',
+            'post-80': 'podcast-show-episode-qr-code-generator-books-studios-events',
+            'post-81': 'calendly-1-on-1-scheduling-booking-link-qr-code-generator',
+            'post-82': 'pinterest-board-idea-pin-qr-code-generator-showrooms-bridal',
+            'post-83': 'photo-gallery-album-qr-code-generator-weddings-exhibitions-tours',
+            'post-84': 'ebook-epub-reader-qr-code-generator-bookstores-authors-libraries',
+            'post-85': 'twitch-live-channel-qr-code-generator-gaming-expos-creators',
+            'post-86': 'audio-stream-mp3-qr-code-generator-museums-gardens-books',
+            'post-87': 'plain-text-offline-note-qr-code-generator-machinery-archives',
+            'post-88': 'x-twitter-profile-prefilled-post-qr-code-generator-events-media',
+            'post-89': 'ethereum-erc20-eip681-payment-qr-code-generator-galleries-freelancers',
+            'post-90': 'matter-smart-home-setup-code-qr-generator-switches-binders',
+            'post-91': 'video-stream-vimeo-cloud-qr-code-generator-unboxing-luxury',
+            'post-92': 'clipboard-copy-action-qr-code-generator-license-keys-promos',
+            'post-93': 'flight-boarding-pass-roster-qr-code-generator-charters-tours',
+            'post-94': 'solana-wallet-sol-usdc-payment-qr-code-generator-retail-popups',
+            'post-95': 'ssh-server-connection-uri-qr-code-generator-racks-homelabs',
+            'post-96': 'docker-container-registry-qr-code-generator-workshops-devops',
+            'post-97': 'rss-atom-news-feed-qr-code-generator-zines-changelogs'
+          };
+          var SLUG_LOOKUP = {};
+          for (var pk in POST_ID_SLUGS) SLUG_LOOKUP[POST_ID_SLUGS[pk]] = 1;
+
+          var canonical = 'https://2qrcode.com/';
+          var robotsContent = 'index, follow, max-image-preview:large';
+
+          if (pathname === '/video.html') {
+            canonical = 'https://2qrcode.com/?view=video';
+            robotsContent = 'noindex, follow';
+          } else if (pathname !== '/' && pathname !== '/index.html') {
+            canonical = 'https://2qrcode.com' + pathname + (loc.search || '');
+            robotsContent = 'noindex, follow';
+          } else {
+            var view = (params.get('view') || '').toLowerCase();
+            var post = (params.get('post') || '').trim();
+            var tool = (params.get('tool') || '').toLowerCase();
+            var q = params.get('q');
+
+            if (view) {
+              if (view === 'directory') {
+                canonical = 'https://2qrcode.com/';
+              } else if (view === 'blog') {
+                if (post) {
+                  var resolvedPost = LEGACY_SLUGS[post] || POST_ID_SLUGS[post] || post;
+                  if (SLUG_LOOKUP[resolvedPost]) {
+                    canonical = 'https://2qrcode.com/?view=blog&post=' + resolvedPost;
+                  } else {
+                    canonical = 'https://2qrcode.com/?view=blog&post=' + encodeURIComponent(post);
+                    robotsContent = 'noindex, follow';
+                  }
+                } else {
+                  canonical = 'https://2qrcode.com/?view=blog';
+                  if (q) robotsContent = 'noindex, follow';
+                }
+              } else if (VALID_VIEWS[view]) {
+                canonical = 'https://2qrcode.com/?view=' + view;
+              } else {
+                canonical = 'https://2qrcode.com/?view=' + encodeURIComponent(view);
+                robotsContent = 'noindex, follow';
+              }
+            } else if (tool) {
+              if (TOOL_LOOKUP[tool]) {
+                canonical = 'https://2qrcode.com/?tool=' + TOOL_LOOKUP[tool];
+              } else {
+                canonical = 'https://2qrcode.com/?tool=' + encodeURIComponent(tool);
+                robotsContent = 'noindex, follow';
+              }
+            } else if (q) {
+              canonical = 'https://2qrcode.com/?view=blog';
+              robotsContent = 'noindex, follow';
+            }
+          }
+
+          if (canonEl) canonEl.setAttribute('href', canonical);
+          if (ogUrlEl) ogUrlEl.setAttribute('content', canonical);
+          if (robotsEl) robotsEl.setAttribute('content', robotsContent);
+        } catch (e) {}
+      })();
+    </script>
     <meta property="og:title" content="2qrcode.com – 70+ Free QR Code Generators & Batch CSV Studio" />
     <meta property="og:description" content="Generate 70+ types of custom QR codes or bulk CSV batches for free on 2qrcode.com with logo, custom colors, frames, and high-res PNG/SVG/JPG exports." />
     <meta property="og:image" content="https://2qrcode.com/images/blog/post25-hero.svg" />

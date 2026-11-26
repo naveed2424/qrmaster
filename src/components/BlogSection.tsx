@@ -24,6 +24,7 @@ import { BlogPost, BlogCategory, SupportedLanguage } from '../types/qr';
 import { BLOG_POSTS } from '../data/blogPosts';
 import { BLOG_EDITORIAL_CATEGORIES, MASTER_PROMPT_REGISTRY } from '../data/blogMasterGuidelines';
 import { QR_GENERATORS } from '../data/generators';
+import { LEGACY_POST_SLUG_MAP, resolveCanonicalPostSlug } from '../data/postSlugMap';
 import { translateDocumentMeta } from '../utils/pageTranslator';
 import AdSenseUnit from './AdSenseUnit';
 import SubscribeAIInsightsCTA from './SubscribeAIInsightsCTA';
@@ -75,6 +76,12 @@ interface BlogSectionProps {
   onNavigate?: (viewId: string) => void;
 }
 
+function findBlogPostByParam(postParam: string | null): BlogPost | null {
+  if (!postParam) return null;
+  const normalized = LEGACY_POST_SLUG_MAP[postParam.trim()] || postParam.trim();
+  return BLOG_POSTS.find((p) => p.id === normalized || p.slug === normalized) || null;
+}
+
 export default function BlogSection({
   currentLang = 'en',
   onSelectTool,
@@ -83,9 +90,14 @@ export default function BlogSection({
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(() => {
     if (typeof window === 'undefined') return null;
     const params = new URLSearchParams(window.location.search);
+    return findBlogPostByParam(params.get('post'));
+  });
+  const [missingPostParam, setMissingPostParam] = useState<string | null>(() => {
+    if (typeof window === 'undefined') return null;
+    const params = new URLSearchParams(window.location.search);
     const postParam = params.get('post');
     if (!postParam) return null;
-    return BLOG_POSTS.find((p) => p.id === postParam || p.slug === postParam) || null;
+    return findBlogPostByParam(postParam) ? null : postParam;
   });
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>(() => {
@@ -104,6 +116,17 @@ export default function BlogSection({
     }
   };
 
+  // Normalize legacy slugs or post-N IDs in the URL to their canonical slug
+  useEffect(() => {
+    if (typeof window === 'undefined' || !selectedPost) return;
+    const params = new URLSearchParams(window.location.search);
+    const postParam = params.get('post');
+    const canonicalSlug = selectedPost.slug || selectedPost.id;
+    if (postParam && postParam !== canonicalSlug) {
+      window.history.replaceState(null, '', `?view=blog&post=${canonicalSlug}`);
+    }
+  }, [selectedPost]);
+
   // Sync browser back/forward navigation across individual posts
   useEffect(() => {
     const syncPostFromUrl = () => {
@@ -111,9 +134,11 @@ export default function BlogSection({
       const postParam = params.get('post');
       if (!postParam) {
         setSelectedPost(null);
+        setMissingPostParam(null);
       } else {
-        const match = BLOG_POSTS.find((p) => p.id === postParam || p.slug === postParam) || null;
+        const match = findBlogPostByParam(postParam);
         setSelectedPost(match);
+        setMissingPostParam(match ? null : postParam);
       }
       const qParam = params.get('q');
       if (qParam !== null) {
@@ -168,6 +193,7 @@ export default function BlogSection({
         .join(', ');
 
       document.title = pageTitle;
+      upsertMetaTag('name', 'robots', 'index, follow, max-image-preview:large');
       upsertMetaTag('name', 'description', metaDesc);
       void translateDocumentMeta(pageTitle, metaDesc, currentLang);
       if (keywordsList) upsertMetaTag('name', 'keywords', keywordsList);
@@ -278,6 +304,21 @@ export default function BlogSection({
       if (!existingScript) {
         document.head.appendChild(script);
       }
+    } else if (missingPostParam) {
+      if (existingScript) {
+        existingScript.remove();
+      }
+      const notFoundTitle = 'Article Not Found (404) | 2qrcode.com';
+      const notFoundDesc = 'The requested guide could not be found. Browse all 97 QR engineering guides on 2qrcode.com.';
+      const selfUrl = `https://2qrcode.com/?view=blog&post=${encodeURIComponent(missingPostParam)}`;
+      document.title = notFoundTitle;
+      upsertMetaTag('name', 'robots', 'noindex, follow');
+      upsertMetaTag('name', 'description', notFoundDesc);
+      upsertMetaTag('property', 'og:type', 'website');
+      upsertMetaTag('property', 'og:title', notFoundTitle);
+      upsertMetaTag('property', 'og:description', notFoundDesc);
+      upsertMetaTag('property', 'og:url', selfUrl);
+      upsertCanonical(selfUrl);
     } else {
       if (existingScript) {
         existingScript.remove();
@@ -285,6 +326,7 @@ export default function BlogSection({
       const catalogTitle = 'QR Engineering, AI & Customization Blog | 2qrcode.com';
       const catalogDesc = `${BLOG_POSTS.length} E-E-A-T verified guides on QR print engineering, GS1 Sunrise 2027, quishing security, offline Wi-Fi/vCard QR codes, and free static QR tools.`;
       document.title = catalogTitle;
+      upsertMetaTag('name', 'robots', searchQuery.trim() ? 'noindex, follow' : 'index, follow, max-image-preview:large');
       upsertMetaTag('name', 'description', catalogDesc);
       void translateDocumentMeta(catalogTitle, catalogDesc, currentLang);
       upsertMetaTag('property', 'og:type', 'website');
@@ -299,7 +341,7 @@ export default function BlogSection({
       const cleanupScript = document.getElementById('article-structured-data');
       if (cleanupScript) cleanupScript.remove();
     };
-  }, [selectedPost, articleWordCount, currentLang]);
+  }, [selectedPost, missingPostParam, searchQuery, articleWordCount, currentLang]);
 
   // Filtered posts based on active category and search query
   const filteredPosts = useMemo(() => {
@@ -405,12 +447,22 @@ export default function BlogSection({
       if (internalMatch) {
         const [, label, targetType, rawTargetId] = internalMatch;
         const typeLower = targetType.toLowerCase();
-        const resolvedId = typeLower === 'tool' ? toolAliasMap[rawTargetId] || rawTargetId : rawTargetId;
+        const resolvedId =
+          typeLower === 'tool'
+            ? toolAliasMap[rawTargetId] || rawTargetId
+            : typeLower === 'post'
+            ? resolveCanonicalPostSlug(rawTargetId)
+            : rawTargetId;
+        const targetPost =
+          typeLower === 'post'
+            ? BLOG_POSTS.find((p) => p.id === rawTargetId || p.id === resolvedId || p.slug === resolvedId)
+            : null;
+        const postHrefSlug = targetPost ? targetPost.slug || targetPost.id : resolvedId;
         const href =
           typeLower === 'view'
             ? `?view=${resolvedId}`
             : typeLower === 'post'
-            ? `?view=blog&post=${resolvedId}`
+            ? `?view=blog&post=${postHrefSlug}`
             : `?tool=${resolvedId}`;
         return (
           <a
@@ -419,9 +471,9 @@ export default function BlogSection({
             onClick={(e) => {
               e.preventDefault();
               if (typeLower === 'post') {
-                const targetPost = BLOG_POSTS.find((p) => p.id === resolvedId || p.slug === resolvedId);
                 if (targetPost) {
                   setSelectedPost(targetPost);
+                  setMissingPostParam(null);
                   setExpandedFaqIndex(null);
                   window.history.pushState(null, '', `?view=blog&post=${targetPost.slug || targetPost.id}`);
                   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -484,6 +536,45 @@ export default function BlogSection({
       return <span key={i}>{part}</span>;
     });
   };
+
+  // MISSING ARTICLE (404) VIEW
+  if (!selectedPost && missingPostParam) {
+    return (
+      <div className="max-w-3xl mx-auto py-16 px-4">
+        <div className="bg-[#FFFDF9]/95 border border-[#DFC7A0] rounded-3xl p-8 sm:p-12 text-center space-y-5 shadow-[0_14px_40px_-12px_rgba(120,82,25,0.16)]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 text-rose-900 border border-rose-300 text-xs font-extrabold uppercase tracking-wider">
+            <span>404 · Article Not Found</span>
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-stone-900">
+            We could not find that guide
+          </h1>
+          <p className="text-sm text-stone-700 max-w-xl mx-auto leading-relaxed">
+            The article slug <code className="px-1.5 py-0.5 rounded bg-[#FBF2E3] border border-[#E2CAA4] font-mono text-xs">{missingPostParam}</code> does not exist or may have moved. Browse all {BLOG_POSTS.length} published guides or return to the QR generator directory.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <button
+              type="button"
+              onClick={() => {
+                setMissingPostParam(null);
+                window.history.pushState(null, '', '?view=blog');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="px-5 py-2.5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-stone-950 border border-amber-700/25 font-extrabold rounded-xl text-xs cursor-pointer shadow-sm"
+            >
+              Browse All {BLOG_POSTS.length} Guides
+            </button>
+            <button
+              type="button"
+              onClick={() => onNavigate?.('directory')}
+              className="px-5 py-2.5 bg-[#FBF2E3] hover:bg-[#F4E3C8] text-stone-900 border border-[#DFC7A0] font-bold rounded-xl text-xs cursor-pointer"
+            >
+              Explore 72 Free QR Tools
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // SINGLE ARTICLE READING VIEW
   if (selectedPost) {

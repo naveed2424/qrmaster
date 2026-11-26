@@ -36,6 +36,42 @@ app.use((_req, res, next) => {
   next();
 });
 
+// Redirect /index.html cleanly to /
+app.get('/index.html', (req, res) => {
+  const qs = req.url.includes('?') ? req.url.slice(req.url.indexOf('?')) : '';
+  res.redirect(301, `/${qs}`);
+});
+
+// 301 Redirect clean vanity paths to canonical query routes
+const vanityRedirects = {
+  '/blog': '/?view=blog',
+  '/batch': '/?view=batch',
+  '/customizer': '/?view=customizer',
+  '/converter': '/?view=converter',
+  '/about': '/?view=about',
+  '/faq': '/?view=faqs',
+  '/faqs': '/?view=faqs',
+  '/reviews': '/?view=reviews',
+  '/contact': '/?view=contact',
+  '/privacy': '/?view=privacy',
+  '/privacy-policy': '/?view=privacy',
+  '/cookies': '/?view=cookies',
+  '/cookies-policy': '/?view=cookies',
+  '/terms': '/?view=terms',
+  '/terms-of-service': '/?view=terms',
+  '/video': '/?view=video',
+};
+
+app.use((req, res, next) => {
+  const cleanPath = req.path.length > 1 && req.path.endsWith('/') ? req.path.slice(0, -1) : req.path;
+  const target = vanityRedirects[cleanPath.toLowerCase()];
+  if (target) {
+    res.redirect(301, target);
+    return;
+  }
+  next();
+});
+
 // Serve content-hashed Vite bundles with long-term immutable caching
 app.use(
   '/assets',
@@ -67,13 +103,20 @@ app.get('/video.html', (_req, res) => {
   res.sendFile(path.join(distDir, 'video.html'));
 });
 
-// SPA fallback for client-side routes (always return HTTP 200 index.html)
+// Root SPA entry with HTTP 200
+app.get('/', (_req, res) => {
+  res.status(200);
+  res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+  res.sendFile(distIndex);
+});
+
+// Return true HTTP 404 for unknown paths (avoiding Soft-404 / duplicate canonicals)
 app.use((req, res) => {
   if (/\.(js|css|map|png|jpg|jpeg|webp|svg|ico|woff2|mp4|mp3)$/i.test(req.path)) {
     res.status(404).end('Not found');
     return;
   }
-  res.status(200);
+  res.status(404);
   res.setHeader('Cache-Control', 'no-cache, must-revalidate');
   res.sendFile(distIndex);
 });

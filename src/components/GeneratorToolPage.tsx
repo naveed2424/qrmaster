@@ -23,6 +23,7 @@ import { QRGeneratorTool, QRCustomization, SupportedLanguage } from '../types/qr
 import QRStudio from './QRStudio';
 import { TRANSLATIONS } from '../data/translations';
 import { getToolSeoGuide } from '../data/toolSeoGuides';
+import { resolveCanonicalPostSlug } from '../data/postSlugMap';
 import fallbackPortrait from '../assets/images/founder_portrait_polished_1794521132031.jpg';
 
 const FOUNDER_PORTRAIT = '/assets/aistudio/Portrait_professionnel_dans_un_bureau_moderne_7ddf5c42.png';
@@ -244,10 +245,11 @@ export default function GeneratorToolPage({
     if (targetType === 'tool') {
       onSelectTool(targetId);
     } else if (targetType === 'post') {
+      const canonicalSlug = resolveCanonicalPostSlug(targetId);
       if (onNavigate) {
-        onNavigate('blog', targetId);
+        onNavigate('blog', canonicalSlug);
       } else {
-        window.history.pushState(null, '', `?view=blog&post=${targetId}`);
+        window.history.pushState(null, '', `?view=blog&post=${canonicalSlug}`);
         window.dispatchEvent(new PopStateEvent('popstate'));
       }
     } else if (targetType === 'view') {
@@ -271,19 +273,20 @@ export default function GeneratorToolPage({
       if (internalMatch) {
         const [, label, targetTypeRaw, targetId] = internalMatch;
         const targetType = targetTypeRaw.toLowerCase() as 'tool' | 'view' | 'post';
+        const canonicalTarget = targetType === 'post' ? resolveCanonicalPostSlug(targetId) : targetId;
         const href =
           targetType === 'view'
-            ? `?view=${targetId}`
+            ? `?view=${canonicalTarget}`
             : targetType === 'post'
-            ? `?view=blog&post=${targetId}`
-            : `?tool=${targetId}`;
+            ? `?view=blog&post=${canonicalTarget}`
+            : `?tool=${canonicalTarget}`;
         return (
           <a
             key={i}
             href={href}
             onClick={(e) => {
               e.preventDefault();
-              navigateTarget(targetType, targetId);
+              navigateTarget(targetType, canonicalTarget);
             }}
             className="text-amber-900 hover:text-amber-950 font-bold underline decoration-amber-700/60 underline-offset-4 inline-flex items-center gap-1 transition-colors cursor-pointer"
           >
@@ -907,13 +910,17 @@ export default function GeneratorToolPage({
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {seoGuide.backlinks.map((linkItem, bIdx) => {
                 const isExt = linkItem.targetType === 'external';
+                const resolvedTarget =
+                  linkItem.targetType === 'post'
+                    ? resolveCanonicalPostSlug(linkItem.target)
+                    : linkItem.target;
                 const href = isExt
                   ? linkItem.target
                   : linkItem.targetType === 'view'
-                  ? `?view=${linkItem.target}`
+                  ? `?view=${resolvedTarget}`
                   : linkItem.targetType === 'post'
-                  ? `?view=blog&post=${linkItem.target}`
-                  : `?tool=${linkItem.target}`;
+                  ? `?view=blog&post=${resolvedTarget}`
+                  : `?tool=${resolvedTarget}`;
 
                 return (
                   <a
@@ -926,7 +933,7 @@ export default function GeneratorToolPage({
                         ? undefined
                         : (e) => {
                             e.preventDefault();
-                            navigateTarget(linkItem.targetType as 'tool' | 'view' | 'post', linkItem.target);
+                            navigateTarget(linkItem.targetType as 'tool' | 'view' | 'post', resolvedTarget);
                           }
                     }
                     className="p-3.5 bg-white hover:bg-[#FBF2E3] border border-[#DFC7A0] hover:border-amber-700/50 rounded-xl text-left transition-all group cursor-pointer shadow-xs flex flex-col justify-between gap-1.5"

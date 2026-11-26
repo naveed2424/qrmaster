@@ -6,8 +6,25 @@ import AnimatedQRBackground from './components/AnimatedQRBackground';
 import CookieConsentBanner from './components/CookieConsentBanner';
 import { QR_GENERATORS } from './data/generators';
 import { getToolSeoGuide } from './data/toolSeoGuides';
+import { resolveCanonicalPostSlug } from './data/postSlugMap';
 import { QRCustomization, SupportedLanguage, QRGeneratorTool } from './types/qr';
 import { GlobalDomTranslator, translateDocumentMeta } from './utils/pageTranslator';
+
+const VALID_VIEWS = new Set([
+  'directory',
+  'customizer',
+  'batch',
+  'converter',
+  'blog',
+  'reviews',
+  'about',
+  'faqs',
+  'privacy',
+  'cookies',
+  'terms',
+  'contact',
+  'video',
+]);
 
 const GeneratorToolPage = lazy(() => import('./components/GeneratorToolPage'));
 const QRStudio = lazy(() => import('./components/QRStudio'));
@@ -32,6 +49,7 @@ export default function App() {
 
   const [activeView, setActiveView] = useState<string>('directory');
   const [selectedToolId, setSelectedToolId] = useState<string>('url');
+  const [isNotFound, setIsNotFound] = useState<boolean>(false);
 
   // Customization studio state tailored to high-contrast Champagne & Burnished Gold
   const [customization, setCustomization] = useState<QRCustomization>({
@@ -64,24 +82,72 @@ export default function App() {
   // Sync with browser URL / hash for direct shareable tool pages
   useEffect(() => {
     const syncFromUrl = () => {
+      const pathname = window.location.pathname;
       const params = new URLSearchParams(window.location.search);
-      const toolParam = params.get('tool') || window.location.hash.replace(/^#/, '');
+      const explicitToolParam = params.get('tool');
+      const hashToolCandidate = window.location.hash.replace(/^#/, '');
       const viewParam = params.get('view');
       const queryParam = params.get('q');
 
+      if (pathname !== '/' && pathname !== '/index.html' && pathname !== '/video.html') {
+        setIsNotFound(true);
+        return;
+      }
+
+      if (pathname === '/video.html') {
+        setIsNotFound(false);
+        setActiveView('video');
+        return;
+      }
+
       if (viewParam) {
-        setActiveView(viewParam);
-      } else if (toolParam) {
+        const normalizedView = viewParam.toLowerCase();
+        if (normalizedView === 'directory') {
+          setIsNotFound(false);
+          setActiveView('directory');
+          window.history.replaceState(null, '', '/');
+        } else if (VALID_VIEWS.has(normalizedView)) {
+          setIsNotFound(false);
+          setActiveView(normalizedView);
+          if (viewParam !== normalizedView) {
+            const nextParams = new URLSearchParams(window.location.search);
+            nextParams.set('view', normalizedView);
+            window.history.replaceState(null, '', `/?${nextParams.toString()}`);
+          }
+        } else {
+          setIsNotFound(true);
+        }
+      } else if (explicitToolParam) {
         const match = QR_GENERATORS.find(
-          (g) => g.id.toLowerCase() === toolParam.toLowerCase()
+          (g) => g.id.toLowerCase() === explicitToolParam.toLowerCase()
         );
         if (match) {
+          setIsNotFound(false);
           setSelectedToolId(match.id);
           setActiveView('tool');
+          if (explicitToolParam !== match.id) {
+            window.history.replaceState(null, '', `/?tool=${match.id}`);
+          }
+        } else {
+          setIsNotFound(true);
+        }
+      } else if (hashToolCandidate) {
+        const hashMatch = QR_GENERATORS.find(
+          (g) => g.id.toLowerCase() === hashToolCandidate.toLowerCase()
+        );
+        if (hashMatch) {
+          setIsNotFound(false);
+          setSelectedToolId(hashMatch.id);
+          setActiveView('tool');
+        } else {
+          setIsNotFound(false);
+          setActiveView('directory');
         }
       } else if (queryParam) {
+        setIsNotFound(false);
         setActiveView('blog');
       } else {
+        setIsNotFound(false);
         setActiveView('directory');
       }
     };
@@ -101,16 +167,17 @@ export default function App() {
   };
 
   const handleSelectTool = (toolId: string, initialUrl?: string) => {
+    setIsNotFound(false);
     if (toolId === 'overview') {
       setActiveView('directory');
-      window.history.pushState(null, '', window.location.pathname);
+      window.history.pushState(null, '', '/');
     } else if (toolId === 'batch' || toolId === 'customizer' || toolId === 'converter') {
       setActiveView(toolId);
-      window.history.pushState(null, '', `?view=${toolId}`);
+      window.history.pushState(null, '', `/?view=${toolId}`);
     } else {
       setSelectedToolId(toolId);
       setActiveView('tool');
-      window.history.pushState(null, '', `?tool=${toolId}`);
+      window.history.pushState(null, '', `/?tool=${toolId}`);
       if (initialUrl && toolId === 'url') {
         const urlTool = QR_GENERATORS.find((g) => g.id === 'url');
         if (urlTool) {
@@ -122,13 +189,14 @@ export default function App() {
   };
 
   const handleNavigate = (view: string, postId?: string) => {
+    setIsNotFound(false);
     setActiveView(view);
     if (view === 'directory') {
-      window.history.pushState(null, '', window.location.pathname);
+      window.history.pushState(null, '', '/');
     } else if (postId) {
-      window.history.pushState(null, '', `?view=${view}&post=${postId}`);
+      window.history.pushState(null, '', `/?view=${view}&post=${resolveCanonicalPostSlug(postId)}`);
     } else {
-      window.history.pushState(null, '', `?view=${view}`);
+      window.history.pushState(null, '', `/?view=${view}`);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -174,10 +242,31 @@ export default function App() {
   }, [activeView, selectedToolId, currentLang]);
 
   useEffect(() => {
+    const robotsEl = document.querySelector('meta[name="robots"]');
+    if (isNotFound) {
+      const notFoundTitle = 'Page Not Found (404) | 2qrcode.com';
+      const notFoundDesc = 'The requested page could not be found. Browse 72 free QR code generators and 97 guides on 2qrcode.com.';
+      const selfUrl = `https://2qrcode.com${window.location.pathname}${window.location.search}`;
+      document.title = notFoundTitle;
+      if (robotsEl) robotsEl.setAttribute('content', 'noindex, follow');
+      const descEl = document.querySelector('meta[name="description"]');
+      if (descEl) descEl.setAttribute('content', notFoundDesc);
+      const ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.setAttribute('content', selfUrl);
+      const canonicalEl = document.querySelector('link[rel="canonical"]');
+      if (canonicalEl) canonicalEl.setAttribute('href', selfUrl);
+      return;
+    }
+
     // BlogSection manages its own dynamic per-article SEO metadata when viewing a post
     const params = new URLSearchParams(window.location.search);
     if (activeView === 'blog' && params.get('post')) {
       return;
+    }
+
+    if (robotsEl) {
+      const isSearch = activeView === 'blog' && Boolean(params.get('q'));
+      robotsEl.setAttribute('content', isSearch ? 'noindex, follow' : 'index, follow, max-image-preview:large');
     }
 
     const toolSeoGuide = getToolSeoGuide(currentTool.id);
@@ -282,7 +371,7 @@ export default function App() {
 
     const canonicalEl = document.querySelector('link[rel="canonical"]');
     if (canonicalEl) canonicalEl.setAttribute('href', meta.canonical);
-  }, [activeView, currentTool.id, currentTool.name, currentTool.shortDescription, currentLang]);
+  }, [isNotFound, activeView, currentTool.id, currentTool.name, currentTool.shortDescription, currentLang]);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F7E7CE] text-stone-900 relative selection:bg-amber-300/60 selection:text-stone-950">
@@ -302,15 +391,47 @@ export default function App() {
 
       {/* Main View Router */}
       <main className="flex-1 relative z-10">
-        {activeView === 'directory' && (
-          <GeneratorsDirectory
-            generators={QR_GENERATORS}
-            currentLang={currentLang}
-            onSelectTool={handleSelectTool}
-          />
-        )}
+        {isNotFound ? (
+          <div className="max-w-3xl mx-auto py-16 px-4">
+            <div className="bg-[#FFFDF9]/95 border border-[#DFC7A0] rounded-3xl p-8 sm:p-12 text-center space-y-5 shadow-[0_14px_40px_-12px_rgba(120,82,25,0.16)]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 text-rose-900 border border-rose-300 text-xs font-extrabold uppercase tracking-wider">
+                <span>404 · Page Not Found</span>
+              </div>
+              <h1 className="text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+                This QR page does not exist
+              </h1>
+              <p className="text-sm text-stone-700 max-w-xl mx-auto leading-relaxed">
+                The requested URL could not be found on 2qrcode.com. Explore our 72 free static QR code generators, batch CSV studio, or 97 technical guides below.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => handleNavigate('directory')}
+                  className="px-5 py-2.5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-stone-950 border border-amber-700/25 font-extrabold rounded-xl text-xs cursor-pointer shadow-sm"
+                >
+                  Explore 72 Free QR Tools
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleNavigate('blog')}
+                  className="px-5 py-2.5 bg-[#FBF2E3] hover:bg-[#F4E3C8] text-stone-900 border border-[#DFC7A0] font-bold rounded-xl text-xs cursor-pointer"
+                >
+                  Read All 97 Guides
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <>
+            {activeView === 'directory' && (
+              <GeneratorsDirectory
+                generators={QR_GENERATORS}
+                currentLang={currentLang}
+                onSelectTool={handleSelectTool}
+              />
+            )}
 
-        <Suspense
+            <Suspense
           fallback={
             <div className="max-w-4xl mx-auto py-24 px-4 text-center text-sm text-stone-700 font-medium">
               Loading tool workspace...
@@ -385,10 +506,12 @@ export default function App() {
             <LegalPages page={activeView} onNavigate={handleNavigate} />
           )}
 
-          {activeView === 'video' && (
-            <UGCVideoView />
-          )}
-        </Suspense>
+              {activeView === 'video' && (
+                <UGCVideoView />
+              )}
+            </Suspense>
+          </>
+        )}
       </main>
 
       {/* Footer */}
