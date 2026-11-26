@@ -116,9 +116,10 @@ app.use((req, res) => {
     res.status(404).end('Not found');
     return;
   }
+  const notFoundPage = path.join(distDir, '404.html');
   res.status(404);
   res.setHeader('Cache-Control', 'no-cache, must-revalidate');
-  res.sendFile(distIndex);
+  res.sendFile(fs.existsSync(notFoundPage) ? notFoundPage : distIndex);
 });
 
 app.listen(port, '0.0.0.0', () => {

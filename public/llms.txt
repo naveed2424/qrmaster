@@ -1,0 +1,29 @@
+# 2qrcode.com
+
+> Free client-side suite of 72 permanent static QR code generators, a Batch CSV QR Studio, a 300 DPI Metric Print Converter, and 97 E-E-A-T verified technical guides built by Afzal Naveed.
+
+All QR codes are generated 100% locally in the browser (ISO/IEC 18004 standard) with zero middleman redirects, zero scan limits, and zero expiration traps.
+
+## Core Tools & Studios
+- [QR Code Generators Directory (72 Tools)](https://2qrcode.com/): Browse all 72 specialized static QR code builders.
+- [Full-Featured QR Customizer Studio](https://2qrcode.com/?view=customizer): Customize dots, eyes, linear gradients, centered logos, and CTA frames.
+- [Batch CSV QR Code Generator](https://2qrcode.com/?view=batch): Bulk generate branded QR codes from CSV spreadsheets into a single ZIP archive.
+- [Metric Print Size & 300 DPI Converter](https://2qrcode.com/?view=converter): Calculate physical print dimensions using the 10:1 scanning distance ratio.
+
+## Popular Specialized QR Generators
+- [Website URL QR Code Generator](https://2qrcode.com/?tool=url)
+- [Wi-Fi Network QR Code Generator](https://2qrcode.com/?tool=wifi)
+- [vCard 3.0 Digital Business Card QR](https://2qrcode.com/?tool=vcard)
+- [WhatsApp Direct Chat QR Generator](https://2qrcode.com/?tool=whatsapp)
+- [Google Reviews Booster QR](https://2qrcode.com/?tool=reviews)
+- [Restaurant Digital Menu QR](https://2qrcode.com/?tool=menu)
+- [PDF Document QR Code Generator](https://2qrcode.com/?tool=pdf)
+- [2FA TOTP Authenticator QR](https://2qrcode.com/?tool=2fa)
+- [WireGuard VPN Config QR](https://2qrcode.com/?tool=wireguard)
+- [PayPal, UPI, Bitcoin, Ethereum, Solana, SEPA, Pix, Venmo, Cash App QR Tools](https://2qrcode.com/)
+
+## Editorial & Documentation
+- [QR Engineering, AI & Customization Blog (97 Guides)](https://2qrcode.com/?view=blog)
+- [About Founder Afzal Naveed](https://2qrcode.com/?view=about)
+- [Frequently Asked Questions](https://2qrcode.com/?view=faqs)
+- [Sitemap](https://2qrcode.com/sitemap.xml)

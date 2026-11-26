@@ -37,14 +37,30 @@ const UGCVideoView = lazy(() => import('./components/UGCVideoView'));
 const BatchQRGenerator = lazy(() => import('./components/BatchQRGenerator'));
 const LegalPages = lazy(() => import('./components/LegalPages'));
 
+function safeStorageGet(key: string): string | null {
+  try {
+    return window.localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function safeStorageSet(key: string, value: string): void {
+  try {
+    window.localStorage.setItem(key, value);
+  } catch {
+    // Ignore storage restrictions in private/headless contexts
+  }
+}
+
 export default function App() {
   const [currentLang, setCurrentLang] = useState<SupportedLanguage>(() => {
-    return (localStorage.getItem('qr_language') as SupportedLanguage) || 'en';
+    return (safeStorageGet('qr_language') as SupportedLanguage) || 'en';
   });
 
   const [isDark, setIsDark] = useState<boolean>(() => {
     // Default to Silk Champagne mode; toggle switches softly between Silk Champagne and Pearl Champagne
-    return localStorage.getItem('qr_champagne_tone') === 'pearl';
+    return safeStorageGet('qr_champagne_tone') === 'pearl';
   });
 
   const [activeView, setActiveView] = useState<string>('directory');
@@ -76,7 +92,7 @@ export default function App() {
   // Sync subtle Champagne tone preference cleanly without black background
   useEffect(() => {
     document.documentElement.classList.remove('dark');
-    localStorage.setItem('qr_champagne_tone', isDark ? 'pearl' : 'champagne');
+    safeStorageSet('qr_champagne_tone', isDark ? 'pearl' : 'champagne');
   }, [isDark]);
 
   // Sync with browser URL / hash for direct shareable tool pages
@@ -159,7 +175,7 @@ export default function App() {
 
   const handleLanguageChange = (lang: SupportedLanguage) => {
     setCurrentLang(lang);
-    localStorage.setItem('qr_language', lang);
+    safeStorageSet('qr_language', lang);
   };
 
   const handleToggleTheme = () => {

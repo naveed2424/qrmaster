@@ -339,7 +339,26 @@
     </script>
   </head>
   <body class="bg-[#F7E7CE] text-stone-900 font-sans antialiased selection:bg-amber-300 selection:text-stone-950">
-    <div id="root"></div>
+    <div id="root">
+      <div class="min-h-screen flex flex-col bg-[#F7E7CE] text-stone-900">
+        <header class="border-b border-[#DFC7A0] bg-[#FFFDF9]/90 px-4 py-3">
+          <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <a href="/" class="text-lg font-extrabold tracking-tight text-stone-900 no-underline">2qrcode.com</a>
+            <nav aria-label="Primary" class="flex items-center gap-4 text-xs font-bold text-stone-700">
+              <a href="/" class="hover:text-amber-900">72 Tools</a>
+              <a href="/?view=customizer" class="hover:text-amber-900">Customizer</a>
+              <a href="/?view=batch" class="hover:text-amber-900">Batch CSV</a>
+              <a href="/?view=blog" class="hover:text-amber-900">97 Guides</a>
+            </nav>
+          </div>
+        </header>
+        <main class="flex-1 max-w-4xl mx-auto px-4 py-14 text-center space-y-4">
+          <p class="text-xs font-extrabold uppercase tracking-wider text-amber-900">100% Free Static QR Code Studio</p>
+          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-stone-900">72 Free QR Code Generators, Batch CSV &amp; Customizer</h1>
+          <p class="text-sm sm:text-base text-stone-700 max-w-2xl mx-auto">Create permanent, never-expiring ISO/IEC 18004 QR codes locally in your browser with custom logos, frames, and 300 DPI SVG/PNG exports.</p>
+        </main>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

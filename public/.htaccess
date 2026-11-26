@@ -1,51 +1,44 @@
 # hosting.com (Apache / LiteSpeed) Static Web Hosting Configuration for 2qrcode.com
 DirectoryIndex index.html index.htm
 Options -MultiViews -Indexes
-ErrorDocument 404 /index.html
+ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # Enforce canonical HTTPS + non-www host (proxy & Cloudflare compatible)
-  RewriteCond %{HTTPS} !=on
-  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
-  RewriteCond %{HTTP_HOST} ^(www\.)?2qrcode\.com$ [NC]
-  RewriteRule ^(.*)$ https://2qrcode.com/$1 [R=301,L]
+  # Always serve critical static, AdSense & SEO root files directly first
+  RewriteRule ^(ads\.txt|robots\.txt|sitemap\.xml|llms\.txt|favicon\.ico|favicon\.svg|video\.html|404\.html)$ - [L]
 
+  # Canonicalize www subdomain to apex https://2qrcode.com cleanly (no HTTP/HTTPS proxy loop)
   RewriteCond %{HTTP_HOST} ^www\.2qrcode\.com$ [NC]
   RewriteRule ^(.*)$ https://2qrcode.com/$1 [R=301,L]
 
   # Canonicalize external /index.html requests to / (preserves query strings like ?tool= or ?view=)
-  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
-  RewriteRule ^index\.html$ https://2qrcode.com/ [R=301,L]
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}[[:space:]]/+index\.html([[:space:]]|\?) [NC]
+  RewriteRule ^index\.html$ / [R=301,L]
 
   # 301 Redirect clean vanity paths to canonical query routes
-  RewriteRule ^blog/?$ https://2qrcode.com/?view=blog [R=301,L,NC,QSA]
-  RewriteRule ^batch/?$ https://2qrcode.com/?view=batch [R=301,L,NC,QSA]
-  RewriteRule ^customizer/?$ https://2qrcode.com/?view=customizer [R=301,L,NC,QSA]
-  RewriteRule ^converter/?$ https://2qrcode.com/?view=converter [R=301,L,NC,QSA]
-  RewriteRule ^about/?$ https://2qrcode.com/?view=about [R=301,L,NC,QSA]
-  RewriteRule ^faqs?/?$ https://2qrcode.com/?view=faqs [R=301,L,NC,QSA]
-  RewriteRule ^reviews/?$ https://2qrcode.com/?view=reviews [R=301,L,NC,QSA]
-  RewriteRule ^contact/?$ https://2qrcode.com/?view=contact [R=301,L,NC,QSA]
-  RewriteRule ^privacy(-policy)?/?$ https://2qrcode.com/?view=privacy [R=301,L,NC,QSA]
-  RewriteRule ^cookies(-policy)?/?$ https://2qrcode.com/?view=cookies [R=301,L,NC,QSA]
-  RewriteRule ^terms(-of-service)?/?$ https://2qrcode.com/?view=terms [R=301,L,NC,QSA]
-  RewriteRule ^video/?$ https://2qrcode.com/?view=video [R=301,L,NC,QSA]
+  RewriteRule ^blog/?$ /?view=blog [R=301,L,NC,QSA]
+  RewriteRule ^batch/?$ /?view=batch [R=301,L,NC,QSA]
+  RewriteRule ^customizer/?$ /?view=customizer [R=301,L,NC,QSA]
+  RewriteRule ^converter/?$ /?view=converter [R=301,L,NC,QSA]
+  RewriteRule ^about/?$ /?view=about [R=301,L,NC,QSA]
+  RewriteRule ^faqs?/?$ /?view=faqs [R=301,L,NC,QSA]
+  RewriteRule ^reviews/?$ /?view=reviews [R=301,L,NC,QSA]
+  RewriteRule ^contact/?$ /?view=contact [R=301,L,NC,QSA]
+  RewriteRule ^privacy(-policy)?/?$ /?view=privacy [R=301,L,NC,QSA]
+  RewriteRule ^cookies(-policy)?/?$ /?view=cookies [R=301,L,NC,QSA]
+  RewriteRule ^terms(-of-service)?/?$ /?view=terms [R=301,L,NC,QSA]
+  RewriteRule ^video/?$ /?view=video [R=301,L,NC,QSA]
 
-  # Always serve critical static, AdSense & SEO root files directly
-  RewriteRule ^(ads\.txt|robots\.txt|sitemap\.xml|favicon\.ico|favicon\.svg|video\.html)$ - [L]
-
-  # Serve root / cleanly via DirectoryIndex
-  RewriteRule ^$ index.html [L]
-
-  # Serve existing static files, CSS, JS, images, audio & video directly
+  # Serve existing static files, CSS, JS, images, audio, video & root directory (/) directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Return real HTTP 404 (via ErrorDocument 404 /index.html) for nonexistent paths instead of 200 OK
+  # Return real HTTP 404 via /404.html for nonexistent paths (guarded against internal error subrequests)
+  RewriteCond %{ENV:REDIRECT_STATUS} ^$
   RewriteCond %{REQUEST_URI} !^/$
   RewriteCond %{REQUEST_URI} !^/index\.html$ [NC]
   RewriteRule ^ - [R=404,L]
@@ -70,7 +63,7 @@ ErrorDocument 404 /index.html
   Header set Referrer-Policy "strict-origin-when-cross-origin"
 
   # Keep HTML entrypoints and AdSense/SEO files fresh
-  <FilesMatch "^(index\.html|video\.html|ads\.txt|robots\.txt|sitemap\.xml)$">
+  <FilesMatch "^(index\.html|video\.html|404\.html|ads\.txt|robots\.txt|sitemap\.xml|llms\.txt)$">
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
 
