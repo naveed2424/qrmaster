@@ -1,4 +1,6 @@
 import { BlogPost } from '../types/qr';
+import { QR_TOOL_BLOG_POSTS_PART18 } from './qrToolBlogPostsPart18';
+import { QR_TOOL_BLOG_POSTS_PART17 } from './qrToolBlogPostsPart17';
 import { QR_TOOL_BLOG_POSTS_PART16 } from './qrToolBlogPostsPart16';
 import { QR_TOOL_BLOG_POSTS_PART15 } from './qrToolBlogPostsPart15';
 import { QR_TOOL_BLOG_POSTS_PART14 } from './qrToolBlogPostsPart14';
@@ -17,6 +19,8 @@ import { AI_TREND_BLOG_POSTS_PART2 } from './aiTrendBlogPostsPart2';
 import { AI_TREND_BLOG_POSTS_PART3 } from './aiTrendBlogPostsPart3';
 
 export const BLOG_POSTS: BlogPost[] = [
+  ...QR_TOOL_BLOG_POSTS_PART18,
+  ...QR_TOOL_BLOG_POSTS_PART17,
   ...QR_TOOL_BLOG_POSTS_PART16,
   ...QR_TOOL_BLOG_POSTS_PART15,
   ...QR_TOOL_BLOG_POSTS_PART14,
