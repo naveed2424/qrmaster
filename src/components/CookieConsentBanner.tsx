@@ -7,13 +7,44 @@ interface CookieConsentBannerProps {
 
 const CONSENT_KEY = '2qrcode_cookie_consent';
 
+function readConsentStorage(): string | null {
+  try {
+    return window.localStorage.getItem(CONSENT_KEY);
+  } catch {
+    return null;
+  }
+}
+
+function writeConsentStorage(value: string): void {
+  try {
+    window.localStorage.setItem(CONSENT_KEY, value);
+  } catch {
+    // Ignore storage restrictions in private/embedded browsing
+  }
+}
+
+function syncAdSensePersonalization(mode: 'all' | 'essential') {
+  if (typeof window === 'undefined') return;
+  const adsQueue = ((window as any).adsbygoogle = (window as any).adsbygoogle || []);
+  adsQueue.requestNonPersonalizedAds = mode === 'essential' ? 1 : 0;
+}
+
 export default function CookieConsentBanner({ onNavigate }: CookieConsentBannerProps) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem(CONSENT_KEY);
+    const saved = readConsentStorage();
     if (!saved) {
       setVisible(true);
+    } else {
+      try {
+        const parsed = JSON.parse(saved) as { mode?: 'all' | 'essential' };
+        if (parsed.mode === 'essential' || parsed.mode === 'all') {
+          syncAdSensePersonalization(parsed.mode);
+        }
+      } catch {
+        // Ignore malformed legacy storage values
+      }
     }
 
     const openHandler = () => setVisible(true);
@@ -22,14 +53,10 @@ export default function CookieConsentBanner({ onNavigate }: CookieConsentBannerP
   }, []);
 
   const handleSave = (mode: 'all' | 'essential') => {
-    localStorage.setItem(
-      CONSENT_KEY,
+    writeConsentStorage(
       JSON.stringify({ mode, updatedAt: new Date().toISOString() })
     );
-    if (typeof window !== 'undefined') {
-      const adsbygoogle = (window as any).adsbygoogle || [];
-      adsbygoogle.requestNonPersonalizedAds = mode === 'essential' ? 1 : 0;
-    }
+    syncAdSensePersonalization(mode);
     setVisible(false);
   };
 
@@ -58,6 +85,7 @@ export default function CookieConsentBanner({ onNavigate }: CookieConsentBannerP
 
       <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
         <button
+          type="button"
           onClick={() => {
             onNavigate('cookies');
             setVisible(false);
@@ -69,12 +97,14 @@ export default function CookieConsentBanner({ onNavigate }: CookieConsentBannerP
 
         <div className="flex items-center gap-2 ml-auto">
           <button
+            type="button"
             onClick={() => handleSave('essential')}
             className="px-3 py-1.5 rounded-lg border border-[#D4B483] bg-[#FBF2E3] hover:bg-[#F4E3C8] text-stone-800 text-xs font-semibold cursor-pointer transition-colors"
           >
             Essential Only
           </button>
           <button
+            type="button"
             onClick={() => handleSave('all')}
             className="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-stone-950 border border-amber-700/25 text-xs font-extrabold cursor-pointer transition-colors shadow-sm"
           >

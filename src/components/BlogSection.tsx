@@ -220,7 +220,7 @@ export default function BlogSection({
           description: metaDesc,
           image: [imageAbs],
           datePublished: isoDate,
-          dateModified: '2026-11-19',
+          dateModified: '2026-11-27',
           wordCount: articleWordCount,
           keywords: keywordsList,
           articleSection: selectedPost.category,
@@ -309,7 +309,7 @@ export default function BlogSection({
         existingScript.remove();
       }
       const notFoundTitle = 'Article Not Found (404) | 2qrcode.com';
-      const notFoundDesc = 'The requested guide could not be found. Browse all 97 QR engineering guides on 2qrcode.com.';
+      const notFoundDesc = 'The requested guide could not be found. Browse all 107 QR engineering guides on 2qrcode.com.';
       const selfUrl = `https://2qrcode.com/?view=blog&post=${encodeURIComponent(missingPostParam)}`;
       document.title = notFoundTitle;
       upsertMetaTag('name', 'robots', 'noindex, follow');

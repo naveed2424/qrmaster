@@ -1,4 +1,4 @@
-// Canonical slug lookup and legacy slug aliasing for all 97 blog posts.
+// Canonical slug lookup and legacy slug aliasing for all 107 blog posts.
 // Kept lightweight (~4 KB) so App.tsx, GeneratorToolPage.tsx, and BlogSection.tsx
 // can normalize URLs and <a href> links without pulling the full article corpus into main chunks.
 
@@ -116,6 +116,16 @@ export const POST_ID_TO_SLUG: Record<string, string> = {
   'post-95': 'ssh-server-connection-uri-qr-code-generator-racks-homelabs',
   'post-96': 'docker-container-registry-qr-code-generator-workshops-devops',
   'post-97': 'rss-atom-news-feed-qr-code-generator-zines-changelogs',
+  'post-98': 'threads-profile-post-qr-code-generator-events-creators',
+  'post-99': 'facetime-video-call-qr-code-generator-concierge-family-support',
+  'post-100': 'skype-call-chat-qr-code-generator-global-consulting-desks',
+  'post-101': 'viber-chat-call-qr-code-generator-courier-hospitality-support',
+  'post-102': 'mecard-compact-contact-qr-code-generator-tiny-badges-stamps',
+  'post-103': 'batch-csv-bulk-qr-code-generator-inventory-badges-zip-export',
+  'post-104': 'branded-qr-code-customizer-logos-gradients-contrast-guide',
+  'post-105': 'qr-code-print-size-calculator-10-to-1-distance-300-dpi-guide',
+  'post-106': 'qr-code-hospitality-funnel-menus-wifi-google-reviews-guide',
+  'post-107': 'developer-devops-qr-provisioning-totp-wireguard-ssh-docker',
 };
 
 export function resolveCanonicalPostSlug(slugOrId: string): string {

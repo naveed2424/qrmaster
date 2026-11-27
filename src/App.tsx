@@ -261,7 +261,7 @@ export default function App() {
     const robotsEl = document.querySelector('meta[name="robots"]');
     if (isNotFound) {
       const notFoundTitle = 'Page Not Found (404) | 2qrcode.com';
-      const notFoundDesc = 'The requested page could not be found. Browse 72 free QR code generators and 97 guides on 2qrcode.com.';
+      const notFoundDesc = 'The requested page could not be found. Browse 72 free QR code generators and 107 guides on 2qrcode.com.';
       const selfUrl = `https://2qrcode.com${window.location.pathname}${window.location.search}`;
       document.title = notFoundTitle;
       if (robotsEl) robotsEl.setAttribute('content', 'noindex, follow');
@@ -321,7 +321,7 @@ export default function App() {
       blog: {
         title: 'QR Engineering, AI & Customization Blog | 2qrcode.com',
         description:
-          '97 E-E-A-T verified guides covering dedicated QR tools, GS1 Sunrise 2027 2D barcodes, quishing security, Google Review growth, offline QR codes, and print engineering.',
+          '107 E-E-A-T verified guides covering dedicated QR tools, GS1 Sunrise 2027 2D barcodes, quishing security, Google Review growth, offline QR codes, and print engineering.',
         canonical: 'https://2qrcode.com/?view=blog',
       },
       reviews: {
@@ -417,7 +417,7 @@ export default function App() {
                 This QR page does not exist
               </h1>
               <p className="text-sm text-stone-700 max-w-xl mx-auto leading-relaxed">
-                The requested URL could not be found on 2qrcode.com. Explore our 72 free static QR code generators, batch CSV studio, or 97 technical guides below.
+                The requested URL could not be found on 2qrcode.com. Explore our 72 free static QR code generators, batch CSV studio, or 107 technical guides below.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                 <button
@@ -432,7 +432,7 @@ export default function App() {
                   onClick={() => handleNavigate('blog')}
                   className="px-5 py-2.5 bg-[#FBF2E3] hover:bg-[#F4E3C8] text-stone-900 border border-[#DFC7A0] font-bold rounded-xl text-xs cursor-pointer"
                 >
-                  Read All 97 Guides
+                  Read All 107 Guides
                 </button>
               </div>
             </div>

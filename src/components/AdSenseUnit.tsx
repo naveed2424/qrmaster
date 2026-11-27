@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface AdSenseUnitProps {
   slot?: string;
@@ -12,30 +12,62 @@ export default function AdSenseUnit({
   className = '',
 }: AdSenseUnitProps) {
   const adRef = useRef<HTMLModElement | null>(null);
+  const [adStatus, setAdStatus] = useState<'loading' | 'filled' | 'unfilled'>('loading');
 
   useEffect(() => {
+    const el = adRef.current;
+    if (!el || typeof window === 'undefined') return;
+
+    const syncStatus = () => {
+      const status = el.getAttribute('data-ad-status');
+      if (status === 'unfilled') {
+        setAdStatus('unfilled');
+      } else if (status === 'filled') {
+        setAdStatus('filled');
+      }
+    };
+
+    syncStatus();
+
+    const observer = new MutationObserver(syncStatus);
+    observer.observe(el, {
+      attributes: true,
+      attributeFilter: ['data-ad-status'],
+    });
+
     try {
-      const el = adRef.current;
-      if (
-        typeof window !== 'undefined' &&
-        el &&
-        !el.dataset.adsbygoogleStatus &&
-        el.offsetWidth > 0
-      ) {
-        const adsbygoogle = (window as any).adsbygoogle || [];
-        adsbygoogle.push({});
+      if (!el.dataset.adsbygoogleStatus && el.offsetWidth > 0) {
+        const adsQueue = ((window as any).adsbygoogle = (window as any).adsbygoogle || []);
+        adsQueue.push({});
       }
     } catch {
-      // Ignore adsbygoogle push errors in local dev or when ad blockers are active
+      setAdStatus('unfilled');
     }
+
+    return () => observer.disconnect();
   }, []);
 
+  if (adStatus === 'unfilled') {
+    return null;
+  }
+
   return (
-    <div className={`my-8 text-center ${className}`}>
-      <div className="text-[10px] uppercase font-bold text-stone-600 tracking-wider mb-1.5">
-        Advertisement
-      </div>
-      <div className="min-h-[100px] w-full max-w-4xl mx-auto rounded-2xl bg-[#FFFDF9]/85 border border-[#DFC7A0] p-2 overflow-hidden flex items-center justify-center shadow-[0_6px_20px_-8px_rgba(120,82,25,0.12)]">
+    <div
+      className={`${adStatus === 'filled' ? 'my-8' : 'my-2'} text-center ${className}`}
+      aria-label="Sponsored Advertisement"
+    >
+      {adStatus === 'filled' && (
+        <div className="text-[10px] uppercase font-bold text-stone-600 tracking-wider mb-1.5">
+          Advertisement
+        </div>
+      )}
+      <div
+        className={`w-full max-w-4xl mx-auto overflow-hidden flex items-center justify-center transition-all ${
+          adStatus === 'filled'
+            ? 'rounded-2xl bg-[#FFFDF9]/85 border border-[#DFC7A0] p-2 shadow-[0_6px_20px_-8px_rgba(120,82,25,0.12)]'
+            : ''
+        }`}
+      >
         <ins
           ref={adRef}
           className="adsbygoogle"

@@ -183,6 +183,11 @@
   }
 }
 
+/* Collapse unfilled Google AdSense slots cleanly without empty bordered containers */
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
+}
+
 @media print {
   body {
     background: white !important;

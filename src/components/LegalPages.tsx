@@ -67,7 +67,7 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
             </div>
             <h1 className="text-3xl font-extrabold text-stone-900">Privacy Policy</h1>
             <p className="text-xs text-stone-600 font-mono">
-              Effective Date: November 13, 2026 · Publisher: Afzal Naveed · https://2qrcode.com
+              Effective Date: November 27, 2026 · Publisher: Afzal Naveed · https://2qrcode.com
             </p>
           </div>
 
@@ -173,7 +173,7 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
             </div>
             <h1 className="text-3xl font-extrabold text-stone-900">Cookie &amp; Advertising Policy</h1>
             <p className="text-xs text-stone-600 font-mono">
-              Updated: November 13, 2026 · AdSense ID: ca-pub-8358033803354457
+              Updated: November 27, 2026 · AdSense ID: ca-pub-8358033803354457
             </p>
           </div>
 
@@ -234,7 +234,7 @@ export default function LegalPages({ page, onNavigate }: LegalPagesProps) {
             </div>
             <h1 className="text-3xl font-extrabold text-stone-900">Terms of Service &amp; Disclaimer</h1>
             <p className="text-xs text-stone-600 font-mono">
-              Last Updated: November 13, 2026 · Publisher: Afzal Naveed (2qrcode.com)
+              Last Updated: November 27, 2026 · Publisher: Afzal Naveed (2qrcode.com)
             </p>
           </div>
 

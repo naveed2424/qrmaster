@@ -1,6 +1,6 @@
 # 2qrcode.com
 
-> Free client-side suite of 72 permanent static QR code generators, a Batch CSV QR Studio, a 300 DPI Metric Print Converter, and 97 E-E-A-T verified technical guides built by Afzal Naveed.
+> Free client-side suite of 72 permanent static QR code generators, a Batch CSV QR Studio, a 300 DPI Metric Print Converter, and 107 E-E-A-T verified technical guides built by Afzal Naveed.
 
 All QR codes are generated 100% locally in the browser (ISO/IEC 18004 standard) with zero middleman redirects, zero scan limits, and zero expiration traps.
 
@@ -23,7 +23,7 @@ All QR codes are generated 100% locally in the browser (ISO/IEC 18004 standard) 
 - [PayPal, UPI, Bitcoin, Ethereum, Solana, SEPA, Pix, Venmo, Cash App QR Tools](https://2qrcode.com/)
 
 ## Editorial & Documentation
-- [QR Engineering, AI & Customization Blog (97 Guides)](https://2qrcode.com/?view=blog)
+- [QR Engineering, AI & Customization Blog (107 Guides)](https://2qrcode.com/?view=blog)
 - [About Founder Afzal Naveed](https://2qrcode.com/?view=about)
 - [Frequently Asked Questions](https://2qrcode.com/?view=faqs)
 - [Sitemap](https://2qrcode.com/sitemap.xml)
