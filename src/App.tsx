@@ -9,6 +9,7 @@ import { getToolSeoGuide } from './data/toolSeoGuides';
 import { resolveCanonicalPostSlug } from './data/postSlugMap';
 import { QRCustomization, SupportedLanguage, QRGeneratorTool } from './types/qr';
 import { GlobalDomTranslator, translateDocumentMeta } from './utils/pageTranslator';
+import { parseToolShareConfig } from './utils/sharePermalink';
 
 const VALID_VIEWS = new Set([
   'directory',
@@ -24,6 +25,7 @@ const VALID_VIEWS = new Set([
   'terms',
   'contact',
   'video',
+  'agent',
 ]);
 
 const GeneratorToolPage = lazy(() => import('./components/GeneratorToolPage'));
@@ -36,6 +38,7 @@ const FAQSection = lazy(() => import('./components/FAQSection'));
 const UGCVideoView = lazy(() => import('./components/UGCVideoView'));
 const BatchQRGenerator = lazy(() => import('./components/BatchQRGenerator'));
 const LegalPages = lazy(() => import('./components/LegalPages'));
+const SemanticKeywordAgent = lazy(() => import('./components/SemanticKeywordAgent'));
 
 function safeStorageGet(key: string): string | null {
   try {
@@ -141,8 +144,20 @@ export default function App() {
           setIsNotFound(false);
           setSelectedToolId(match.id);
           setActiveView('tool');
+          const cfgParam = params.get('cfg');
+          if (cfgParam) {
+            const parsedCfg = parseToolShareConfig(cfgParam);
+            if (parsedCfg?.c && typeof parsedCfg.c === 'object') {
+              setCustomization((prev) => ({
+                ...prev,
+                ...parsedCfg.c,
+              }));
+            }
+          }
           if (explicitToolParam !== match.id) {
-            window.history.replaceState(null, '', `/?tool=${match.id}`);
+            const nextParams = new URLSearchParams(window.location.search);
+            nextParams.set('tool', match.id);
+            window.history.replaceState(null, '', `/?${nextParams.toString()}`);
           }
         } else {
           setIsNotFound(true);
@@ -187,7 +202,7 @@ export default function App() {
     if (toolId === 'overview') {
       setActiveView('directory');
       window.history.pushState(null, '', '/');
-    } else if (toolId === 'batch' || toolId === 'customizer' || toolId === 'converter') {
+    } else if (toolId === 'batch' || toolId === 'customizer' || toolId === 'converter' || toolId === 'agent' || toolId === 'video') {
       setActiveView(toolId);
       window.history.pushState(null, '', `/?view=${toolId}`);
     } else {
@@ -261,7 +276,7 @@ export default function App() {
     const robotsEl = document.querySelector('meta[name="robots"]');
     if (isNotFound) {
       const notFoundTitle = 'Page Not Found (404) | 2qrcode.com';
-      const notFoundDesc = 'The requested page could not be found. Browse 72 free QR code generators and 107 guides on 2qrcode.com.';
+      const notFoundDesc = 'The requested page could not be found. Browse 72 free QR code generators and 117 guides on 2qrcode.com.';
       const selfUrl = `https://2qrcode.com${window.location.pathname}${window.location.search}`;
       document.title = notFoundTitle;
       if (robotsEl) robotsEl.setAttribute('content', 'noindex, follow');
@@ -282,7 +297,13 @@ export default function App() {
 
     if (robotsEl) {
       const isSearch = activeView === 'blog' && Boolean(params.get('q'));
-      robotsEl.setAttribute('content', isSearch ? 'noindex, follow' : 'index, follow, max-image-preview:large');
+      const hasSharedCfg = activeView === 'tool' && Boolean(params.get('cfg'));
+      robotsEl.setAttribute(
+        'content',
+        isSearch || hasSharedCfg
+          ? 'noindex, follow'
+          : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
+      );
     }
 
     const toolSeoGuide = getToolSeoGuide(currentTool.id);
@@ -321,7 +342,7 @@ export default function App() {
       blog: {
         title: 'QR Engineering, AI & Customization Blog | 2qrcode.com',
         description:
-          '107 E-E-A-T verified guides covering dedicated QR tools, GS1 Sunrise 2027 2D barcodes, quishing security, Google Review growth, offline QR codes, and print engineering.',
+          '117 E-E-A-T verified guides covering dedicated QR tools, GS1 Sunrise 2027 2D barcodes, quishing security, Google Review growth, offline QR codes, and print engineering.',
         canonical: 'https://2qrcode.com/?view=blog',
       },
       reviews: {
@@ -365,6 +386,12 @@ export default function App() {
         title: 'TikTok & Reels Promo Video Studio | 2qrcode.com',
         description: 'Generate ready-to-share vertical QR promo videos for social media campaigns.',
         canonical: 'https://2qrcode.com/?view=video',
+      },
+      agent: {
+        title: 'Semantic QR Tool & Long-Tail Keyword Finder | 2qrcode.com',
+        description:
+          'Match any business workflow, search query, or AI prompt across 72 specialized QR code generators, 4 studio workspaces, and 117 engineering guides.',
+        canonical: 'https://2qrcode.com/?view=agent',
       },
     };
 
@@ -417,7 +444,7 @@ export default function App() {
                 This QR page does not exist
               </h1>
               <p className="text-sm text-stone-700 max-w-xl mx-auto leading-relaxed">
-                The requested URL could not be found on 2qrcode.com. Explore our 72 free static QR code generators, batch CSV studio, or 107 technical guides below.
+                The requested URL could not be found on 2qrcode.com. Explore our 72 free static QR code generators, batch CSV studio, or 117 technical guides below.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                 <button
@@ -432,7 +459,7 @@ export default function App() {
                   onClick={() => handleNavigate('blog')}
                   className="px-5 py-2.5 bg-[#FBF2E3] hover:bg-[#F4E3C8] text-stone-900 border border-[#DFC7A0] font-bold rounded-xl text-xs cursor-pointer"
                 >
-                  Read All 107 Guides
+                  Read All 117 Guides
                 </button>
               </div>
             </div>
@@ -524,6 +551,13 @@ export default function App() {
 
               {activeView === 'video' && (
                 <UGCVideoView />
+              )}
+
+              {activeView === 'agent' && (
+                <SemanticKeywordAgent
+                  onSelectTool={handleSelectTool}
+                  onNavigate={handleNavigate}
+                />
               )}
             </Suspense>
           </>

@@ -18,12 +18,18 @@ import {
   ListChecks,
   Award,
   Link2,
+  Share2,
 } from 'lucide-react';
 import { QRGeneratorTool, QRCustomization, SupportedLanguage } from '../types/qr';
 import QRStudio from './QRStudio';
 import { TRANSLATIONS } from '../data/translations';
 import { getToolSeoGuide } from '../data/toolSeoGuides';
 import { resolveCanonicalPostSlug } from '../data/postSlugMap';
+import {
+  buildToolSharePermalink,
+  copyPermalinkText,
+  parseToolShareConfig,
+} from '../utils/sharePermalink';
 import fallbackPortrait from '../assets/images/founder_portrait_polished_1794521132031.jpg';
 
 const FOUNDER_PORTRAIT = '/assets/aistudio/Portrait_professionnel_dans_un_bureau_moderne_7ddf5c42.png';
@@ -58,7 +64,24 @@ export default function GeneratorToolPage({
   relatedTools,
 }: GeneratorToolPageProps) {
   const t = TRANSLATIONS[currentLang];
-  const [formValues, setFormValues] = useState<Record<string, any>>(tool.defaultValues);
+  const getInitialFormValues = (currentTool: QRGeneratorTool): Record<string, any> => {
+    if (typeof window === 'undefined') return currentTool.defaultValues;
+    const params = new URLSearchParams(window.location.search);
+    const urlTool = (params.get('tool') || '').toLowerCase();
+    if (urlTool && urlTool !== currentTool.id.toLowerCase()) {
+      return currentTool.defaultValues;
+    }
+    const parsed = parseToolShareConfig(params.get('cfg'));
+    if (parsed?.v && typeof parsed.v === 'object') {
+      return { ...currentTool.defaultValues, ...parsed.v };
+    }
+    return currentTool.defaultValues;
+  };
+
+  const [formValues, setFormValues] = useState<Record<string, any>>(() =>
+    getInitialFormValues(tool)
+  );
+  const [shareCopied, setShareCopied] = useState<boolean>(false);
   const [userRating, setUserRating] = useState<number>(0);
   const [hoverRating, setHoverRating] = useState<number>(0);
   const [hasRated, setHasRated] = useState<boolean>(() => {
@@ -66,13 +89,14 @@ export default function GeneratorToolPage({
   });
   const [expandedFaqIndex, setExpandedFaqIndex] = useState<number | null>(0);
 
-  // Reset form defaults cleanly when switching between tools
+  // Reset form defaults (or hydrate shared cfg permalink) cleanly when switching between tools
   useEffect(() => {
-    setFormValues(tool.defaultValues);
+    setFormValues(getInitialFormValues(tool));
+    setShareCopied(false);
     setExpandedFaqIndex(0);
     setHasRated(localStorage.getItem(`rated_${tool.id}`) === 'true');
     setUserRating(0);
-  }, [tool.id, tool.defaultValues]);
+  }, [tool]);
 
   const seoGuide = useMemo(() => getToolSeoGuide(tool.id), [tool.id]);
 
@@ -241,6 +265,23 @@ export default function GeneratorToolPage({
     localStorage.setItem('qr_tool_ratings', JSON.stringify(existing));
   };
 
+  const handleShareToolPermalink = async () => {
+    const permalink = buildToolSharePermalink(tool.id, formValues, customization);
+    const copied = await copyPermalinkText(permalink);
+    try {
+      const urlObj = new URL(permalink);
+      window.history.replaceState(null, '', `${urlObj.pathname}${urlObj.search}`);
+      const robotsEl = document.querySelector('meta[name="robots"]');
+      if (robotsEl) robotsEl.setAttribute('content', 'noindex, follow');
+    } catch {
+      // Ignore URL update error in restricted contexts
+    }
+    if (copied) {
+      setShareCopied(true);
+      window.setTimeout(() => setShareCopied(false), 2600);
+    }
+  };
+
   const navigateTarget = (targetType: 'tool' | 'view' | 'post', targetId: string) => {
     if (targetType === 'tool') {
       onSelectTool(targetId);
@@ -345,7 +386,7 @@ export default function GeneratorToolPage({
   };
 
   return (
-    <div className="max-w-6xl mx-auto py-8 sm:py-12 px-4 space-y-12">
+    <div id="generator-tool-page-container" className="max-w-6xl mx-auto py-8 sm:py-12 px-4 space-y-12">
       {/* Breadcrumb & Tool Hero Title */}
       <div className="space-y-3">
         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-800">
@@ -378,20 +419,41 @@ export default function GeneratorToolPage({
             </p>
           </div>
 
-          {/* Individual Rating Badge & Stars */}
-          <div className="p-4 bg-[#FFFDF9]/95 border border-[#DFC7A0] rounded-2xl shadow-[0_10px_28px_-10px_rgba(120,82,25,0.14)] flex items-center gap-3 shrink-0">
-            <div className="flex items-center text-amber-600">
-              <Star className="w-7 h-7 fill-amber-500 text-amber-600" />
-            </div>
-            <div>
-              <div className="flex items-baseline gap-1.5 font-mono">
-                <span className="text-xl font-extrabold text-stone-900">
-                  {tool.rating.toFixed(1)}
-                </span>
-                <span className="text-xs text-stone-600">/ 5.0</span>
+          {/* Share Permalink Button + Individual Rating Badge & Stars */}
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <button
+              type="button"
+              onClick={handleShareToolPermalink}
+              aria-label={`Copy shareable permalink to configured ${tool.name} QR code settings`}
+              className="px-4 py-3 rounded-2xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-400 text-stone-950 border border-amber-700/30 font-extrabold text-xs sm:text-sm shadow-[0_10px_28px_-10px_rgba(180,120,18,0.28)] flex items-center gap-2 transition-all cursor-pointer"
+            >
+              {shareCopied ? (
+                <>
+                  <Check className="w-4 h-4 text-emerald-900" aria-hidden="true" />
+                  <span>Link Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Share2 className="w-4 h-4 text-stone-900" aria-hidden="true" />
+                  <span>Share</span>
+                </>
+              )}
+            </button>
+
+            <div className="p-4 bg-[#FFFDF9]/95 border border-[#DFC7A0] rounded-2xl shadow-[0_10px_28px_-10px_rgba(120,82,25,0.14)] flex items-center gap-3">
+              <div className="flex items-center text-amber-600">
+                <Star className="w-7 h-7 fill-amber-500 text-amber-600" />
               </div>
-              <div className="text-[11px] text-stone-600 font-medium">
-                {(tool.ratingCount + (hasRated ? 1 : 0)).toLocaleString()} verified ratings
+              <div>
+                <div className="flex items-baseline gap-1.5 font-mono">
+                  <span className="text-xl font-extrabold text-stone-900">
+                    {tool.rating.toFixed(1)}
+                  </span>
+                  <span className="text-xs text-stone-600">/ 5.0</span>
+                </div>
+                <div className="text-[11px] text-stone-600 font-medium">
+                  {(tool.ratingCount + (hasRated ? 1 : 0)).toLocaleString()} verified ratings
+                </div>
               </div>
             </div>
           </div>

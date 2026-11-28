@@ -244,15 +244,23 @@ export default function GeneratorsDirectory({
             </button>
           </form>
 
-          {/* Direct Batch CSV Shortcut */}
+          {/* Direct Studio & Semantic Tool Finder Shortcuts */}
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1 text-xs">
-            <span className="text-stone-700 font-medium">Need dozens or hundreds of codes from a spreadsheet?</span>
             <button
+              type="button"
               onClick={() => onSelectTool('batch')}
               className="px-4 py-2 rounded-xl bg-[#FFFDF9]/95 hover:bg-[#FBF2E3] border border-[#DFC7A0] hover:border-amber-700/45 text-amber-900 font-bold inline-flex items-center gap-1.5 cursor-pointer transition-colors whitespace-nowrap shadow-xs"
             >
               <span>Open Batch CSV QR Generator</span>
               <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              onClick={() => onSelectTool('agent')}
+              className="px-4 py-2 rounded-xl bg-[#FFFDF9]/95 hover:bg-[#FBF2E3] border border-[#DFC7A0] hover:border-amber-700/45 text-stone-900 font-bold inline-flex items-center gap-1.5 cursor-pointer transition-colors whitespace-nowrap shadow-xs"
+            >
+              <span>Semantic Tool &amp; Keyword Finder</span>
+              <ArrowRight className="w-3.5 h-3.5 text-amber-800" aria-hidden="true" />
             </button>
           </div>
         </div>

@@ -1,16 +1,16 @@
 # hosting.com (Apache / LiteSpeed) Static Web Hosting Configuration for 2qrcode.com
 DirectoryIndex index.html index.htm
-Options -MultiViews -Indexes
 ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # Always serve critical static, AdSense & SEO root files directly first
+  # Always allow SSL/ACME verification and critical static, AdSense & SEO root files directly
+  RewriteRule ^\.well-known/ - [L]
   RewriteRule ^(ads\.txt|robots\.txt|sitemap\.xml|llms\.txt|favicon\.ico|favicon\.svg|video\.html|404\.html)$ - [L]
 
-  # Canonicalize www subdomain to apex https://2qrcode.com cleanly (no HTTP/HTTPS proxy loop)
+  # Canonicalize www subdomain to apex https://2qrcode.com cleanly
   RewriteCond %{HTTP_HOST} ^www\.2qrcode\.com$ [NC]
   RewriteRule ^(.*)$ https://2qrcode.com/$1 [R=301,L]
 
@@ -18,11 +18,15 @@ ErrorDocument 404 /404.html
   RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}[[:space:]]/+index\.html([[:space:]]|\?) [NC]
   RewriteRule ^index\.html$ / [R=301,L]
 
+  # Always serve root / cleanly from DirectoryIndex without falling through to 404
+  RewriteRule ^$ index.html [L]
+
   # 301 Redirect clean vanity paths to canonical query routes
   RewriteRule ^blog/?$ /?view=blog [R=301,L,NC,QSA]
   RewriteRule ^batch/?$ /?view=batch [R=301,L,NC,QSA]
   RewriteRule ^customizer/?$ /?view=customizer [R=301,L,NC,QSA]
   RewriteRule ^converter/?$ /?view=converter [R=301,L,NC,QSA]
+  RewriteRule ^agent/?$ /?view=agent [R=301,L,NC,QSA]
   RewriteRule ^about/?$ /?view=about [R=301,L,NC,QSA]
   RewriteRule ^faqs?/?$ /?view=faqs [R=301,L,NC,QSA]
   RewriteRule ^reviews/?$ /?view=reviews [R=301,L,NC,QSA]
@@ -32,14 +36,14 @@ ErrorDocument 404 /404.html
   RewriteRule ^terms(-of-service)?/?$ /?view=terms [R=301,L,NC,QSA]
   RewriteRule ^video/?$ /?view=video [R=301,L,NC,QSA]
 
-  # Serve existing static files, CSS, JS, images, audio, video & root directory (/) directly
+  # Serve existing static files, CSS, JS, images, audio & video directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Return real HTTP 404 via /404.html for nonexistent paths (guarded against internal error subrequests)
+  # Return real HTTP 404 via /404.html for nonexistent paths (guarded against internal error subrequests & root)
   RewriteCond %{ENV:REDIRECT_STATUS} ^$
-  RewriteCond %{REQUEST_URI} !^/$
+  RewriteCond %{REQUEST_URI} !^/?$
   RewriteCond %{REQUEST_URI} !^/index\.html$ [NC]
   RewriteRule ^ - [R=404,L]
 </IfModule>
@@ -56,10 +60,9 @@ ErrorDocument 404 /404.html
   AddType text/plain .txt
 </IfModule>
 
-# Security & AdSense-Compatible Headers
+# Crawler-Friendly Security & Caching Headers
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
-  Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
 
   # Keep HTML entrypoints and AdSense/SEO files fresh

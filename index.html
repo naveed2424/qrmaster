@@ -7,9 +7,10 @@
     <meta name="google-adsense-account" content="ca-pub-8358033803354457" />
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="aTHKXUG67I0xg2v2kLM54KqOCH2YOQ3NL55aWnuZQn0" />
-    <meta id="robots-meta" name="robots" content="index, follow, max-image-preview:large" />
+    <meta id="robots-meta" name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="theme-color" content="#F7E7CE" />
     <link id="canonical-link" rel="canonical" href="https://2qrcode.com/" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://2qrcode.com/sitemap.xml" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8358033803354457"
@@ -89,7 +90,7 @@
 
           var VALID_VIEWS = {
             customizer: 1, batch: 1, converter: 1, blog: 1, reviews: 1,
-            about: 1, faqs: 1, privacy: 1, cookies: 1, terms: 1, contact: 1, video: 1
+            about: 1, faqs: 1, privacy: 1, cookies: 1, terms: 1, contact: 1, video: 1, agent: 1
           };
           var VALID_TOOLS = 'url,multilink,landing,appstore,bookmark,shortlink,form,portfolio,instagram,whatsapp,facebook,youtube,tiktok,twitter,linkedin,telegram,discord,spotify,threads,vcard,menu,coupon,business,reviews,sku,realestate,booking,job,email,sms,phone,facetime,skype,viber,mecard,pdf,mp3,video,images,presentation,ebook,event,zoom,meet,geo,boardingpass,hotel,wedding,wifi,2fa,plaintext,clipboard,github,ssh,wireguard,bitcoin,ethereum,solana,paypal,upi,venmo,cashapp,sepa,pix,podcast,twitch,pinterest,calendly,airbnb,matter,docker,rss'.split(',');
           var TOOL_LOOKUP = {};
@@ -211,13 +212,23 @@
             'post-104': 'branded-qr-code-customizer-logos-gradients-contrast-guide',
             'post-105': 'qr-code-print-size-calculator-10-to-1-distance-300-dpi-guide',
             'post-106': 'qr-code-hospitality-funnel-menus-wifi-google-reviews-guide',
-            'post-107': 'developer-devops-qr-provisioning-totp-wireguard-ssh-docker'
+            'post-107': 'developer-devops-qr-provisioning-totp-wireguard-ssh-docker',
+            'post-108': 'ugc-promo-video-qr-code-studio-reels-tiktok-shorts-guide',
+            'post-109': 'calendly-qr-code-generator-business-cards-clinics-consultants',
+            'post-110': 'thermal-receipt-shipping-label-qr-codes-203-dpi-pos-guide',
+            'post-111': 'qr-codes-vs-nfc-tags-cost-compatibility-hybrid-signage-guide',
+            'post-112': 'healthcare-clinic-patient-intake-pharmacy-pdf-qr-code-guide',
+            'post-113': 'trade-show-booth-lead-capture-qr-kit-exhibitor-badges-guide',
+            'post-114': 'osha-sds-chemical-binder-heavy-equipment-inspection-qr-tags',
+            'post-115': 'museum-art-gallery-botanical-trail-audio-tour-qr-code-guide',
+            'post-116': 'classroom-university-syllabus-parent-night-qr-code-toolkit',
+            'post-117': 'nonprofit-charity-gala-church-zero-fee-donation-qr-code-guide'
           };
           var SLUG_LOOKUP = {};
           for (var pk in POST_ID_SLUGS) SLUG_LOOKUP[POST_ID_SLUGS[pk]] = 1;
 
           var canonical = 'https://2qrcode.com/';
-          var robotsContent = 'index, follow, max-image-preview:large';
+          var robotsContent = 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1';
 
           if (pathname === '/video.html') {
             canonical = 'https://2qrcode.com/?view=video';
@@ -256,6 +267,7 @@
             } else if (tool) {
               if (TOOL_LOOKUP[tool]) {
                 canonical = 'https://2qrcode.com/?tool=' + TOOL_LOOKUP[tool];
+                if (params.get('cfg')) robotsContent = 'noindex, follow';
               } else {
                 canonical = 'https://2qrcode.com/?tool=' + encodeURIComponent(tool);
                 robotsContent = 'noindex, follow';
@@ -352,31 +364,135 @@
     <div id="root">
       <div class="min-h-screen flex flex-col bg-[#F7E7CE] text-stone-900">
         <header class="border-b border-[#DFC7A0] bg-[#FFFDF9]/90 px-4 py-3">
-          <div class="max-w-6xl mx-auto flex items-center justify-between">
+          <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3">
             <a href="/" class="text-lg font-extrabold tracking-tight text-stone-900 no-underline">2qrcode.com</a>
-            <nav aria-label="Primary" class="flex items-center gap-4 text-xs font-bold text-stone-700">
+            <nav aria-label="Primary" class="flex flex-wrap items-center gap-4 text-xs font-bold text-stone-700">
               <a href="/" class="hover:text-amber-900">72 Tools</a>
               <a href="/?view=customizer" class="hover:text-amber-900">Customizer</a>
               <a href="/?view=batch" class="hover:text-amber-900">Batch CSV</a>
-              <a href="/?view=blog" class="hover:text-amber-900">107 Guides</a>
+              <a href="/?view=converter" class="hover:text-amber-900">Metric Converter</a>
+              <a href="/?view=blog" class="hover:text-amber-900">117 Guides</a>
+              <a href="/?view=agent" class="hover:text-amber-900">Tool Finder</a>
             </nav>
           </div>
         </header>
-        <main class="flex-1 max-w-4xl mx-auto px-4 py-14 text-center space-y-4">
-          <p class="text-xs font-extrabold uppercase tracking-wider text-amber-900">100% Free Static QR Code Studio</p>
-          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-stone-900">72 Free QR Code Generators, Batch CSV &amp; Customizer</h1>
-          <p class="text-sm sm:text-base text-stone-700 max-w-2xl mx-auto">Create permanent, never-expiring ISO/IEC 18004 QR codes locally in your browser with custom logos, frames, and 300 DPI SVG/PNG exports.</p>
+        <main class="flex-1 max-w-6xl mx-auto px-4 py-12 space-y-10">
+          <section class="text-center space-y-4 max-w-3xl mx-auto">
+            <p class="text-xs font-extrabold uppercase tracking-wider text-amber-900">100% Free Client-Side Static QR Code Studio</p>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-stone-900">72 Free QR Code Generators, Batch CSV &amp; Customizer</h1>
+            <p class="text-sm sm:text-base text-stone-700">Create permanent, never-expiring ISO/IEC 18004 QR codes locally in your browser with custom logos, gradients, CTA frames, and 300 DPI SVG/PNG/JPG exports. Zero sign-up, zero scan limits, and zero tracking redirects.</p>
+          </section>
+
+          <section aria-label="All 72 QR Code Generators" class="bg-[#FFFDF9]/90 border border-[#DFC7A0] rounded-2xl p-6 space-y-4">
+            <h2 class="text-lg font-extrabold text-stone-900">All 72 Free Static QR Code Generators</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 text-xs font-semibold text-stone-800">
+              <a href="/?tool=url">Website URL QR</a>
+              <a href="/?tool=wifi">Wi-Fi Login QR</a>
+              <a href="/?tool=vcard">vCard 3.0 Contact QR</a>
+              <a href="/?tool=whatsapp">WhatsApp Chat QR</a>
+              <a href="/?tool=reviews">Google Reviews QR</a>
+              <a href="/?tool=menu">Restaurant Menu QR</a>
+              <a href="/?tool=pdf">PDF Document QR</a>
+              <a href="/?tool=multilink">Multi-Link Bio QR</a>
+              <a href="/?tool=landing">Landing Page QR</a>
+              <a href="/?tool=appstore">App Store QR</a>
+              <a href="/?tool=bookmark">Browser Bookmark QR</a>
+              <a href="/?tool=shortlink">Short Link QR</a>
+              <a href="/?tool=form">Survey &amp; Form QR</a>
+              <a href="/?tool=portfolio">Portfolio &amp; Resume QR</a>
+              <a href="/?tool=instagram">Instagram Profile QR</a>
+              <a href="/?tool=facebook">Facebook Page QR</a>
+              <a href="/?tool=youtube">YouTube Video QR</a>
+              <a href="/?tool=tiktok">TikTok Profile QR</a>
+              <a href="/?tool=twitter">X / Twitter QR</a>
+              <a href="/?tool=linkedin">LinkedIn Profile QR</a>
+              <a href="/?tool=telegram">Telegram Channel QR</a>
+              <a href="/?tool=discord">Discord Invite QR</a>
+              <a href="/?tool=spotify">Spotify Song QR</a>
+              <a href="/?tool=threads">Threads Profile QR</a>
+              <a href="/?tool=coupon">Discount Coupon QR</a>
+              <a href="/?tool=business">Business Profile QR</a>
+              <a href="/?tool=sku">Product SKU QR</a>
+              <a href="/?tool=realestate">Real Estate Tour QR</a>
+              <a href="/?tool=booking">Booking Calendar QR</a>
+              <a href="/?tool=job">Job Posting QR</a>
+              <a href="/?tool=email">Direct Email QR</a>
+              <a href="/?tool=sms">SMS Text QR</a>
+              <a href="/?tool=phone">Phone Call QR</a>
+              <a href="/?tool=facetime">FaceTime Call QR</a>
+              <a href="/?tool=skype">Skype Call QR</a>
+              <a href="/?tool=viber">Viber Chat QR</a>
+              <a href="/?tool=mecard">MeCard Contact QR</a>
+              <a href="/?tool=mp3">Audio MP3 QR</a>
+              <a href="/?tool=video">Video Stream QR</a>
+              <a href="/?tool=images">Photo Gallery QR</a>
+              <a href="/?tool=presentation">Slide Deck QR</a>
+              <a href="/?tool=ebook">eBook Reader QR</a>
+              <a href="/?tool=event">Calendar iCal QR</a>
+              <a href="/?tool=zoom">Zoom Meeting QR</a>
+              <a href="/?tool=meet">Google Meet QR</a>
+              <a href="/?tool=geo">GPS Location QR</a>
+              <a href="/?tool=boardingpass">Boarding Pass QR</a>
+              <a href="/?tool=hotel">Hotel Check-In QR</a>
+              <a href="/?tool=wedding">Wedding RSVP QR</a>
+              <a href="/?tool=2fa">2FA Authenticator QR</a>
+              <a href="/?tool=plaintext">Plain Text QR</a>
+              <a href="/?tool=clipboard">Clipboard Copy QR</a>
+              <a href="/?tool=github">GitHub Repo QR</a>
+              <a href="/?tool=ssh">SSH Server URI QR</a>
+              <a href="/?tool=wireguard">WireGuard VPN QR</a>
+              <a href="/?tool=bitcoin">Bitcoin BIP21 QR</a>
+              <a href="/?tool=ethereum">Ethereum EIP-681 QR</a>
+              <a href="/?tool=solana">Solana Pay QR</a>
+              <a href="/?tool=paypal">PayPal Checkout QR</a>
+              <a href="/?tool=upi">India UPI Pay QR</a>
+              <a href="/?tool=venmo">Venmo Handle QR</a>
+              <a href="/?tool=cashapp">Cash App QR</a>
+              <a href="/?tool=sepa">SEPA EPC Bank QR</a>
+              <a href="/?tool=pix">Brazil Pix QR</a>
+              <a href="/?tool=podcast">Podcast RSS QR</a>
+              <a href="/?tool=twitch">Twitch Live QR</a>
+              <a href="/?tool=pinterest">Pinterest Board QR</a>
+              <a href="/?tool=calendly">Calendly Booking QR</a>
+              <a href="/?tool=airbnb">Airbnb Welcome QR</a>
+              <a href="/?tool=matter">Matter Smart Home QR</a>
+              <a href="/?tool=docker">Docker Registry QR</a>
+              <a href="/?tool=rss">RSS News Feed QR</a>
+            </div>
+          </section>
+
+          <section aria-label="Studio Workspaces & Engineering Guides" class="bg-[#FFFDF9]/90 border border-[#DFC7A0] rounded-2xl p-6 space-y-3 text-xs">
+            <h2 class="text-base font-extrabold text-stone-900">Featured Studio Workspaces &amp; 117 Technical Guides</h2>
+            <div class="flex flex-wrap gap-3 font-semibold text-stone-800">
+              <a href="/?view=customizer">QR Customizer Studio</a>
+              <a href="/?view=batch">Bulk CSV QR Generator</a>
+              <a href="/?view=converter">10:1 Print Size Metric Converter</a>
+              <a href="/?view=agent">Semantic Long-Tail QR Tool Finder</a>
+              <a href="/?view=video">Vertical QR Promo Video Studio</a>
+              <a href="/?view=blog&amp;post=dynamic-vs-static-qr-codes-small-businesses">Static vs Dynamic QR Codes</a>
+              <a href="/?view=blog&amp;post=gs1-sunrise-2027-digital-link-2d-qr-codes-retail-barcodes">GS1 Sunrise 2027 2D Barcodes</a>
+              <a href="/?view=blog&amp;post=quishing-qr-code-phishing-scams-parking-meter-security-guide">Quishing Security Guide</a>
+              <a href="/?view=blog&amp;post=definitive-guide-qr-code-print-sizing-10-to-1-ratio-dpi-math">10:1 Print Sizing &amp; 300 DPI Math</a>
+              <a href="/?view=blog&amp;post=google-review-qr-code-triple-5-star-ratings-local-seo-2026">Google Review QR Guide</a>
+              <a href="/?view=blog&amp;post=calendly-qr-code-generator-business-cards-clinics-consultants">Calendly Booking QR Guide</a>
+              <a href="/?view=blog&amp;post=thermal-receipt-shipping-label-qr-codes-203-dpi-pos-guide">203 DPI Thermal Receipt QR Guide</a>
+            </div>
+          </section>
         </main>
         <footer class="border-t border-[#DFC7A0] bg-[#EFE0C4]/90 px-4 py-6 text-xs text-stone-700">
           <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3">
             <span>&copy; 2026 2qrcode.com &middot; Publisher: Afzal Naveed</span>
             <nav aria-label="Legal and Editorial" class="flex flex-wrap items-center gap-4 font-semibold">
               <a href="/?view=about" class="hover:text-amber-900">About Us</a>
-              <a href="/?view=blog" class="hover:text-amber-900">107 Guides</a>
+              <a href="/?view=reviews" class="hover:text-amber-900">Reviews</a>
+              <a href="/?view=faqs" class="hover:text-amber-900">FAQs</a>
+              <a href="/?view=blog" class="hover:text-amber-900">117 Guides</a>
+              <a href="/?view=agent" class="hover:text-amber-900">Tool Finder</a>
               <a href="/?view=privacy" class="hover:text-amber-900">Privacy Policy</a>
               <a href="/?view=cookies" class="hover:text-amber-900">Cookie &amp; Ad Policy</a>
               <a href="/?view=terms" class="hover:text-amber-900">Terms</a>
               <a href="/?view=contact" class="hover:text-amber-900">Contact</a>
+              <a href="/sitemap.xml" class="hover:text-amber-900">Sitemap</a>
             </nav>
           </div>
         </footer>

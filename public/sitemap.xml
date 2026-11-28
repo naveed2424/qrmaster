@@ -39,9 +39,15 @@
   </url>
   <url>
     <loc>https://2qrcode.com/?view=video</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=agent</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <!-- High-Search-Volume Specialized QR Generators -->
@@ -455,6 +461,58 @@
   <url>
     <loc>https://2qrcode.com/?view=blog&amp;post=rss-atom-news-feed-qr-code-generator-zines-changelogs</loc>
     <lastmod>2026-11-26</lastmod>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 10 Vertical Search-Magnet, E-E-A-T & LLM Blog Guides (Nov 28, 2026) -->
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=ugc-promo-video-qr-code-studio-reels-tiktok-shorts-guide</loc>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=calendly-qr-code-generator-business-cards-clinics-consultants</loc>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=thermal-receipt-shipping-label-qr-codes-203-dpi-pos-guide</loc>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=qr-codes-vs-nfc-tags-cost-compatibility-hybrid-signage-guide</loc>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=healthcare-clinic-patient-intake-pharmacy-pdf-qr-code-guide</loc>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=trade-show-booth-lead-capture-qr-kit-exhibitor-badges-guide</loc>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=osha-sds-chemical-binder-heavy-equipment-inspection-qr-tags</loc>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=museum-art-gallery-botanical-trail-audio-tour-qr-code-guide</loc>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=classroom-university-syllabus-parent-night-qr-code-toolkit</loc>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://2qrcode.com/?view=blog&amp;post=nonprofit-charity-gala-church-zero-fee-donation-qr-code-guide</loc>
+    <lastmod>2026-11-28</lastmod>
     <priority>0.95</priority>
   </url>
 

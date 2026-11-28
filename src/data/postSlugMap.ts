@@ -1,4 +1,4 @@
-// Canonical slug lookup and legacy slug aliasing for all 107 blog posts.
+// Canonical slug lookup and legacy slug aliasing for all 117 blog posts.
 // Kept lightweight (~4 KB) so App.tsx, GeneratorToolPage.tsx, and BlogSection.tsx
 // can normalize URLs and <a href> links without pulling the full article corpus into main chunks.
 
@@ -126,6 +126,16 @@ export const POST_ID_TO_SLUG: Record<string, string> = {
   'post-105': 'qr-code-print-size-calculator-10-to-1-distance-300-dpi-guide',
   'post-106': 'qr-code-hospitality-funnel-menus-wifi-google-reviews-guide',
   'post-107': 'developer-devops-qr-provisioning-totp-wireguard-ssh-docker',
+  'post-108': 'ugc-promo-video-qr-code-studio-reels-tiktok-shorts-guide',
+  'post-109': 'calendly-qr-code-generator-business-cards-clinics-consultants',
+  'post-110': 'thermal-receipt-shipping-label-qr-codes-203-dpi-pos-guide',
+  'post-111': 'qr-codes-vs-nfc-tags-cost-compatibility-hybrid-signage-guide',
+  'post-112': 'healthcare-clinic-patient-intake-pharmacy-pdf-qr-code-guide',
+  'post-113': 'trade-show-booth-lead-capture-qr-kit-exhibitor-badges-guide',
+  'post-114': 'osha-sds-chemical-binder-heavy-equipment-inspection-qr-tags',
+  'post-115': 'museum-art-gallery-botanical-trail-audio-tour-qr-code-guide',
+  'post-116': 'classroom-university-syllabus-parent-night-qr-code-toolkit',
+  'post-117': 'nonprofit-charity-gala-church-zero-fee-donation-qr-code-guide',
 };
 
 export function resolveCanonicalPostSlug(slugOrId: string): string {

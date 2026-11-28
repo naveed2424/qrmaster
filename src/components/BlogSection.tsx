@@ -309,7 +309,7 @@ export default function BlogSection({
         existingScript.remove();
       }
       const notFoundTitle = 'Article Not Found (404) | 2qrcode.com';
-      const notFoundDesc = 'The requested guide could not be found. Browse all 107 QR engineering guides on 2qrcode.com.';
+      const notFoundDesc = 'The requested guide could not be found. Browse all 117 QR engineering guides on 2qrcode.com.';
       const selfUrl = `https://2qrcode.com/?view=blog&post=${encodeURIComponent(missingPostParam)}`;
       document.title = notFoundTitle;
       upsertMetaTag('name', 'robots', 'noindex, follow');
@@ -1052,15 +1052,26 @@ export default function BlogSection({
           {BLOG_POSTS.length} comprehensive, E-E-A-T verified master guides detailing physical print engineering, CSV batch automation, payment &amp; security QR workflows, and strategies to profit from QR codes without subscription traps.
         </p>
 
-        {/* Master Prompt Guidelines Registry Button */}
-        <div className="pt-2">
+        {/* Master Prompt Guidelines Registry & Semantic Tool Finder Buttons */}
+        <div className="pt-2 flex flex-wrap items-center justify-center gap-2.5">
           <button
+            type="button"
             onClick={() => setShowGuidelinesModal(true)}
             className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFFDF9]/95 hover:bg-[#FBF2E3] border border-[#DFC7A0] hover:border-amber-700/50 text-amber-900 text-xs font-bold rounded-xl transition-all cursor-pointer shadow-xs"
           >
             <FileText className="w-3.5 h-3.5 text-amber-800" aria-hidden="true" />
             <span>View Registered Master Prompt & Editorial Guidelines</span>
           </button>
+          {onNavigate && (
+            <button
+              type="button"
+              onClick={() => onNavigate('agent')}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#FBF2E3] hover:bg-[#F4E3C8] border border-[#DFC7A0] hover:border-amber-700/50 text-stone-900 text-xs font-bold rounded-xl transition-all cursor-pointer shadow-xs"
+            >
+              <SlidersHorizontal className="w-3.5 h-3.5 text-amber-800" aria-hidden="true" />
+              <span>Open Semantic Tool &amp; Keyword Finder</span>
+            </button>
+          )}
         </div>
       </div>
 

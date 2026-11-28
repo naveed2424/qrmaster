@@ -83,6 +83,16 @@ export default function Footer({ onNavigate, onSelectTool }: FooterProps) {
                   Print Metric Converter
                 </a>
               </li>
+              <li>
+                <a href="?view=video" onClick={(e) => { e.preventDefault(); onNavigate('video'); }} className="hover:text-amber-900 transition-colors cursor-pointer">
+                  Promo Video Studio
+                </a>
+              </li>
+              <li>
+                <a href="?view=agent" onClick={(e) => { e.preventDefault(); onNavigate('agent'); }} className="hover:text-amber-900 transition-colors cursor-pointer font-semibold text-amber-900">
+                  Semantic Tool &amp; Keyword Finder
+                </a>
+              </li>
             </ul>
           </div>
 
